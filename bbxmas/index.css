@@ -22,6 +22,7 @@ body {
 	height: 125px;
 	border: 2px solid black;
 	position: absolute;
+	left: 75%;
 }
 
 .open {
@@ -32,7 +33,7 @@ body {
 	background-color: #00f;
 }
 
-.day1 {
+/*.day1 {
 	top: 50px;
 	left: 50px;
 	z-index: 1;
@@ -42,4 +43,4 @@ body {
 	top: 50px;
 	left: 250px;
 	z-index: 2;
-}
+}*/

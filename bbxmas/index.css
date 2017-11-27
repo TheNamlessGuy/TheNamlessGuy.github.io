@@ -1,0 +1,43 @@
+body {
+	background-image: url("bg.jpg");
+	background-repeat: repeat;
+	height: 99%;
+	width: 99%;
+}
+
+.calendar {
+	margin-left: 25%;
+	width: 50%;
+	position: relative;
+}
+
+.calendar img {
+	z-index: 0;
+}
+
+.box {
+	width: 125px;
+	height: 125px;
+	border: 2px solid black;
+	position: absolute;
+}
+
+.open {
+	background-color: #f00;
+}
+
+.closed {
+	background-color: #00f;
+}
+
+.day1 {
+	top: 50px;
+	left: 50px;
+	z-index: 1;
+}
+
+.day2 {
+	top: 50px;
+	left: 250px;
+	z-index: 2;
+}

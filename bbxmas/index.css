@@ -5,17 +5,17 @@ body {
 	width: 99%;
 }
 
+.centered {
+	margin: auto;
+	width: 95%;
+	text-align: center;
+}
+
 .calendar {
-	width: 50%;
 	position: relative;
 }
 
 .calendar img {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-left: -(X/2)px;
-	margin-top: -(Y/2)px;
 	z-index: 0;
 }
 
@@ -24,7 +24,8 @@ body {
 	height: 125px;
 	border: 2px solid black;
 	position: absolute;
-	left: 75%;
+	float: left;
+	z-index: 1000;
 }
 
 .open {
@@ -35,14 +36,32 @@ body {
 	background-color: #00f;
 }
 
-/*.day1 {
-	top: 50px;
-	left: 50px;
+.day1 {
 	z-index: 1;
+	top: 5vh;
+	left: 45vh;
 }
 
 .day2 {
-	top: 50px;
-	left: 250px;
 	z-index: 2;
-}*/
+	top: 5vh;
+	left: 65vh;
+}
+
+.day3 {
+	z-index: 3;
+	top: 5vh;
+	left: 84.5vh;
+}
+
+.day4 {
+	z-index: 4;
+	top: 5vh;
+	left: 103vh;
+}
+
+.day5 {
+	z-index: 5;
+	top: 5vh;
+	left: 123vh;
+}

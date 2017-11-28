@@ -7,13 +7,6 @@ var modal = document.getElementsByClassName("modal")[0];
 var modaltitle = document.getElementsByClassName("modaltitle")[0];
 var modaltext = document.getElementsByClassName("modaltext")[0];
 
-var displayText = {
-	1: {title: "A giveaway", text: "Day 1"},
-	2: {title: "Movienight", text: "Day 2"},
-	3: {title: "Some other dumb shit", text: "Day 3"},
-	4: {title: "I dont know", text: "Day 4"},
-};
-
 var DECEMBER = 10;
 
 function create_box(i) {
@@ -34,6 +27,7 @@ function create_box(i) {
 	
 	var innerNode = document.createElement("img");
 	innerNode.src = "days/" + i;
+	innerNode.alt = i;
 	
 	if (date.getMonth() == DECEMBER && date.getDate() >= i) {
 		node.classList.add("open");

@@ -9,7 +9,7 @@ var modalimg = document.getElementsByClassName("modalimg")[0];
 var modaltext = document.getElementsByClassName("modaltext")[0];
 var modalowner = document.getElementsByClassName("modalowner")[0];
 
-var DECEMBER = 11;
+var DECEMBER = 10;
 var DAYS_PER_ROW = 7;
 
 function create_box(i) {

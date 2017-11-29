@@ -23,5 +23,5 @@ var displayText = {
 	28: {},
 	29: {},
 	30: {},
-	31: {},
+	31: {owner: "TheNamlessGuy"}
 };

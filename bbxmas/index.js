@@ -9,21 +9,19 @@ var modalimg = document.getElementsByClassName("modalimg")[0];
 var modaltext = document.getElementsByClassName("modaltext")[0];
 var modalowner = document.getElementsByClassName("modalowner")[0];
 
-var DECEMBER = 10;
+var DECEMBER = 11;
+var DAYS_PER_ROW = 7;
 
 function create_box(i) {
-	var w = 125;
+	var w = 100;
 	var h = w;
 
 	var offset_w = w * 1.1;
 
-	var x = screenCenterW - (2 * offset_w + (offset_w / 2)) + ((i - 1) % 5) * offset_w;
+	var x = screenCenterW - ((DAYS_PER_ROW / 2.0) * offset_w) + ((i - 1) % DAYS_PER_ROW) * offset_w;
 	if (x < 0) x = 0;
-	var y = Math.floor((i - 1) / 5) * (1.1 * h) - (5 * (1.1 * h)) - 25;
-	if (y < -712) y = -712;
-	
-	if (i > 21)
-		i += 6;
+	var y = Math.floor((i - 1) / DAYS_PER_ROW) * (1.1 * h) - (DAYS_PER_ROW * (1.1 * h)) + 75;
+	if (y < -715) y = -715;
 
 	var node = document.createElement("div");
 	node.classList.add("box");
@@ -53,8 +51,6 @@ function create_box(i) {
 	};
 	
 	node.appendChild(innerNode);
-	
-	console.log("Created box for day " + i);
 }
 
 function reset_modal() {
@@ -123,7 +119,8 @@ function open_box(node) {
 		}
 	}
 	
-	for (var i = 1; i < 26; i++) {
+	for (var i = 1; i < 32; i++) {
 		create_box(i);
 	}
+	jan1stbox();
 })();

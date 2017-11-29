@@ -5,7 +5,9 @@ var date = new Date();
 
 var modal = document.getElementsByClassName("modal")[0];
 var modaltitle = document.getElementsByClassName("modaltitle")[0];
+var modalimg = document.getElementsByClassName("modalimg")[0];
 var modaltext = document.getElementsByClassName("modaltext")[0];
+var modalowner = document.getElementsByClassName("modalowner")[0];
 
 var DECEMBER = 10;
 
@@ -53,28 +55,69 @@ function create_box(i) {
 	console.log("Created box for day " + i);
 }
 
+function reset_modal() {
+	modal.style.display = "none";
+	
+	modaltitle.innerHTML = "";
+	modaltitle.style.display = "none";
+	
+	modalimg.src = "";
+	modalimg.style.display = "none";
+	
+	modaltext.innerHTML = "";
+	modaltext.style.display = "none";
+	
+	modalowner.innerHTML = "";
+	modalowner.style.display = "none";
+}
+
+function set_modal(title, img, text, owner) {
+	reset_modal();
+	if (title != null) {
+		modaltitle.innerHTML = title;
+		modaltitle.style.display = "block";
+	}
+	
+	if (img != null) {
+		modalimg.src = img;
+		modalimg.style.display = "block";
+	}
+	
+	if (text != null) {
+		modaltext.innerHTML = text;
+		modaltext.style.display = "block";
+	}
+	
+	if (owner != null) {
+		modalowner.innerHTML = "Event owner: " + owner;
+		modalowner.style.display = "block";
+	}
+	
+	modal.style.display = "block";
+}
+
 function open_box(node) {
 	if (node.classList.contains("closed")) {
-		modal.style.display = "block";
-		modaltitle.innerHTML = "This day isn't available yet";
-		modaltext.innerHTML = "";
+		set_modal("This day isn't available yet", null, null, null);
 	} else {
-		modal.style.display = "block";
 		display = displayText[node.id];
-		modaltitle.innerHTML = (display == null) ? "This days text hasn't been set yet" : display.title;
-		modaltext.innerHTML = (display == null) ? "This days text hasn't been set yet" : display.text;
+		if (display == null || display.title == null) {
+			set_modal("This day hasn't had its event set yet", null, null, null);
+		} else {
+			set_modal(display.title, display.img, display.text, display.owner);
+		}
 	}
 	return false;
 }
 
 (function() {	
 	document.getElementsByClassName("close")[0].onclick = function() {
-		modal.style.display = "none";
+		reset_modal();
 	}
 	
 	window.onclick = function(event) {
 		if (event.target == modal) {
-			modal.style.display = "none";
+			reset_modal();
 		}
 	}
 	

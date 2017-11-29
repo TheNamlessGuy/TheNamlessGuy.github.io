@@ -17,6 +17,7 @@ body {
 
 .calendar-img {
 	z-index: 0;
+	max-width: 95%;
 }
 
 .boxes {
@@ -94,4 +95,13 @@ body {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+.modalowner {
+	text-align: right;
+}
+
+.modalimg {
+	max-width: 150px;
+	max-height: 150px;
 }

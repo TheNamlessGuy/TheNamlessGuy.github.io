@@ -18,7 +18,9 @@ function create_box(i) {
 	var offset_w = w * 1.1;
 
 	var x = screenCenterW - (2 * offset_w + (offset_w / 2)) + ((i - 1) % 5) * offset_w;
+	if (x < 0) x = 0;
 	var y = Math.floor((i - 1) / 5) * (1.1 * h) - (5 * (1.1 * h)) - 25;
+	if (y < -650) y = -650;
 	
 	if (i > 21)
 		i += 6;

@@ -12,6 +12,22 @@ var modalowner = document.getElementsByClassName("modalowner")[0];
 var DECEMBER = 11;
 var DAYS_PER_ROW = 7;
 
+function detectmob() { 
+ if( navigator.userAgent.match(/Android/i)
+ || navigator.userAgent.match(/webOS/i)
+ || navigator.userAgent.match(/iPhone/i)
+ || navigator.userAgent.match(/iPad/i)
+ || navigator.userAgent.match(/iPod/i)
+ || navigator.userAgent.match(/BlackBerry/i)
+ || navigator.userAgent.match(/Windows Phone/i)
+ ){
+    return true;
+  }
+ else {
+    return false;
+  }
+}
+
 function create_box(i) {
 	var w = 100;
 	var h = w;
@@ -119,8 +135,11 @@ function open_box(node) {
 		}
 	}
 	
+	if (detectmob()) {
+		DAYS_PER_ROW = 1;
+	}
+	
 	for (var i = 1; i < 32; i++) {
 		create_box(i);
 	}
-	jan1stbox();
 })();

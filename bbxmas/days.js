@@ -1,6 +1,6 @@
 var displayText = {
 	1: {owner: "TheNamlessGuy", title: "1 man 2 cuphead giveaways", img: "days/1.jpg", text: "PM me 'I C U P' haha get it"},
-	2: {},
+	2: {owner: "Tristana", title: "Home Alone movienight", img: "days/2.png", text: "He (or someone) will make an announcement when it starts, will be around 10 pm GMT"},
 	3: {},
 	4: {},
 	5: {owner: "TheNamlessGuy"},

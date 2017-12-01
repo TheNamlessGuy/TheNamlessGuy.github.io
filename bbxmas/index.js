@@ -9,7 +9,7 @@ var modalimg = document.getElementsByClassName("modalimg")[0];
 var modaltext = document.getElementsByClassName("modaltext")[0];
 var modalowner = document.getElementsByClassName("modalowner")[0];
 
-var DECEMBER = 10;
+var DECEMBER = 11;
 var DAYS_PER_ROW = 7;
 
 function create_box(i) {
@@ -31,7 +31,7 @@ function create_box(i) {
 	innerNode.src = "days/" + i;
 	innerNode.alt = i;
 	
-	if (date.getMonth() == DECEMBER && date.getDate() >= i) {
+	if (date.getFullYear() > 2017 || (date.getMonth() == DECEMBER && date.getDate() >= i)) {
 		node.classList.add("open");
 		innerNode.src += "open";
 	} else {

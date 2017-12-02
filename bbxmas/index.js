@@ -2,6 +2,7 @@ var img = document.getElementsByClassName("calendar-img")[0];
 var boxes = document.getElementsByClassName("boxes")[0]
 var screenCenterW = window.innerWidth / 2;
 var date = new Date();
+var body = document.getElementsByTagName("body")[0];
 
 var modal = document.getElementsByClassName("modal")[0];
 var modaltitle = document.getElementsByClassName("modaltitle")[0];
@@ -83,6 +84,8 @@ function reset_modal() {
 	
 	modalowner.innerHTML = "";
 	modalowner.style.display = "none";
+	
+	body.style.overflow = "scroll";
 }
 
 function set_modal(title, img, text, owner) {
@@ -108,6 +111,7 @@ function set_modal(title, img, text, owner) {
 	}
 	
 	modal.style.display = "block";
+	body.style.overflow = "hidden";
 }
 
 function open_box(node) {
@@ -137,6 +141,7 @@ function open_box(node) {
 	
 	if (detectmob()) {
 		DAYS_PER_ROW = 1;
+		modal.style["padding-top"] = "1px";
 	}
 	
 	for (var i = 1; i < 32; i++) {

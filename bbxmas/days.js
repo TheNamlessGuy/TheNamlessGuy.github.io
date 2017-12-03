@@ -4,7 +4,7 @@ var displayText = {
 	3: {title: "Christmas themed role colors", text: "Red, green, white and brown colors available, ask staff for more info"},
 	4: {owner: "Acenator", title: "Movie night with the ace man", text: "He said it would 'probably be something festive'"},
 	5: {owner: "TheNamlessGuy"},
-	6: {},
+	6: {owner: "Ice Dragon"},
 	7: {},
 	8: {owner: "Kamikaze_Karl"},
 	9: {owner: "Tristana"},

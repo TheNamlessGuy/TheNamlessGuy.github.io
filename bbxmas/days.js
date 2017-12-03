@@ -7,7 +7,7 @@ var displayText = {
 	6: {},
 	7: {},
 	8: {owner: "Kamikaze_Karl"},
-	9: {},
+	9: {owner: "Tristana"},
 	10: {},
 	11: {},
 	12: {owner: "GladiaCelt"},

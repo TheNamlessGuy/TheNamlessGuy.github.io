@@ -2,7 +2,7 @@ var displayText = {
 	1: {owner: "TheNamlessGuy", title: "1 man 2 cuphead giveaways", img: "days/1.jpg", text: "PM me 'I C U P' haha get it"},
 	2: {owner: "Tristana", title: "Home Alone movienight", img: "days/2.png", text: "He (or someone) will make an announcement when it starts, will be around 10 pm GMT"},
 	3: {title: "Christmas themed role colors", text: "Red, green, white and brown colors available, ask staff for more info"},
-	4: {owner: "Acenator", title: "Movie night with the ace man", text: "He said it would 'probably be something festive'"},
+	4: {owner: "Acenator", title: "Movie night with the ace man", text: "He said it would 'probably be something festive'<br>Test"},
 	5: {owner: "TheNamlessGuy"},
 	6: {owner: "Ice Dragon"},
 	7: {},

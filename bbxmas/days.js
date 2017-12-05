@@ -4,7 +4,7 @@ var displayText = {
 	3: {title: "Christmas themed role colors", text: "Red, green, white and brown colors available, ask staff for more info"},
 	4: {owner: "Acenator", title: "Movie night with the ace man", text: "He said it would 'probably be something festive'"},
 	5: {owner: "TheNamlessGuy", title: "Sonic Mania giveaway x2", text: "I mean, you do get five golden rings on the 5th day of christmas after all<br>PM me 'Thanks, true love' to enter", img: "http://cdn.akamai.steamstatic.com/steam/apps/584400/header.jpg"},
-	6: {owner: "Ice Dragon"},
+	6: {owner: "Ice Dragon", title: "Coop game night", text: "Play a game yay<br>Ask him which it is bruh I dont know"},
 	7: {},
 	8: {owner: "Kamikaze_Karl"},
 	9: {owner: "Tristana"},

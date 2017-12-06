@@ -5,7 +5,7 @@ var displayText = {
 	4: {owner: "Acenator", title: "Movie night with the ace man", text: "He said it would 'probably be something festive'"},
 	5: {owner: "TheNamlessGuy", title: "Sonic Mania giveaway x2", text: "I mean, you do get five golden rings on the 5th day of christmas after all<br>PM me 'Thanks, true love' to enter", img: "http://cdn.akamai.steamstatic.com/steam/apps/584400/header.jpg"},
 	6: {owner: "Ice Dragon", title: "Coop game night", text: "Play a game yay<br>Ask him which it is bruh I dont know"},
-	7: {},
+	7: {owner: "TheNamlessGuy", title: "'Any name color you want for the rest of the month' raffle", text: "One role, one person<br>One winner<br><br>PM me 'ABACUS' to join"},
 	8: {owner: "Kamikaze_Karl"},
 	9: {},
 	10: {owner: "Tristana"},

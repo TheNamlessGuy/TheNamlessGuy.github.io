@@ -7,7 +7,7 @@ var displayText = {
 	6: {owner: "Ice Dragon", title: "Coop game night", text: "Play a game yay<br>Ask him which it is bruh I dont know"},
 	7: {owner: "TheNamlessGuy", title: "'Any name color you want for the rest of the month' raffle", text: "One role, one person<br>One winner<br><br>PM me 'ABACUS' to join"},
 	8: {owner: "Kamikaze_Karl", title: "Special Snowflake choose a color edition + Staff Snowflake but no staff gets to vote", text: "I don't think it could be clearer. PM karl for more info<br>or if you're lonely<br><br>or if you're horny"},
-	9: {owner: "Inquisitor Kitty"},
+	9: {owner: "Inquisitor Kitty", title: "Warhammer Vermintide giveaway", text: "With ya boi kitty. PM her to enter<br>Event goes off at about 5 pm GMT", img: "http://cdn.akamai.steamstatic.com/steam/apps/552500/header.jpg"},
 	10: {owner: "Tristana"},
 	11: {},
 	12: {owner: "GladiaCelt"},

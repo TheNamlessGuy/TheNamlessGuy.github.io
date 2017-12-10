@@ -13,7 +13,7 @@ var displayText = {
 	12: {owner: "GladiaCelt"},
 	13: {},
 	14: {},
-	15: {},
+	15: {title: "Karl Day"},
 	16: {},
 	17: {},
 	18: {},

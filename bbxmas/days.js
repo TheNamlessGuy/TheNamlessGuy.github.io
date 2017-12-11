@@ -9,7 +9,7 @@ var displayText = {
 	8: {owner: "Kamikaze_Karl", title: "Special Snowflake choose a color edition + Staff Snowflake but no staff gets to vote", text: "I don't think it could be clearer. PM karl for more info<br>or if you're lonely<br><br>or if you're horny"},
 	9: {owner: "Inquisitor Kitty", title: "Warhammer Vermintide giveaway", text: "With ya boi kitty. PM her to enter<br>Event goes off at about 5 pm GMT", img: "http://cdn.akamai.steamstatic.com/steam/apps/552500/header.jpg"},
 	10: {owner: "Tristana", title: "Die Hard movie night", text: "feat: Tristana at 9pm GMT<br>Come join on rabb.it and in VC"},
-	11: {},
+	11: {owner: "Karl", title: "Karl Surprise", text: "He promised a big surprise for everyone"},
 	12: {owner: "GladiaCelt"},
 	13: {},
 	14: {},

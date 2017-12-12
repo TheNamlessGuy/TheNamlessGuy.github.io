@@ -10,7 +10,7 @@ var displayText = {
 	9: {owner: "Inquisitor Kitty", title: "Warhammer Vermintide giveaway", text: "With ya boi kitty. PM her to enter<br>Event goes off at about 5 pm GMT", img: "http://cdn.akamai.steamstatic.com/steam/apps/552500/header.jpg"},
 	10: {owner: "Tristana", title: "Die Hard movie night", text: "feat: Tristana at 9pm GMT<br>Come join on rabb.it and in VC"},
 	11: {owner: "Karl", title: "Karl Surprise", text: "He promised a big surprise for everyone"},
-	12: {owner: "GladiaCelt"},
+	12: {owner: "GladiaCelt", title: "Surprise movie with the shaneman", text: "Yes"},
 	13: {},
 	14: {},
 	15: {title: "Karl Day"},

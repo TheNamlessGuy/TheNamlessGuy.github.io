@@ -12,7 +12,7 @@ var displayText = {
 	11: {owner: "Karl", title: "Karl Surprise", text: "He promised a big surprise for everyone"},
 	12: {owner: "GladiaCelt", title: "Surprise movie with the shaneman", text: "Yes"},
 	13: {owner: "TheNamlessGuy", title: "Some random ass giveaway", text: "Who knows what the game will be. Wait for the announcement"},
-	14: {owner: "TheNamlessGuy"},
+	14: {owner: "TheNamlessGuy", title: "Hobo awareness day", text: "The menace known as Startasshobo must be stopped<br>His vile actions in this community has brought nothing but misery<br>Please consider voting to ban him thank you", img: "https://cdn.discordapp.com/attachments/236590267791048706/390843996144140289/unknown.png"},
 	15: {title: "Karl Day"},
 	16: {},
 	17: {},

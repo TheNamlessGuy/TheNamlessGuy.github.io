@@ -12,7 +12,7 @@ var displayText = {
 	11: {owner: "Karl", title: "Karl Surprise", text: "He promised a big surprise for everyone"},
 	12: {owner: "GladiaCelt", title: "Surprise movie with the shaneman", text: "Yes"},
 	13: {owner: "TheNamlessGuy", title: "Some random ass giveaway", text: "Who knows what the game will be. Wait for the announcement"},
-	14: {},
+	14: {owner: "TheNamlessGuy"},
 	15: {title: "Karl Day"},
 	16: {},
 	17: {},

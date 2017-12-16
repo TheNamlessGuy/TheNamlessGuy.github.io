@@ -14,7 +14,7 @@ var displayText = {
 	13: {owner: "TheNamlessGuy", title: "Some random ass giveaway", text: "Who knows what the game will be. Wait for the announcement"},
 	14: {owner: "TheNamlessGuy", title: "Hobo awareness day", text: "The menace known as Smartasshobo must be stopped<br>His vile actions in this community has brought nothing but misery<br>Please consider voting to ban him thank you", img: "https://cdn.discordapp.com/attachments/236590267791048706/390843996144140289/unknown.png"},
 	15: {title: "Karl Day"},
-	16: {},
+	16: {title: "And on the 16th day, the gods rested", text: "I blame the other staffers for not stepping up to the plate, y'kno'm'say'n'"},
 	17: {},
 	18: {},
 	19: {},

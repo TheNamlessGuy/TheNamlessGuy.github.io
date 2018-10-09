@@ -3,18 +3,17 @@ function Tetris(locations) {
   this.locations = [];
   for (var i = 0; i < locations.length; i++) {
     this.locations.push({x: locations[i].x, y: locations[i].y});
+    playArea[locations[i].y][locations[i].x][TETRIS_Z] = playArea[locations[i].y][locations[i].x][PLAYER_Z];
+    playArea[locations[i].y][locations[i].x][PLAYER_Z] = null;
+    playArea[locations[i].y][locations[i].x][TETRIS_Z].color = this.color;
   }
 
   this.locations.sort((a, b) => {
     return b.y - a.y;
   });
 
-  for (var i = 0; i < this.locations.length; i++) {
-    playArea[this.locations[i].y][this.locations[i].x].color = this.color;
-  }
-
   this.collision = function(x, y) {
-    if (playArea[y][x] == null) {
+    if (playArea[y][x][TETRIS_Z] == null && playArea[y][x][PLAYER_Z] == null) {
       return false;
     }
     for (var i = 0; i < this.locations.length; i++) {
@@ -22,13 +21,13 @@ function Tetris(locations) {
         return false;
       }
     }
-    return true;
+    return true; // Blocked by another tetris, or the player
   }
 
   this.update = function() {
     var falling = true;
     for (var i = 0; i < this.locations.length; i++) {
-      playArea[this.locations[i].y][this.locations[i].x].falling = false;
+      playArea[this.locations[i].y][this.locations[i].x][TETRIS_Z].falling = false;
       if (this.locations[i].y == playArea.length - 1 || this.collision(this.locations[i].x, this.locations[i].y + 1)) {
         falling = false;
       }
@@ -39,11 +38,11 @@ function Tetris(locations) {
     }
 
     for (var i = 0; i < this.locations.length; i++) {
-      playArea[this.locations[i].y][this.locations[i].x].falling = true;
+      playArea[this.locations[i].y][this.locations[i].x][TETRIS_Z].falling = true;
       var oldY = this.locations[i].y;
       this.locations[i].y += 1;
-      playArea[this.locations[i].y][this.locations[i].x] = playArea[oldY][this.locations[i].x];
-      playArea[oldY][this.locations[i].x] = null;
+      playArea[this.locations[i].y][this.locations[i].x][TETRIS_Z] = playArea[oldY][this.locations[i].x][TETRIS_Z];
+      playArea[oldY][this.locations[i].x][TETRIS_Z] = null;
     }
   }
 

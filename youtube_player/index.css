@@ -29,8 +29,11 @@ body {
   color: #222;
 }
 
-#currentIndex {
+.slightly-hidden {
   color: #555;
+}
+
+#currentIndex {
   display: inline-block;
   margin-right: 25px;
   margin-top: 10px;

@@ -31,4 +31,13 @@ body {
 
 #currentIndex {
   color: #555;
+  display: inline-block;
+  margin-right: 25px;
+  margin-top: 10px;
+}
+
+#selection {
+  display: inline-block;
+  margin-left: 25px;
+  margin-top: 10px;
 }

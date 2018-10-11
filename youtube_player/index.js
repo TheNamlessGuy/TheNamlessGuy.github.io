@@ -84,8 +84,12 @@ function plus(id) {
 }
 
 function minus(id) {
+  var index = findIndexOfID(id);
   var videoContainer = document.getElementById('video' + id);
   videoContainer.parentNode.removeChild(videoContainer);
+  if (index < currentIndex) {
+    currentIndex--;
+  }
   setIndexDisplay();
 }
 
@@ -141,7 +145,22 @@ function onPlayerReady(event) {
 
 function onPlayerStateChange(event) {
   if (event.data === YT.PlayerState.ENDED) {
-    playVideo((currentIndex + 1) % document.getElementsByClassName('video').length, false);
+    var newIndex = -1;
+    var loopType = document.getElementById('loopType');
+    var selection = loopType.options[loopType.selectedIndex].value;
+    var total = document.getElementsByClassName('video').length;
+
+    if (selection === 'all') {
+      newIndex = (currentIndex + 1) % total;
+    } else if (selection === 'one') {
+      newIndex = currentIndex;
+    } else if (selection === 'none') {
+      newIndex = currentIndex + 1;
+    }
+
+    if (newIndex < total) {
+      playVideo(newIndex, false);
+    }
   }
 }
 

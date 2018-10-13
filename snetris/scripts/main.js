@@ -96,9 +96,6 @@ function spawnPlayer() {
   player.nextdir = 'r';
   player.movetick = player.maxMoveTick;
   player.respawntick = player.maxRespawnTick;
-  if (playArea[1][0][TETRIS_Z] != null || playArea[1][1][TETRIS_Z] != null || playArea[1][2][TETRIS_Z] != null || playArea[1][3][TETRIS_Z] != null) {
-    gameover();
-  }
 }
 
 function destroyTetris(x, y) {
@@ -209,6 +206,16 @@ function update() {
   }
   checkForFilledRows();
 
+  if (playArea[player.y][player.x][TETRIS_Z] != null && !playArea[player.y][player.x][TETRIS_Z].falling) {
+    gameover();
+  } else if (playArea[trail[0].y][trail[0].x][TETRIS_Z] != null && !playArea[trail[0].y][trail[0].x][TETRIS_Z].falling) {
+    gameover();
+  } else if (playArea[trail[1].y][trail[1].x][TETRIS_Z] != null && !playArea[trail[1].y][trail[1].x][TETRIS_Z].falling) {
+    gameover();
+  } else if (playArea[trail[2].y][trail[2].x][TETRIS_Z] != null && !playArea[trail[2].y][trail[2].x][TETRIS_Z].falling) {
+    gameover();
+  }
+
   if (!pointExists() && noFallingBlocks()) {
     spawnPoint();
   }
@@ -269,7 +276,7 @@ function draw() {
 
   // Draw version
   g.fillStyle = "#222";
-  text = "Version 0.2";
+  text = "Version 0.3";
   console.log("AREA Y", playareaSize.h, "TEXT H", g.measureText(text).height, "50", 50);
   console.log("Y:", playareaSize.h - 48 - 50);
   g.fillText(text, (canvas.width / 2) + (playareaSize.w / 2) + 20, playareaSize.h - 20);
@@ -280,6 +287,7 @@ function draw() {
       for (var z = 0; z < playArea[y][x].length; z++) {
         if (playArea[y][x][z] != null) {
           playArea[y][x][z].draw(playareaSize.x + (x * BLOCK_SIZE), playareaSize.y + (y * BLOCK_SIZE), BLOCK_SIZE);
+          break;
         }
       }
     }

@@ -34,8 +34,6 @@ body {
 }
 
 #currentIndex {
-  display: inline-block;
-  margin-right: 25px;
   margin-top: 10px;
 }
 
@@ -43,4 +41,14 @@ body {
   display: inline-block;
   margin-left: 25px;
   margin-top: 10px;
+}
+
+#nextprev {
+  display: inline-block;
+  margin-left: 25px;
+}
+
+#saveload {
+  display: inline-block;
+  margin-left: 25px;
 }

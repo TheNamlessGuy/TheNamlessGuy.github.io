@@ -64,14 +64,18 @@ function findIndexOfID(id) {
   return -1;
 }
 
-function play(id) {
+function playIndex(index) {
   if (document.getElementById('player').tagName === 'DIV') {
     // Hasn't been initiated
-    currentIndex = findIndexOfID(id);
+    currentIndex = index;
     startYouTube();
   } else {
-    playVideo(findIndexOfID(id), false);
+    playVideo(index, false);
   }
+}
+
+function play(id) {
+  playIndex(findIndexOfID(id));
 }
 
 function plus(id) {
@@ -126,13 +130,13 @@ function fillVideoContainer(tag, newID) {
 }
 
 function initVideoElement(id) {
-  document.getElementById('play' + id).onclick = function() {
+  document.getElementById('play' + id).onclick = () => {
     play(id);
   }
-  document.getElementById('plus' + id).onclick = function() {
+  document.getElementById('plus' + id).onclick = () => {
     plus(id);
   }
-  document.getElementById('minus' + id).onclick = function() {
+  document.getElementById('minus' + id).onclick = () => {
     minus(id);
   }
 }
@@ -147,24 +151,46 @@ function onPlayerReady(event) {
   event.target.playVideo();
 }
 
+function prev(selection) {
+  var newIndex = -1;
+  var total = document.getElementsByClassName('video').length;
+
+  if (selection === 'all') {
+    newIndex = currentIndex - 1;
+    if (newIndex < 0) {
+      newIndex = total - 1;
+    }
+  } else if (selection === 'one') {
+    newIndex = currentIndex;
+  } else if (selection === 'none') {
+    newIndex = currentIndex - 1;
+  }
+
+  if (newIndex >= 0 && newIndex < total) {
+    playIndex(newIndex);
+  }
+}
+
+function next(selection) {
+  var newIndex = -1;
+  var total = document.getElementsByClassName('video').length;
+
+  if (selection === 'all') {
+    newIndex = (currentIndex + 1) % total;
+  } else if (selection === 'one') {
+    newIndex = currentIndex;
+  } else if (selection === 'none') {
+    newIndex = currentIndex + 1;
+  }
+
+  if (newIndex < total) {
+    playIndex(newIndex);
+  }
+}
+
 function onPlayerStateChange(event) {
   if (event.data === YT.PlayerState.ENDED) {
-    var newIndex = -1;
-    var loopType = document.getElementById('loopType');
-    var selection = loopType.options[loopType.selectedIndex].value;
-    var total = document.getElementsByClassName('video').length;
-
-    if (selection === 'all') {
-      newIndex = (currentIndex + 1) % total;
-    } else if (selection === 'one') {
-      newIndex = currentIndex;
-    } else if (selection === 'none') {
-      newIndex = currentIndex + 1;
-    }
-
-    if (newIndex < total) {
-      playVideo(newIndex, false);
-    }
+    next(document.getElementById('loopType').options[loopType.selectedIndex].value);
   }
 }
 
@@ -187,8 +213,66 @@ function onYouTubeIframeAPIReady() {
   playVideo(currentIndex, true);
 }
 
+function loadFile(videos) {
+  if (videos.length === 0) {
+    return;
+  }
+
+  var videoContainers = document.getElementsByClassName('videoContainer');
+  while (videoContainers.length > 1) {
+    var vc = videoContainers[0];
+    if (vc.id === 'video0') {
+      vc = videoContainers[1];
+    }
+    vc.parentNode.removeChild(vc);
+  }
+
+  document.getElementById('0').value = videos[0];
+  for (var i = 1; i < videos.length; i++) {
+    plus((i - 1).toString());
+    document.getElementById(i.toString()).value = videos[i];
+  }
+}
+
+function loadedfiles(event) {
+  var reader = new FileReader();
+  reader.onload = () => {
+    loadFile(reader.result.split('&'));
+  };
+  reader.readAsText(event.target.files[0]);
+}
+
+function getSaveString() {
+  var retval = "";
+  var videos = document.getElementsByClassName('video');
+  for (var i = 0; i < videos.length; i++) {
+    retval += videos[i].value + "&";
+  }
+  return retval.slice(0, -1);
+}
+
 window.onload = function() {
   fillVideoContainer(document.getElementsByClassName('videoContainer')[0], 0);
   var minus = document.getElementById('minus0');
   minus.parentElement.removeChild(minus);
+
+  document.getElementById('next').onclick = () => {
+    next("all");
+  }
+
+  document.getElementById('prev').onclick = () => {
+    prev("all");
+  }
+
+  document.getElementById('save').onclick = () => {
+    saveAs(new Blob([getSaveString()]), "playlist.txt");
+  }
+
+  document.getElementById('load').onclick = () => {
+    var loadfile = document.createElement('input');
+    loadfile.type = 'file';
+    loadfile.accept = 'text/plain';
+    loadfile.onchange = loadedfiles;
+    loadfile.click();
+  }
 }

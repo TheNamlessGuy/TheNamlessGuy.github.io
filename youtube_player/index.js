@@ -246,7 +246,7 @@ function getSaveString() {
   var retval = "";
   var videos = document.getElementsByClassName('video');
   for (var i = 0; i < videos.length; i++) {
-    retval += videos[i].value + "&";
+    retval += getVideoID(videos[i].id) + "&";
   }
   return retval.slice(0, -1);
 }

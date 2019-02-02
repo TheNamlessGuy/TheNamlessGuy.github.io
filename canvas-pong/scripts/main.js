@@ -68,7 +68,7 @@ function spawnBall() {
   if (balls.length > maxBalls) maxBalls = balls.length;
 }
 
-function onready() {
+window.onload = function() {
   canvas = document.getElementById('gameCanvas');
   g = canvas.getContext('2d');
 

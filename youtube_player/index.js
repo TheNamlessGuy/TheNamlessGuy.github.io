@@ -1,6 +1,8 @@
 var player;
 var currentIndex = 0;
 var DEFAULT_VIDEO = 'dQw4w9WgXcQ';
+var SAVE_SEPARATOR = ':';
+var CURRENT_URL = null;
 
 function playVideo(newIndex, firstTime) {
   setMinusDisable(false, currentIndex);
@@ -213,7 +215,13 @@ function onYouTubeIframeAPIReady() {
   playVideo(currentIndex, true);
 }
 
-function loadFile(videos) {
+function load() {
+  var videos = CURRENT_URL.searchParams.get('v');
+  if (videos == null) {
+    return;
+  }
+
+  var videos = videos.split(SAVE_SEPARATOR);
   if (videos.length === 0) {
     return;
   }
@@ -234,27 +242,27 @@ function loadFile(videos) {
   }
 }
 
-function loadedfiles(event) {
-  var reader = new FileReader();
-  reader.onload = () => {
-    loadFile(reader.result.split('&'));
-  };
-  reader.readAsText(event.target.files[0]);
-}
-
 function getSaveString() {
   var retval = "";
   var videos = document.getElementsByClassName('video');
   for (var i = 0; i < videos.length; i++) {
-    retval += getVideoID(videos[i].id) + "&";
+    retval += getVideoID(videos[i].id) + SAVE_SEPARATOR;
   }
-  return retval.slice(0, -1);
+  return retval.slice(0, -SAVE_SEPARATOR.length);
+}
+
+function save() {
+  var saveString = getSaveString();
+  if (saveString == '') {
+    return;
+  }
+  CURRENT_URL.searchParams.set('v', saveString);
+  window.history.replaceState(null, null, CURRENT_URL.href);
 }
 
 window.onload = function() {
   fillVideoContainer(document.getElementsByClassName('videoContainer')[0], 0);
-  var minus = document.getElementById('minus0');
-  minus.parentElement.removeChild(minus);
+  document.getElementById('minus0').style.visibility = 'hidden';
 
   document.getElementById('next').onclick = () => {
     next("all");
@@ -265,14 +273,17 @@ window.onload = function() {
   }
 
   document.getElementById('save').onclick = () => {
-    saveAs(new Blob([getSaveString()]), "playlist.txt");
+    save();
   }
 
   document.getElementById('load').onclick = () => {
-    var loadfile = document.createElement('input');
-    loadfile.type = 'file';
-    loadfile.accept = 'text/plain';
-    loadfile.onchange = loadedfiles;
-    loadfile.click();
+    load();
   }
+
+  CURRENT_URL = new URL(window.location.href);
+  load();
+}
+
+window.onerror = function() {
+  document.getElementById('error').innerHTML = "Something went wrong, please check the dev console";
 }

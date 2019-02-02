@@ -52,3 +52,7 @@ body {
   display: inline-block;
   margin-left: 25px;
 }
+
+#error {
+  color: #702323;
+}

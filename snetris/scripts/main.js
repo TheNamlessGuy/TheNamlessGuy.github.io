@@ -332,7 +332,7 @@ function loop() {
   requestAnimationFrame(loop);
 }
 
-function onReady() {
+window.onload = function() {
   canvas = document.getElementById('gameCanvas');
   g = canvas.getContext('2d');
 

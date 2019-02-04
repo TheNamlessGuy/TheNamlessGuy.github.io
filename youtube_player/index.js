@@ -28,7 +28,7 @@ function setMinusDisable(value, index) {
 }
 
 function setIndexDisplay() {
-  document.getElementById('currentIndex').innerHTML = '(' + (currentIndex + 1) + ' / ' + document.getElementsByClassName('video').length + ')';
+  document.getElementById('currentIndex').innerHTML = '(' + (parseInt(currentIndex) + 1) + ' / ' + document.getElementsByClassName('video').length + ')';
 }
 
 function startYouTube() {
@@ -114,6 +114,9 @@ function fillVideoContainer(tag, newID) {
   input.id = newID;
   input.classList.add('video');
   input.type = 'text';
+  input.addEventListener('change', function (e) {
+    save();
+  });
   tag.appendChild(input);
 
   var plus = document.createElement('button');
@@ -254,10 +257,18 @@ function getSaveString() {
 function save() {
   var saveString = getSaveString();
   if (saveString == '') {
-    return;
+    CURRENT_URL.searchParams.delete('v');
+  } else {
+    CURRENT_URL.searchParams.set('v', saveString);
   }
-  CURRENT_URL.searchParams.set('v', saveString);
   window.history.replaceState(null, null, CURRENT_URL.href);
+}
+
+function minimalize() {
+  var videos = document.getElementsByClassName('video');
+  for (var i = 0; i < videos.length; i++) {
+    videos[i].value = getVideoID(videos[i].id);
+  }
 }
 
 window.onload = function() {
@@ -272,16 +283,17 @@ window.onload = function() {
     prev("all");
   }
 
-  document.getElementById('save').onclick = () => {
-    save();
-  }
-
-  document.getElementById('load').onclick = () => {
-    load();
+  document.getElementById('minimalize').onclick = () => {
+    minimalize();
   }
 
   CURRENT_URL = new URL(window.location.href);
   load();
+
+  var autoplayIndex = CURRENT_URL.searchParams.get('autoplay');
+  if (autoplayIndex != null) {
+    playIndex(autoplayIndex);
+  }
 }
 
 window.onerror = function() {

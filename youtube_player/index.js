@@ -3,7 +3,7 @@ var currentIndex = 0;
 var DEFAULT_VIDEO = 'dQw4w9WgXcQ';
 var SAVE_SEPARATOR = ':';
 var CURRENT_URL = null;
-var TITLES = {'': '[TITLE]'};
+var TITLE_BASE_NAME = '[TITLE]';
 var BASE_PAGE_TITLE = "YouTube player - Namless Things";
 
 function playVideo(newIndex) {
@@ -116,7 +116,7 @@ function fillVideoContainer(tag, newID) {
   input.type = 'text';
   input.addEventListener('change', function (e) {
     save();
-    setTitleOfVideoID(getVideoID(e.target.id), TITLES['']);
+    setTitleOfVideoID(getVideoID(e.target.id), TITLE_BASE_NAME);
   });
   tag.appendChild(input);
 
@@ -134,7 +134,7 @@ function fillVideoContainer(tag, newID) {
 
   var title = document.createElement('div');
   title.id = 'title' + newID;
-  title.innerHTML = TITLES[''];
+  title.innerHTML = TITLE_BASE_NAME;
   title.classList.add('slightly-hidden');
   title.classList.add('video-title');
   tag.appendChild(title);
@@ -207,15 +207,11 @@ function onPlayerStateChange(event) {
   }
   if (event.data === YT.PlayerState.PLAYING) {
     setTitleOfVideoID(player.getVideoData().video_id, player.getVideoData().title);
-    setPageTitle(TITLES[player.getVideoData().video_id]);
+    setPageTitle(player.getVideoData().title);
   }
 }
 
 function setTitleOfVideoID(id, title) {
-  if (!(id in TITLES)) {
-    TITLES[id] = title;
-  }
-
   var videos = document.getElementsByClassName('video');
   for (var i = 0; i < videos.length; i++) {
     if (getVideoID(videos[i].id) !== id) {
@@ -223,7 +219,7 @@ function setTitleOfVideoID(id, title) {
     }
 
     var titleElem = videos[i].parentElement.getElementsByClassName('video-title')[0];
-    titleElem.innerHTML = TITLES[id];
+    titleElem.innerHTML = title;
   }
 }
 
@@ -310,7 +306,7 @@ function clear() {
   }
 
   videos[0].getElementsByClassName('video')[0].value = '';
-  videos[0].getElementsByClassName('video-title')[0].innerHTML = TITLES[''];
+  videos[0].getElementsByClassName('video-title')[0].innerHTML = TITLE_BASE_NAME;
 
   setIndexDisplay();
 }

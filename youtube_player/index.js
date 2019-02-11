@@ -116,7 +116,7 @@ function fillVideoContainer(tag, newID) {
   input.type = 'text';
   input.addEventListener('change', function (e) {
     save();
-    setTitleOfVideoID(getVideoID(e.target.id), '');
+    setTitleOfVideoID(getVideoID(e.target.id), TITLES['']);
   });
   tag.appendChild(input);
 

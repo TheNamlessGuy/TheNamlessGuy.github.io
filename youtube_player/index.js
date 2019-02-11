@@ -3,21 +3,21 @@ var currentIndex = 0;
 var DEFAULT_VIDEO = 'dQw4w9WgXcQ';
 var SAVE_SEPARATOR = ':';
 var CURRENT_URL = null;
+var TITLES = {'': '[TITLE]'};
+var BASE_PAGE_TITLE = "YouTube player - Namless Things";
 
-function playVideo(newIndex, firstTime) {
+function playVideo(newIndex) {
   setMinusDisable(false, currentIndex);
   currentIndex = newIndex;
   setMinusDisable(true, currentIndex);
 
   setIndexDisplay();
 
-  if (!firstTime) {
-    var videoID = getVideoID(document.getElementsByClassName('video')[currentIndex].id);
-    if (videoID === '') {
-      videoID = DEFAULT_VIDEO;
-    }
-    player.loadVideoById(videoID, 0, 'large');
+  var videoID = getVideoID(document.getElementsByClassName('video')[currentIndex].id);
+  if (videoID === '') {
+    videoID = DEFAULT_VIDEO;
   }
+  player.loadVideoById(videoID, 0, 'large');
 }
 
 function setMinusDisable(value, index) {
@@ -72,7 +72,7 @@ function playIndex(index) {
     currentIndex = index;
     startYouTube();
   } else {
-    playVideo(index, false);
+    playVideo(index);
   }
 }
 
@@ -116,6 +116,7 @@ function fillVideoContainer(tag, newID) {
   input.type = 'text';
   input.addEventListener('change', function (e) {
     save();
+    setTitleOfVideoID(getVideoID(e.target.id), '');
   });
   tag.appendChild(input);
 
@@ -130,6 +131,13 @@ function fillVideoContainer(tag, newID) {
   minus.innerHTML = '-';
   minus.id = 'minus' + newID;
   tag.appendChild(minus);
+
+  var title = document.createElement('div');
+  title.id = 'title' + newID;
+  title.innerHTML = TITLES[''];
+  title.classList.add('slightly-hidden');
+  title.classList.add('video-title');
+  tag.appendChild(title);
 
   initVideoElement(newID);
 }
@@ -153,7 +161,7 @@ function onStart() {
 }
 
 function onPlayerReady(event) {
-  event.target.playVideo();
+  playVideo(currentIndex);
 }
 
 function prev(selection) {
@@ -197,25 +205,45 @@ function onPlayerStateChange(event) {
   if (event.data === YT.PlayerState.ENDED) {
     next(document.getElementById('loopType').options[loopType.selectedIndex].value);
   }
+  if (event.data === YT.PlayerState.PLAYING) {
+    setTitleOfVideoID(player.getVideoData().video_id, player.getVideoData().title);
+    setPageTitle(TITLES[player.getVideoData().video_id]);
+  }
+}
+
+function setTitleOfVideoID(id, title) {
+  if (!(id in TITLES)) {
+    TITLES[id] = title;
+  }
+
+  var videos = document.getElementsByClassName('video');
+  for (var i = 0; i < videos.length; i++) {
+    if (getVideoID(videos[i].id) !== id) {
+      continue;
+    }
+
+    var titleElem = videos[i].parentElement.getElementsByClassName('video-title')[0];
+    titleElem.innerHTML = TITLES[id];
+  }
+}
+
+function setPageTitle(title) {
+  if (title != null) {
+    document.title = '"' + title + '" - ' + BASE_PAGE_TITLE;
+  } else {
+    document.title = BASE_PAGE_TITLE;
+  }
 }
 
 function onYouTubeIframeAPIReady() {
-  var video = getVideoID(currentIndex);
-  if (video === '') {
-    video = DEFAULT_VIDEO;
-  }
-
   player = new YT.Player('player', {
     height: '390',
     width: '640',
-    videoId: video,
     events: {
       'onReady': onPlayerReady,
       'onStateChange': onPlayerStateChange
     }
   });
-
-  playVideo(currentIndex, true);
 }
 
 function load() {
@@ -271,7 +299,25 @@ function minimalize() {
   }
 }
 
+function clear() {
+  if (player != null) {
+    player.stopVideo();
+  }
+
+  var videos = document.getElementsByClassName('videoContainer');
+  for (var i = videos.length - 1; i > 0; i--) {
+    videos[i].parentElement.removeChild(videos[i]);
+  }
+
+  videos[0].getElementsByClassName('video')[0].value = '';
+  videos[0].getElementsByClassName('video-title')[0].innerHTML = TITLES[''];
+
+  setIndexDisplay();
+}
+
 window.onload = function() {
+  setPageTitle(null);
+
   fillVideoContainer(document.getElementsByClassName('videoContainer')[0], 0);
   document.getElementById('minus0').style.visibility = 'hidden';
 
@@ -287,6 +333,10 @@ window.onload = function() {
     minimalize();
   }
 
+  document.getElementById('clear').onclick = () => {
+    clear();
+  }
+
   CURRENT_URL = new URL(window.location.href);
   load();
 
@@ -296,6 +346,10 @@ window.onload = function() {
   }
 }
 
+function displayError(msg) {
+  document.getElementById('error').innerHTML = msg;
+}
+
 window.onerror = function() {
-  document.getElementById('error').innerHTML = "Something went wrong, please check the dev console";
+  displayError("Something went wrong, please check the dev console");
 }

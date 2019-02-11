@@ -2,7 +2,6 @@
 <html>
   <head>
       <meta charset="utf-8"/>
-      <title>YouTube player - Namless Things</title>
       <link rel="stylesheet" type="text/css" href="index.css"/>
       <script src="index.js"></script>
   </head>
@@ -11,26 +10,29 @@
       <div id="player"></div>
     </div>
     <div id="output" class="center">
-      <div id="selection">
+      <div id="selection" class="top-row-items">
         <select name="loopType" id="loopType">
           <option value="all">All</option>
           <option value="one">One</option>
           <option value="none">None</option>
         </select>
       </div>
-      <div id="nextprev">
+      <div id="nextprev" class="top-row-items">
         <button type="button" id="prev"><</button>
         <button type="button" id="next">></button>
       </div>
-      <button type="button" id="minimalize">Minimalize</button>
+      <div class="top-row-items">
+        <button type="button" id="minimalize">Minimalize</button>
+        <button type="button" id="clear">Clear</button>
+      </div>
       <div id="currentIndex" class="slightly-hidden">(1 / 1)</div>
     </div>
-    <div id="videos" class="center">
+    <div id="videos">
       <div id="video0" class="videoContainer">
       </div>
     </div>
     <div class="center">
-      <div id="version">Beta 0.9</div>
+      <div id="version">Beta 0.10</div>
       <p id="instructions" class="slightly-hidden">
         Put YouTube links in the input boxes, then hit "Play" on the video you want to play to start.<br>
         Press '+' to get more slots, and '-' to remove that slot.<br>

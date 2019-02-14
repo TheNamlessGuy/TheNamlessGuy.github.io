@@ -2,8 +2,10 @@ var player;
 var currentIndex = 0;
 var SAVE_SEPARATOR = ':';
 var CURRENT_URL = null;
-var TITLE_BASE_NAME = '[TITLE]';
-var BASE_PAGE_TITLE = "YouTube player - Namless Things";
+var TITLE_BASE_NAME = '';
+var TITLE_UNAVAILABLE = '[VIDEO UNAVAILABLE]';
+var BASE_PAGE_TITLE = 'YouTube player - Namless Things';
+var LAST_PLAYER_STATE = -2;
 
 var DEFAULT_VIDEOS = [
   'dQw4w9WgXcQ', // Never Gonna Give You Up
@@ -80,15 +82,15 @@ var DEFAULT_VIDEOS = [
   'AZFuvVdIgSw', // Rappin' For Jesus
   'jofNR_WkoCE', // They bark jesus christ they're basically dogs what did you expect
 ];
-var DEFAULT_VIDEOS_INDEX = 0;
+var DEFAULT_VIDEOS_INDEX = -1;
 
 function getDefaultVideo() {
   if (CURRENT_URL.searchParams.get('DEFAULT_NO_RANDOM') == null) {
     return DEFAULT_VIDEOS[Math.floor(Math.random() * DEFAULT_VIDEOS.length)];
   }
-  var video = DEFAULT_VIDEOS[DEFAULT_VIDEOS_INDEX];
+
   DEFAULT_VIDEOS_INDEX = (DEFAULT_VIDEOS_INDEX + 1) % DEFAULT_VIDEOS.length;
-  return video;
+  return DEFAULT_VIDEOS[DEFAULT_VIDEOS_INDEX];
 }
 
 function playVideo(newIndex) {
@@ -286,14 +288,24 @@ function next(selection) {
   }
 }
 
+function getLoopType() {
+  return document.getElementById('loopType').options[loopType.selectedIndex].value;
+}
+
 function onPlayerStateChange(event) {
   if (event.data === YT.PlayerState.ENDED) {
-    next(document.getElementById('loopType').options[loopType.selectedIndex].value);
+    next(getLoopType());
+  } else if (event.data === YT.PlayerState.UNSTARTED && LAST_PLAYER_STATE === YT.PlayerState.BUFFERING) {
+    // 'Video unavailable'
+    setTitleOfVideoID(player.getVideoData().video_id, TITLE_UNAVAILABLE);
+    next(getLoopType());
   }
   if (event.data === YT.PlayerState.PLAYING) {
     setTitleOfVideoID(player.getVideoData().video_id, player.getVideoData().title);
     setPageTitle(player.getVideoData().title);
   }
+
+  LAST_PLAYER_STATE = event.data;
 }
 
 function setTitleOfVideoID(id, title) {
@@ -354,8 +366,8 @@ function load() {
   }
 }
 
-function getSaveString() {
-  var retval = "";
+function getVideoSaveString() {
+  var retval = '';
   var videos = document.getElementsByClassName('video');
   for (var i = 0; i < videos.length; i++) {
     retval += getVideoID(videos[i].id) + SAVE_SEPARATOR;
@@ -364,12 +376,15 @@ function getSaveString() {
 }
 
 function save() {
-  var saveString = getSaveString();
-  if (saveString == '') {
+  var videoSaveString = getVideoSaveString();
+  if (videoSaveString == '') {
     CURRENT_URL.searchParams.delete('v');
   } else {
-    CURRENT_URL.searchParams.set('v', saveString);
+    CURRENT_URL.searchParams.set('v', videoSaveString);
   }
+
+  CURRENT_URL.searchParams.set('loop', getLoopType());
+
   window.history.replaceState(null, null, CURRENT_URL.href);
 }
 
@@ -380,7 +395,7 @@ function minimalize() {
   }
 }
 
-function clear() {
+function reset() {
   if (player != null) {
     player.stopVideo();
   }
@@ -392,8 +407,15 @@ function clear() {
 
   videos[0].getElementsByClassName('video')[0].value = '';
   videos[0].getElementsByClassName('video-title')[0].innerHTML = TITLE_BASE_NAME;
+  setPageTitle(null);
+  displayError('');
 
+  document.getElementById('loopType').value = 'all';
+  currentIndex = 0;
+  DEFAULT_VIDEOS_INDEX = -1;
   setIndexDisplay();
+
+  save();
 }
 
 window.onload = function() {
@@ -403,23 +425,34 @@ window.onload = function() {
   document.getElementById('minus0').style.visibility = 'hidden';
 
   document.getElementById('next').onclick = () => {
-    next("all");
+    next('all');
   }
 
   document.getElementById('prev').onclick = () => {
-    prev("all");
+    prev('all');
   }
 
   document.getElementById('minimalize').onclick = () => {
     minimalize();
   }
 
-  document.getElementById('clear').onclick = () => {
-    clear();
+  document.getElementById('reset').onclick = () => {
+    reset();
+  }
+
+  document.getElementById('loopType').onchange = () => {
+    save();
   }
 
   CURRENT_URL = new URL(window.location.href);
   load();
+
+  var loop = CURRENT_URL.searchParams.get('loop');
+  if (loop != null && ['all', 'one', 'none'].includes(loop)) {
+    document.getElementById('loopType').value = loop;
+  } else {
+    save();
+  }
 
   var autoplayIndex = CURRENT_URL.searchParams.get('autoplay');
   if (autoplayIndex != null) {
@@ -432,5 +465,5 @@ function displayError(msg) {
 }
 
 window.onerror = function() {
-  displayError("Something went wrong, please check the dev console");
+  displayError('Something went wrong, please check the dev console');
 }

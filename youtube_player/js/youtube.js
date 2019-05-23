@@ -19,7 +19,7 @@ function onPlayerStateChange(event) {
   } else if (event.data === YT.PlayerState.UNSTARTED && lastPlayerState === YT.PlayerState.BUFFERING) {
     // 'Video unavailable'
     setTitleOfVideoID(player.getVideoData().video_id, TITLE_UNAVAILABLE);
-    next(getLoopType());
+    next('none');
   }
   if (event.data === YT.PlayerState.PLAYING) {
     setTitleOfVideoID(player.getVideoData().video_id, player.getVideoData().title);

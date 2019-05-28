@@ -1,6 +1,6 @@
 // import { SAVE_SEPARATOR, TITLE_BASE_NAME, TITLE_UNAVAILABLE, BASE_PAGE_TITLE } from './constants';
 // import { save, load } from './io';
-// import { getVideoID, minimalize, reset, findIndexOfID, setActiveVideo, getDefaultVideo, setIndexDisplay } from './helpers';
+// import { getVideoID, minimize, reset, findIndexOfID, setActiveVideo, getDefaultVideo, setIndexDisplay } from './helpers';
 // import { startYouTube } from './youtube';
 
 let player = null;
@@ -17,7 +17,7 @@ function setPageTitle(title) {
 
 function playVideo(index) {
   setActiveVideo(currentIndex, false);
-  currentIndex = index;
+  currentIndex = parseInt(index, 10);
   setActiveVideo(currentIndex, true);
 
   setIndexDisplay();
@@ -157,13 +157,17 @@ function prev(loopType) {
 window.addEventListener('load', () => {
   setPageTitle(null);
 
-  fillVideoContainer(document.getElementsByClassName('video-container')[0], 0);
+  let container = document.createElement('div');
+  container.id = 'video0';
+  container.classList.add('video-container');
+  document.getElementById('videos').appendChild(container);
+  fillVideoContainer(container, 0);
   document.getElementById('minus0').style.visibility = 'hidden';
   setIndexDisplay();
 
   document.getElementById('next').addEventListener('click', () => { next('all'); });
   document.getElementById('prev').addEventListener('click', () => { prev('all'); });
-  document.getElementById('minimalize').addEventListener('click', () => { minimalize(); });
+  document.getElementById('minimize').addEventListener('click', () => { minimize(); });
   document.getElementById('reset').addEventListener('click', () => { reset(); });
   document.getElementById('loopType').addEventListener('change', () => { save(); });
 

@@ -21,7 +21,7 @@ function getVideoID(id) {
   return video;
 }
 
-function minimalize() {
+function minimize() {
   let videos = document.getElementsByClassName('video');
   for (let i = 0; i < videos.length; i++) {
     videos[i].value = getVideoID(videos[i].id);

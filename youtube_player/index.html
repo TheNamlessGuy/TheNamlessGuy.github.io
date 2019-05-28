@@ -5,12 +5,12 @@
       <title>If you're seeing this something went terribly wrong</title>
       <link rel="stylesheet" type="text/css" href="index.min.css"/>
       <!--<link rel="stylesheet" type="text/css" href="index.css"/>-->
-      <!--<script src="index.min.js"></script>-->
-      <script src="js/constants.js"></script>
+      <script src="index.min.js"></script>
+      <!--<script src="js/constants.js"></script>
       <script src="js/helpers.js"></script>
       <script src="js/io.js"></script>
       <script src="js/youtube.js"></script>
-      <script src="js/general.js"></script>
+      <script src="js/general.js"></script>-->
   </head>
   <body>
     <div id="playerWrapper" class="center">
@@ -18,35 +18,29 @@
     </div>
     <div id="output" class="center">
       <div id="selection" class="top-row-items">
-        <select name="loopType" id="loopType">
+        <select name="loopType" id="loopType" title="Loop type">
           <option value="all">All</option>
           <option value="one">One</option>
           <option value="none">None</option>
         </select>
       </div>
       <div id="nextprev" class="top-row-items">
-        <button type="button" id="prev"><</button>
-        <button type="button" id="next">></button>
+        <button type="button" id="prev" title="Previous video">&lt;</button>
+        <button type="button" id="next" title="Next video">&gt;</button>
       </div>
       <div class="top-row-items">
-        <button type="button" id="minimalize">Minimalize</button>
-        <button type="button" id="reset">Reset</button>
+        <button type="button" id="minimize" title="Reduce all links to video IDs only">Minimize</button>
+        <button type="button" id="reset" title="Reset the page">Reset</button>
       </div>
       <div id="currentIndex" class="slightly-hidden">(1 / 1)</div>
     </div>
-    <div id="videos">
-      <div id="video0" class="video-container">
-      </div>
-    </div>
+    <div id="videos"></div>
     <div class="center">
-      <div id="version">Beta 0.12</div>
       <p id="instructions" class="slightly-hidden">
-        Put YouTube links in the input boxes, then hit "Play" on the video you want to play to start.<br>
-        Press '+' to get more slots, and '-' to remove that slot.<br>
-        Use the drop down menu to select what kind of looping to do.<br>
+        Put YouTube links (or just video IDs) in the input boxes, then hit "Play".<br>
         <br>
         GET parameters:<br>
-        <b>autoplay=[index]</b> to autoplay that index<br>
+        <b>autoplay=[index]</b> to autoplay that index <i class="slightly-more-hidden">(NOTE: This might break the site if autoplay is turned off)</i><br>
         <b>DEFAULT_NO_RANDOM</b> to have the top secret default playlist not be random
       </p>
       <p id="error"></p>

@@ -1,10 +1,10 @@
-var canvas;
-var g;
-var controls;
-var playareaSize;
-var score;
-var isGameover = false;
-var player = {
+let canvas;
+let g;
+let controls;
+let playareaSize;
+let score;
+let isGameover = false;
+let player = {
   x: 3,
   y: 0,
   dir: 'r',
@@ -14,16 +14,16 @@ var player = {
   maxRespawnTick: 25,
   respawntick: this.maxRespawnTick,
 }
-var trail;
-var tetrises = [];
+let trail;
+let tetrises = [];
 
-var BLOCK_SIZE = 73;
-var PLAYER_Z = 0;
-var TETRIS_Z = 1;
-var POINT_Z = 2;
+let BLOCK_SIZE = 73;
+let PLAYER_Z = 0;
+let TETRIS_Z = 1;
+let POINT_Z = 2;
 
 // PLAY AREA 9x15x3
-var playArea = [
+let playArea = [
   [[null, null, null], [null, null, null], [null, null, null], [null, null, null], [null, null, null], [null, null, null], [null, null, null], [null, null, null], [null, null, null]],
   [[null, null, null], [null, null, null], [null, null, null], [null, null, null], [null, null, null], [null, null, null], [null, null, null], [null, null, null], [null, null, null]],
   [[null, null, null], [null, null, null], [null, null, null], [null, null, null], [null, null, null], [null, null, null], [null, null, null], [null, null, null], [null, null, null]],
@@ -42,8 +42,8 @@ var playArea = [
 ];
 
 function pointExists() {
-  for (var y = 0; y < playArea.length; y++) {
-    for (var x = 0; x < playArea[y].length; x++) {
+  for (let y = 0; y < playArea.length; y++) {
+    for (let x = 0; x < playArea[y].length; x++) {
       if (playArea[y][x][POINT_Z] != null) {
         return true;
       }
@@ -53,8 +53,8 @@ function pointExists() {
 }
 
 function noFallingBlocks() {
-  for (var y = 0; y < playArea.length; y++) {
-    for (var x = 0; x < playArea[y].length; x++) {
+  for (let y = 0; y < playArea.length; y++) {
+    for (let x = 0; x < playArea[y].length; x++) {
       if (playArea[y][x][TETRIS_Z] != null && playArea[y][x][TETRIS_Z].falling) {
         return false;
       }
@@ -68,13 +68,13 @@ function rand(startval, endval) {
 }
 
 function spawnPoint() {
-  var x, y;
+  let x, y;
   do {
     x = rand(0, playArea[0].length - 1);
     y = rand(3, playArea.length - 5);
   } while (playArea[y][x][TETRIS_Z] != null || playArea[0][x][TETRIS_Z] != null);
 
-  for (var i = 0; i < y; i++) {
+  for (let i = 0; i < y; i++) {
     if (playArea[i][x][TETRIS_Z] != null) {
       y = i - 1;
       break;
@@ -101,7 +101,7 @@ function spawnPlayer() {
 function destroyTetris(x, y) {
   playArea[y][x][TETRIS_Z] = null;
 
-  var i = 0;
+  let i = 0;
   while (i < tetrises.length) {
     tetrises[i].remove(x, y);
     if (tetrises[i].locations.length == 0) {
@@ -113,9 +113,9 @@ function destroyTetris(x, y) {
 }
 
 function checkForFilledRows() {
-  for (var y = 0; y < playArea.length; y++) {
+  for (let y = 0; y < playArea.length; y++) {
     rowIsFilled = true;
-    for (var x = 0; x < playArea[0].length; x++) {
+    for (let x = 0; x < playArea[0].length; x++) {
       if (playArea[y][x][TETRIS_Z] == null || playArea[y][x][TETRIS_Z].falling) {
         rowIsFilled = false;
       }
@@ -124,7 +124,7 @@ function checkForFilledRows() {
       continue;
     }
 
-    for (var x = 0; x < playArea[0].length; x++) {
+    for (let x = 0; x < playArea[0].length; x++) {
       destroyTetris(x, y);
       score += 10;
     }
@@ -164,8 +164,8 @@ function moveTo(x, y) {
     return;
   }
 
-  var lastX = player.x;
-  var lastY = player.y;
+  let lastX = player.x;
+  let lastY = player.y;
   player.x = x;
   player.y = y;
   playArea[player.y][player.x][PLAYER_Z] = playArea[lastY][lastX][PLAYER_Z];
@@ -201,7 +201,7 @@ function update() {
   }
   player.movetick = player.maxMoveTick;
 
-  for (var i = 0; i < tetrises.length; i++) {
+  for (let i = 0; i < tetrises.length; i++) {
     tetrises[i].update();
   }
   checkForFilledRows();
@@ -282,9 +282,9 @@ function draw() {
   g.fillText(text, (canvas.width / 2) + (playareaSize.w / 2) + 20, playareaSize.h - 20);
 
   // Draw play area
-  for (var y = 0; y < playArea.length; y++) {
-    for (var x = 0; x < playArea[y].length; x++) {
-      for (var z = 0; z < playArea[y][x].length; z++) {
+  for (let y = 0; y < playArea.length; y++) {
+    for (let x = 0; x < playArea[y].length; x++) {
+      for (let z = 0; z < playArea[y][x].length; z++) {
         if (playArea[y][x][z] != null) {
           playArea[y][x][z].draw(playareaSize.x + (x * BLOCK_SIZE), playareaSize.y + (y * BLOCK_SIZE), BLOCK_SIZE);
           break;
@@ -304,9 +304,9 @@ function draw() {
 }
 
 function respawn() {
-  for (var y = 0; y < playArea.length; y++) {
-    for (var x = 0; x < playArea[y].length; x++) {
-      for (var z = 0; z < playArea[y][x].length; z++) {
+  for (let y = 0; y < playArea.length; y++) {
+    for (let x = 0; x < playArea[y].length; x++) {
+      for (let z = 0; z < playArea[y][x].length; z++) {
         playArea[y][x][z] = null;
       }
     }

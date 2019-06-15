@@ -1,15 +1,15 @@
-var canvas;
-var g;
-var paddle;
-var controls;
-var balls = [];
-var walls = [];
+let canvas;
+let g;
+let paddle;
+let controls;
+let balls = [];
+let walls = [];
 
-var startTime = 0;
-var maxBalls = 1;
+let startTime = 0;
+let maxBalls = 1;
 
 function filterBalls() {
-  var i = 0;
+  let i = 0;
   while (i < balls.length) {
     if (!balls[i].collidesWith({ x: -15, y: 0, w: canvas.width, h: canvas.height })) {
       balls.splice(i, 1);
@@ -19,7 +19,7 @@ function filterBalls() {
 
 function update() {
   paddle.update(controls);
-  for (var i in balls) {
+  for (let i in balls) {
     if (balls[i].update(paddle, walls)) {
       // if hit paddle
       spawnBall();
@@ -36,15 +36,15 @@ function draw() {
   g.clearRect(0, 0, canvas.width, canvas.height);
 
   paddle.draw();
-  for (var w in walls) { walls[w].draw(); }
+  for (let w in walls) { walls[w].draw(); }
 
   g.fillStyle = "#fff";
-  var text = "Time alive: " + Math.ceil(Math.abs(new Date().getTime() - startTime) / (1000));
+  let text = "Time alive: " + Math.ceil(Math.abs(new Date().getTime() - startTime) / (1000));
   g.fillText(text, (canvas.width - g.measureText(text).width) / 2, 70);
   text = "Maximum balls alive: " + maxBalls;
   g.fillText(text, (canvas.width - g.measureText(text).width) / 2, 150);
 
-  for (var b in balls) { balls[b].draw(); }
+  for (let b in balls) { balls[b].draw(); }
 }
 
 function loop() {
@@ -54,14 +54,14 @@ function loop() {
 }
 
 function spawnBall() {
-  var y = 0;
+  let y = 0;
   do {
     y = rand(50, canvas.height - 50);
   } while (y >= paddle.y - 10 && y <= paddle.y + paddle.h + 10);
 
-  var speed = rand(5, 10);
-  var size = 15 - speed;
-  var dy = either(-speed, speed);
+  let speed = rand(5, 10);
+  let size = 15 - speed;
+  let dy = either(-speed, speed);
 
   balls.push(new Ball(-size, y, size, speed, dy));
 
@@ -75,7 +75,7 @@ window.onload = function() {
   paddle = new Paddle();
   spawnBall();
 
-  var wallThick = 25;
+  let wallThick = 25;
   // Y-walls
   walls.push(new Wall(0, 0, canvas.width, wallThick, 'y'));
   walls.push(new Wall(0, canvas.height - wallThick, canvas.width, wallThick, 'y'));

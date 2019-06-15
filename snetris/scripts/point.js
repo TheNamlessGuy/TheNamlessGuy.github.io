@@ -3,8 +3,8 @@ function Point() {
 
   this.draw = function(x, y, s) {
     g.beginPath();
-    var half = s / 2;
-    var quart = half / 2;
+    let half = s / 2;
+    let quart = half / 2;
     g.rect(x + quart, y + quart, half, half);
     g.fillStyle = this.color;
     g.fill();

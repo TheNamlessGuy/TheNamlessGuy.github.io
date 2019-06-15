@@ -1,7 +1,7 @@
 function Tetris(locations) {
   this.color = Tetris.colors[rand(0, Tetris.colors.length - 1)];
   this.locations = [];
-  for (var i = 0; i < locations.length; i++) {
+  for (let i = 0; i < locations.length; i++) {
     this.locations.push({x: locations[i].x, y: locations[i].y});
     playArea[locations[i].y][locations[i].x][TETRIS_Z] = playArea[locations[i].y][locations[i].x][PLAYER_Z];
     playArea[locations[i].y][locations[i].x][PLAYER_Z] = null;
@@ -16,7 +16,7 @@ function Tetris(locations) {
     if (playArea[y][x][TETRIS_Z] == null && playArea[y][x][PLAYER_Z] == null) {
       return false;
     }
-    for (var i = 0; i < this.locations.length; i++) {
+    for (let i = 0; i < this.locations.length; i++) {
       if (this.locations[i].x == x && this.locations[i].y == y) {
         return false;
       }
@@ -25,8 +25,8 @@ function Tetris(locations) {
   }
 
   this.update = function() {
-    var falling = true;
-    for (var i = 0; i < this.locations.length; i++) {
+    let falling = true;
+    for (let i = 0; i < this.locations.length; i++) {
       playArea[this.locations[i].y][this.locations[i].x][TETRIS_Z].falling = false;
       if (this.locations[i].y == playArea.length - 1 || this.collision(this.locations[i].x, this.locations[i].y + 1)) {
         falling = false;
@@ -37,9 +37,9 @@ function Tetris(locations) {
       return;
     }
 
-    for (var i = 0; i < this.locations.length; i++) {
+    for (let i = 0; i < this.locations.length; i++) {
       playArea[this.locations[i].y][this.locations[i].x][TETRIS_Z].falling = true;
-      var oldY = this.locations[i].y;
+      let oldY = this.locations[i].y;
       this.locations[i].y += 1;
       playArea[this.locations[i].y][this.locations[i].x][TETRIS_Z] = playArea[oldY][this.locations[i].x][TETRIS_Z];
       playArea[oldY][this.locations[i].x][TETRIS_Z] = null;
@@ -47,7 +47,7 @@ function Tetris(locations) {
   }
 
   this.remove = function(x, y) {
-    for (var i = 0; i < this.locations.length; i++) {
+    for (let i = 0; i < this.locations.length; i++) {
       if (this.locations[i].x == x && this.locations[i].y == y) {
         this.locations.splice(i, 1);
         break;

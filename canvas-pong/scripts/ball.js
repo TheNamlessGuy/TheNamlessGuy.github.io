@@ -33,8 +33,8 @@ function Ball(x, y, size, dx, dy) {
   }
 
   this.update = function(paddle, walls) {
-    var hitPaddle = false;
-    for (var i in walls) {
+    let hitPaddle = false;
+    for (let i in walls) {
       if (this.collidesWith(walls[i])) {
         this.turn(walls[i].turn);
       }

@@ -42,7 +42,11 @@ function setTitleOfVideoID(videoID, title) {
   for (let i = 0; i < videos.length; i++) {
     if (getVideoID(videos[i].id) !== videoID) { continue; }
 
-    videos[i].parentElement.getElementsByClassName('video-title')[0].innerHTML = title;
+    let titleElem = videos[i].parentElement.getElementsByClassName('video-title')[0];
+    if (titleElem.innerHTML !== title) {
+      titleElem.innerHTML = title;
+      save();
+    }
   }
 }
 

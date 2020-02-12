@@ -6,14 +6,13 @@
 let player = null;
 let currentURL = null;
 let currentIndex = 0;
-let loading = false;
 
 function setPageTitle(title) {
-  if (title != null) {
-    document.title = '"' + title + '" - ' + BASE_PAGE_TITLE;
-  } else {
-    document.title = BASE_PAGE_TITLE;
+  if (title == null) {
+    title = '"' + document.getElementById('title' + currentIndex).innerHTML + '" on ' + BASE_PAGE_TITLE;
   }
+
+  document.title = title;
 }
 
 function playVideo(index) {
@@ -160,7 +159,7 @@ function prev(loopType) {
 }
 
 window.addEventListener('load', () => {
-  setPageTitle(null);
+  setPageTitle(BASE_PAGE_TITLE);
 
   let container = document.createElement('div');
   container.id = 'video0';
@@ -188,7 +187,6 @@ window.addEventListener('load', () => {
 
   let loadIndex = currentURL.searchParams.get('load');
   if (loadIndex != null) {
-    loading = true;
     playIndex(loadIndex);
   }
 });

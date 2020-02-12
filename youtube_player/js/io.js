@@ -1,4 +1,4 @@
-// import { currentURL } from './general';
+// import { currentURL, currentIndex } from './general';
 // import { getLoopType, getVideoID } from './helpers';
 // import { SAVE_SEPARATOR, TITLE_BASE_NAME } from './constants';
 
@@ -26,6 +26,8 @@ function save() {
   } else {
     currentURL.searchParams.set('t', titleSaveString);
   }
+
+  currentURL.searchParams.set('load', currentIndex);
 
   window.history.replaceState(null, null, currentURL.href);
 }

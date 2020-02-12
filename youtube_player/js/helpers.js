@@ -38,7 +38,7 @@ function reset() {
 
   videos[0].getElementsByClassName('video')[0].value = '';
   videos[0].getElementsByClassName('video-title')[0].innerHTML = TITLE_BASE_NAME;
-  setPageTitle(null);
+  setPageTitle(TITLE_BASE_NAME);
   displayError('');
 
   document.getElementById('loopType').value = 'all';

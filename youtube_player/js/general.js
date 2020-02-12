@@ -6,6 +6,7 @@
 let player = null;
 let currentURL = null;
 let currentIndex = 0;
+let loading = false;
 
 function setPageTitle(title) {
   if (title != null) {
@@ -43,7 +44,7 @@ function setTitleOfVideoID(videoID, title) {
     if (getVideoID(videos[i].id) !== videoID) { continue; }
 
     let titleElem = videos[i].parentElement.getElementsByClassName('video-title')[0];
-    if (titleElem.innerHTML !== title) {
+    if (titleElem.innerHTML === TITLE_BASE_NAME || titleElem.innerHTML === TITLE_UNAVAILABLE) {
       titleElem.innerHTML = title;
       save();
     }
@@ -185,9 +186,10 @@ window.addEventListener('load', () => {
     save();
   }
 
-  let autoplayIndex = currentURL.searchParams.get('autoplay');
-  if (autoplayIndex != null) {
-    playIndex(autoplayIndex);
+  let loadIndex = currentURL.searchParams.get('load');
+  if (loadIndex != null) {
+    loading = true;
+    playIndex(loadIndex);
   }
 });
 

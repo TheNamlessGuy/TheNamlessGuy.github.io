@@ -21,7 +21,7 @@ function save() {
     currentURL.searchParams.set('v', videoSaveString);
   }
 
-  if (!saveTitles || titleSaveString === '') {
+  if (!document.getElementById('save-titles').checked || titleSaveString === '') {
     currentURL.searchParams.delete('t');
   } else {
     currentURL.searchParams.set('t', titleSaveString);

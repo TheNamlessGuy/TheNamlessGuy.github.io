@@ -1,4 +1,4 @@
-// import { player, setIndexDisplay, setPageTitle, displayError, currentURL, currentIndex } from './general';
+// import { player, setIndexDisplay, setPageTitle, displayError, currentURL, currentIndex, saveTitles } from './general';
 // import { TITLE_BASE_NAME, DEFAULT_VIDEOS } from './constants';
 // import { save } from './io';
 
@@ -95,4 +95,9 @@ function setIndexDisplay() {
 
 function getLoopType() {
   return document.getElementById('loopType').options[loopType.selectedIndex].value;
+}
+
+function toggleSaveTitles() {
+  saveTitles = !saveTitles;
+  save();
 }

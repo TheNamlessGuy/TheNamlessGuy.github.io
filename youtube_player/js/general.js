@@ -1,12 +1,11 @@
 // import { SAVE_SEPARATOR, TITLE_BASE_NAME, TITLE_UNAVAILABLE, BASE_PAGE_TITLE } from './constants';
 // import { save, load } from './io';
-// import { getVideoID, minimize, reset, findIndexOfID, setActiveVideo, getDefaultVideo, setIndexDisplay, toggleSaveTitles } from './helpers';
+// import { getVideoID, minimize, reset, findIndexOfID, setActiveVideo, getDefaultVideo, setIndexDisplay } from './helpers';
 // import { startYouTube } from './youtube';
 
 let player = null;
 let currentURL = null;
 let currentIndex = 0;
-let saveTitles = true;
 
 function setPageTitle(title) {
   if (title == null) {
@@ -175,7 +174,7 @@ window.addEventListener('load', () => {
   document.getElementById('minimize').addEventListener('click', () => { minimize(); });
   document.getElementById('reset').addEventListener('click', () => { reset(); });
   document.getElementById('loopType').addEventListener('change', () => { save(); });
-  document.getElementById('save-titles').addEventListener('change', () => { toggleSaveTitles(); });
+  document.getElementById('save-titles').addEventListener('change', () => { save(); });
 
   currentURL = new URL(window.location.href);
   load();

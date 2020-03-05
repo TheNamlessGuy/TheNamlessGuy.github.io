@@ -1,4 +1,4 @@
-// import { currentURL, currentIndex } from './general';
+// import { currentURL, currentIndex, saveTitles } from './general';
 // import { getLoopType, getVideoID } from './helpers';
 // import { SAVE_SEPARATOR, TITLE_BASE_NAME } from './constants';
 
@@ -21,7 +21,7 @@ function save() {
     currentURL.searchParams.set('v', videoSaveString);
   }
 
-  if (titleSaveString === '') {
+  if (!saveTitles || titleSaveString === '') {
     currentURL.searchParams.delete('t');
   } else {
     currentURL.searchParams.set('t', titleSaveString);

@@ -21,10 +21,15 @@ function save() {
     currentURL.searchParams.set('v', videoSaveString);
   }
 
-  if (!document.getElementById('save-titles').checked || titleSaveString === '') {
+  if (!document.getElementById('save-titles').checked) {
     currentURL.searchParams.delete('t');
+    currentURL.searchParams.set('dnst', '');
+  } else if (titleSaveString === '') {
+    currentURL.searchParams.delete('t');
+    currentURL.searchParams.delete('dnst');
   } else {
     currentURL.searchParams.set('t', titleSaveString);
+    currentURL.searchParams.delete('dnst');
   }
 
   currentURL.searchParams.set('load', currentIndex);
@@ -42,6 +47,10 @@ function load_video(videoID, title, id) {
 }
 
 function load() {
+  if (currentURL.searchParams.get('dnst') != null) {
+    document.getElementById('save-titles').checked = false;
+  }
+
   let videos = currentURL.searchParams.get('v');
   if (videos == null) { return; }
   let titles = currentURL.searchParams.get('t');

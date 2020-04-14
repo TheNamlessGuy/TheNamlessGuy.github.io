@@ -158,6 +158,14 @@ function prev(loopType) {
   }
 }
 
+function togglePlay() {
+  if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+    player.pauseVideo();
+  } else {
+    player.playVideo();
+  }
+}
+
 window.addEventListener('load', () => {
   setPageTitle(BASE_PAGE_TITLE);
 
@@ -190,6 +198,20 @@ window.addEventListener('load', () => {
   if (loadIndex != null) {
     playIndex(loadIndex);
   }
+  
+  document.addEventListener('keyup', (e) => {
+    switch(e.keyCode) {
+      case 37: // Left
+        prev('all');
+        break;
+      case 39: // Right
+        next('all');
+        break;
+      case 75: // k
+        togglePlay();
+        break;
+    }
+  }, false);
 });
 
 function displayError(error) { document.getElementById('error').innerHTML = error; }

@@ -166,6 +166,16 @@ function togglePlay() {
   }
 }
 
+function replayCurrent() {
+  let wasPlaying = (player.getPlayerState() === YT.PlayerState.PLAYING);
+
+  player.stopVideo();
+
+  if (wasPlaying) {
+    player.playVideo();
+  }
+}
+
 window.addEventListener('load', () => {
   setPageTitle(BASE_PAGE_TITLE);
 
@@ -209,6 +219,9 @@ window.addEventListener('load', () => {
         break;
       case 75: // k
         togglePlay();
+        break;
+      case 82: // r
+        replayCurrent();
         break;
     }
   }, false);

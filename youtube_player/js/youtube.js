@@ -12,7 +12,7 @@ function onPlayerReady() {
   playVideo(currentIndex);
 }
 
-function onError(event) {
+function onPlayerError(event) {
   if (event.data === 101 || event.data === 150) { // Same thing
     // Video is unavailable
     setTitleOfVideoID(player.getVideoData().video_id, TITLE_UNAVAILABLE);
@@ -21,6 +21,10 @@ function onError(event) {
 }
 
 function onPlayerStateChange(event) {
+  if (event.data === -1 && player.getVideoData().title !== '') {
+    setTitleOfVideoID(player.getVideoData().video_id, player.getVideoData().title);
+  }
+
   if (event.data === YT.PlayerState.ENDED) {
     next(getLoopType());
   } else if (event.data === YT.PlayerState.PLAYING) {
@@ -37,7 +41,7 @@ function onYouTubeIframeAPIReady() {
     events: {
       'onReady': onPlayerReady,
       'onStateChange': onPlayerStateChange,
-      'onError': onError,
+      'onError': onPlayerError,
     }
   });
 }

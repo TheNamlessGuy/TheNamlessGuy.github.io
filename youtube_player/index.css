@@ -29,6 +29,14 @@ body {
   margin-right: 5px;
 }
 
+#save-link-location {
+  margin-top: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
 .slightly-hidden {
   color: #555;
 }
@@ -40,6 +48,9 @@ body {
 .video-title {
   display: inline;
   margin-left: 15px;
+  background-color: #000;
+  border-color: #111;
+  color: #FFF;
 }
 
 #currentIndex {
@@ -48,7 +59,7 @@ body {
 
 .top-row-items {
   display: inline-block;
-  margin-left: 25px;
+  margin-left: 15px;
   margin-top: 10px;
 }
 

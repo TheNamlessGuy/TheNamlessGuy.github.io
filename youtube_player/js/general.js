@@ -9,7 +9,7 @@ let currentIndex = 0;
 
 function setPageTitle(title) {
   if (title == null) {
-    title = '"' + document.getElementById('title' + currentIndex).innerHTML + '" on ' + BASE_PAGE_TITLE;
+    title = '"' + document.getElementById('title' + currentIndex).value + '" on ' + BASE_PAGE_TITLE;
   }
 
   document.title = title;
@@ -43,8 +43,8 @@ function setTitleOfVideoID(videoID, title) {
     if (getVideoID(videos[i].id) !== videoID) { continue; }
 
     let titleElem = videos[i].parentElement.getElementsByClassName('video-title')[0];
-    if (titleElem.innerHTML === TITLE_BASE_NAME || titleElem.innerHTML === TITLE_UNAVAILABLE) {
-      titleElem.innerHTML = title;
+    if (titleElem.value === TITLE_BASE_NAME || titleElem.value === TITLE_UNAVAILABLE) {
+      setVideoElemTitle(titleElem, title);
       save();
     }
   }
@@ -74,45 +74,57 @@ function minus(id) {
 }
 
 function fillVideoContainer(container, newID) {
+  // Index
   let index = document.createElement('div');
   index.id = 'index' + newID;
   index.innerHTML = '';
   index.classList.add('video-index');
   index.classList.add('slightly-hidden');
 
+  // Play button
   let play = document.createElement('button');
   play.type = 'button';
   play.innerHTML = 'Play';
   play.id = 'play' + newID;
   play.addEventListener('click', () => { playIndex(findIndexOfID(newID)); });
 
-  let title = document.createElement('div');
+  // Title
+  let title = document.createElement('input');
+  title.type = 'text';
+  title.value = TITLE_BASE_NAME;
   title.id = 'title' + newID;
-  title.innerHTML = TITLE_BASE_NAME;
-  title.classList.add('slightly-hidden');
   title.classList.add('video-title');
+  title.addEventListener('input', (e) => {
+    setVideoTitle(newID, title.value);
+    save();
+  });
 
+  // Video ID
   let video = document.createElement('input');
   video.id = newID;
   video.classList.add('video');
   video.type = 'text';
   video.addEventListener('change', () => {
+    video.value = getVideoID(newID); // Minimize
+    setVideoTitle(newID, TITLE_BASE_NAME);
     save();
-    title.innerHTML = TITLE_BASE_NAME;
-  })
+  });
 
+  // +
   let plusElem = document.createElement('button');
   plusElem.type = 'button';
   plusElem.innerHTML = '+';
   plusElem.id = 'plus' + newID;
   plusElem.addEventListener('click', () => { plus(newID) });
 
+  // -
   let minusElem = document.createElement('button');
   minusElem.type = 'button';
   minusElem.innerHTML = '-';
   minusElem.id = 'minus' + newID;
   minusElem.addEventListener('click', () => { minus(newID) });
 
+  // Add to parent
   container.appendChild(play);
   container.appendChild(video);
   container.appendChild(plusElem);
@@ -125,12 +137,20 @@ function next(loopType) {
   let newIndex = -1;
   let total = document.getElementsByClassName('video').length;
 
-  if (loopType === 'all') {
+  let shuffle = document.getElementById('shuffle').checked;
+  if (shuffle && ['all', 'none'].includes(loopType)) {
+    newIndex = currentIndex;
+    while (newIndex === currentIndex) {
+      newIndex = randomInterval(0, total - 1);
+    }
+  } else if (loopType === 'all') {
     newIndex = (currentIndex + 1) % total;
   } else if (loopType === 'one') {
     newIndex = currentIndex;
   } else if (loopType === 'none') {
     newIndex = currentIndex + 1;
+  } else if (loopType === 'dont') {
+    return;
   }
 
   if (newIndex < total) {
@@ -189,10 +209,10 @@ window.addEventListener('load', () => {
 
   document.getElementById('next').addEventListener('click', () => { next('all'); });
   document.getElementById('prev').addEventListener('click', () => { prev('all'); });
-  document.getElementById('minimize').addEventListener('click', () => { minimize(); });
-  document.getElementById('reset').addEventListener('click', () => { reset(); });
+  document.getElementById('save').addEventListener('click', () => { generateJSBookmark(); });
   document.getElementById('loopType').addEventListener('change', () => { save(); });
   document.getElementById('save-titles').addEventListener('change', () => { save(); });
+  document.getElementById('shuffle').addEventListener('change', () => { save(); });
 
   currentURL = new URL(window.location.href);
   load();

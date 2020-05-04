@@ -21,34 +21,6 @@ function getVideoID(id) {
   return video;
 }
 
-function minimize() {
-  let videos = document.getElementsByClassName('video');
-  for (let i = 0; i < videos.length; i++) {
-    videos[i].value = getVideoID(videos[i].id);
-  }
-}
-
-function reset() {
-  if (player != null) { player.stopVideo(); }
-
-  let videos = document.getElementsByClassName('video-container');
-  for (let i = videos.length - 1; i > 0; i--) {
-    videos[i].parentElement.removeChild(videos[i]);
-  }
-
-  videos[0].getElementsByClassName('video')[0].value = '';
-  videos[0].getElementsByClassName('video-title')[0].innerHTML = TITLE_BASE_NAME;
-  setPageTitle(TITLE_BASE_NAME);
-  displayError('');
-
-  document.getElementById('loopType').value = 'all';
-  currentIndex = 0;
-  DEFAULT_VIDEOS_INDEX = -1;
-  setIndexDisplay();
-
-  save();
-}
-
 function findIndexOfID(id) {
   let videos = document.getElementsByClassName('video');
   for (let i = 0; i < videos.length; i++) {
@@ -95,4 +67,17 @@ function setIndexDisplay() {
 
 function getLoopType() {
   return document.getElementById('loopType').options[loopType.selectedIndex].value;
+}
+
+function setVideoTitle(id, title) {
+  setVideoElemTitle(document.getElementById('title' + id), title);
+}
+
+function setVideoElemTitle(elem, title) {
+  elem.value = title;
+  elem.style.width = Math.max(24, title.length) + 'ch';
+}
+
+function randomInterval(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }

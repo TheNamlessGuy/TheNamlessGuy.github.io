@@ -3,6 +3,15 @@ const TITLE_BASE_NAME = '';
 const TITLE_UNAVAILABLE = '[VIDEO UNAVAILABLE]';
 const BASE_PAGE_TITLE = 'YouTube player - Namless Things';
 
+/*
+TODO:
+- Fix minus then plus fucking up indexing somehow
+- Only Play button/k should be able to play video. If changing videos and it wasn't playing before, don't start.
+
+Plugin TODO:
+- Convert ctrl + click => new tab
+*/
+
 const DEFAULT_VIDEOS = [
   'dQw4w9WgXcQ', // Never Gonna Give You Up
   '90qT9ZNy2bo', // Wii Shop Channel Music and there is absolutely nothing wrong with it whatsoever

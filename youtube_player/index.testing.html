@@ -24,19 +24,23 @@
           <option value="all">All</option>
           <option value="one">One</option>
           <option value="none">None</option>
+          <option value="dont">Don't</option>
         </select>
+      </div>
+      <div class="top-row-items">
+        <button type="button" id="save" title="Save playlist to a bookmark">Save</button>
       </div>
       <div id="nextprev" class="top-row-items">
         <button type="button" id="prev" title="Previous video">&lt;</button>
         <button type="button" id="next" title="Next video">&gt;</button>
       </div>
       <div class="top-row-items">
-        <button type="button" id="minimize" title="Reduce all links to video IDs only">Minimize</button>
-        <button type="button" id="reset" title="Reset the page">Reset</button>
-      </div>
-      <div class="top-row-items">
         <input type="checkbox" id="save-titles" checked> Save titles
       </div>
+      <div class="top-row-items">
+        <input type="checkbox" id="shuffle"> Shuffle
+      </div>
+      <div><a href="" id="save-link-location" class="hidden">Bookmark this link to save</a></div>
       <div id="currentIndex" class="slightly-hidden">(1 / 1)</div>
     </div>
     <div id="videos"></div>

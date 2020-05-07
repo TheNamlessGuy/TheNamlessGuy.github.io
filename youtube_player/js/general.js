@@ -1,4 +1,4 @@
-// import { SAVE_SEPARATOR, TITLE_BASE_NAME, TITLE_UNAVAILABLE, BASE_PAGE_TITLE } from './constants';
+// import { SAVE_SEPARATOR, TITLE_BASE_NAME, BASE_PAGE_TITLE } from './constants';
 // import { save, load } from './io';
 // import { getVideoID, minimize, reset, findIndexOfID, setActiveVideo, getDefaultVideo, setIndexDisplay } from './helpers';
 // import { startYouTube } from './youtube';
@@ -43,7 +43,7 @@ function setTitleOfVideoID(videoID, title) {
     if (getVideoID(videos[i].id) !== videoID) { continue; }
 
     let titleElem = videos[i].parentElement.getElementsByClassName('video-title')[0];
-    if (titleElem.value === TITLE_BASE_NAME || titleElem.value === TITLE_UNAVAILABLE) {
+    if (titleElem.value === TITLE_BASE_NAME) {
       setVideoElemTitle(titleElem, title);
       save();
     }
@@ -96,8 +96,10 @@ function fillVideoContainer(container, newID) {
   title.classList.add('video-title');
   title.addEventListener('input', (e) => {
     setVideoTitle(newID, title.value);
+    if (currentIndex === findIndexOfID(newID)) { setPageTitle(null); }
     save();
   });
+  title.addEventListener('keyup', (e) => { e.stopPropagation(); });
 
   // Video ID
   let video = document.createElement('input');

@@ -95,22 +95,23 @@ function loadJSBookmark(videos, loop, index, shuffle, saveTitles) {
   videoContainers[0].getElementsByClassName('video')[0].value = '';
   videoContainers[0].getElementsByClassName('video-title')[0].value = '';
 
-  document.getElementById('loopType').value = loop;
-  currentIndex = (index >= videos.length) ? videos.length - 1 : index;
-  document.getElementById('shuffle').checked = shuffle;
-  document.getElementById('save-titles').checked = saveTitles;
-
+  let oldCurrentIndex = currentIndex;
   for (let video of videos) {
     addVideo(video[0], video[1]);
   }
+  currentIndex = oldCurrentIndex;
 
+  document.getElementById('loopType').value = loop;
+  document.getElementById('shuffle').checked = shuffle;
+  document.getElementById('save-titles').checked = saveTitles;
+
+  setIndexDisplay();
   save();
-  playVideo(currentIndex);
+  playVideo((index >= videos.length - 1) ? videos.length - 1 : index);
 }
 
 function generateJSBookmark() {
   let link = 'javascript:if(window.location.href.startsWith("https://thenamlessguy.github.io/youtube_player/")){loadJSBookmark('
-  // let link = 'javascript:loadJSBookmark('; // For testing
 
   // Videos
   link += '[';
@@ -131,7 +132,6 @@ function generateJSBookmark() {
   link += document.getElementById('save-titles').checked;
 
   link += ');}';
-  // link += ');'; // For testing
   let display = document.getElementById('save-link-location');
   display.href = link;
   display.classList.remove('hidden');

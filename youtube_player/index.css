@@ -53,6 +53,10 @@ body {
   color: #FFF;
 }
 
+.video-title.video-unavailable {
+  color: #F00;
+}
+
 #currentIndex {
   margin-top: 10px;
 }

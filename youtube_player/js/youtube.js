@@ -1,5 +1,5 @@
 // import { player, playVideo, currentIndex, next, setTitleOfVideoID, setPageTitle } from './general'
-// import { getLoopType } from './helpers';
+// import { getLoopType, setVideoIDUnavailable } from './helpers';
 
 function startYouTube() {
   let tag = document.createElement('script');
@@ -15,7 +15,7 @@ function onPlayerReady() {
 function onPlayerError(event) {
   if (event.data === 101 || event.data === 150) { // Same thing
     // Video is unavailable
-    setTitleOfVideoID(player.getVideoData().video_id, TITLE_UNAVAILABLE);
+    setVideoIDUnavailable(player.getVideoData().video_id, true);
     next(getLoopType());
   }
 }
@@ -28,6 +28,7 @@ function onPlayerStateChange(event) {
   if (event.data === YT.PlayerState.ENDED) {
     next(getLoopType());
   } else if (event.data === YT.PlayerState.PLAYING) {
+    setVideoIDUnavailable(player.getVideoData().video_id, false);
     setTitleOfVideoID(player.getVideoData().video_id, player.getVideoData().title);
     setPageTitle(null);
     save();

@@ -1,6 +1,5 @@
 const SAVE_SEPARATOR = ':';
 const TITLE_BASE_NAME = '';
-const TITLE_UNAVAILABLE = '[VIDEO UNAVAILABLE]';
 const BASE_PAGE_TITLE = 'YouTube player - Namless Things';
 
 /*

@@ -81,3 +81,17 @@ function setVideoElemTitle(elem, title) {
 function randomInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
+function setVideoIDUnavailable(id, add) {
+  let videos = document.getElementsByClassName('video');
+  for (let i = 0; i < videos.length; i++) {
+    if (getVideoID(videos[i].id) !== id) { continue; }
+
+    let titleElem = videos[i].parentElement.getElementsByClassName('video-title')[0];
+    if (add) {
+      titleElem.classList.add('video-unavailable');
+    } else {
+      titleElem.classList.remove('video-unavailable');
+    }
+  }
+}

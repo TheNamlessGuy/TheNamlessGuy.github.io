@@ -6,9 +6,12 @@ const BASE_PAGE_TITLE = 'YouTube player - Namless Things';
 TODO:
 - Fix minus then plus fucking up indexing somehow
 - Only Play button/k should be able to play video. If changing videos and it wasn't playing before, don't start.
+- Escape " in JS bookmark save
+- Loop 'dont' sets load to 0 on firefox page refresh (not reload, but when close->open)?
 
 Plugin TODO:
 - Convert ctrl + click => new tab
+- Close popup after button press ALWAYS
 */
 
 const DEFAULT_VIDEOS = [

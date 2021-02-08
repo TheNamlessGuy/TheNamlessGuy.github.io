@@ -135,6 +135,16 @@ function fillVideoContainer(container, newID) {
   container.appendChild(title);
 }
 
+function getLoopAllIndex(backwards, total) {
+  if (backwards) {
+    let retval = currentIndex - 1;
+    if (retval < 0) { retval = total - 1; }
+    return retval;
+  }
+
+  return (currentIndex + 1) % total;
+}
+
 function next(loopType) {
   let newIndex = -1;
   let total = document.getElementsByClassName('video').length;
@@ -146,7 +156,7 @@ function next(loopType) {
       newIndex = randomInterval(0, total - 1);
     }
   } else if (loopType === 'all') {
-    newIndex = (currentIndex + 1) % total;
+    newIndex = getLoopAllIndex(document.getElementById('loop-backwards').checked, total);
   } else if (loopType === 'one') {
     newIndex = currentIndex;
   } else if (loopType === 'none') {
@@ -165,10 +175,7 @@ function prev(loopType) {
   let total = document.getElementsByClassName('video').length;
 
   if (loopType === 'all') {
-    newIndex = currentIndex - 1;
-    if (newIndex < 0) {
-      newIndex = total - 1;
-    }
+    newIndex = getLoopAllIndex(!document.getElementById('loop-backwards').checked, total);
   } else if (loopType === 'one') {
     newIndex = currentIndex;
   } else if (loopType === 'none') {

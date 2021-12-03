@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Namless Reviews</title>
+    <link rel="stylesheet" type="text/css" href="index.css"/>
+    <script src="data.js"></script>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <!-- START: Table header template -->
+    <template id="template-table-header">
+      <thead>
+        <tr id="table-header">
+          <td class="table-header-cell">
+            Title
+            <span class="table-sorter table-sorter-title">⬍</span>
+          </td>
+          <td class="table-header-cell">
+            Score
+            <span class="table-sorter table-sorter-score">⬍</span>
+          </td>
+          <td class="table-header-cell">
+            Reviewed at
+            <span class="table-sorter table-sorter-reviewed-at">⬍</span>
+          </td>
+          <td class="table-header-cell">
+            Description
+            <span class="table-sorter table-sorter-description">⬍</span>
+          </td>
+        </tr>
+      </thead>
+    </template>
+    <!-- END: Table header template -->
+    <!-- START: Table body template -->
+    <template id="template-table-body">
+      <tbody>
+        <td id="table-no-results-row" class="hidden" colspan="4">No results!</td>
+      </tbody>
+    </template>
+    <!-- END: Table body template -->
+    <!-- START: Table row template -->
+    <template id="template-table-row">
+      <tr class="table-row">
+        <td class="table-cell table-cell-title"></td>
+        <td class="table-cell table-cell-score"></td>
+        <td class="table-cell table-cell-reviewed-at"></td>
+        <td class="table-cell table-cell-description"><div></div></td>
+      </tr>
+    </template>
+    <!-- END: Table row template -->
+
+    <div id="container">
+      <div id="text-container">
+        <h1>Reviews</h1>
+        <p>
+          So all other review sites suck, since you either can't review all things, they use a shitty limited scoring system, or what have you. So here we are!<br>
+          If a review doesn't have a review date, it's an old review I made too long ago, and it might not be accurate to how I feel anymore.<br>
+          If a review doesn't have a score, I haven't watched/read/played/listened to/etc it yet. Basically a TODO list.<br>
+        </p>
+        <p>
+          Just so everyone is on the same page, this is the scale I use:
+          <table id="scale-table">
+            <tr>
+              <td>10</td><td>- The best thing ever. No faults, nothing I would have done different personally</td>
+            </tr>
+            <tr>
+              <td>5</td><td>- Incredibly average. Didn't like it, didn't dislike it. See: Avatar (2009)</td>
+            </tr>
+            <tr>
+              <td>0</td><td>- The worst thing ever. Everyone involved should be in jail</td>
+            </tr>
+          </table>
+        </p>
+      </div>
+
+      <div id="search-container">
+        <input id="search" placeholder="Search...">
+        <button id="search-help" title="Separated by space, it searches the data for matches. Start a word with 't:' to search for tags matching everything after the 't:' exactly">?</button>
+      </div>
+      <table id="table"></table>
+    </div>
+
+    <div id="modal-container" class="hidden">
+      <div id="modal">
+        <div id="modal-title-container">
+          <div id="modal-title" class="modal-data"></div>
+          <a id="modal-link" class="modal-data"></a>
+        </div>
+        <div id="modal-score-reviewed-at-container">
+          <div id="modal-score-container">Score: <span id="modal-score" class="modal-data"></span></div>
+          <div id="modal-reviewed-at-container">Reviewed at: <span id="modal-reviewed-at" class="modal-data"></span></div>
+        </div>
+        <div id="modal-description" class="modal-data"></div>
+        <div id="modal-tags-container">
+          Tags: <span id="modal-tags" class="modal-data"></span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,170 @@
+body {
+  background-color: #000;
+  color: #FFF;
+}
+
+.hidden {
+  display: none;
+}
+
+a {
+  color: #FFF;
+}
+
+#container {
+  width: 75vw;
+  margin: 0 auto;
+}
+#container > * {
+  width: 100%;
+}
+
+#text-container {
+  text-align: center;
+}
+
+#scale-table {
+  margin: 0 auto;
+}
+#scale-table tr > td:first-child {
+  text-align: right;
+}
+#scale-table tr > td:last-child {
+  text-align: left;
+}
+#search-container {
+  display: flex;
+  margin-bottom: 15px;
+}
+#search {
+  flex-grow: 1;
+  height: 40px;
+  font-size: 200%;
+  padding: 2px 5px;
+}
+#search-help {
+  margin-left: 5px;
+  width: 40px;
+  font-size: 200%;
+  font-weight: bold;
+}
+
+#modal-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 500;
+  overflow-y: auto;
+}
+
+#modal {
+  position: absolute;
+  background-color: #000;
+  border: 2px solid #FFF;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  color: #FFF;
+  padding: 10px;
+  max-width: 50vw;
+}
+
+.modal-data.empty {
+  font-style: italic;
+}
+
+#modal-title-container {
+  margin-bottom: 25px;
+}
+
+#modal-title {
+  font-size: 200%;
+  font-weight: bold;
+}
+
+#modal-score-reviewed-at-container {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+#modal-score-container {
+  margin-right: 15px;
+}
+
+#modal-tags-container {
+  margin-top: 15px;
+  color: #555;
+}
+
+#table {
+  border-spacing: 0;
+  user-select: none;
+}
+
+#table-no-results-row {
+  border-bottom: 1px solid #FFF;
+  border-right: 1px solid #FFF;
+  font-style: italic;
+  text-align: center;
+}
+
+#table-header {
+  background-color: #333;
+}
+
+.table-row,
+.table-sorter {
+  cursor: pointer;
+}
+
+#table td {
+  padding: 5px;
+
+  border-top: 1px solid #FFF;
+  border-left: 1px solid #FFF;
+}
+#table td:last-child {
+  border-right: 1px solid #FFF;
+}
+#table tr.table-row.last > td {
+  border-bottom: 1px solid #FFF;
+}
+
+td.table-header-cell {
+  white-space: nowrap;
+}
+
+td.table-cell.empty {
+  font-style: italic;
+}
+
+td.table-cell-reviewed-at,
+td.table-cell-title {
+  white-space: nowrap;
+}
+
+td.table-cell-description > div.empty {
+  font-style: italic;
+}
+
+/* https://stackoverflow.com/a/44452722 */
+td.table-cell-description > div {
+  max-height: 1.1em;
+  overflow: hidden;
+  position: relative;
+  color: transparent;
+}
+td.table-cell-description > div::after {
+  content: attr(data-content);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: #FFF;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

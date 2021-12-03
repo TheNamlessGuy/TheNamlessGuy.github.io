@@ -3,72 +3,74 @@
   <head>
     <meta charset="utf-8"/>
     <title>Namless Things</title>
-  <link rel="stylesheet" type="text/css" href="index.css"/>
+    <link rel="stylesheet" type="text/css" href="index.css"/>
   </head>
   <body>
-  <div class="fg">
-    <div class="text">
-      <div class="paragraph"> <!-- <p> apparently cannot contain lists, so this is a workaround -->
-        <div class="title">Welcome</div>
-        <div class="subtitle">
-          Sorry that the site is a pain to look at.<br/>
-          I am a programmer, not a designer after all.
+    <div class="content">
+      <h1>Hello! Enjoy some free links to stuff I've probably made:</h1>
+
+      <div class="separator">Pages on this site</div>
+
+      <div class="link-container">
+        <div class="link-title">
+          <a class="link" href="canvas-pong/">Pong - Browser game</a>
+        </div>
+        <div class="link-description">Something I threw together in about 3 hours in 2017, when I was just starting to learn HTML5 Canvas</div>
+      </div>
+
+      <div class="separator separator-faded"></div>
+
+      <div class="link-container">
+        <div class="link-title">
+          <a class="link" href="snetris/">Snetris - Browser game</a>
+        </div>
+        <div class="link-description">
+          A 2-3 hour game I made back in 2018, which combines Tetris and Snake.<br>
+          Idea gotten from <a href="https://twitter.com/nyunesu/status/1048719578086477825">this twitter post</a>.
         </div>
       </div>
-      <div class="paragraph">
-        Here is a list of smaller projects I've made that are hosted on this site:
-        <ul class="projects">
-          <li>
-            <div class="project-name">
-              <a href="canvas-pong/">Canvas pong</a>
-            </div>
-            <div class="project-description">
-              I wanted to try out HTML5's canvas, and made a simple game.
-            </div>
-          </li>
-          <li>
-            <div class="project-name">
-              <a href="snetris/">Snetris</a>
-            </div>
-            <div class="project-description">
-              A 2-3 hour game I made which combines Tetris and Snake. Idea gotten from <a href="https://twitter.com/nyunesu/status/1048719578086477825">this twitter post</a>.
-            </div>
-          </li>
-          <li>
-            <div class="project-name">
-              <a href="youtube_player/">YouTube player</a>
-            </div>
-            <div class="project-description">
-              YouTube doesn't have builtin functionality to loop playlists, or making a custom "on the fly" playlist, so I made this.
-            </div>
-          </li>
-        </ul>
+
+      <div class="separator separator-faded"></div>
+
+      <div class="link-container">
+        <div class="link-title">
+          <a class="link" href="youtube_player/">YouTube Player</a>
+        </div>
+        <div class="link-description">Youtube's playlist functionality sucks, so I made my own</div>
       </div>
-      Some other projects that are available on my <a href="https://github.com/TheNamlessGuy">GitHub</a>:
-      <ul class="projects">
-        <li>
-          <div class="project-name">
-            <a href="https://github.com/TheNamlessGuy/TrayBot">TrayBot</a>
-          </div>
-          <div class="project-description">
-            A very simple version of the Mac tool <a href="https://en.wikipedia.org/wiki/Spotlight_(software)">Spotlight</a> for Windows, where you can create shortcuts to open folders, programs, run scripts, etc.
-          </div>
-        </li>
-        <li>
-          <div class="project-name">
-            <a href="https://github.com/TheNamlessGuy/NamBot">NamBot</a>
-          </div>
-          <div class="project-description">
-            A basic bot for <a href="https://discordapp.com/">Discord</a>. Has some builtin commands, some games, and a lightweight domain language for creating custom commands.
-          </div>
-        </li>
-      </ul>
-      For a list of some dumb rants I do, check <a href="rants/">here</a>.
+
+      <div class="separator separator-faded"></div>
+
+      <div class="link-container">
+        <div class="link-title">
+          <a class="link" href="rants/">Rants</a>
+        </div>
+        <div class="link-description">Some dumb rants I do sometimes</div>
+      </div>
+
+      <div class="separator separator-faded"></div>
+
+      <div class="link-container">
+        <div class="link-title">
+          <a class="link" href="reviews/">Reviews</a>
+        </div>
+        <div class="link-description">Scoring and stuff for movies, shows, games, etc.</div>
+      </div>
+
+      <div class="separator">
+        <span>Other things on my <a class="link" href="https://github.com/TheNamlessGuy"> GitHub</a></span>
+      </div>
+
+      <div class="link-container">
+        <div class="link-title">
+          <a class="link" href="https://github.com/TheNamlessGuy/TrayBot">TrayBot</a>
+        </div>
+        <div class="link-description">
+          A Windows QoL tool inspired by Mac's Spotlight. You can create shortcuts to open folders, programs, change your clipboard, etc.<br>
+          It was the first thing I tried to write in Win32 API, so excuse the shitty code. I'll rewrite it one day.
+        </div>
+      </div>
+
     </div>
-    <div class="footer">
-      <a href="https://github.com/TheNamlessGuy">My GitHub</a>
-      <a href="https://www.linkedin.com/in/maximilian-bragazzi-ihr%C3%A9n-39a78a120/">My LinkedIn</a>
-    </div>
-  </div>
   </body>
 </html>

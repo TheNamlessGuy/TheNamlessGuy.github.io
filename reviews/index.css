@@ -60,7 +60,7 @@ a {
   overflow-y: auto;
 }
 
-#modal {
+.modal {
   position: absolute;
   background-color: #000;
   border: 2px solid #FFF;
@@ -76,25 +76,32 @@ a {
   font-style: italic;
 }
 
-#modal-title-container {
+#search-help-modal .tag-prefix {
+  font-weight: bold;
+  font-family: monospace;
+}
+
+#search-help-modal .modal-title,
+#review-info-modal .modal-data-title-container {
   margin-bottom: 25px;
 }
 
-#modal-title {
+#search-help-modal .modal-title,
+#review-info-modal .modal-data-title {
   font-size: 200%;
   font-weight: bold;
 }
 
-#modal-score-reviewed-at-container {
+#review-info-modal .modal-data-score-reviewed-at-container {
   display: flex;
   margin-bottom: 15px;
 }
 
-#modal-score-container {
+#review-info-modal .modal-data-score-container {
   margin-right: 15px;
 }
 
-#modal-tags-container {
+#review-info-modal .modal-data-tags-container {
   margin-top: 15px;
   color: #555;
 }
@@ -133,16 +140,14 @@ a {
   border-bottom: 1px solid #FFF;
 }
 
-td.table-header-cell {
-  white-space: nowrap;
-}
-
 td.table-cell.empty {
   font-style: italic;
 }
 
-td.table-cell-reviewed-at,
-td.table-cell-title {
+td.table-cell-score,
+td.table-cell-title,
+td.table-header-cell,
+td.table-cell-reviewed-at {
   white-space: nowrap;
 }
 

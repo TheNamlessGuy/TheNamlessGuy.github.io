@@ -70,23 +70,18 @@ function generateBody(table, templates) {
   return body;
 }
 
-function showModal(item) {
-  const linkElem = document.getElementById('modal-link');
-  setAndGetValue(item.link, 'No link', linkElem);
-  linkElem.href = item.link ?? '#';
+function showModal(elemID) {
+  hideActiveModal();
 
-  setAndGetValue(item.title, 'No title', document.getElementById('modal-title'));
-  setAndGetValue(item.score, 'No score', document.getElementById('modal-score'));
-  setAndGetValue(item.reviewed_at, 'No reviewed at date', document.getElementById('modal-reviewed-at'));
-  setAndGetValue(item.description?.replaceAll('\n', '<br>'), 'No description', document.getElementById('modal-description'));
-  setAndGetValue(item.tags, 'No tags', document.getElementById('modal-tags'));
-
+  const modal = document.getElementById(elemID);
+  modal.classList.remove('hidden');
+  modal.classList.add('active-modal');
   document.getElementById('modal-container').classList.remove('hidden');
-  recenterModal();
+  recenterModal(modal);
+  return modal;
 }
 
-function recenterModal() {
-  const modal = document.getElementById('modal');
+function recenterModal(modal) {
   modal.style.marginLeft = -(modal.offsetWidth / 2) + 'px';
   modal.style.marginTop = -(modal.offsetHeight / 2) + 'px';
 
@@ -96,8 +91,34 @@ function recenterModal() {
   }
 }
 
-function hideModal() {
+function hideActiveModal() {
+  const active = document.getElementsByClassName('active-modal')[0];
+  if (active) {
+    active.classList.remove('active-modal');
+    active.classList.add('hidden');
+  }
+
   document.getElementById('modal-container').classList.add('hidden');
+}
+
+function showReviewInfoModal(item) {
+  const modal = showModal('review-info-modal');
+
+  const linkElem = modal.getElementsByClassName('modal-data-link')[0];
+  setAndGetValue(item.link, 'No link', linkElem);
+  linkElem.href = item.link ?? '#';
+
+  setAndGetValue(item.title, 'No title', modal.getElementsByClassName('modal-data-title')[0]);
+  setAndGetValue(item.score, 'Not reviewed yet', modal.getElementsByClassName('modal-data-score')[0]);
+  setAndGetValue(item.reviewed_at, item.score ? 'Reviewed long ago, might not be accurate' : 'No reviewed at date', modal.getElementsByClassName('modal-data-reviewed-at')[0]);
+  setAndGetValue(item.description?.replaceAll('\n', '<br>'), 'No description', modal.getElementsByClassName('modal-data-description')[0]);
+  setAndGetValue(item.tags, 'No tags', modal.getElementsByClassName('modal-data-tags')[0]);
+
+  recenterModal(modal);
+}
+
+function showSearchHelpModal() {
+  showModal('search-help-modal');
 }
 
 function setAndGetValue(value, defaultValue, container) {
@@ -117,13 +138,13 @@ function generateTableEntry(container, item, templates) {
   item._row = row;
 
   setAndGetValue(item.title, 'No title', row.getElementsByClassName('table-cell-title')[0]);
-  setAndGetValue(item.score, 'No score', row.getElementsByClassName('table-cell-score')[0]);
-  setAndGetValue(item.reviewed_at, 'No reviewed at date', row.getElementsByClassName('table-cell-reviewed-at')[0]);
+  setAndGetValue(item.score, 'Not reviewed yet', row.getElementsByClassName('table-cell-score')[0]);
+  setAndGetValue(item.reviewed_at, item.score ? 'Reviewed long ago' : 'No reviewed at date', row.getElementsByClassName('table-cell-reviewed-at')[0]);
 
   const description = row.getElementsByClassName('table-cell-description')[0].getElementsByTagName('div')[0];
   description.dataset.content = setAndGetValue(item.description, 'No description', description);
 
-  row.addEventListener('click', () => { showModal(item); });
+  row.addEventListener('click', () => { showReviewInfoModal(item); });
   container.appendChild(row);
 }
 
@@ -198,23 +219,32 @@ function generateTable(data) {
 }
 
 function itemMatchesFilter(item, split) {
-  for (const s of split) {
-    if (s.startsWith('t:')) {
-      return item._search.tags.includes(s.substr(2));
-    }
+  for (let s of split) {
+    const negative = s.startsWith('-');
+    if (negative) { s = s.substr(1); }
 
-    if (item._search.title.includes(s)) {
-      return true;
-    } else if (item._search.description.includes(s)) {
-      return true;
-    } else if (item._search.reviewed_at.includes(s)) {
-      return true;
-    } else if (item._search.score.includes(s)) {
-      return true;
+    if (s.startsWith('t:') || s.startsWith('tag:')) {
+      if (item._search.tags.includes(s.substr(s.startsWith('t:') ? 2 : 4)) === negative) { return false; }
+    } else if (s.startsWith('score:')) {
+      if (item._search.score === s.substr(6) === negative) { return false; }
+    } else if (s.startsWith('title:')) {
+      if (item._search.title.includes(s.substr(6)) === negative) { return false; }
+    } else if (s.startsWith('desc:')) {
+      if (item._search.description.includes(s.substr(5)) === negative) { return false; }
+    } else if (s.startsWith('date:')) {
+      if (item._search.reviewed_at.startsWith(s.substr(5)) === negative) { return false; }
+    } else {
+      let match = item._search.title.includes(s);
+      if (match) {
+        if (match === negative) { return false; }
+      } else {
+        match = item._search.description.includes(s);
+        if (match === negative) { return false; }
+      }
     }
   }
 
-  return false;
+  return true;
 }
 
 function filter(query) {
@@ -265,10 +295,12 @@ window.addEventListener('load', () => {
   startup();
 
   document.getElementById('modal-container').addEventListener('click', () => {
-    hideModal();
+    hideActiveModal();
   });
-  document.getElementById('modal').addEventListener('click', (e) => {
-    e.stopPropagation();
+  [].slice.call(document.getElementsByClassName('modal')).forEach(elem => {
+    elem.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
   });
 
   const search = document.getElementById('search');
@@ -276,4 +308,6 @@ window.addEventListener('load', () => {
     setURLParameter('q', search.value);
     filter(search.value);
   });
+
+  document.getElementById('search-help').addEventListener('click', () => showSearchHelpModal());
 });

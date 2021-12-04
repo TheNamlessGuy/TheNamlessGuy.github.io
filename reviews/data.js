@@ -251,8 +251,8 @@ const _raw_data = {
   }, {
     "title": "Attack on Titan",
     "link": "https://myanimelist.net/anime/16498/Shingeki_no_Kyojin",
-    "score": 7.5,
-    "reviewed_at": "2020-07-25",
+    "score": 8.5,
+    "reviewed_at": "2021-12-04",
     "tags": ["show", "anime"],
   }, {
     "title": "Death Note",
@@ -339,7 +339,7 @@ const _raw_data = {
     "score": 8,
     "description": "Book 1 > Book 3 > Book 4 > Book 2",
     "reviewed_at": "2020-07-25",
-    "tags": ["show", "avatar"],
+    "tags": ["show"],
   }, {
     "title": "Firefly",
     "link": "https://www.imdb.com/title/tt0303461/",
@@ -1047,7 +1047,7 @@ Back & Forth: 8`,
   }, {
     "title": "Odd Taxi",
     "link": "https://myanimelist.net/anime/46102/Odd_Taxi",
-    "score": 9,
+    "score": 8.5,
     "reviewed_at": "2021-08-03",
     "tags": ["show", "anime"],
   }, {
@@ -1237,5 +1237,630 @@ Maybe fix the difficulty curve as well. Did Battle of Kvatch at level 14 or some
     "reviewed_at": "2021-12-03",
     "description": "While I didn't follow the ARG aspect of the game, I did still immensely enjoy the game itself. Go in blind if you haven't played it.",
     "tags": ["game"],
+  }, {
+    "title": "B: The Beginning",
+    "link": "https://myanimelist.net/anime/32827/B__The_Beginning",
+    "score": 1,
+    "reviewed_at": "2021-12-04",
+    "description": "13 year old edgy deviantart artist makes an anime.",
+    "tags": ["show", "anime"],
+  }, {
+    "title": "My Hero Academia",
+    "link": "https://myanimelist.net/anime/31964/Boku_no_Hero_Academia",
+    "score": 6.5,
+    "reviewed_at": "2021-12-04",
+    "tags": ["show", "anime"],
+  }, {
+    "title": "FLCL",
+    "link": "https://myanimelist.net/anime/227/FLCL",
+    "score": 7,
+    "tags": ["show", "anime"],
+  }, {
+    "title": "Fullmetal Alchemist",
+    "link": "https://myanimelist.net/anime/121/Fullmetal_Alchemist",
+    "score": 7.5,
+    "tags": ["show", "anime"],
+  }, {
+    "title": "Fullmetal Alchemist",
+    "link": "https://myanimelist.net/anime/121/Fullmetal_Alchemist",
+    "score": 7.5,
+    "tags": ["show", "anime"],
+  }, {
+    "title": "Katekyo Hitman Reborn!",
+    "link": "https://myanimelist.net/anime/1604/Katekyo_Hitman_Reborn",
+    "score": 7,
+    "tags": ["show", "anime"],
+  }, {
+    "title": "Lucky☆Star",
+    "link": "https://myanimelist.net/anime/1887/Lucky%E2%98%86Star",
+    "score": 6.5,
+    "tags": ["show", "anime"],
+  }, {
+    "title": "Welcome to the N.H.K.",
+    "link": "https://myanimelist.net/anime/1210/NHK_ni_Youkoso",
+    "score": 8,
+    "tags": ["show", "anime"],
+  }, {
+    "title": "Paprika",
+    "link": "https://myanimelist.net/anime/1943/Paprika",
+    "score": 7,
+    "tags": ["movie", "anime"],
+  }, {
+    "title": "Pokémon: Origins",
+    "link": "https://myanimelist.net/anime/20159/Pokemon__The_Origin",
+    "score": 7,
+    "reviewed_at": "2021-12-04",
+    "tags": ["show", "anime"],
+  }, {
+    "title": "Sword Art Online",
+    "link": "https://myanimelist.net/anime/11757/Sword_Art_Online",
+    "score": 4.75,
+    "reviewed_at": "2021-12-04",
+    "tags": ["show", "anime"],
+  }, {
+    "title": "Baki",
+    "link": "https://myanimelist.net/anime/34443/Baki",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "5 Centimeters Per Second",
+    "link": "https://myanimelist.net/anime/1689/Byousoku_5_Centimeter",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Chainsaw Man",
+    "link": "https://myanimelist.net/anime/44511/Chainsaw_Man",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Code Geass",
+    "link": "https://myanimelist.net/anime/1575/Code_Geass__Hangyaku_no_Lelouch",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Cowboy Bebop",
+    "link": "https://myanimelist.net/anime/1/Cowboy_Bebop",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "The Legend of the Legendary Heroes",
+    "link": "https://myanimelist.net/anime/8086/Densetsu_no_Yuusha_no_Densetsu",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Evangelion: 1.0 You Are (Not) Alone",
+    "link": "https://myanimelist.net/anime/2759/Evangelion__10_You_Are_Not_Alone",
+    "tags": ["movie", "anime", "todo"],
+  }, {
+    "title": "Evangelion: 2.0 You Can (Not) Advance",
+    "link": "https://myanimelist.net/anime/3784/Evangelion__20_You_Can_Not_Advance",
+    "tags": ["movie", "anime", "todo"],
+  }, {
+    "title": "Evangelion: 3.0 You Can (Not) Redo",
+    "link": "https://myanimelist.net/anime/3785/Evangelion__30_You_Can_Not_Redo",
+    "tags": ["movie", "anime", "todo"],
+  }, {
+    "title": "Evangelion: 3.0+1.0 Thrice Upon a Time",
+    "link": "https://myanimelist.net/anime/3786/Evangelion__30_10_Thrice_Upon_a_Time",
+    "tags": ["movie", "anime", "todo"],
+  }, {
+    "title": "Fighting Spirit",
+    "link": "https://myanimelist.net/anime/263/Hajime_no_Ippo",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Eden of The East",
+    "link": "https://myanimelist.net/anime/5630/Higashi_no_Eden",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Jin-Roh: The Wolf Brigade",
+    "link": "https://myanimelist.net/anime/570/Jin-Rou",
+    "tags": ["movie", "anime", "todo"],
+  }, {
+    "title": "Kanojo to Kanojo no Neko: Everything Flows",
+    "link": "https://myanimelist.net/anime/32491/Kanojo_to_Kanojo_no_Neko__Everything_Flows",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Berserk",
+    "link": "https://myanimelist.net/anime/33/Kenpuu_Denki_Berserk",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Your Name.",
+    "link": "https://myanimelist.net/anime/32281/Kimi_no_Na_wa",
+    "tags": ["movie", "anime", "todo"],
+  }, {
+    "title": "I Want to Eat Your Pancreas",
+    "link": "https://myanimelist.net/anime/36098/Kimi_no_Suizou_wo_Tabetai",
+    "tags": ["movie", "anime", "todo"],
+  }, {
+    "title": "Parasyte: The Maxim",
+    "link": "https://myanimelist.net/anime/22535/Kiseijuu__Sei_no_Kakuritsu",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "A Silent Voice",
+    "link": "https://myanimelist.net/anime/28851/Koe_no_Katachi",
+    "tags": ["movie", "anime", "todo"],
+  }, {
+    "title": "Ghost in the Shell",
+    "link": "https://myanimelist.net/anime/43/Koukaku_Kidoutai",
+    "tags": ["movie", "anime", "todo"],
+  }, {
+    "title": "Made in Abyss",
+    "link": "https://myanimelist.net/anime/34599/Made_in_Abyss",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Memories",
+    "link": "https://myanimelist.net/anime/1462/Memories",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Monster",
+    "link": "https://myanimelist.net/anime/19/Monster",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Neon Genesis Evangelion: Death & Rebirth",
+    "link": "https://myanimelist.net/anime/31/Neon_Genesis_Evangelion__Death___Rebirth",
+    "tags": ["movie", "anime", "todo"],
+  }, {
+    "title": "Neon Genesis Evangelion: The End of Evangelion",
+    "link": "https://myanimelist.net/anime/32/Neon_Genesis_Evangelion__The_End_of_Evangelion",
+    "tags": ["movie", "anime", "todo"],
+  }, {
+    "title": "Ouran High School Host Club",
+    "link": "https://myanimelist.net/anime/853/Ouran_Koukou_Host_Club",
+    "score": 6.5,
+    "tags": ["show", "anime"],
+  }, {
+    "title": "Psycho-Pass",
+    "link": "https://myanimelist.net/anime/13601/Psycho-Pass",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Romeo x Juliet",
+    "link": "https://myanimelist.net/anime/1699/Romeo_x_Juliet",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Serial Experiments Lain",
+    "link": "https://myanimelist.net/anime/339/Serial_Experiments_Lain",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Space Brothers",
+    "link": "https://myanimelist.net/anime/12431/Uchuu_Kyoudai",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Vinland Saga",
+    "link": "https://myanimelist.net/anime/37521/Vinland_Saga",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Vinland Saga",
+    "link": "https://myanimelist.net/anime/37521/Vinland_Saga",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Hazbin Hotel",
+    "link": "https://www.imdb.com/title/tt7216636/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "The Boondocks",
+    "link": "https://www.imdb.com/title/tt0373732/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "The Amazing World of Gumball",
+    "link": "https://www.imdb.com/title/tt1942683/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Reno 911!",
+    "link": "https://www.imdb.com/title/tt0370194/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Over the Garden Wall",
+    "link": "https://www.imdb.com/title/tt3718778/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Curb Your Enthusiasm",
+    "link": "https://www.imdb.com/title/tt0264235/",
+    "score": 7,
+    "reviewed_at": "2021-12-04",
+    "tags": ["show"],
+  }, {
+    "title": "The Leftovers",
+    "link": "https://www.imdb.com/title/tt2699128/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Devs",
+    "link": "https://www.imdb.com/title/tt8134186/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Yûsha Yoshihiko",
+    "link": "https://www.imdb.com/title/tt1935719/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Who Framed Roger Rabbit",
+    "link": "https://www.imdb.com/title/tt0096438/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Good Will Hunting",
+    "link": "https://www.imdb.com/title/tt0119217/",
+    "tags": ["movie", "todo"],
+  }, {
+    "title": "Swiss Army Man",
+    "link": "https://www.imdb.com/title/tt4034354/",
+    "tags": ["movie", "todo"],
+  }, {
+    "title": "The Dark Crystal",
+    "link": "https://www.imdb.com/title/tt0083791/",
+    "tags": ["movie", "todo"],
+  }, {
+    "title": "Ingrid Goes West",
+    "link": "https://www.imdb.com/title/tt5962210/",
+    "tags": ["movie", "todo"],
+  }, {
+    "title": "Goodbye Christopher Robin",
+    "link": "https://www.imdb.com/title/tt1653665/",
+    "tags": ["movie", "todo"],
+  }, {
+    "title": "Léon",
+    "link": "https://www.imdb.com/title/tt0110413/",
+    "tags": ["movie", "todo"],
+  }, {
+    "title": "The Book of Life",
+    "link": "https://www.imdb.com/title/tt2262227/",
+    "tags": ["movie", "todo"],
+  }, {
+    "title": "Big Trouble in Little China",
+    "link": "https://www.imdb.com/title/tt0090728/",
+    "tags": ["movie", "todo"],
+  }, {
+    "title": "The Last Unicorn",
+    "link": "https://www.imdb.com/title/tt0084237/",
+    "tags": ["movie", "todo"],
+  }, {
+    "title": "The Shivering Truth",
+    "link": "https://www.imdb.com/title/tt6905458/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Star Wars: The Clone Wars",
+    "link": "https://www.imdb.com/title/tt0458290/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Drawn Together",
+    "link": "https://www.imdb.com/title/tt0386180/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Rent",
+    "link": "https://www.imdb.com/title/tt0294870/",
+    "tags": ["movie", "todo"],
+  }, {
+    "title": "His Dark Materials",
+    "link": "https://www.imdb.com/title/tt5607976/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Aunty Donna's Big Ol' House of Fun",
+    "link": "https://www.imdb.com/title/tt13316746/",
+    "score": 8,
+    "reviewed_at": "2021-12-04",
+    "tags": ["show"],
+  }, {
+    "title": "Wyrd Sisters",
+    "link": "https://www.imdb.com/title/tt0159931/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "The Expanse",
+    "link": "https://www.imdb.com/title/tt3230854/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Walking with Dinosaurs",
+    "link": "https://www.imdb.com/title/tt0214382/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Jujutsu Kaisen",
+    "link": "https://myanimelist.net/anime/40748/Jujutsu_Kaisen_TV",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Free Guy",
+    "link": "https://www.imdb.com/title/tt6264654/",
+    "tags": ["movie", "todo"],
+  }, {
+    "title": "Moulin Rouge!",
+    "link": "https://www.imdb.com/title/tt0203009/",
+    "tags": ["movie", "todo"],
+  }, {
+    "title": "Wicked",
+    "link": "https://www.imdb.com/title/tt1262426/",
+    "tags": ["movie", "todo"],
+  }, {
+    "title": "Space Force",
+    "link": "https://www.imdb.com/title/tt9612516/",
+    "score": 6.5,
+    "reviewed_at": "2021-12-04",
+    "tags": ["show"],
+  }, {
+    "title": "The End of the F***ing World",
+    "link": "https://www.imdb.com/title/tt6257970/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "American Dad!",
+    "link": "https://www.imdb.com/title/tt0397306/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Superjail!",
+    "link": "https://www.imdb.com/title/tt1031283/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Atypical",
+    "link": "https://www.imdb.com/title/tt6315640/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Don't F**k with Cats: Hunting an Internet Killer",
+    "link": "https://www.imdb.com/title/tt11318602/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Moomin",
+    "link": "https://www.imdb.com/title/tt0247117/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Pleasantville",
+    "link": "https://www.imdb.com/title/tt0120789/",
+    "tags": ["movie", "todo"],
+  }, {
+    "title": "Natural Born Killers",
+    "link": "https://www.imdb.com/title/tt0110632/",
+    "tags": ["movie", "todo"],
+  }, {
+    "title": "The King of Comedy",
+    "link": "https://www.imdb.com/title/tt0085794/",
+    "tags": ["movie", "todo"],
+  }, {
+    "title": "Gargoyles",
+    "link": "https://www.imdb.com/title/tt0108783/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "The World Ends with You The Animation",
+    "link": "https://myanimelist.net/anime/42307/Subarashiki_Kono_Sekai_The_Animation",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "How to Lose Friends & Alienate People",
+    "link": "https://www.imdb.com/title/tt0455538/",
+    "tags": ["movie", "todo"],
+  }, {
+    "title": "Merlin",
+    "link": "https://www.imdb.com/title/tt1199099/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Buffy the Vampire Slayer",
+    "link": "https://www.imdb.com/title/tt0118276/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Frasier",
+    "link": "https://www.imdb.com/title/tt0106004/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Bottom",
+    "link": "https://www.imdb.com/title/tt0103376/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Schmigadoon!",
+    "link": "https://www.imdb.com/title/tt11808942/",
+    "tags": ["show", "musical", "todo"],
+  }, {
+    "title": "A.P. Bio",
+    "link": "https://www.imdb.com/title/tt6461726/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Suedi",
+    "link": "https://www.imdb.com/title/tt13502736/",
+    "tags": ["movie", "todo"],
+  }, {
+    "title": "Isle of Dogs",
+    "link": "https://www.imdb.com/title/tt5104604/",
+    "tags": ["movie", "todo"],
+  }, {
+    "title": "Fantastic Mr. Fox",
+    "link": "https://www.imdb.com/title/tt0432283/",
+    "tags": ["movie", "todo"],
+  }, {
+    "title": "Love, Death and Robots",
+    "link": "https://www.imdb.com/title/tt9561862/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "After Life",
+    "link": "https://www.imdb.com/title/tt8398600/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Altered Carbon",
+    "link": "https://www.imdb.com/title/tt2261227/",
+    "score": 9,
+    "reviewed_at": "2021-12-04",
+    "description": "Note: Season 1 only. Season 2 just turned into a generic sci-fi action series.",
+    "tags": ["show"],
+  }, {
+    "title": "After Life",
+    "link": "https://www.imdb.com/title/tt8398600/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Better off Ted",
+    "link": "https://www.imdb.com/title/tt1235547/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Bob's Burgers",
+    "link": "https://www.imdb.com/title/tt1561755/",
+    "score": 8,
+    "reviewed_at": "2021-12-04",
+    "tags": ["show"],
+  }, {
+    "title": "Dirk Gently's Holistic Detective Agency",
+    "link": "https://www.imdb.com/title/tt4047038/",
+    "score": 8,
+    "reviewed_at": "2021-12-04",
+    "tags": ["show"],
+  }, {
+    "title": "Disenchantment",
+    "link": "https://www.imdb.com/title/tt5363918/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Doom Patrol",
+    "link": "https://www.imdb.com/title/tt8416494/",
+    "score": 6.5,
+    "reviewed_at": "2021-12-04",
+    "tags": ["show"],
+  }, {
+    "title": "Disenchantment",
+    "link": "https://www.imdb.com/title/tt5363918/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Fawlty Towers",
+    "link": "https://www.imdb.com/title/tt0072500/",
+    "score": 8,
+    "reviewed_at": "2021-12-04",
+    "tags": ["show"],
+  }, {
+    "title": "Westworld",
+    "link": "https://www.imdb.com/title/tt0475784/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Watchmen",
+    "link": "https://www.imdb.com/title/tt7049682/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Upload",
+    "link": "https://www.imdb.com/title/tt7826376/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Twin Peaks",
+    "link": "https://www.imdb.com/title/tt0098936/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Unbreakable Kimmy Schmidt",
+    "link": "https://www.imdb.com/title/tt3339966/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "The IT Crowd",
+    "link": "https://www.imdb.com/title/tt0487831/",
+    "score": 8.75,
+    "reviewed_at": "2021-12-04",
+    "tags": ["show"],
+  }, {
+    "title": "The Eric Andre Show",
+    "link": "https://www.imdb.com/title/tt2244495/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "The Dragon Prince",
+    "link": "https://www.imdb.com/title/tt8688814/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "The Boys",
+    "link": "https://www.imdb.com/title/tt1190634/",
+    "score": 8,
+    "reviewed_at": "2021-12-04",
+    "tags": ["show"],
+  }, {
+    "title": "Supernatural",
+    "link": "https://www.imdb.com/title/tt0460681/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Stranger Things",
+    "link": "https://www.imdb.com/title/tt4574334/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Sonic Boom",
+    "link": "https://www.imdb.com/title/tt3232262/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Sick Note",
+    "link": "https://www.imdb.com/title/tt5770788/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Samurai Jack",
+    "link": "https://www.imdb.com/title/tt0278238/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Parks and Recreation",
+    "link": "https://www.imdb.com/title/tt1266020/",
+    "score": 8,
+    "reviewed_at": "2021-12-04",
+    "tags": ["show"],
+  }, {
+    "title": "Mr. Bean",
+    "link": "https://www.imdb.com/title/tt0096657/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Mr. Bean's Holiday",
+    "link": "https://www.imdb.com/title/tt0453451/",
+    "tags": ["movie", "todo"],
+  }, {
+    "title": "Bean",
+    "link": "https://www.imdb.com/title/tt0118689/",
+    "tags": ["movie", "todo"],
+  }, {
+    "title": "Madness Combat",
+    "link": "https://www.imdb.com/title/tt2072604/",
+    "score": 7,
+    "reviewed_at": "2021-12-04",
+    "tags": ["show"],
+  }, {
+    "title": "Loki",
+    "link": "https://www.imdb.com/title/tt9140554/",
+    "score": 6.5,
+    "reviewed_at": "2021-12-04",
+    "tags": ["show"],
+  }, {
+    "title": "I Think You Should Leave with Tim Robinson",
+    "link": "https://www.imdb.com/title/tt10050772/",
+    "score": 7,
+    "reviewed_at": "2021-12-04",
+    "tags": ["show"],
+  }, {
+    "title": "Good Omens",
+    "link": "https://www.imdb.com/title/tt1869454/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "Baccano!",
+    "link": "https://myanimelist.net/anime/2251/Baccano",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Banana Fish",
+    "link": "https://myanimelist.net/anime/36649/Banana_Fish",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Durarara!!",
+    "link": "https://myanimelist.net/anime/6746/Durarara",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Digimon Adventure",
+    "link": "https://myanimelist.net/anime/552/Digimon_Adventure",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Deca-Dence",
+    "link": "https://myanimelist.net/anime/40056/Deca-Dence",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Bokura no",
+    "link": "https://myanimelist.net/anime/1690/Bokura_no",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Violet Evergarden",
+    "link": "https://myanimelist.net/anime/33352/Violet_Evergarden",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "The Tatami Galaxy",
+    "link": "https://myanimelist.net/anime/7785/Yojouhan_Shinwa_Taikei",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Shaman King (2021)",
+    "link": "https://myanimelist.net/anime/42205/Shaman_King_2021",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Samurai Champloo",
+    "link": "https://myanimelist.net/anime/205/Samurai_Champloo",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Ping Pong the Animation",
+    "link": "https://myanimelist.net/anime/22135/Ping_Pong_the_Animation",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Hunter x Hunter",
+    "link": "https://myanimelist.net/anime/11061/Hunter_x_Hunter_2011",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Hellsing Ultimate",
+    "link": "https://myanimelist.net/anime/777/Hellsing_Ultimate",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Guardians of the Galaxy",
+    "link": "https://www.imdb.com/title/tt2015381/",
+    "score": 8,
+    "reviewed_at": "2021-12-04",
+    "description": "Pretty sure it would be a 6 or so (like the rest of the marvel movies) if it wasn't directed by James Gunn",
+    "tags": ["movie"],
   }]
 };

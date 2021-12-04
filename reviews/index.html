@@ -53,12 +53,8 @@
     <div id="container">
       <div id="text-container">
         <h1>Reviews</h1>
-        <p>
+        <div style="margin-bottom: 10px;">
           So all other review sites suck, since you either can't review all things, they use a shitty limited scoring system, or what have you. So here we are!<br>
-          If a review doesn't have a review date, it's an old review I made too long ago, and it might not be accurate to how I feel anymore.<br>
-          If a review doesn't have a score, I haven't watched/read/played/listened to/etc it yet. Basically a TODO list.<br>
-        </p>
-        <p>
           Just so everyone is on the same page, this is the scale I use:
           <table id="scale-table">
             <tr>
@@ -71,30 +67,45 @@
               <td>0</td><td>- The worst thing ever. Everyone involved should be in jail</td>
             </tr>
           </table>
-        </p>
+        </div>
       </div>
 
       <div id="search-container">
         <input id="search" placeholder="Search...">
-        <button id="search-help" title="Separated by space, it searches the data for matches. Start a word with 't:' to search for tags matching everything after the 't:' exactly">?</button>
+        <button id="search-help">?</button>
       </div>
       <table id="table"></table>
     </div>
 
     <div id="modal-container" class="hidden">
-      <div id="modal">
-        <div id="modal-title-container">
-          <div id="modal-title" class="modal-data"></div>
-          <a id="modal-link" class="modal-data"></a>
+      <div id="review-info-modal" class="modal hidden">
+        <div class="modal-data-title-container">
+          <div class="modal-data modal-data-title"></div>
+          <a class="modal-data modal-data-link"></a>
         </div>
-        <div id="modal-score-reviewed-at-container">
-          <div id="modal-score-container">Score: <span id="modal-score" class="modal-data"></span></div>
-          <div id="modal-reviewed-at-container">Reviewed at: <span id="modal-reviewed-at" class="modal-data"></span></div>
+        <div class="modal-data-score-reviewed-at-container">
+          <div class="modal-data-score-container">Score: <span class="modal-data modal-data-score"></span></div>
+          <div class="modal-data-reviewed-at-container">Reviewed at: <span class="modal-data modal-data-reviewed-at"></span></div>
         </div>
-        <div id="modal-description" class="modal-data"></div>
-        <div id="modal-tags-container">
-          Tags: <span id="modal-tags" class="modal-data"></span>
+        <div class="modal-data modal-data-description"></div>
+        <div class="modal-data-tags-container">
+          Tags: <span class="modal-data modal-data-tags"></span>
         </div>
+      </div>
+      <div id="search-help-modal" class="modal hidden">
+        <div class="modal-title">Search help</div>
+        To search, just write your query into the search box. Each word (separated by space) is searched for in the title and description of the review.<br>
+        If you want to search a specific field, prefix the word with:
+        <div style="margin-left: 10px;">
+          <span class="tag-prefix">t:</span> or <span class="tag-prefix">tag:</span> to search tags (search word must match exactly)<br>
+          <span class="tag-prefix">score:</span> to search the score (search word must match exactly)<br>
+          <span class="tag-prefix">title:</span> to search the title<br>
+          <span class="tag-prefix">desc:</span> to search the description<br>
+          <span class="tag-prefix">date:</span> to search the reviewed at date (result must start with search word. <span class="tag-prefix">date:2021</span> for all reviews from 2021, for example)<br>
+        </div>
+        For example, to search for games, type <span class="tag-prefix">t:game</span>.<br>
+        You can prefix a search word with - in order to negate the search. If it matches a review, the review won't show up. For example, no games: <span class="tag-prefix">-t:game</span><br>
+        If all search words match, it shows up!
       </div>
     </div>
   </body>

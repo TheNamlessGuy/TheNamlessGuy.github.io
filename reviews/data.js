@@ -1849,7 +1849,7 @@ Maybe fix the difficulty curve as well. Did Battle of Kvatch at level 14 or some
     "title": "Stargate: Continuum",
     "link": "https://www.imdb.com/title/tt0929629/",
     "score": 8.5,
-    "reviewed_at": "2021-12-04",
+    "reviewed_at": "2021-12-12",
     "description": "A good sendoff to the SG1 series",
     "tags": ["movie"],
   }]

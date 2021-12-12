@@ -409,8 +409,8 @@ const _raw_data = {
   }, {
     "title": "Xavier: Renegade Angel",
     "link": "https://www.imdb.com/title/tt1132124/",
-    "score": 8.5,
-    "reviewed_at": "2020-07-25",
+    "score": 9,
+    "reviewed_at": "2021-12-05",
     "tags": ["show"],
   }, {
     "title": "BoJack Horseman",
@@ -1261,11 +1261,6 @@ Maybe fix the difficulty curve as well. Did Battle of Kvatch at level 14 or some
     "score": 7.5,
     "tags": ["show", "anime"],
   }, {
-    "title": "Fullmetal Alchemist",
-    "link": "https://myanimelist.net/anime/121/Fullmetal_Alchemist",
-    "score": 7.5,
-    "tags": ["show", "anime"],
-  }, {
     "title": "Katekyo Hitman Reborn!",
     "link": "https://myanimelist.net/anime/1604/Katekyo_Hitman_Reborn",
     "score": 7,
@@ -1664,10 +1659,6 @@ Maybe fix the difficulty curve as well. Did Battle of Kvatch at level 14 or some
     "description": "Note: Season 1 only. Season 2 just turned into a generic sci-fi action series.",
     "tags": ["show"],
   }, {
-    "title": "After Life",
-    "link": "https://www.imdb.com/title/tt8398600/",
-    "tags": ["show", "todo"],
-  }, {
     "title": "Better off Ted",
     "link": "https://www.imdb.com/title/tt1235547/",
     "tags": ["show", "todo"],
@@ -1693,10 +1684,6 @@ Maybe fix the difficulty curve as well. Did Battle of Kvatch at level 14 or some
     "score": 6.5,
     "reviewed_at": "2021-12-04",
     "tags": ["show"],
-  }, {
-    "title": "Disenchantment",
-    "link": "https://www.imdb.com/title/tt5363918/",
-    "tags": ["show", "todo"],
   }, {
     "title": "Fawlty Towers",
     "link": "https://www.imdb.com/title/tt0072500/",
@@ -1746,10 +1733,6 @@ Maybe fix the difficulty curve as well. Did Battle of Kvatch at level 14 or some
   }, {
     "title": "Supernatural",
     "link": "https://www.imdb.com/title/tt0460681/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Stranger Things",
-    "link": "https://www.imdb.com/title/tt4574334/",
     "tags": ["show", "todo"],
   }, {
     "title": "Sonic Boom",
@@ -1861,6 +1844,13 @@ Maybe fix the difficulty curve as well. Did Battle of Kvatch at level 14 or some
     "score": 8,
     "reviewed_at": "2021-12-04",
     "description": "Pretty sure it would be a 6 or so (like the rest of the marvel movies) if it wasn't directed by James Gunn",
+    "tags": ["movie"],
+  }, {
+    "title": "Stargate: Continuum",
+    "link": "https://www.imdb.com/title/tt0929629/",
+    "score": 8.5,
+    "reviewed_at": "2021-12-04",
+    "description": "A good sendoff to the SG1 series",
     "tags": ["movie"],
   }]
 };

@@ -1852,5 +1852,39 @@ Maybe fix the difficulty curve as well. Did Battle of Kvatch at level 14 or some
     "reviewed_at": "2021-12-12",
     "description": "A good sendoff to the SG1 series",
     "tags": ["movie"],
+  }, {
+    "title": "In This Corner of the World",
+    "link": "https://myanimelist.net/anime/15227/Kono_Sekai_no_Katasumi_ni/",
+    "tags": ["movie", "anime", "todo"],
+  }, {
+    "title": "Office Space",
+    "link": "https://www.imdb.com/title/tt0151804/",
+    "score": 8.5,
+    "reviewed_at": "2021-12-21",
+    "tags": ["movie"],
+  }, {
+    "title": "En Underbar Jävla Jul",
+    "link": "https://www.imdb.com/title/tt4728582/",
+    "score": 7,
+    "reviewed_at": "2021-12-23",
+    "tags": ["movie"],
+  }, {
+    "title": "Wrath of Man",
+    "link": "https://www.imdb.com/title/tt11083552/",
+    "score": 4,
+    "reviewed_at": "2021-12-22",
+    "tags": ["movie"],
+  }, {
+    "title": "Tigtone",
+    "link": "https://www.imdb.com/title/tt8413062/",
+    "tags": ["show", "todo"],
+  }, {
+    "title": "The Imitation Game",
+    "link": "https://www.imdb.com/title/tt2084970/",
+    "tags": ["movie", "todo"],
+  }, {
+    "title": "Calculating Ada: The Countess of Computing",
+    "link": "https://www.imdb.com/title/tt5980290/",
+    "tags": ["movie", "documentary", "todo"],
   }]
 };

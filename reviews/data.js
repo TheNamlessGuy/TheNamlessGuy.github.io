@@ -1886,5 +1886,32 @@ Maybe fix the difficulty curve as well. Did Battle of Kvatch at level 14 or some
     "title": "Calculating Ada: The Countess of Computing",
     "link": "https://www.imdb.com/title/tt5980290/",
     "tags": ["movie", "documentary", "todo"],
+  }, {
+    "title": "The First Tree",
+    "link": "https://www.gog.com/game/the_first_tree",
+    "score": 3.5,
+    "reviewed_at": "2021-12-30",
+    "description": `The music is great, the voice acting ranges from great to passable, and the gameplay is... severely lacking. Spoilers after this.
+In the first section, I dug up the tank before anything else, which led to the story itself seeming disjoined and weird, at least for that section. There was no clear path, no clear way of telling which thing to go for first.
+The open landscape itself is a major detriment to the gameplay in general, as you just blindly press W to move forward with functionally nothing to guide you in the right direction. The player is often left to wander aimlessly in order to progress, especially if you want to explore - which the game (at least vocally) encourages.
+The "stand and bow on three rocks" segment took way longer than it should have, mostly because it took me until the third rock to understand that you're supposed to bow when the thing is IN the rock, not when it's floating above. Obviously, this is very counter-intutitive, as you've been collecting light orbs for 90% of the game up until this point.
+The night time level I had to restart twice because I kept chasing the second deer, and kept running in that direction until I hit the edge of the map and subsequently fell off. As opposed to what the game tells you to do with the first deer, you are NOT supposed to chase them, but stand on the little island behind them and listen to the story until the next deer emerges. That is, except the last one. That one you're supposed to chase.
+Personally, I also felt that the map-to-map transitions were very disjointed. During the title sequence you see the tree in the distance, so I expected to have a seamless journey to the tree, where I could always see it in the distance. Alas, instead you go from snowy mountain top to green forest in the blink of an eye.
+
+The entire game feels disjointed and strange, but there is definite potential (if you're into walking simulators). It's apparently the creators first game, and for that I'd say it's passable. Here's a list of things I'd say needs working on if they are going to make something similar in the future:
+* Weave the gameplay and the story together better
+** If you're telling a linear story, make sure you guide the player so that they experience it in the correct order
+** Make the players journey map at least somewhat to the story being told, outside of cutscenes. This happened once in the game: When you had to jump over that big cliff
+*** It doesn't have to be a literal mapping either, it could also be something more metaphorical. The narrator starts to doubt himself, so the path forward becomes narrow and hard to navigate, or something in that sense
+* Do not just have big open world spaces with nothing in it
+** Introduce SOME mechanic for making traversal more interesting. A climbing mechanic? Rolling down hills? Anything that breaks up the monotony of "Hold W"`,
+    "tags": ["game"],
+  }, {
+    "title": "Encanto",
+    "link": "https://www.imdb.com/title/tt2953050/",
+    "score": 9,
+    "reviewed_at": "2021-12-31",
+    "description": "I definitely simp for Lin-Manuel Miranda",
+    "tags": ["movie"],
   }]
 };

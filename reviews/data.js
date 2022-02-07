@@ -92,12 +92,6 @@ const _raw_data = {
     "reviewed_at": "2020-07-25",
     "tags": ["movie"],
   }, {
-    "title": "Scott Pilgrim vs. the World",
-    "link": "https://www.imdb.com/title/tt0446029/",
-    "score": 7.5,
-    "reviewed_at": "2020-07-25",
-    "tags": ["movie"],
-  }, {
     "title": "Sonic the Hedgehog",
     "link": "https://www.imdb.com/title/tt3794354/",
     "score": 5.5,
@@ -1116,8 +1110,6 @@ Back & Forth: 8`,
     "title": "Amnesia: The Dark Descent",
     "link": "https://www.gog.com/game/amnesia_the_dark_descent",
     "score": 7,
-    "description": "lmao pewdiepie barrels amirite",
-    "reviewed_at": "2021-12-03",
     "tags": ["game"],
   }, {
     "title": "Audiosurf",
@@ -1129,31 +1121,26 @@ Back & Forth: 8`,
     "title": "Bastion",
     "link": "https://www.gog.com/game/bastion",
     "score": 9,
-    "reviewed_at": "2021-12-03",
     "tags": ["game"],
   }, {
     "title": "Assassin's Creed II",
     "link": "https://store.steampowered.com/app/33230/Assassins_Creed_2/",
     "score": 7,
-    "reviewed_at": "2021-12-03",
     "tags": ["game"],
   }, {
     "title": "Dishonored",
     "link": "https://www.gog.com/game/dishonored_definitive_edition",
     "score": 7,
-    "reviewed_at": "2021-12-03",
     "tags": ["game"],
   }, {
     "title": "Trine 2: Complete Story",
     "link": "https://www.gog.com/game/trine_2_complete_story",
     "score": 7,
-    "reviewed_at": "2021-12-03",
     "tags": ["game"],
   }, {
     "title": "Borderlands 2",
     "link": "https://store.steampowered.com/app/49520/Borderlands_2/",
     "score": 7,
-    "reviewed_at": "2021-12-03",
     "tags": ["game"],
   }, {
     "title": "The Elder Scrolls V: Skyrim",
@@ -1165,7 +1152,6 @@ Back & Forth: 8`,
     "title": "FTL",
     "link": "https://www.gog.com/game/faster_than_light",
     "score": 6,
-    "reviewed_at": "2021-12-03",
     "tags": ["game"],
   }, {
     "title": "Antichamber",
@@ -1913,5 +1899,63 @@ The entire game feels disjointed and strange, but there is definite potential (i
     "reviewed_at": "2021-12-31",
     "description": "I definitely simp for Lin-Manuel Miranda",
     "tags": ["movie"],
+  }, {
+    "title": "Stargate Atlantis",
+    "link": "https://www.imdb.com/title/tt0374455/",
+    "score": 8.25,
+    "description": "While I enjoyed the world building and the things surrounding it more in SG-1, Atlantis was still a very good show in its own right.",
+    "reviewed_at": "2022-01-09",
+    "tags": ["show"],
+  }, {
+    "title": "Stargate Universe",
+    "link": "https://www.imdb.com/title/tt1286039/",
+    "score": 8.25,
+    "description": "Very different from the other Stargate series, but it was exactly what they needed for a starship exploration series within the Stargate universe. Perhaps the most intriguing overarching plotline of the universe so far, even if it never gets resolved.",
+    "reviewed_at": "2022-01-16",
+    "tags": ["show"],
+  }, {
+    "title": "Rango",
+    "link": "https://www.imdb.com/title/tt1192628/",
+    "score": 7.5,
+    "reviewed_at": "2022-01-23",
+    "tags": ["movie"],
+  }, {
+    "title": "The Forgotten City",
+    "link": "https://www.gog.com/game/the_forgotten_city",
+    "score": 7.5,
+    "reviewed_at": "2022-01-26",
+    "description": "Waht a tweest. The Bethesda style zoom talk results in some stiff delivery at points (for example, the conversation you have with hood lady in the endings where you make it out), but very good for what it is.",
+    "tags": ["game"],
+  }, {
+    "title": "Metroid Dread",
+    "link": "https://www.nintendo.com/games/detail/metroid-dread-switch/",
+    "score": 8,
+    "reviewed_at": "2022-01-26",
+    "tags": ["game"],
+  }, {
+    "title": "Scott Pilgrim vs. the World",
+    "link": "https://www.imdb.com/title/tt0446029/",
+    "score": 7.5,
+    "description": "For a movie where pretty much everyone is an asshole in one form or another, it works fairly well. At least Knives walks out on the path of being a decent person at the end",
+    "reviewed_at": "2022-02-04",
+    "tags": ["movie"],
+  }, {
+    "title": "Free Guy",
+    "link": "https://www.imdb.com/title/tt6264654/",
+    "score": 6.5,
+    "description": "'We gotta bypass the firewall so we can reverse the operating system bitstream' dialogue aside, it's a pretty decent comedy. The drama moments fall flat due to poor pacing, but at it's best it's just Ryan Reynolds being Ryan Reynolds.",
+    "reviewed_at": "2022-02-06",
+    "tags": ["movie"],
+  }, {
+    "title": "Pokemon Legends: Arceus",
+    "link": "https://www.nintendo.com/games/detail/pokemon-legends-arceus-switch/",
+    "score": 8,
+    "description": `Despite it looking like babbys first unity project, it plays fantastically.
+Combat is a bit simplified to the earlier entries, but the addition of the STRONG/AGILE style thing is neat.
+Alpha thing really interesting, having Pokemon actually attack the player is as well.
+
+Everything just works very well, for what it is. Hope they continue the Legends series, and that they expand on the gameplay further.`,
+    "reviewed_at": "2022-02-07",
+    "tags": ["game"],
   }]
 };

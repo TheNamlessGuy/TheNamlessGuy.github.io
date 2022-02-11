@@ -102,7 +102,8 @@ function hideActiveModal() {
   setURLParameter('viewing', null);
 }
 
-function showReviewInfoModal(item, i) {
+function showReviewInfoModal(item) {
+  if (!item) { return; }
   const modal = showModal('review-info-modal');
 
   const linkElem = modal.getElementsByClassName('modal-data-link')[0];
@@ -116,7 +117,7 @@ function showReviewInfoModal(item, i) {
   setAndGetValue(item.tags, 'No tags', modal.getElementsByClassName('modal-data-tags')[0]);
 
   recenterModal(modal);
-  setURLParameter('viewing', i + 1);
+  setURLParameter('viewing', item.id);
 }
 
 function showSearchHelpModal() {
@@ -135,7 +136,7 @@ function setAndGetValue(value, defaultValue, container) {
   return value;
 }
 
-function generateTableEntry(container, item, templates, i) {
+function generateTableEntry(container, item, templates) {
   const row = initTemplate(templates.tableRow);
   item._row = row;
 
@@ -146,12 +147,15 @@ function generateTableEntry(container, item, templates, i) {
   const description = row.getElementsByClassName('table-cell-description')[0].getElementsByTagName('div')[0];
   description.dataset.content = setAndGetValue(item.description, 'No description', description);
 
-  row.addEventListener('click', () => { showReviewInfoModal(item, i); });
+  row.addEventListener('click', () => { showReviewInfoModal(item); });
   container.appendChild(row);
 }
 
 function sortItems(items) {
-  const sorted = [...items].sort((a, b) => {
+  items = JSON.parse(JSON.stringify(items));
+  items.forEach((item, i) => item.id = i + 1);
+
+  const sorted = items.sort((a, b) => {
     if (a[sort.by] == null && b[sort.by] != null) {
       return -1;
     } else if (a[sort.by] != null && b[sort.by] == null) {
@@ -201,14 +205,12 @@ function generateTable(data) {
 
   let lastItem = null;
   items = sortItems(data.items);
-  for (let i = 0; i < items.length; ++i) {
-    item = items[i];
-
+  for (const item of items) {
     if (item._row) {
       item._row.classList.remove('last');
       body.appendChild(item._row);
     } else {
-      generateTableEntry(body, item, templates, i);
+      generateTableEntry(body, item, templates);
       setSearchables(item);
     }
 
@@ -295,8 +297,8 @@ function startup() {
   }
 
   if (url.searchParams.has('viewing')) {
-    let i = parseInt(url.searchParams.get('viewing')) - 1;
-    showReviewInfoModal(items[i], i);
+    let id = parseInt(url.searchParams.get('viewing'));
+    showReviewInfoModal(items.find((item) => item.id === id));
   }
 }
 

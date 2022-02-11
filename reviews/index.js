@@ -20,7 +20,7 @@ function setURLParameter(key, value) {
     url.searchParams.delete(key);
   }
 
-  window.history.pushState(null, '', url.toString());
+  window.history.replaceState(null, '', url.toString());
 }
 
 function loadTemplates() {
@@ -99,9 +99,10 @@ function hideActiveModal() {
   }
 
   document.getElementById('modal-container').classList.add('hidden');
+  setURLParameter('viewing', null);
 }
 
-function showReviewInfoModal(item) {
+function showReviewInfoModal(item, i) {
   const modal = showModal('review-info-modal');
 
   const linkElem = modal.getElementsByClassName('modal-data-link')[0];
@@ -115,6 +116,7 @@ function showReviewInfoModal(item) {
   setAndGetValue(item.tags, 'No tags', modal.getElementsByClassName('modal-data-tags')[0]);
 
   recenterModal(modal);
+  setURLParameter('viewing', i + 1);
 }
 
 function showSearchHelpModal() {
@@ -133,7 +135,7 @@ function setAndGetValue(value, defaultValue, container) {
   return value;
 }
 
-function generateTableEntry(container, item, templates) {
+function generateTableEntry(container, item, templates, i) {
   const row = initTemplate(templates.tableRow);
   item._row = row;
 
@@ -144,7 +146,7 @@ function generateTableEntry(container, item, templates) {
   const description = row.getElementsByClassName('table-cell-description')[0].getElementsByTagName('div')[0];
   description.dataset.content = setAndGetValue(item.description, 'No description', description);
 
-  row.addEventListener('click', () => { showReviewInfoModal(item); });
+  row.addEventListener('click', () => { showReviewInfoModal(item, i); });
   container.appendChild(row);
 }
 
@@ -199,12 +201,14 @@ function generateTable(data) {
 
   let lastItem = null;
   items = sortItems(data.items);
-  for (const item of items) {
+  for (let i = 0; i < items.length; ++i) {
+    item = items[i];
+
     if (item._row) {
       item._row.classList.remove('last');
       body.appendChild(item._row);
     } else {
-      generateTableEntry(body, item, templates);
+      generateTableEntry(body, item, templates, i);
       setSearchables(item);
     }
 
@@ -289,6 +293,11 @@ function startup() {
     search.value = url.searchParams.get('q');
     filter(search.value);
   }
+
+  if (url.searchParams.has('viewing')) {
+    let i = parseInt(url.searchParams.get('viewing')) - 1;
+    showReviewInfoModal(items[i], i);
+  }
 }
 
 window.addEventListener('load', () => {
@@ -305,8 +314,8 @@ window.addEventListener('load', () => {
 
   const search = document.getElementById('search');
   search.addEventListener('keyup', () => {
-    setURLParameter('q', search.value);
     filter(search.value);
+    setURLParameter('q', search.value);
   });
 
   document.getElementById('search-help').addEventListener('click', () => showSearchHelpModal());

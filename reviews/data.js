@@ -1957,5 +1957,12 @@ Alpha thing really interesting, having Pokemon actually attack the player is as 
 Everything just works very well, for what it is. Hope they continue the Legends series, and that they expand on the gameplay further.`,
     "reviewed_at": "2022-02-07",
     "tags": ["game"],
+  }, {
+    "title": "Dagon",
+    "link": "https://www.imdb.com/title/tt0264508/",
+    "score": 7.5,
+    "description": "A pretty good representation of what a Lovecraft story entails, even if the promotional material makes it look much less than",
+    "reviewed_at": "2022-02-11",
+    "tags": ["movie"],
   }]
 };

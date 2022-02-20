@@ -1964,5 +1964,36 @@ Everything just works very well, for what it is. Hope they continue the Legends 
     "description": "A pretty good representation of what a Lovecraft story entails, even if the promotional material makes it look much less than",
     "reviewed_at": "2022-02-11",
     "tags": ["movie"],
+  }, {
+    "title": "Airplane!",
+    "link": "https://www.imdb.com/title/tt0080339/",
+    "score": 9,
+    "description": "Classic for a reason",
+    "reviewed_at": "2022-02-12",
+    "tags": ["movie"],
+  }, {
+    "title": "Crazy Ex-Girlfriend",
+    "link": "https://www.imdb.com/title/tt4094300/",
+    "score": 8,
+    "description": `I started watching this mostly because I needed a 40~ minute show to watch while on the treadmill. The first two seasons were, to me, just that: a romantic comedy show, something which isn't really my cup of tea usually.
+
+Then season 3 started, and it went to places I did NOT expect the show to go, especially in the first half. Don't get me wrong, if the show had started out at the season 3 stuff, it definitely wouldn't have had the same impact. You pretty much needed the prior two seasons to set it up, to give the moments that extra oomph.
+The latter half of season 3 and most of season 4 does feel like a return to formula though, but all throughout that part of the show there's this underlying feeling of something else going on, which pays off perfectly in the finale.`,
+    "reviewed_at": "2022-02-14",
+    "tags": ["show"],
+  }, {
+    "title": "AER - Memories of Old",
+    "link": "https://www.gog.com/game/aer",
+    "score": 7.5,
+    "description": "If it had been any longer than it was, the experience would have suffered immensely. However, it is the perfect length for the gameplay they present.",
+    "reviewed_at": "2022-02-19",
+    "tags": ["game"],
+  }, {
+    "title": "Mulan (1998)",
+    "link": "https://www.imdb.com/title/tt0120762/",
+    "score": 9,
+    "description": "Shoutout to one of the few disney pricesses (especially for her time) who actually does something",
+    "reviewed_at": "2022-02-20",
+    "tags": ["movie"],
   }]
 };

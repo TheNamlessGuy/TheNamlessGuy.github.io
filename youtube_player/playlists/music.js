@@ -641,4 +641,5 @@ PLAYLISTS.add('music', [
   {id: '5NV6Rdv1a3I', title: 'Daft Punk - Get Lucky'},
   {id: 'iX_TFkut1PM', title: 'Don McLean - American Pie'},
   {id: '4B6E0mijV5A', title: 'Wax Fang - Majestic'},
+  {id: '2SUwOgmvzK4', title: 'Tame Impala - The Less I Know the Better'},
 ]);

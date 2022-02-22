@@ -1,14 +1,41 @@
-body {
-  background-color: #000;
+/* START: GENERICS */
+.hidden {
+  display: none;
+}
+
+.invisible {
+  visibility: hidden;
 }
 
 .center {
   text-align: center;
 }
 
-#output {
+.text-faded {
+  color: #555;
+}
+
+.mt-15 {
+  margin-top: 15px;
+}
+/* END: GENERICS */
+
+/* START: SPECIFICS */
+body {
+  background-color: #000;
+}
+
+hr {
+  width: 15vw;
+  color: #555;
+}
+
+.controls {
   color: #FFF;
-  margin: 5px;
+}
+
+.controls > * {
+  margin-right: 10px;
 }
 
 #player {
@@ -16,36 +43,25 @@ body {
   min-width: 640px;
 }
 
-.video-container {
-  margin: 10px;
-}
-
-#videos {
+#entry-list {
   margin-left: 44.5vw;
 }
 
-.video {
+.entry-container {
+  margin: 10px;
+}
+
+.entry-id {
   margin-left: 5px;
   margin-right: 5px;
 }
 
-#save-link-location {
-  margin-top: 5px;
+.entry-index-container {
+  display: inline;
+  margin-left: 15px;
 }
 
-.hidden {
-  display: none;
-}
-
-.slightly-hidden {
-  color: #555;
-}
-
-.slightly-more-hidden {
-  color: #333;
-}
-
-.video-title {
+.entry-title {
   display: inline;
   margin-left: 15px;
   background-color: #000;
@@ -53,39 +69,33 @@ body {
   color: #FFF;
 }
 
-.video-title.video-unavailable {
+.entry-container.unavailable .entry-title {
   color: #F00;
 }
 
-#currentIndex {
-  margin-top: 10px;
-}
-
-.top-row-items {
-  display: inline-block;
-  margin-left: 15px;
-  margin-top: 10px;
-}
-
-#error {
-  color: #702323;
-}
-
-.video-index {
-  display: inline;
-  margin-left: 15px;
-}
-
-/* https://freefrontend.com/css-glow-text-effects/ */
-.neon {
-  color: #fff;
+.entry-container.current .entry-title {
+  /* https://freefrontend.com/css-glow-text-effects/ */
   text-shadow:
-    0 0 5px #fff,
-    0 0 10px #fff,
-    0 0 20px #fff,
-    0 0 40px #0ff,
-    0 0 80px #0ff,
-    0 0 90px #0ff,
-    0 0 100px #0ff,
-    0 0 150px #0ff;
+    0 0 5px #FFF,
+    0 0 10px #FFF,
+    0 0 20px #FFF,
+    0 0 40px #0FF,
+    0 0 80px #0FF,
+    0 0 90px #0FF,
+    0 0 100px #0FF,
+    0 0 150px #0FF;
 }
+
+.entry-container.current.unavailable .entry-title {
+  /* https://freefrontend.com/css-glow-text-effects/ */
+  text-shadow:
+    0 0 5px #F00,
+    0 0 10px #F00,
+    0 0 20px #F00,
+    0 0 40px #FF0,
+    0 0 80px #FF0,
+    0 0 90px #FF0,
+    0 0 100px #FF0,
+    0 0 150px #FF0;
+}
+/* END: SPECIFICS */

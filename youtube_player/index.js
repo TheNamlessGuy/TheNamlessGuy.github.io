@@ -159,6 +159,7 @@ const ENTRIES = {
     });
 
     const titleElem = entry.getElementsByClassName('entry-title')[0];
+    titleElem.addEventListener('keyup', (e) => e.stopPropagation());
     titleElem.addEventListener('blur', () => {
       const idx = parseInt(entry.getElementsByClassName('entry-index')[0].innerText, 10) - 1;
       if (idx === CURRENT_ENTRY.idx) {

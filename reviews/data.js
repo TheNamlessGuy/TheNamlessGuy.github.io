@@ -1995,5 +1995,12 @@ The latter half of season 3 and most of season 4 does feel like a return to form
     "description": "Shoutout to one of the few disney pricesses (especially for her time) who actually does something",
     "reviewed_at": "2022-02-20",
     "tags": ["movie"],
+  }, {
+    "title": "Zoey's Extraordinary Playlist",
+    "link": "https://www.imdb.com/title/tt10314462/",
+    "score": 7,
+    "description": "I don't usually care much for jukebox musicals, but this one can get a pass. A little bit bummed out at the generic ending of the show, but whatever",
+    "reviewed_at": "2022-03-05",
+    "tags": ["show", "movie"],
   }]
 };

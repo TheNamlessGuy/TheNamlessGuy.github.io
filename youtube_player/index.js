@@ -76,7 +76,7 @@ const PLAYLISTS = {
   },
 
   randomDefault: function() {
-    const list = this.map[''];
+    const list = this.map['memes'];
     return list[Math.floor(Math.random() * list.length)]
   },
 

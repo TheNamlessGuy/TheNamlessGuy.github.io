@@ -1,0 +1,16 @@
+PLAYLISTS.add('gamesiplayedasakid', [
+  {id: 'Vcl5VR3D_ZE', title: 'The Great Green Mouse Disaster'},
+  {id: 'mIbCWLJ_TH8', title: 'Rosa Pantern i Hokus Pokus Panter'},
+  {id: 'wCnNuUJb8kc', title: 'Mysteriet På Greveholm'},
+  {id: 'N96A82oqD7c', title: 'Konrad och Nobelmysteriet'},
+  {id: '8TQpN470iKI', title: 'Flygande Start: Andra Klass'},
+  {id: 'HQ-kS_GeSOI', title: 'Flygande Start: Tredje Klass (and the fucking robot puzzle I was stuck on as a kid fuck this shit)'},
+  {id: 'DoKOV9WisUc', title: 'Pyramiden: Gåtan vid Nilens Strand'},
+  {id: 'G7SEkWTRjCY', title: 'Den Fantastiska Kroppen'},
+  {id: 'L_CbnBrUYiw', title: '3D Dinosaur Adventure'},
+  {id: '0dP8hJa-ek8', title: 'Gift'},
+  {id: '16p1BEiNKFE', title: 'Pettson & Findus - Mucklornas Värld'},
+  {id: 'mZW1azS3o4o', title: 'Harry Potter and the Philosopher\'s Stone PC'},
+  {id: '2jQ93-cdJeY', title: 'Lego Rock Raiders'},
+  {id: '46HW-_WKHvI', title: 'Lego Creator'},
+]);

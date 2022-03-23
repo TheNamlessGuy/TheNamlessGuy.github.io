@@ -92,6 +92,7 @@ const PLAYLISTS = {
   },
 
   _setupAfterExternalSource: async function() {
+    YOUTUBE.init();
     await YOUTUBE.sleepUntilInitialized();
     CURRENT_ENTRY.set(0);
     YOUTUBE.load(ENTRIES.getID(0));

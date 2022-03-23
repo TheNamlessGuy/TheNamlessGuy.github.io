@@ -95,8 +95,8 @@ const PLAYLISTS = {
     YOUTUBE.init();
     await YOUTUBE.sleepUntilInitialized();
     CURRENT_ENTRY.set(0);
-    YOUTUBE.load(ENTRIES.getID(0));
     CURRENT_URL.playlist(null);
+    YOUTUBE.load(ENTRIES.getID(0));
   },
 
   save: function() {
@@ -311,6 +311,8 @@ const YOUTUBE = {
   initialized: false,
 
   init: function() {
+    if (this.player !== null) { return; }
+
     this.player = new YT.Player('player', {
       height: '390',
       width: '640',

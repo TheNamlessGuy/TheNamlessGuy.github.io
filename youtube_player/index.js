@@ -383,8 +383,9 @@ const YOUTUBE = {
 
 function helperEventHandler(e) {
   console.log('HELPER EVENT GET', e);
-  if (e.detail.action === 'setup-playlist') {
-    PLAYLISTS.loadData(e.detail.ids, true);
+  const data = JSON.parse(e.detail);
+  if (data.action === 'setup-playlist') {
+    PLAYLISTS.loadData(data.ids, true);
   }
 }
 

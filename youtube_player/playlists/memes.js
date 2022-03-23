@@ -128,4 +128,12 @@ PLAYLISTS.add('memes', [
   {id: 'wj-T9LC8VQU', title: 'S3RLY Astley'},
   {id: 'SQTcRxPsoMo', title: 'MTC'},
   {id: 'tesr1OyymXo', title: '100 miles'},
+  {id: 'urNyg1ftMIU', title: 'Why is this so horny'},
+  {id: 'szvFN6P9slg', title: '💃'},
+  {id: 'yinx7je8ZnY', title: 'Hello'},
+  {id: 'o26O4k_XL7c', title: 'Letsago'},
+  {id: 'EbZljqiAYZs', title: 'Hi'},
+  {id: 'YnO8RzF91e8', title: 'Påkemån'},
+  {id: 'iRZ2Sh5-XuM', title: 'going to the store'},
+  {id: 'VuGiK-X9-0A', title: 'Nobody cares, Sean'},
 ]);

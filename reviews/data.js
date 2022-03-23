@@ -2002,5 +2002,19 @@ The latter half of season 3 and most of season 4 does feel like a return to form
     "description": "I don't usually care much for jukebox musicals, but this one can get a pass. A little bit bummed out at the generic ending of the show, but whatever",
     "reviewed_at": "2022-03-05",
     "tags": ["show", "movie"],
+  }, {
+    "title": "Who Framed Roger Rabbit",
+    "link": "https://www.imdb.com/title/tt0096438/",
+    "score": 9,
+    "description": "It's genuinely surprising how well this movie holds up. The fact that we have so many different characters from so many different IP holders is just shy of amazing. If it were today, the entirety of the movie's budget would probably have gone to the Mickey Mouse cameos.",
+    "reviewed_at": "2022-03-20",
+    "tags": ["movie"],
+  }, {
+    "title": "Pooh's Grand Adventure: The Search for Christopher Robin",
+    "link": "https://www.imdb.com/title/tt0119918/",
+    "score": 8,
+    "description": "My favorite movie as a young kid. Can't say it still holds that title, but it's very good for a kids movie",
+    "reviewed_at": "2022-03-22",
+    "tags": ["movie"],
   }]
 };

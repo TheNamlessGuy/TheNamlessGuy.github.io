@@ -381,7 +381,15 @@ const YOUTUBE = {
   },
 };
 
+function helperEventHandler(e) {
+  if (e.action === 'setup-playlist') {
+    PLAYLISTS.loadData(e.ids, true);
+  }
+}
+
 function init() {
+  document.addEventListener('youtube-player-helper', helperEventHandler);
+
   TEMPLATES.entry = document.getElementById('entry-template');
   ENTRIES.container = document.getElementById('entry-list');
   CURRENT_URL.value = new URL(window.location.href);

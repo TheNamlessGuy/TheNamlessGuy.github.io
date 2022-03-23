@@ -323,8 +323,6 @@ const YOUTUBE = {
         // TODO: Figure out how the fuck playerVars.autoplay works (or doesn't)
       },
     });
-
-    this.initialized = true;
   },
 
   load: function(id) {
@@ -353,6 +351,8 @@ const YOUTUBE = {
     } else if (this.playing) {
       this.play();
     }
+
+    this.initialized = true;
   },
 
   onPlayerError: function(event) {

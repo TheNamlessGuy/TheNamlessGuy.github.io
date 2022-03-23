@@ -7,11 +7,6 @@ const LOOP_TYPE = {
   dont: 4,
 };
 
-const STATE = {
-  urlLoaded: false,
-  ytLoaded: false,
-};
-
 const CURRENT_URL = {
   value: null,
 
@@ -84,18 +79,23 @@ const PLAYLISTS = {
     this.loadData(this.get(id), false);
   },
 
-  loadData: function(data, fromBookmark) {
+  loadData: function(data, externalSource) {
     ENTRIES.clear();
 
     for (const entry of data) {
       ENTRIES.load(entry.id, entry.title);
     }
 
-    if (fromBookmark) {
-      CURRENT_ENTRY.set(0);
-      YOUTUBE.load(ENTRIES.getID(0));
-      CURRENT_URL.playlist(null);
+    if (externalSource) {
+      this._setupAfterExternalSource();
     }
+  },
+
+  _setupAfterExternalSource: async function() {
+    await YOUTUBE.sleepUntilInitialized();
+    CURRENT_ENTRY.set(0);
+    YOUTUBE.load(ENTRIES.getID(0));
+    CURRENT_URL.playlist(null);
   },
 
   save: function() {
@@ -307,6 +307,8 @@ const YOUTUBE = {
   player: null,
   playing: false,
 
+  initialized: false,
+
   init: function() {
     this.player = new YT.Player('player', {
       height: '390',
@@ -321,6 +323,8 @@ const YOUTUBE = {
         // TODO: Figure out how the fuck playerVars.autoplay works (or doesn't)
       },
     });
+
+    this.initialized = true;
   },
 
   load: function(id) {
@@ -379,10 +383,31 @@ const YOUTUBE = {
   title: function() {
     return this.player.getVideoData().title;
   },
+
+  sleepUntilInitialized: async function() {
+    await HELPERS.sleepUntil(() => this.initialized);
+  },
+};
+
+const HELPERS = {
+  randomInt: function(start, interval = 500) {
+    return start + Math.floor(Math.random() * (interval + 1));
+  },
+
+  sleep: function(time, offset = 500) {
+    return new Promise((resolve) => setTimeout(resolve, this.randomInt(time, offset)));
+  },
+
+  sleepUntil: async function(cond, interval = 500) {
+    while (true) {
+      await this.sleep(interval, 0);
+      let finished = await Promise.resolve(cond());
+      if (finished) { return; }
+    }
+  },
 };
 
 function helperEventHandler(e) {
-  console.log('HELPER EVENT GET', e);
   const data = JSON.parse(e.detail);
   if (data.action === 'setup-playlist') {
     PLAYLISTS.loadData(data.ids, true);

@@ -159,6 +159,8 @@ const ENTRIES = {
       ENTRIES.remove(parseInt(entry.getElementsByClassName('entry-index')[0].innerText, 10) - 1);
     });
 
+    entry.getElementsByClassName('entry-id')[0].addEventListener('keyup', (e) => e.stopPropagation());
+
     const titleElem = entry.getElementsByClassName('entry-title')[0];
     titleElem.addEventListener('keyup', (e) => e.stopPropagation());
     titleElem.addEventListener('blur', () => {

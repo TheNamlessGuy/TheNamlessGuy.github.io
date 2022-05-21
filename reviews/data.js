@@ -2005,16 +2005,135 @@ The latter half of season 3 and most of season 4 does feel like a return to form
   }, {
     "title": "Who Framed Roger Rabbit",
     "link": "https://www.imdb.com/title/tt0096438/",
-    "score": 9,
+    "score": 8,
     "description": "It's genuinely surprising how well this movie holds up. The fact that we have so many different characters from so many different IP holders is just shy of amazing. If it were today, the entirety of the movie's budget would probably have gone to the Mickey Mouse cameos.",
     "reviewed_at": "2022-03-20",
     "tags": ["movie"],
   }, {
     "title": "Pooh's Grand Adventure: The Search for Christopher Robin",
     "link": "https://www.imdb.com/title/tt0119918/",
-    "score": 8,
+    "score": 7,
     "description": "My favorite movie as a young kid. Can't say it still holds that title, but it's very good for a kids movie",
     "reviewed_at": "2022-03-22",
+    "tags": ["movie"],
+  }, {
+    "title": "American Dad",
+    "link": "https://www.imdb.com/title/tt0397306/",
+    "score": 8.5,
+    "reviewed_at": "2022-04-07",
+    "tags": ["show"],
+  }, {
+    "title": "The King and I",
+    "link": "https://www.imdb.com/title/tt8887846/",
+    "tags": ["movie", "todo"],
+  }, {
+    "title": "Schmigadoon!",
+    "link": "https://www.imdb.com/title/tt11808942/",
+    "score": 6,
+    "reviewed_at": "2022-04-08",
+    "tags": ["show"],
+  }, {
+    "title": "Dark Matter",
+    "link": "https://www.imdb.com/title/tt4159076/",
+    "score": 6,
+    "reviewed_at": "2022-04-14",
+    "description": "The biggest issue I have with the show is mainly that the tone it presents makes it seem more serious than it is. The best example is probably the groundhog day episode, which, while enjoyable, does not fit into the darker, edgier, broodier mood that the rest of the show presents. That being said, the world building is pretty good, and sadly it ends right when it starts to get interesting",
+    "tags": ["show"],
+  }, {
+    "title": "Dune",
+    "link": "https://www.imdb.com/title/tt1160419/",
+    "score": 9,
+    "reviewed_at": "2022-04-22",
+    "description": "I haven't read the book, but damn dude",
+    "tags": ["movie"],
+  }, {
+    "title": "Maya and the Three",
+    "link": "https://www.imdb.com/title/tt8787772/",
+    "score": 7,
+    "reviewed_at": "2022-05-04",
+    "description": "Would have been significantly better if it were given (a lot) more than 9 episodes to build up the world, the threat, and especially the character relationships. If handled well, it could (potentially) have been as good as ATLA, but now it stands as it is.",
+    "tags": ["show"],
+  }, {
+    "title": "Murder by Numbers",
+    "link": "https://www.gog.com/game/murder_by_numbers",
+    "score": 8.5,
+    "description": "100%-ed it. Solid picross puzzle game. The timed parts feel extremely out of place, but once you get used to it they're not much of a hindrance (even though I wouldn't call it picross at that point anymore).",
+    "reviewed_at": "2022-05-08",
+    "tags": ["game"],
+  }, {
+    "title": "Mushishi",
+    "link": "https://myanimelist.net/anime/457/Mushishi",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Fist of the North Star",
+    "link": "https://myanimelist.net/anime/967/Hokuto_no_Ken",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Dororo",
+    "link": "https://myanimelist.net/anime/37520/Dororo",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Eureka Seven",
+    "link": "https://myanimelist.net/anime/237/Koukyoushihen_Eureka_Seven",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Perfect Blue",
+    "link": "https://myanimelist.net/anime/437/Perfect_Blue",
+    "tags": ["movie", "anime", "todo"],
+  }, {
+    "title": "Dorohedoro",
+    "link": "https://myanimelist.net/anime/38668/Dorohedoro",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Ninja Scroll",
+    "link": "https://myanimelist.net/anime/617/Juubee_Ninpuuchou",
+    "tags": ["movie", "anime", "todo"],
+  }, {
+    "title": "Samurai Champloo",
+    "link": "https://myanimelist.net/anime/205/Samurai_Champloo",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Code Geass",
+    "link": "https://myanimelist.net/anime/1575/Code_Geass__Hangyaku_no_Lelouch",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Vampire Hunter D",
+    "link": "https://myanimelist.net/anime/543/Vampire_Hunter_D_2000",
+    "tags": ["movie", "anime", "todo"],
+  }, {
+    "title": "Arjuna",
+    "link": "https://myanimelist.net/anime/812/Chikyuu_Shoujo_Arjuna",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Made in Abyss",
+    "link": "https://myanimelist.net/anime/34599/Made_in_Abyss",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Drifters",
+    "link": "https://myanimelist.net/anime/31339/Drifters",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Ghost in the Shell",
+    "link": "https://myanimelist.net/anime/43/Koukaku_Kidoutai",
+    "tags": ["anime", "todo"],
+  }, {
+    "title": "Mind Game",
+    "link": "https://myanimelist.net/anime/875/Mind_Game",
+    "tags": ["movie", "anime", "todo"],
+  }, {
+    "title": "Trigun",
+    "link": "https://myanimelist.net/anime/6/Trigun",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Great Teacher Onizuka",
+    "link": "https://myanimelist.net/anime/245/Great_Teacher_Onizuka",
+    "tags": ["show", "anime", "todo"],
+  }, {
+    "title": "Chip 'n Dale: Rescue Rangers (2022)",
+    "link": "https://www.imdb.com/title/tt3513500/",
+    "score": 8,
+    "reviewed_at": "2022-05-20",
+    "description": "Everything I expected it to be, with the addition of some fantastic background and side quips. Tries to be the new Roger Rabbit. While I would say that Roger Rabbit has some more 'timeless' bits about cartoons in general, this is trying more to be about the industry as it is today, and in that regard it nails it",
     "tags": ["movie"],
   }]
 };

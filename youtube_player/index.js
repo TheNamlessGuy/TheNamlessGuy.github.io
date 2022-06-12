@@ -304,6 +304,11 @@ const CONTROLS = {
       }
     }
   },
+
+  scrollOffset: null,
+  scrollToCurrent: function() {
+    window.scrollTo(0, document.getElementsByClassName('current')[0].offsetTop - this.scrollOffset);
+  },
 };
 
 const YOUTUBE = {
@@ -479,6 +484,8 @@ function init() {
     YOUTUBE.load(ENTRIES.getID(0));
   });
 
+  CONTROLS.scrollOffset = (screen.width / 2) - document.getElementById('video-and-controls-container').offsetHeight;
+
   document.addEventListener('keyup', (e) => {
     if (e.key === 'ArrowLeft') {
       CONTROLS.previous(LOOP_TYPE.all);
@@ -488,6 +495,8 @@ function init() {
       CONTROLS.playToggle();
     } else if (e.key === 'r') {
       CONTROLS.resetCurrent();
+    } else if (e.key === 'c') {
+      CONTROLS.scrollToCurrent();
     } else if (e.key === '1') {
       CURRENT_URL.loopType(LOOP_TYPE.one);
       loopTypeElem.value = LOOP_TYPE.one;

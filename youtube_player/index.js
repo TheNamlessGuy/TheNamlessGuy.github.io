@@ -449,15 +449,31 @@ function init() {
   document.getElementById('save-button').addEventListener('click', () => { PLAYLISTS.save(); });
 
   const playlistElem = document.getElementById('playlists');
+
+  const fakePlaylistElem = document.createElement('select');
+  fakePlaylistElem.style.visibility = 'hidden';
+  fakePlaylistElem.style.position = 'fixed';
+  const fakePlaylistOption = document.createElement('option');
+  fakePlaylistElem.appendChild(fakePlaylistOption);
+  playlistElem.after(fakePlaylistElem);
+  const calculatePlaylistWidth = () => {
+    fakePlaylistOption.textContent = playlistElem.options[playlistElem.selectedIndex].textContent;
+    playlistElem.style.width = fakePlaylistElem.getBoundingClientRect().width + 'px';
+  };
+
   if (CURRENT_URL.playlist()) {
     playlistElem.value = CURRENT_URL.playlist();
+    calculatePlaylistWidth();
   }
+
   playlistElem.addEventListener('change', () => {
+    calculatePlaylistWidth();
+    CURRENT_URL.playlist(playlistElem.value);
+
     if (playlistElem.value === '') {
       return;
     }
 
-    CURRENT_URL.playlist(playlistElem.value);
     PLAYLISTS.load(playlistElem.value);
     CURRENT_ENTRY.set(0);
     YOUTUBE.load(ENTRIES.getID(0));

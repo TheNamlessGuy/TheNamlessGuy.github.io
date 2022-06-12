@@ -692,4 +692,5 @@ PLAYLISTS.add('music', [
   {id: 'd_0tWJ1AvTE', title: 'Colour - Conversations'},
   {id: 'eCu5cqnMoQo', title: 'Algernon Cadwallader - Springing Leaks'},
   {id: '_oKzDmKEigE', title: 'Origami JP - Idea'},
+  {id: '9UIlZUeGbjQ', title: 'Keith Hopwood, Phil Bush - The Messenger'},
 ]);

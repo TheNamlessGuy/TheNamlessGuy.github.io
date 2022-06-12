@@ -2131,9 +2131,49 @@ The latter half of season 3 and most of season 4 does feel like a return to form
   }, {
     "title": "Chip 'n Dale: Rescue Rangers (2022)",
     "link": "https://www.imdb.com/title/tt3513500/",
-    "score": 8,
+    "score": 6.5,
     "reviewed_at": "2022-05-20",
-    "description": "Everything I expected it to be, with the addition of some fantastic background and side quips. Tries to be the new Roger Rabbit. While I would say that Roger Rabbit has some more 'timeless' bits about cartoons in general, this is trying more to be about the industry as it is today, and in that regard it nails it",
+    "tags": ["movie"],
+  }, {
+    "title": "Moon Knight",
+    "link": "https://www.imdb.com/title/tt10234724/",
+    "score": 6,
+    "reviewed_at": "2022-05-23",
+    "description": "It would be a 4.5-5 if it weren't for Oscar Isaac and Ethan Hawke doing a great job with what they're given",
+    "tags": ["show"],
+  }, {
+    "title": "Stargate",
+    "link": "https://www.imdb.com/title/tt0111282/",
+    "score": 8.5,
+    "reviewed_at": "2022-05-26",
+    "description": "No wonder this spawned so many good shows",
+    "tags": ["movie"],
+  }, {
+    "title": "Severance",
+    "link": "https://www.imdb.com/title/tt11280740/",
+    "score": 8.5,
+    "reviewed_at": "2022-05-28",
+    "tags": ["show"],
+  }, {
+    "title": "Spaceballs",
+    "link": "https://www.imdb.com/title/tt0094012/",
+    "score": 7.5,
+    "reviewed_at": "2022-05-29",
+    "description": "Lmao balls",
+    "tags": ["movie"],
+  }, {
+    "title": "The Mummy",
+    "link": "https://www.imdb.com/title/tt0120616/",
+    "score": 8,
+    "reviewed_at": "2022-06-04",
+    "description": "Some of the CGI doesn't hold up, but the rest of the movie does spectacularly",
+    "tags": ["movie"],
+  }, {
+    "title": "Sonic the Hedgehog 2",
+    "link": "https://www.imdb.com/title/tt12412888/",
+    "score": 7.5,
+    "reviewed_at": "2022-06-10",
+    "description": "A straight up improvement on the first one in every way imaginable, especially when considering the new cast (with Colleen as Tails, the one true choice).",
     "tags": ["movie"],
   }]
 };

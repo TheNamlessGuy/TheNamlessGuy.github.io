@@ -23,10 +23,11 @@
 /* START: SPECIFICS */
 body {
   background-color: #000;
+  margin: 0;
 }
 
 hr {
-  width: 15vw;
+  width: 90vw;
   color: #555;
 }
 
@@ -43,17 +44,44 @@ hr {
   min-width: 640px;
 }
 
-#entry-list {
-  margin-left: 44.5vw;
+#video-and-controls-container {
+  position: sticky;
+  top: 0;
+  background-color: #000;
+}
+#video-and-controls-container > div {
+  padding-top: 8px;
+  padding-bottom: 1px;
 }
 
 .entry-container {
   margin: 10px;
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.entry-container-left, .entry-container-center, .entry-container-right {
+  display: table-cell;
+}
+
+.entry-container-left {
+  text-align: right;
+}
+
+.entry-container-right {
+  text-align: left;
+}
+
+.entry-container-center {
+  width: 150px;
 }
 
 .entry-id {
   margin-left: 5px;
   margin-right: 5px;
+  width: 90%;
 }
 
 .entry-index-container {

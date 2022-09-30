@@ -693,4 +693,5 @@ PLAYLISTS.add('music', [
   {id: 'eCu5cqnMoQo', title: 'Algernon Cadwallader - Springing Leaks'},
   {id: '_oKzDmKEigE', title: 'Origami JP - Idea'},
   {id: '9UIlZUeGbjQ', title: 'Keith Hopwood, Phil Bush - The Messenger'},
+  {id: 'ge-OARWV9sE', title: 'Hekutopasukaru - fish in the pool・花屋敷'},
 ]);

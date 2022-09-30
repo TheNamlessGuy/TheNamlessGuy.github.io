@@ -2175,5 +2175,58 @@ The latter half of season 3 and most of season 4 does feel like a return to form
     "reviewed_at": "2022-06-10",
     "description": "A straight up improvement on the first one in every way imaginable, especially when considering the new cast (with Colleen as Tails, the one true choice).",
     "tags": ["movie"],
+  }, {
+    "title": "Our Flag Means Death",
+    "link": "https://www.imdb.com/title/tt11000902/",
+    "score": 7,
+    "reviewed_at": "2022-06-17",
+    "tags": ["show"],
+  }, {
+    "title": "South Park",
+    "link": "https://www.imdb.com/title/tt0121955/",
+    "score": 7,
+    "reviewed_at": "2022-07-23",
+    "description": "First few seasons are a definite 9, then it starts going downwards. Still a few peaks here and there, but overall worse",
+    "tags": ["show"],
+  }, {
+    "title": "Superliminal",
+    "link": "https://www.gog.com/game/superliminal",
+    "score": 7.5,
+    "reviewed_at": "2022-07-22",
+    "tags": ["game"],
+  }, {
+    "title": "The Middle",
+    "link": "https://www.imdb.com/title/tt1442464/",
+    "score": 7.5,
+    "reviewed_at": "2022-07-25",
+    "description": "Not mindblowing, but does what it does very well. Didn't overstay its welcome, as it was just the right length.",
+    "tags": ["show"],
+  }, {
+    "title": "Dishonored",
+    "link": "https://www.gog.com/game/dishonored_definitive_edition",
+    "score": 7,
+    "reviewed_at": "2022-09-11",
+    "description": "Simpler than I remembered, but still great. If I come back to it again in another 10 years, I'll probably say the same thing.",
+    "tags": ["game"],
+  }, {
+    "title": "From",
+    "link": "https://www.imdb.com/title/tt9813792/",
+    "score": 7,
+    "reviewed_at": "2022-09-14",
+    "description": "Interesting enough to keep watching",
+    "tags": ["show"],
+  }, {
+    "title": "Kung Fu Hustle",
+    "link": "https://www.imdb.com/title/tt0373074/",
+    "score": 8,
+    "reviewed_at": "2022-09-26",
+    "tags": ["movie"],
+  }, {
+    "title": "Kirby and the Forgotten Land",
+    "link": "https://kirbyandtheforgottenland.nintendo.com/",
+    "score": 8,
+    "reviewed_at": "2022-09-30",
+    "description": "Solid Kirby game, if you're into that sort of thing (I am)",
+    "tags": ["game"],
   }]
 };

@@ -589,7 +589,7 @@ const _raw_data = {
     "title": "Brooklyn Nine-Nine",
     "link": "https://www.imdb.com/title/tt2467372/",
     "score": 8,
-    "reviewed_at": "2020-09-26",
+    "reviewed_at": "2022-10-15",
     "tags": ["show"],
   }, {
     "title": "Cube",
@@ -2228,5 +2228,32 @@ The latter half of season 3 and most of season 4 does feel like a return to form
     "reviewed_at": "2022-09-30",
     "description": "Solid Kirby game, if you're into that sort of thing (I am)",
     "tags": ["game"],
+  }, {
+    "title": "The Sumerians - Fall of the First Cities",
+    "link": "https://www.imdb.com/title/tt13015920/",
+    "score": 9,
+    "reviewed_at": "2022-10-04",
+    "description": "Very well put together",
+    "tags": ["movie", "documentary"],
+  }, {
+    "title": "The Book of Life",
+    "link": "https://www.imdb.com/title/tt2262227/",
+    "score": 7.5,
+    "reviewed_at": "2022-10-13",
+    "tags": ["movie"],
+  }, {
+    "title": "Lion King 2: Simba's Pride",
+    "link": "https://www.imdb.com/title/tt0120131/",
+    "score": 7,
+    "reviewed_at": "2022-10-17",
+    "description": "I would probably rate it higher if it didn't have such GINORMOUS shoes to fill",
+    "tags": ["movie"],
+  }, {
+    "title": "Jurassic World",
+    "link": "https://www.imdb.com/title/tt0369610/",
+    "score": 6,
+    "reviewed_at": "2022-10-17",
+    "description": "Pretty much just Jurassic Park but worse. Not terrible, though",
+    "tags": ["movie"],
   }]
 };

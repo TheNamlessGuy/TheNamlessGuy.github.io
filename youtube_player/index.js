@@ -7,6 +7,15 @@ const LOOP_TYPE = {
   dont: 4,
 };
 
+const TAGS = {
+  SINGALONG: 'singalong',
+
+  GENRE_MUSICAL: 'genre:musical',
+  GENRE_INSTRUMENTAL: 'genre:instrumental',
+  GENRE_FOLKPUNK: 'genre:folkpunk',
+  GENRE_POWERMETAL: 'genre:powermetal',
+};
+
 const CURRENT_URL = {
   value: null,
 
@@ -83,7 +92,7 @@ const PLAYLISTS = {
     ENTRIES.clear();
 
     for (const entry of data) {
-      ENTRIES.load(entry.id, entry.title);
+      ENTRIES.load(entry.src, entry.title);
     }
 
     if (externalSource) {
@@ -257,7 +266,7 @@ const CONTROLS = {
 
     let id = ENTRIES.getID(idx);
     if (id === null || id === '') {
-      id = PLAYLISTS.randomDefault().id;
+      id = PLAYLISTS.randomDefault().src;
     }
 
     YOUTUBE.load(id);

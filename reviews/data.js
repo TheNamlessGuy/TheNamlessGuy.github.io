@@ -2255,5 +2255,19 @@ The latter half of season 3 and most of season 4 does feel like a return to form
     "reviewed_at": "2022-10-17",
     "description": "Pretty much just Jurassic Park but worse. Not terrible, though",
     "tags": ["movie"],
+  }, {
+    "title": "Jurassic World - Fallen Kingdom",
+    "link": "https://www.imdb.com/title/tt4881806/",
+    "score": 5.5,
+    "reviewed_at": "2022-10-23",
+    "description": "Pretty much just The Lost World: Jurassic Park but worse. Not terrible, though",
+    "tags": ["movie"],
+  }, {
+    "title": "Arcane",
+    "link": "https://www.imdb.com/title/tt11126994/",
+    "score": 8.5,
+    "reviewed_at": "2022-10-23",
+    "description": "Story wasn't earth-shattering in its uniqueness, but was told very well. The animation was absolutely fantastic, with extra props to the few frame animations that seemed to be purely hand drawn.",
+    "tags": ["show"],
   }]
 };

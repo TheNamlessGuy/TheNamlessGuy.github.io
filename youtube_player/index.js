@@ -9,11 +9,15 @@ const LOOP_TYPE = {
 
 const TAGS = {
   SINGALONG: 'singalong',
+  NOSTALGIA: 'nostalgia',
+  SHOW: 'show',
+  VIDYA: 'vidya',
 
   GENRE_MUSICAL: 'genre:musical',
   GENRE_INSTRUMENTAL: 'genre:instrumental',
   GENRE_FOLKPUNK: 'genre:folkpunk',
   GENRE_POWERMETAL: 'genre:powermetal',
+  GENRE_ACAPELLA: 'genre:acapella',
 };
 
 const CURRENT_URL = {

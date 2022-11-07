@@ -12,6 +12,8 @@ const TAGS = {
   NOSTALGIA: 'nostalgia',
   SHOW: 'show',
   VIDYA: 'vidya',
+  CHILL: 'chill',
+  DANCE: 'dance',
 
   GENRE_MUSICAL: 'genre:musical',
   GENRE_INSTRUMENTAL: 'genre:instrumental',

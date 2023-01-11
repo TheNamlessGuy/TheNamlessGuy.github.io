@@ -2269,5 +2269,12 @@ The latter half of season 3 and most of season 4 does feel like a return to form
     "reviewed_at": "2022-10-23",
     "description": "Story wasn't earth-shattering in its uniqueness, but was told very well. The animation was absolutely fantastic, with extra props to the few frame animations that seemed to be purely hand drawn.",
     "tags": ["show"],
+  }, {
+    "title": "Spirited",
+    "link": "https://www.imdb.com/title/tt10999120/",
+    "score": 7.5,
+    "reviewed_at": "2022-11-25",
+    "description": "Did what it set out to do, and did it well. I wouldn't call it ground breaking, but definitely solid.",
+    "tags": ["movie"],
   }]
 };

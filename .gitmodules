@@ -1,0 +1,3 @@
+[submodule "html-template-examples/html-templating"]
+	path = html-template-examples/html-templating
+	url = git@github.com:TheNamlessGuy/html-templating.git

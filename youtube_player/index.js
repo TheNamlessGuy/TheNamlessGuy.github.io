@@ -14,6 +14,7 @@ const TAGS = {
   VIDYA: 'vidya',
   CHILL: 'chill',
   DANCE: 'dance',
+  CLASSIC: 'classic',
 
   GENRE_MUSICAL: 'genre:musical',
   GENRE_INSTRUMENTAL: 'genre:instrumental',

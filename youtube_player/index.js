@@ -21,6 +21,7 @@ const TAGS = {
   GENRE_FOLKPUNK: 'genre:folkpunk',
   GENRE_POWERMETAL: 'genre:powermetal',
   GENRE_ACAPELLA: 'genre:acapella',
+  GENRE_TANGO: 'genre:tango',
 };
 
 const CURRENT_URL = {

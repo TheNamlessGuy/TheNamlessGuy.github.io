@@ -738,4 +738,8 @@ PLAYLISTS.add('music', [
   {title: 'Tove Styrke - High and Low',                                                                  source: 'youtube', src: 'SyryMkH1_9g', tags: []},
   {title: 'Rosa Walton - I Really Want to Stay At Your House',                                           source: 'youtube', src: 'KvMY1uzSC1E', tags: []},
   {title: 'Deportees - Bright Eyes',                                                                     source: 'youtube', src: '0FlOel28YfI', tags: []},
+  {title: 'Gary Glitter - Rock \'n\' Roll (Part 2)',                                                     source: 'youtube', src: '6sjGBXckGB4', tags: [TAGS.CLASSIC]},
+  {title: 'Linkin Park - Numb',                                                                          source: 'youtube', src: 'kXYiU_JCYtU', tags: [TAGS.CLASSIC, TAGS.SINGALONG]},
+  {title: 'Queen - Bohemian Rhapsody',                                                                   source: 'youtube', src: 'fJ9rUzIMcZQ', tags: [TAGS.CLASSIC, TAGS.SINGALONG]},
+  {title: 'Merengue - Ano Heroto Bokuranitsuite',                                                        source: 'youtube', src: 'rMJf7epEJCg', tags: []},
 ]);

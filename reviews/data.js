@@ -1279,154 +1279,10 @@ Maybe fix the difficulty curve as well. Did Battle of Kvatch at level 14 or some
     "reviewed_at": "2021-12-04",
     "tags": ["show", "anime"],
   }, {
-    "title": "Baki",
-    "link": "https://myanimelist.net/anime/34443/Baki",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "5 Centimeters Per Second",
-    "link": "https://myanimelist.net/anime/1689/Byousoku_5_Centimeter",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Chainsaw Man",
-    "link": "https://myanimelist.net/anime/44511/Chainsaw_Man",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Code Geass",
-    "link": "https://myanimelist.net/anime/1575/Code_Geass__Hangyaku_no_Lelouch",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Cowboy Bebop",
-    "link": "https://myanimelist.net/anime/1/Cowboy_Bebop",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "The Legend of the Legendary Heroes",
-    "link": "https://myanimelist.net/anime/8086/Densetsu_no_Yuusha_no_Densetsu",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Evangelion: 1.0 You Are (Not) Alone",
-    "link": "https://myanimelist.net/anime/2759/Evangelion__10_You_Are_Not_Alone",
-    "tags": ["movie", "anime", "todo"],
-  }, {
-    "title": "Evangelion: 2.0 You Can (Not) Advance",
-    "link": "https://myanimelist.net/anime/3784/Evangelion__20_You_Can_Not_Advance",
-    "tags": ["movie", "anime", "todo"],
-  }, {
-    "title": "Evangelion: 3.0 You Can (Not) Redo",
-    "link": "https://myanimelist.net/anime/3785/Evangelion__30_You_Can_Not_Redo",
-    "tags": ["movie", "anime", "todo"],
-  }, {
-    "title": "Evangelion: 3.0+1.0 Thrice Upon a Time",
-    "link": "https://myanimelist.net/anime/3786/Evangelion__30_10_Thrice_Upon_a_Time",
-    "tags": ["movie", "anime", "todo"],
-  }, {
-    "title": "Fighting Spirit",
-    "link": "https://myanimelist.net/anime/263/Hajime_no_Ippo",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Eden of The East",
-    "link": "https://myanimelist.net/anime/5630/Higashi_no_Eden",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Jin-Roh: The Wolf Brigade",
-    "link": "https://myanimelist.net/anime/570/Jin-Rou",
-    "tags": ["movie", "anime", "todo"],
-  }, {
-    "title": "Kanojo to Kanojo no Neko: Everything Flows",
-    "link": "https://myanimelist.net/anime/32491/Kanojo_to_Kanojo_no_Neko__Everything_Flows",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Berserk",
-    "link": "https://myanimelist.net/anime/33/Kenpuu_Denki_Berserk",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Your Name.",
-    "link": "https://myanimelist.net/anime/32281/Kimi_no_Na_wa",
-    "tags": ["movie", "anime", "todo"],
-  }, {
-    "title": "I Want to Eat Your Pancreas",
-    "link": "https://myanimelist.net/anime/36098/Kimi_no_Suizou_wo_Tabetai",
-    "tags": ["movie", "anime", "todo"],
-  }, {
-    "title": "Parasyte: The Maxim",
-    "link": "https://myanimelist.net/anime/22535/Kiseijuu__Sei_no_Kakuritsu",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "A Silent Voice",
-    "link": "https://myanimelist.net/anime/28851/Koe_no_Katachi",
-    "tags": ["movie", "anime", "todo"],
-  }, {
-    "title": "Ghost in the Shell",
-    "link": "https://myanimelist.net/anime/43/Koukaku_Kidoutai",
-    "tags": ["movie", "anime", "todo"],
-  }, {
-    "title": "Made in Abyss",
-    "link": "https://myanimelist.net/anime/34599/Made_in_Abyss",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Memories",
-    "link": "https://myanimelist.net/anime/1462/Memories",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Monster",
-    "link": "https://myanimelist.net/anime/19/Monster",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Neon Genesis Evangelion: Death & Rebirth",
-    "link": "https://myanimelist.net/anime/31/Neon_Genesis_Evangelion__Death___Rebirth",
-    "tags": ["movie", "anime", "todo"],
-  }, {
-    "title": "Neon Genesis Evangelion: The End of Evangelion",
-    "link": "https://myanimelist.net/anime/32/Neon_Genesis_Evangelion__The_End_of_Evangelion",
-    "tags": ["movie", "anime", "todo"],
-  }, {
     "title": "Ouran High School Host Club",
     "link": "https://myanimelist.net/anime/853/Ouran_Koukou_Host_Club",
     "score": 6.5,
     "tags": ["show", "anime"],
-  }, {
-    "title": "Psycho-Pass",
-    "link": "https://myanimelist.net/anime/13601/Psycho-Pass",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Romeo x Juliet",
-    "link": "https://myanimelist.net/anime/1699/Romeo_x_Juliet",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Serial Experiments Lain",
-    "link": "https://myanimelist.net/anime/339/Serial_Experiments_Lain",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Space Brothers",
-    "link": "https://myanimelist.net/anime/12431/Uchuu_Kyoudai",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Vinland Saga",
-    "link": "https://myanimelist.net/anime/37521/Vinland_Saga",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Vinland Saga",
-    "link": "https://myanimelist.net/anime/37521/Vinland_Saga",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Hazbin Hotel",
-    "link": "https://www.imdb.com/title/tt7216636/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "The Boondocks",
-    "link": "https://www.imdb.com/title/tt0373732/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "The Amazing World of Gumball",
-    "link": "https://www.imdb.com/title/tt1942683/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Reno 911!",
-    "link": "https://www.imdb.com/title/tt0370194/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Over the Garden Wall",
-    "link": "https://www.imdb.com/title/tt3718778/",
-    "tags": ["show", "todo"],
   }, {
     "title": "Curb Your Enthusiasm",
     "link": "https://www.imdb.com/title/tt0264235/",
@@ -1434,111 +1290,11 @@ Maybe fix the difficulty curve as well. Did Battle of Kvatch at level 14 or some
     "reviewed_at": "2021-12-04",
     "tags": ["show"],
   }, {
-    "title": "The Leftovers",
-    "link": "https://www.imdb.com/title/tt2699128/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Devs",
-    "link": "https://www.imdb.com/title/tt8134186/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Yûsha Yoshihiko",
-    "link": "https://www.imdb.com/title/tt1935719/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Who Framed Roger Rabbit",
-    "link": "https://www.imdb.com/title/tt0096438/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Good Will Hunting",
-    "link": "https://www.imdb.com/title/tt0119217/",
-    "tags": ["movie", "todo"],
-  }, {
-    "title": "Swiss Army Man",
-    "link": "https://www.imdb.com/title/tt4034354/",
-    "tags": ["movie", "todo"],
-  }, {
-    "title": "The Dark Crystal",
-    "link": "https://www.imdb.com/title/tt0083791/",
-    "tags": ["movie", "todo"],
-  }, {
-    "title": "Ingrid Goes West",
-    "link": "https://www.imdb.com/title/tt5962210/",
-    "tags": ["movie", "todo"],
-  }, {
-    "title": "Goodbye Christopher Robin",
-    "link": "https://www.imdb.com/title/tt1653665/",
-    "tags": ["movie", "todo"],
-  }, {
-    "title": "Léon",
-    "link": "https://www.imdb.com/title/tt0110413/",
-    "tags": ["movie", "todo"],
-  }, {
-    "title": "The Book of Life",
-    "link": "https://www.imdb.com/title/tt2262227/",
-    "tags": ["movie", "todo"],
-  }, {
-    "title": "Big Trouble in Little China",
-    "link": "https://www.imdb.com/title/tt0090728/",
-    "tags": ["movie", "todo"],
-  }, {
-    "title": "The Last Unicorn",
-    "link": "https://www.imdb.com/title/tt0084237/",
-    "tags": ["movie", "todo"],
-  }, {
-    "title": "The Shivering Truth",
-    "link": "https://www.imdb.com/title/tt6905458/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Star Wars: The Clone Wars",
-    "link": "https://www.imdb.com/title/tt0458290/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Drawn Together",
-    "link": "https://www.imdb.com/title/tt0386180/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Rent",
-    "link": "https://www.imdb.com/title/tt0294870/",
-    "tags": ["movie", "todo"],
-  }, {
-    "title": "His Dark Materials",
-    "link": "https://www.imdb.com/title/tt5607976/",
-    "tags": ["show", "todo"],
-  }, {
     "title": "Aunty Donna's Big Ol' House of Fun",
     "link": "https://www.imdb.com/title/tt13316746/",
     "score": 8,
     "reviewed_at": "2021-12-04",
     "tags": ["show"],
-  }, {
-    "title": "Wyrd Sisters",
-    "link": "https://www.imdb.com/title/tt0159931/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "The Expanse",
-    "link": "https://www.imdb.com/title/tt3230854/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Walking with Dinosaurs",
-    "link": "https://www.imdb.com/title/tt0214382/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Jujutsu Kaisen",
-    "link": "https://myanimelist.net/anime/40748/Jujutsu_Kaisen_TV",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Free Guy",
-    "link": "https://www.imdb.com/title/tt6264654/",
-    "tags": ["movie", "todo"],
-  }, {
-    "title": "Moulin Rouge!",
-    "link": "https://www.imdb.com/title/tt0203009/",
-    "tags": ["movie", "todo"],
-  }, {
-    "title": "Wicked",
-    "link": "https://www.imdb.com/title/tt1262426/",
-    "tags": ["movie", "todo"],
   }, {
     "title": "Space Force",
     "link": "https://www.imdb.com/title/tt9612516/",
@@ -1546,108 +1302,12 @@ Maybe fix the difficulty curve as well. Did Battle of Kvatch at level 14 or some
     "reviewed_at": "2021-12-04",
     "tags": ["show"],
   }, {
-    "title": "The End of the F***ing World",
-    "link": "https://www.imdb.com/title/tt6257970/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "American Dad!",
-    "link": "https://www.imdb.com/title/tt0397306/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Superjail!",
-    "link": "https://www.imdb.com/title/tt1031283/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Atypical",
-    "link": "https://www.imdb.com/title/tt6315640/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Don't F**k with Cats: Hunting an Internet Killer",
-    "link": "https://www.imdb.com/title/tt11318602/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Moomin",
-    "link": "https://www.imdb.com/title/tt0247117/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Pleasantville",
-    "link": "https://www.imdb.com/title/tt0120789/",
-    "tags": ["movie", "todo"],
-  }, {
-    "title": "Natural Born Killers",
-    "link": "https://www.imdb.com/title/tt0110632/",
-    "tags": ["movie", "todo"],
-  }, {
-    "title": "The King of Comedy",
-    "link": "https://www.imdb.com/title/tt0085794/",
-    "tags": ["movie", "todo"],
-  }, {
-    "title": "Gargoyles",
-    "link": "https://www.imdb.com/title/tt0108783/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "The World Ends with You The Animation",
-    "link": "https://myanimelist.net/anime/42307/Subarashiki_Kono_Sekai_The_Animation",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "How to Lose Friends & Alienate People",
-    "link": "https://www.imdb.com/title/tt0455538/",
-    "tags": ["movie", "todo"],
-  }, {
-    "title": "Merlin",
-    "link": "https://www.imdb.com/title/tt1199099/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Buffy the Vampire Slayer",
-    "link": "https://www.imdb.com/title/tt0118276/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Frasier",
-    "link": "https://www.imdb.com/title/tt0106004/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Bottom",
-    "link": "https://www.imdb.com/title/tt0103376/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Schmigadoon!",
-    "link": "https://www.imdb.com/title/tt11808942/",
-    "tags": ["show", "musical", "todo"],
-  }, {
-    "title": "A.P. Bio",
-    "link": "https://www.imdb.com/title/tt6461726/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Suedi",
-    "link": "https://www.imdb.com/title/tt13502736/",
-    "tags": ["movie", "todo"],
-  }, {
-    "title": "Isle of Dogs",
-    "link": "https://www.imdb.com/title/tt5104604/",
-    "tags": ["movie", "todo"],
-  }, {
-    "title": "Fantastic Mr. Fox",
-    "link": "https://www.imdb.com/title/tt0432283/",
-    "tags": ["movie", "todo"],
-  }, {
-    "title": "Love, Death and Robots",
-    "link": "https://www.imdb.com/title/tt9561862/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "After Life",
-    "link": "https://www.imdb.com/title/tt8398600/",
-    "tags": ["show", "todo"],
-  }, {
     "title": "Altered Carbon",
     "link": "https://www.imdb.com/title/tt2261227/",
     "score": 9,
     "reviewed_at": "2021-12-04",
     "description": "Note: Season 1 only. Season 2 just turned into a generic sci-fi action series.",
     "tags": ["show"],
-  }, {
-    "title": "Better off Ted",
-    "link": "https://www.imdb.com/title/tt1235547/",
-    "tags": ["show", "todo"],
   }, {
     "title": "Bob's Burgers",
     "link": "https://www.imdb.com/title/tt1561755/",
@@ -1662,10 +1322,6 @@ Maybe fix the difficulty curve as well. Did Battle of Kvatch at level 14 or some
     "reviewed_at": "2021-12-04",
     "tags": ["show"],
   }, {
-    "title": "Disenchantment",
-    "link": "https://www.imdb.com/title/tt5363918/",
-    "tags": ["show", "todo"],
-  }, {
     "title": "Doom Patrol",
     "link": "https://www.imdb.com/title/tt8416494/",
     "score": 6.5,
@@ -1678,39 +1334,11 @@ Maybe fix the difficulty curve as well. Did Battle of Kvatch at level 14 or some
     "reviewed_at": "2021-12-04",
     "tags": ["show"],
   }, {
-    "title": "Westworld",
-    "link": "https://www.imdb.com/title/tt0475784/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Watchmen",
-    "link": "https://www.imdb.com/title/tt7049682/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Upload",
-    "link": "https://www.imdb.com/title/tt7826376/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Twin Peaks",
-    "link": "https://www.imdb.com/title/tt0098936/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Unbreakable Kimmy Schmidt",
-    "link": "https://www.imdb.com/title/tt3339966/",
-    "tags": ["show", "todo"],
-  }, {
     "title": "The IT Crowd",
     "link": "https://www.imdb.com/title/tt0487831/",
     "score": 8.75,
     "reviewed_at": "2021-12-04",
     "tags": ["show"],
-  }, {
-    "title": "The Eric Andre Show",
-    "link": "https://www.imdb.com/title/tt2244495/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "The Dragon Prince",
-    "link": "https://www.imdb.com/title/tt8688814/",
-    "tags": ["show", "todo"],
   }, {
     "title": "The Boys",
     "link": "https://www.imdb.com/title/tt1190634/",
@@ -1718,39 +1346,11 @@ Maybe fix the difficulty curve as well. Did Battle of Kvatch at level 14 or some
     "reviewed_at": "2021-12-04",
     "tags": ["show"],
   }, {
-    "title": "Supernatural",
-    "link": "https://www.imdb.com/title/tt0460681/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Sonic Boom",
-    "link": "https://www.imdb.com/title/tt3232262/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Sick Note",
-    "link": "https://www.imdb.com/title/tt5770788/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Samurai Jack",
-    "link": "https://www.imdb.com/title/tt0278238/",
-    "tags": ["show", "todo"],
-  }, {
     "title": "Parks and Recreation",
     "link": "https://www.imdb.com/title/tt1266020/",
     "score": 8,
     "reviewed_at": "2021-12-04",
     "tags": ["show"],
-  }, {
-    "title": "Mr. Bean",
-    "link": "https://www.imdb.com/title/tt0096657/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Mr. Bean's Holiday",
-    "link": "https://www.imdb.com/title/tt0453451/",
-    "tags": ["movie", "todo"],
-  }, {
-    "title": "Bean",
-    "link": "https://www.imdb.com/title/tt0118689/",
-    "tags": ["movie", "todo"],
   }, {
     "title": "Madness Combat",
     "link": "https://www.imdb.com/title/tt2072604/",
@@ -1770,62 +1370,6 @@ Maybe fix the difficulty curve as well. Did Battle of Kvatch at level 14 or some
     "reviewed_at": "2021-12-04",
     "tags": ["show"],
   }, {
-    "title": "Good Omens",
-    "link": "https://www.imdb.com/title/tt1869454/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "Baccano!",
-    "link": "https://myanimelist.net/anime/2251/Baccano",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Banana Fish",
-    "link": "https://myanimelist.net/anime/36649/Banana_Fish",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Durarara!!",
-    "link": "https://myanimelist.net/anime/6746/Durarara",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Digimon Adventure",
-    "link": "https://myanimelist.net/anime/552/Digimon_Adventure",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Deca-Dence",
-    "link": "https://myanimelist.net/anime/40056/Deca-Dence",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Bokura no",
-    "link": "https://myanimelist.net/anime/1690/Bokura_no",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Violet Evergarden",
-    "link": "https://myanimelist.net/anime/33352/Violet_Evergarden",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "The Tatami Galaxy",
-    "link": "https://myanimelist.net/anime/7785/Yojouhan_Shinwa_Taikei",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Shaman King (2021)",
-    "link": "https://myanimelist.net/anime/42205/Shaman_King_2021",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Samurai Champloo",
-    "link": "https://myanimelist.net/anime/205/Samurai_Champloo",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Ping Pong the Animation",
-    "link": "https://myanimelist.net/anime/22135/Ping_Pong_the_Animation",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Hunter x Hunter",
-    "link": "https://myanimelist.net/anime/11061/Hunter_x_Hunter_2011",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Hellsing Ultimate",
-    "link": "https://myanimelist.net/anime/777/Hellsing_Ultimate",
-    "tags": ["show", "anime", "todo"],
-  }, {
     "title": "Guardians of the Galaxy",
     "link": "https://www.imdb.com/title/tt2015381/",
     "score": 8,
@@ -1839,10 +1383,6 @@ Maybe fix the difficulty curve as well. Did Battle of Kvatch at level 14 or some
     "reviewed_at": "2021-12-12",
     "description": "A good sendoff to the SG1 series",
     "tags": ["movie"],
-  }, {
-    "title": "In This Corner of the World",
-    "link": "https://myanimelist.net/anime/15227/Kono_Sekai_no_Katasumi_ni/",
-    "tags": ["movie", "anime", "todo"],
   }, {
     "title": "Office Space",
     "link": "https://www.imdb.com/title/tt0151804/",
@@ -1861,18 +1401,6 @@ Maybe fix the difficulty curve as well. Did Battle of Kvatch at level 14 or some
     "score": 4,
     "reviewed_at": "2021-12-22",
     "tags": ["movie"],
-  }, {
-    "title": "Tigtone",
-    "link": "https://www.imdb.com/title/tt8413062/",
-    "tags": ["show", "todo"],
-  }, {
-    "title": "The Imitation Game",
-    "link": "https://www.imdb.com/title/tt2084970/",
-    "tags": ["movie", "todo"],
-  }, {
-    "title": "Calculating Ada: The Countess of Computing",
-    "link": "https://www.imdb.com/title/tt5980290/",
-    "tags": ["movie", "documentary", "todo"],
   }, {
     "title": "The First Tree",
     "link": "https://www.gog.com/game/the_first_tree",
@@ -2024,10 +1552,6 @@ The latter half of season 3 and most of season 4 does feel like a return to form
     "reviewed_at": "2022-04-07",
     "tags": ["show"],
   }, {
-    "title": "The King and I",
-    "link": "https://www.imdb.com/title/tt8887846/",
-    "tags": ["movie", "todo"],
-  }, {
     "title": "Schmigadoon!",
     "link": "https://www.imdb.com/title/tt11808942/",
     "score": 6,
@@ -2061,74 +1585,6 @@ The latter half of season 3 and most of season 4 does feel like a return to form
     "description": "100%-ed it. Solid picross puzzle game. The timed parts feel extremely out of place, but once you get used to it they're not much of a hindrance (even though I wouldn't call it picross at that point anymore).",
     "reviewed_at": "2022-05-08",
     "tags": ["game"],
-  }, {
-    "title": "Mushishi",
-    "link": "https://myanimelist.net/anime/457/Mushishi",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Fist of the North Star",
-    "link": "https://myanimelist.net/anime/967/Hokuto_no_Ken",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Dororo",
-    "link": "https://myanimelist.net/anime/37520/Dororo",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Eureka Seven",
-    "link": "https://myanimelist.net/anime/237/Koukyoushihen_Eureka_Seven",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Perfect Blue",
-    "link": "https://myanimelist.net/anime/437/Perfect_Blue",
-    "tags": ["movie", "anime", "todo"],
-  }, {
-    "title": "Dorohedoro",
-    "link": "https://myanimelist.net/anime/38668/Dorohedoro",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Ninja Scroll",
-    "link": "https://myanimelist.net/anime/617/Juubee_Ninpuuchou",
-    "tags": ["movie", "anime", "todo"],
-  }, {
-    "title": "Samurai Champloo",
-    "link": "https://myanimelist.net/anime/205/Samurai_Champloo",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Code Geass",
-    "link": "https://myanimelist.net/anime/1575/Code_Geass__Hangyaku_no_Lelouch",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Vampire Hunter D",
-    "link": "https://myanimelist.net/anime/543/Vampire_Hunter_D_2000",
-    "tags": ["movie", "anime", "todo"],
-  }, {
-    "title": "Arjuna",
-    "link": "https://myanimelist.net/anime/812/Chikyuu_Shoujo_Arjuna",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Made in Abyss",
-    "link": "https://myanimelist.net/anime/34599/Made_in_Abyss",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Drifters",
-    "link": "https://myanimelist.net/anime/31339/Drifters",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Ghost in the Shell",
-    "link": "https://myanimelist.net/anime/43/Koukaku_Kidoutai",
-    "tags": ["anime", "todo"],
-  }, {
-    "title": "Mind Game",
-    "link": "https://myanimelist.net/anime/875/Mind_Game",
-    "tags": ["movie", "anime", "todo"],
-  }, {
-    "title": "Trigun",
-    "link": "https://myanimelist.net/anime/6/Trigun",
-    "tags": ["show", "anime", "todo"],
-  }, {
-    "title": "Great Teacher Onizuka",
-    "link": "https://myanimelist.net/anime/245/Great_Teacher_Onizuka",
-    "tags": ["show", "anime", "todo"],
   }, {
     "title": "Chip 'n Dale: Rescue Rangers (2022)",
     "link": "https://www.imdb.com/title/tt3513500/",
@@ -2429,5 +1885,56 @@ The latter half of season 3 and most of season 4 does feel like a return to form
     "reviewed_at": "2023-01-22",
     "description": "Simply fantastic",
     "tags": ["movie"],
+  }, {
+    "title": "Rock lee vs Gaara - Linkin park",
+    "link": "https://www.youtube.com/watch?v=VgDgWzBL7s4",
+    "score": 9.5,
+    "reviewed_at": "2023-01-26",
+    "description": "Art",
+    "tags": ["music", "video", "anime"],
+  }, {
+    "title": "Van Helsing",
+    "link": "https://www.imdb.com/title/tt0338526/",
+    "score": 7.5,
+    "reviewed_at": "2023-02-05",
+    "tags": ["movie"],
+  }, {
+    "title": "The Dragon Prince",
+    "link": "https://www.imdb.com/title/tt8688814/",
+    "score": 7,
+    "reviewed_at": "2023-02-12",
+    "description": `HERE BE SPOILERS for Dragon Prince, Avatar - The Last Airbender, and Legend of Korra.
+
+I'm probably too harsh on this show, mostly because it has to live up to the near-masterpiece that is ATLA, but there is something about it that just feels off.
+
+I can't help but compare the two. In no particular order:
+* Soren is by and large the "comic relief". While Sokka was THE comedy guy in ATLA, it feels like the other characters also had an equal amount of comic relief. In TDP, it feels like 70% of the jokes are either from Soren, or about Soren.
+* I can't for the life of me care even a bit about Ezran (I had to look his name up). He feels like a mary sue and a soap box rolled into one. He has no flaws that can't be handwaved away as him being a kid. He can telepathically communicate with animals because reasons (most likely so he can talk to his bird-dad whenever that plot point gets resolved). It feels like Ezran (I had to scroll back to recheck his name) is supposed to be the new Aang, but they give him none of the complexity that made Aang an interesting character. Aang had the weight of the world on him, but he could barely handle it due to being a kid. Erzan gets an entire kingdom dumped on him, and he goes "sigh... alright sure" and then is the gigachad can't-do-anything-wrong-king who just wants peace when every one else wants war because he is the good guy and the others aren't. Yes, Aang could be preachy at times as well, but that was easily explained by his upbringing and, you know, the fact that he was the Avatar. Ultimately, Ezran (I remembered it this time) is just some kid who can talk to animals because plot.
+* Speaking of soap boxing, I feel like the show does a lot of it. ATLA did this as well, but it went about it much better. In ATLA, if you wanted to say "Don't do the thing", they show the characters you (the viewer) care about doing the thing, the implications doing the thing has to their relationships with the other characters, and just in general show WHY it's bad, while at the same time showing why you might actually do the thing. In TDP, it feels very much like they just say "People who do the thing are bad" and then they fight the people who do the thing. Afterwards, the good guys win, and they say "See, doing the thing doesn't lead you anywhere". To be fair, this is a trend I feel I see more and more in general, not just with this show. Personally, I blame Twitter.
+* It seems very much like the implication of the elves dialects is that all the sun elves should have the french-ish accent, but some of them just don't? Half of Rayla's hunting team didn't have the accent.
+* The entire first season feels rushed. Sort of in the same way Korra Book 1 did, but at least that had the entire previous show to build on.
+
+Not to say that TDP doesn't have its moments.
+* As with ATLA, the world building is really good. Not as good as in ATLA, but that's probably because ATLA had double the amount of episodes at its disposal in order to build up the world.
+* I did NOT expect that whole "Soren becomes a quadraplegic" arc, which I feel was well executed. The only downside being that the only real lasting result of that arc is that Claudia gets a white streak in her hair.
+* The idea of watching Zym growing up is neat. Him being named after Ozymandias is kind of funny also, well done.
+* I didn't like bait the first time I watched the first season, but now by season 4 he is one of my favorite characters. They manage to squeeze a lot of personality out of the little bit of screen time he has.
+* Callum doing dark magic once and regretting it, but it still having lasting implications even after the time skip is a very well fired Chekhov's gun.
+* The Aaravos mystery being set up from episode one makes it the most intriguing arc the series probably has to offer. I am just guessing at this point, but he is going to end up being either inside the magic cube, or somewhere in Katolis. Also, he's voiced by Erik Dellums, who - to me - will always be Three Dog ([insert howl here]) from Fallout 3, and that makes me happy.
+
+Ultimately, I think a lot of the issues I have with the show probably boil down to two major things:
+1) It has half the episodes per season that ATLA did. A lot of the world and characters don't get as fleshed out as they seem to be in the writers heads because of this.
+2) Even if they had gotten the time required in point 1, I feel like it would have been used for more soap boxing, and less character building. Again, I blame Twitter.`,
+    "tags": ["show"],
+  }, {
+    "title": "Ping Pong the Animation",
+    "link": "https://myanimelist.net/anime/22135/Ping_Pong_the_Animation",
+    "score": 9.5,
+    "reviewed_at": "2023-02-14",
+    "description": `What an amazing ride from start to finish.
+The animation is top tier, once you get over how different it looks from everything else.
+The attention to detail is amazing (how Tsukimoto's little foot dash things are sci-fi-ish in nature when he's in robot mode, while Hoshino's are the cartoony hand drawn style is just incredible).
+Not to mention how it all feeds into telling the story so damn well.`,
+    "tags": ["show", "anime"],
   }]
 };

@@ -1,6 +1,5 @@
 /* Variables */
-:root {
-  --box-size: 55px;
+body {
   --box-border-size: 1px;
 
   --input-size: calc(var(--box-size) / 2);
@@ -8,6 +7,12 @@
   --input-padding-size: 2px;
   --input-offset: calc((var(--input-size) / 2) - var(--input-padding-size));
   --input-btn-offset: calc(var(--input-border-size) + var(--input-padding-size));
+}
+body.wide {
+  --box-size: 5vh;
+}
+body.high {
+  --box-size: 5vw;
 }
 
 body.theme-dark {

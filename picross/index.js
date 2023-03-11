@@ -2,6 +2,7 @@
  * TODO:
  * * Solve (Step and fully)
  * * Save function - hash?
+ * * checkForFinishedValues should be able to see partial matches, not just the full row
  */
 
 const ELEMENTS = {
@@ -643,6 +644,10 @@ const Generator = {
 };
 
 window.addEventListener('load', () => {
+  const isWide = screen.width > screen.height;
+  document.body.classList.toggle('wide',  isWide);
+  document.body.classList.toggle('high', !isWide);
+
   ELEMENTS.field = document.getElementById('field');
   ELEMENTS.winnerDisplay = document.getElementById('winner-display');
   ELEMENTS.colHandling = document.getElementById('col-handling');

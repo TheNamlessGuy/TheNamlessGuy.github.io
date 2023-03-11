@@ -1936,5 +1936,18 @@ The animation is top tier, once you get over how different it looks from everyth
 The attention to detail is amazing (how Tsukimoto's little foot dash things are sci-fi-ish in nature when he's in robot mode, while Hoshino's are the cartoony hand drawn style is just incredible).
 Not to mention how it all feeds into telling the story so damn well.`,
     "tags": ["show", "anime"],
+  }, {
+    "title": "Puss in Boots: The Last Wish",
+    "link": "https://www.imdb.com/title/tt3915174/",
+    "score": 7.75,
+    "reviewed_at": "2023-02-18",
+    "tags": ["movie"],
+  }, {
+    "title": "Puss in Boots: The Last Wish",
+    "link": "https://www.imdb.com/title/tt1440292/",
+    "score": 7.5,
+    "reviewed_at": "2023-02-18",
+    "description": "Absurd, but in the absurdist painting sense",
+    "tags": ["movie"],
   }]
 };

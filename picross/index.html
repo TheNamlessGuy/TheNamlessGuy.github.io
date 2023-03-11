@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Picross Solver - Namless Things</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="index.js"></script>
+  </head>
+  <body class="theme-dark">
+    <template id="template-box">
+      <div class="box"></div>
+    </template>
+
+    <template id="template-control">
+      <input class="control">
+    </template>
+
+    <template id="template-controls-container">
+      <div class="controls-container">
+        <div class="control-btns">
+          <button class="add">+</button>
+          <button class="sub">-</button>
+        </div>
+      </div>
+    </template>
+
+    <div id="field-container">
+      <div id="field">
+        <div id="winner-display" class="hidden">
+          Winner!
+        </div>
+        <div id="box-container"></div>
+
+        <div id="left-of-field">
+          <div id="row-controls"></div>
+        </div>
+        <div id="right-of-field">
+          <div id="col-handling">
+            <button id="sub-col-btn" class="btn height-btn">-</button>
+            <button id="add-col-btn" class="btn height-btn">+</button>
+          </div>
+          <div id="sidebar">
+            <button id="generate-btn">Generate</button>
+            <button id="solve-btn" disabled title="Coming soon maybe probably">Solve</button>
+            <button id="swap-theme-btn">Swap theme</button>
+            <div id="grid-size-display">
+              <div>Grid size</div>
+              <div>
+                <span id="grid-size-display-row">5</span>x<span id="grid-size-display-col">5</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="above-field">
+          <div id="col-controls"></div>
+        </div>
+        <div id="below-field">
+          <div id="row-handling">
+            <button id="sub-row-btn" class="btn width-btn">-</button>
+            <button id="add-row-btn" class="btn width-btn">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

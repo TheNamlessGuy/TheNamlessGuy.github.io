@@ -111,14 +111,52 @@ const Helpers = {
     GRID_DISPLAY.row.innerText = AMOUNT.row;
     GRID_DISPLAY.col.innerText = AMOUNT.col;
   },
+
+  setDividingLine: function() {
+    if (AMOUNT.row % 5 === 0) {
+      Helpers._setDividingLine('row', AMOUNT.row, 5);
+    } else if (AMOUNT.row % 4 === 0) {
+      Helpers._setDividingLine('row', AMOUNT.row, 4);
+    } else if (AMOUNT.row % 3 === 0) {
+      Helpers._setDividingLine('row', AMOUNT.row, 3);
+    } else {
+      Helpers._setDividingLine('row', AMOUNT.row, 0);
+    }
+
+    if (AMOUNT.col % 5 === 0) {
+      Helpers._setDividingLine('col', AMOUNT.col, 5);
+    } else if (AMOUNT.col % 4 === 0) {
+      Helpers._setDividingLine('col', AMOUNT.col, 4);
+    } else if (AMOUNT.col % 3 === 0) {
+      Helpers._setDividingLine('col', AMOUNT.col, 3);
+    } else {
+      Helpers._setDividingLine('col', AMOUNT.col, 0);
+    }
+  },
+
+  _setDividingLine: function(prefix, amount, offset) {
+    let next = false;
+    for (let i = 0; i < amount; ++i) {
+      const boxes = document.querySelectorAll(`.box.${prefix}-${i}`);
+      const active = i % offset === 0;
+
+      for (const box of boxes) {
+        box.classList.toggle(`${prefix}-line`, active);
+        box.classList.toggle(`${prefix}-line2`, next);
+      }
+
+      next = active;
+    }
+  },
 };
 
 const Box = {
+  _oddOrEven: ['even', 'odd'],
+
   add: function(row, column, addingColumn) {
     const box = Template.init(Template.box);
 
-    box.classList.add(`row-${row}`);
-    box.classList.add(`col-${column}`);
+    box.classList.add(`row-${row}`, `col-${column}`);
 
     box.addEventListener('mouseenter', () => Box.onHovered(box, row, column));
     box.addEventListener('mouseleave', () => Box.onUnhovered(box, row, column));
@@ -174,7 +212,9 @@ const Box = {
     if (e.button === 2) { // Right click
       box.classList.remove('ticked');
       box.classList.toggle('unticked');
-    } else if (e.button === 0) {
+
+      Helpers.checkForFinishedValues(box);
+    } else if (e.button === 0) { // Left click
       box.classList.toggle('ticked');
       box.classList.remove('unticked');
 
@@ -190,7 +230,7 @@ const Row = {
 
     // Controls
     const container = Template.init(Template.controlsContainer);
-    container.classList.add('row-' + AMOUNT.row);
+    container.classList.add(`row-${AMOUNT.row}`);
     container.getElementsByClassName('add')[0].addEventListener('click', () => Row.control.add(container, 0));
     container.getElementsByClassName('sub')[0].addEventListener('click', () => Row.control.remove(container));
     for (const value of values) {
@@ -203,6 +243,8 @@ const Row = {
     for (let i = 0; i < colAmount; ++i) {
       Box.add(AMOUNT.row, i + 1, false);
     }
+
+    Helpers.setDividingLine();
   },
 
   remove: function() {
@@ -214,6 +256,8 @@ const Row = {
     for (let i = 0; i < elements.length;) {
       elements[i].parentNode.removeChild(elements[i]);
     }
+
+    Helpers.setDividingLine();
   },
 
   control: {
@@ -248,7 +292,7 @@ const Column = {
 
     // Controls
     const container = Template.init(Template.controlsContainer);
-    container.classList.add('col-' + AMOUNT.col);
+    container.classList.add(`col-${AMOUNT.col}`);
     container.getElementsByClassName('add')[0].addEventListener('click', () => Column.control.add(container, 0));
     container.getElementsByClassName('sub')[0].addEventListener('click', () => Column.control.remove(container));
     for (const value of values) {
@@ -261,6 +305,8 @@ const Column = {
     for (let i = 0; i < rowAmount; ++i) {
       Box.add(i + 1, AMOUNT.col, true);
     }
+
+    Helpers.setDividingLine();
   },
 
   remove: function() {
@@ -273,6 +319,8 @@ const Column = {
     for (let i = 0; i < elements.length;) {
       elements[i].parentNode.removeChild(elements[i]);
     }
+
+    Helpers.setDividingLine();
   },
 
   control: {

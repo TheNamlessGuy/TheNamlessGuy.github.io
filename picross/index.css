@@ -1,6 +1,8 @@
 /* Variables */
 :root {
   --box-size: 55px;
+  --box-border-size: 1px;
+
   --input-size: calc(var(--box-size) / 2);
   --input-border-size: 1px;
   --input-padding-size: 2px;
@@ -18,19 +20,20 @@ body.theme-dark {
   --input-text: #000;
   --input-text--finished: #555;
 
-  --box-border: #555;
+  --box-border: #AAA;
+  --box-border-line: #000;
 
   --box-bg--default: #FFF;
-  --box-bg--default--hovered--primary: #AAA;
-  --box-bg--default--hovered--secondary: #CCC;
+  --box-bg--default--hovered--primary: #DDD;
+  --box-bg--default--hovered--secondary: #DDD;
 
-  --box-bg--selected: #700;
-  --box-bg--selected--hovered--primary: #C00;
+  --box-bg--selected: #C00;
+  --box-bg--selected--hovered--primary: #A00;
   --box-bg--selected--hovered--secondary: #A00;
 
-  --box-bg--deselected: #777;
-  --box-bg--deselected--hovered--primary: #999;
-  --box-bg--deselected--hovered--secondary: #888;
+  --box-bg--deselected: #999;
+  --box-bg--deselected--hovered--primary: #777;
+  --box-bg--deselected--hovered--secondary: #777;
 }
 
 body.theme-light {
@@ -42,18 +45,19 @@ body.theme-light {
   --input-text: #000;
 
   --box-border: #555;
+  --box-border-line: #000;
 
   --box-bg--default: #FFF;
-  --box-bg--default--hovered--primary: #AAA;
-  --box-bg--default--hovered--secondary: #CCC;
+  --box-bg--default--hovered--primary: #DDD;
+  --box-bg--default--hovered--secondary: #DDD;
 
-  --box-bg--selected: #700;
-  --box-bg--selected--hovered--primary: #C00;
+  --box-bg--selected: #C00;
+  --box-bg--selected--hovered--primary: #A00;
   --box-bg--selected--hovered--secondary: #A00;
 
-  --box-bg--deselected: #777;
-  --box-bg--deselected--hovered--primary: #999;
-  --box-bg--deselected--hovered--secondary: #888;
+  --box-bg--deselected: #999;
+  --box-bg--deselected--hovered--primary: #777;
+  --box-bg--deselected--hovered--secondary: #777;
 }
 
 /* Rules */
@@ -135,7 +139,7 @@ body {
   width: var(--box-size);
   height: var(--box-size);
   background-color: var(--box-bg--default);
-  border: 1px solid var(--box-border);
+  border: var(--box-border-size) solid var(--box-border);
 }
 .box.hovered-primary {
   background-color: var(--box-bg--default--hovered--primary);
@@ -160,6 +164,18 @@ body {
 }
 .box.unticked.box.hovered-secondary {
   background-color: var(--box-bg--deselected--hovered--secondary);
+}
+.box.row-line {
+  border-bottom-color: var(--box-border-line);
+}
+.box.row-line2 {
+  border-top-color: var(--box-border-line);
+}
+.box.col-line {
+  border-right-color: var(--box-border-line);
+}
+.box.col-line2 {
+  border-left-color: var(--box-border-line);
 }
 
 #col-controls {

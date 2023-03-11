@@ -2,7 +2,6 @@
  * TODO:
  * * Solve (Step and fully)
  * * Save function - hash?
- * * checkForFinishedValues should be able to see partial matches, not just the full row
  */
 
 const ELEMENTS = {
@@ -50,11 +49,15 @@ const Template = {
 }
 
 const Helpers = {
-  calculateValues: function(boxes, isSelected) {
+  calculateValues: function(boxes, isSelected, stopProcessing = () => false, returnZeroIfEmpty = true) {
     const values = [];
     let combo = 0;
 
     for (let i = 0; i < boxes.length; ++i) {
+      if (stopProcessing(boxes[i])) {
+        break;
+      }
+
       const selected = isSelected(boxes[i]);
       if (combo > 0 && !selected) {
         values.push(combo);
@@ -64,7 +67,7 @@ const Helpers = {
       }
     }
 
-    if (values.length === 0 || combo > 0) {
+    if (combo > 0 || (returnZeroIfEmpty && values.length === 0)) {
       values.push(combo);
     }
 
@@ -86,15 +89,39 @@ const Helpers = {
   _checkForFinishedValues: function(c) {
     const controls = Array.from(document.querySelectorAll(`.controls-container.${c}`)).flatMap((x) => Array.from(x.getElementsByClassName('control')));
     const controlValues = controls.map((x) => parseInt(x.value, 10));
-    const boxes = document.querySelectorAll(`.box.${c}`);
+    let boxes = Array.from(document.querySelectorAll(`.box.${c}`));
     const boxValues = Helpers.calculateValues(boxes, (x) => x.classList.contains('ticked'));
     if (Helpers.equal.array(controlValues, boxValues)) {
       for (const control of controls) {
         control.classList.add('finished');
       }
+
+      return;
     } else {
       for (const control of controls) {
         control.classList.remove('finished');
+      }
+    }
+
+    // Check for "anchored" sequences from the beginning
+    let values = Helpers.calculateValues(boxes, (x) => x.classList.contains('ticked'), (x) => !x.classList.contains('ticked') && !x.classList.contains('unticked'), false);
+    for (let i = 0; i < values.length && i < controlValues.length; ++i) {
+      if (values[i] === controlValues[i]) {
+        controls[i].classList.add('finished');
+      } else {
+        break;
+      }
+    }
+
+    // Check for "anchored" sequences from the end
+    boxes = boxes.reverse();
+    values = Helpers.calculateValues(boxes, (x) => x.classList.contains('ticked'), (x) => !x.classList.contains('ticked') && !x.classList.contains('unticked'), false);
+    console.log(c, 1, values, controlValues);
+    for (let i = 0, j = controlValues.length - 1; i < values.length, j > 0; ++i, --j) {
+      if (values[i] === controlValues[j]) {
+        controls[j].classList.add('finished');
+      } else {
+        break;
       }
     }
   },
@@ -193,10 +220,37 @@ const Box = {
   _selected: {
     list: [],
     type: null,
+
+    types: [],
+    classes: [],
+    classify: (x) => `selected-${x}`,
+    querySelectorAll: '',
+
+    SELECT: 'select',
+    DESELECT: 'deselect',
+    UNSET: 'unset',
+    MEASURE: 'measure',
   },
 
   init: function() {
     document.addEventListener('mouseup', Box.onMouseUp);
+
+    Box._selected.types = [
+      Box._selected.UNSET, // 0
+      Box._selected.SELECT, // 1
+      Box._selected.DESELECT, // 2
+      null, // 3
+      Box._selected.MEASURE, // 4
+    ];
+
+    Box._selected.classes = [
+      Box._selected.classify(Box._selected.UNSET),
+      Box._selected.classify(Box._selected.SELECT),
+      Box._selected.classify(Box._selected.DESELECT),
+      Box._selected.classify(Box._selected.MEASURE),
+    ];
+
+    Box._selected.querySelectorAll = `.box.${Box._selected.classes.join(', .box.')}`;
   },
 
   add: function(row, column, addingColumn) {
@@ -241,7 +295,7 @@ const Box = {
     }
 
     for (const box of Box._selected.list) {
-      box.classList.remove('selected1', 'selected2', 'selected3');
+      box.classList.remove(...Box._selected.classes);
       box.getElementsByClassName('box-text')[0].innerText = '';
     }
 
@@ -249,7 +303,7 @@ const Box = {
     if (Box._selected.list[0] === box) {
       return;
     }
-    Box._selected.list[0].classList.add(`selected${Box._selected.type}`);
+    Box._selected.list[0].classList.add(Box._selected.classify(Box._selected.type));
 
     const start = Array.from(Box._selected.list[0].classList);
     const sr = parseInt(start.find((x) => x.startsWith('row-')).substring(4), 10);
@@ -269,7 +323,7 @@ const Box = {
         if (bc > late) { break; } // Too late
         if (bc < early) { continue; } // Too early
 
-        box.classList.add(`selected${Box._selected.type}`);
+        box.classList.add(Box._selected.classify(Box._selected.type));
         box.getElementsByClassName('box-text')[0].innerText = Box._selected.list.length;
         Box._selected.list.push(box);
       }
@@ -285,7 +339,7 @@ const Box = {
         if (br > late) { break; } // Too late
         if (br < early) { continue; } // Too early
 
-        box.classList.add(`selected${Box._selected.type}`);
+        box.classList.add(Box._selected.classify(Box._selected.type));
         box.getElementsByClassName('box-text')[0].innerText = Box._selected.list.length;
         Box._selected.list.push(box);
       }
@@ -309,22 +363,25 @@ const Box = {
   },
 
   onMouseDown: function(e) {
-    if (e.buttons === 1 || e.buttons === 2) {
+    if ([1, 2, 4].includes(e.buttons)) {
       Box._selected.list = [e.target];
       if (
+        !e.ctrlKey &&
         (e.buttons === 1 && e.target.classList.contains('ticked')) ||
         (e.buttons === 2 && e.target.classList.contains('unticked'))
       ) {
-        Box._selected.type = 3; // Unset
+        Box._selected.type = Box._selected.UNSET;
+      } else if (e.shiftKey) {
+        Box._selected.type = Box._selected.MEASURE;
       } else {
-        Box._selected.type = e.buttons;
+        Box._selected.type = Box._selected.types[e.buttons];
       }
     }
   },
 
   onMouseUp: function() {
     const single = Box._selected.list.length === 1;
-    if (Box._selected.type === 1) {
+    if (Box._selected.type === Box._selected.SELECT) {
       Box._onMouseUp((box) => {
         box.classList.remove('unticked');
         if (single) {
@@ -333,7 +390,7 @@ const Box = {
           box.classList.add('ticked');
         }
       });
-    } else if (Box._selected.type === 2) {
+    } else if (Box._selected.type === Box._selected.DESELECT) {
       Box._onMouseUp((box) => {
         box.classList.remove('ticked');
         if (single) {
@@ -342,15 +399,15 @@ const Box = {
           box.classList.add('unticked');
         }
       });
-    } else if (Box._selected.type === 3) {
+    } else if (Box._selected.type === Box._selected.UNSET) {
       Box._onMouseUp((box) => {
         box.classList.remove('ticked', 'unticked');
       });
     }
 
-    const selected = document.querySelectorAll('.box.selected1, .box.selected2, .box.selected3');
+    const selected = document.querySelectorAll(Box._selected.querySelectorAll);
     for (const box of selected) {
-      box.classList.remove('selected1', 'selected2', 'selected3');
+      box.classList.remove(...Box._selected.classes);
       box.getElementsByClassName('box-text')[0].innerText = '';
     }
     Box._selected.list = [];

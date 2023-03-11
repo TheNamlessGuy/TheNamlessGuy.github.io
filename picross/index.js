@@ -241,6 +241,7 @@ const Box = {
 
     for (const box of Box._selected.list) {
       box.classList.remove('selected1', 'selected2', 'selected3');
+      box.getElementsByClassName('box-text')[0].innerText = '';
     }
 
     Box._selected.list.length = 1;
@@ -268,6 +269,7 @@ const Box = {
         if (bc < early) { continue; } // Too early
 
         box.classList.add(`selected${Box._selected.type}`);
+        box.getElementsByClassName('box-text')[0].innerText = Box._selected.list.length;
         Box._selected.list.push(box);
       }
     } else {
@@ -283,6 +285,7 @@ const Box = {
         if (br < early) { continue; } // Too early
 
         box.classList.add(`selected${Box._selected.type}`);
+        box.getElementsByClassName('box-text')[0].innerText = Box._selected.list.length;
         Box._selected.list.push(box);
       }
     }
@@ -347,6 +350,7 @@ const Box = {
     const selected = document.querySelectorAll('.box.selected1, .box.selected2, .box.selected3');
     for (const box of selected) {
       box.classList.remove('selected1', 'selected2', 'selected3');
+      box.getElementsByClassName('box-text')[0].innerText = '';
     }
     Box._selected.list = [];
     Box._selected.type = null;

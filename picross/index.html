@@ -42,14 +42,21 @@
           </div>
           <div id="sidebar">
             <button id="generate-btn">Generate</button>
+            <button id="reset-btn">Reset</button>
             <button id="solve-btn" disabled title="Coming soon maybe probably">Solve</button>
             <button id="swap-theme-btn">Swap theme</button>
-            <div id="grid-size-display">
-              <div>Grid size</div>
+            <fieldset id="grid-size-display">
+              <legend>Grid size</legend>
               <div>
                 <span id="grid-size-display-row">5</span>x<span id="grid-size-display-col">5</span>
               </div>
-            </div>
+            </fieldset>
+            <fieldset id="difficulty-display">
+              <legend>Difficulty</legend>
+              <div id="difficulty-display-text">
+                Select between<br><input id="difficulty-range-min">% and <input id="difficulty-range-max">%<br>of the available squares
+              </div>
+            </fieldset>
           </div>
         </div>
         <div id="above-field">

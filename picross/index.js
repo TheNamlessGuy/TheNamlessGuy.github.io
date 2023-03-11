@@ -1,8 +1,30 @@
-const CONTAINERS = {
-  box: null,
-  rowControls: null,
-  colControls: null,
-};
+/**
+ * TODO:
+ * * Solve (Step and fully)
+ * * Save function - hash?
+ */
+
+const ELEMENTS = {
+  field: null,
+  winnerDisplay: null,
+  colHandling: null,
+  rowHandling: null,
+
+  btn: {
+    reset: null,
+  },
+
+  difficultyRange: {
+    min: null,
+    max: null,
+  },
+
+  CONTAINERS: {
+    box: null,
+    rowControls: null,
+    colControls: null,
+  },
+}
 
 const GRID_DISPLAY = {
   row: null,
@@ -48,10 +70,15 @@ const Helpers = {
     return values;
   },
 
-  checkForFinishedValues: function(box) {
-    const classes = Array.from(box.classList);
-    Helpers._checkForFinishedValues(classes.find((x) => x.startsWith('row-')));
-    Helpers._checkForFinishedValues(classes.find((x) => x.startsWith('col-')));
+  checkForFinishedValues: function(classes) {
+    if (!ELEMENTS.field.classList.contains('generated')) {
+      return;
+    }
+
+    for (const c of classes) {
+      Helpers._checkForFinishedValues(c);
+    }
+
     Helpers._checkIfWon();
   },
 
@@ -73,12 +100,12 @@ const Helpers = {
 
   _checkIfWon: function() {
     const unsolved = document.querySelectorAll(`.control:not(.finished)`);
-    if (unsolved.length > 0) {
-      return;
-    }
+    if (unsolved.length === 0) {
+      ELEMENTS.winnerDisplay.classList.remove('hidden');
 
-    // All controls are finished
-    document.getElementById('winner-display').classList.remove('hidden');
+      ELEMENTS.colHandling.classList.remove('hidden');
+      ELEMENTS.rowHandling.classList.remove('hidden');
+    }
   },
 
   equal: {
@@ -98,13 +125,9 @@ const Helpers = {
   },
 
   swapTheme: function() {
-    if (document.body.classList.contains('theme-dark')) {
-      document.body.classList.add('theme-light');
-      document.body.classList.remove('theme-dark');
-    } else {
-      document.body.classList.remove('theme-light');
-      document.body.classList.add('theme-dark');
-    }
+    const isLight = document.body.classList.contains('theme-light');
+    document.body.classList.toggle('theme-light', !isLight);
+    document.body.classList.toggle('theme-dark',   isLight);
   },
 
   updateGridDisplay: function() {
@@ -148,23 +171,44 @@ const Helpers = {
       next = active;
     }
   },
+
+  clamp: function(min, val, max) {
+    if (val < min) {
+      return min;
+    } else if (val > max) {
+      return max;
+    }
+
+    return val;
+  },
+
+  isNumber: function(value) {
+    return value != null && !isNaN(value) && !isNaN(parseFloat(value));
+  },
 };
 
 const Box = {
   _oddOrEven: ['even', 'odd'],
+  _selected: {
+    list: [],
+    type: null,
+  },
+
+  init: function() {
+    document.addEventListener('mouseup', Box.onMouseUp);
+  },
 
   add: function(row, column, addingColumn) {
     const box = Template.init(Template.box);
 
     box.classList.add(`row-${row}`, `col-${column}`);
 
-    box.addEventListener('mouseenter', () => Box.onHovered(box, row, column));
-    box.addEventListener('mouseleave', () => Box.onUnhovered(box, row, column));
-    box.addEventListener('mouseup', (e) => Box.onClicked(e, box));
-    box.addEventListener('contextmenu', (e) => e.preventDefault());
+    box.addEventListener('mouseenter', (e) => Box.onHovered(box, row, column));
+    box.addEventListener('mouseleave', (e) => Box.onUnhovered(box, row, column));
+    box.addEventListener('mousedown', Box.onMouseDown);
 
     if (!addingColumn) {
-      CONTAINERS.box.appendChild(box);
+      ELEMENTS.CONTAINERS.box.appendChild(box);
       return;
     }
 
@@ -172,16 +216,16 @@ const Box = {
     for (let i = 0; i < existingRowBoxes.length; ++i) {
       const existingColumn = parseInt(Array.from(existingRowBoxes[i].classList).find((x) => x.startsWith('col-')).substring(4), 10);
       if (existingColumn > column) {
-        CONTAINERS.box.insertBefore(box, existingRowBoxes[i]);
+        ELEMENTS.CONTAINERS.box.insertBefore(box, existingRowBoxes[i]);
         return;
       }
     }
 
     const lastBox = existingRowBoxes[existingRowBoxes.length - 1];
     if (lastBox.nextSibling) {
-      CONTAINERS.box.insertBefore(box, lastBox.nextSibling);
+      ELEMENTS.CONTAINERS.box.insertBefore(box, lastBox.nextSibling);
     } else {
-      CONTAINERS.box.appendChild(box);
+      ELEMENTS.CONTAINERS.box.appendChild(box);
     }
   },
 
@@ -190,6 +234,58 @@ const Box = {
 
     Box.hoverForSecondaries(box, `row-${row}`, true);
     Box.hoverForSecondaries(box, `col-${column}`, true);
+
+    if (Box._selected.list.length === 0) {
+      return;
+    }
+
+    for (const box of Box._selected.list) {
+      box.classList.remove('selected1', 'selected2', 'selected3');
+    }
+
+    Box._selected.list.length = 1;
+    if (Box._selected.list[0] === box) {
+      return;
+    }
+    Box._selected.list[0].classList.add(`selected${Box._selected.type}`);
+
+    const start = Array.from(Box._selected.list[0].classList);
+    const sr = parseInt(start.find((x) => x.startsWith('row-')).substring(4), 10);
+    const sc = parseInt(start.find((x) => x.startsWith('col-')).substring(4), 10);
+    const rdiff = Math.abs(sr - row);
+    const cdiff = Math.abs(sc - column);
+
+    if (cdiff > rdiff) {
+      // Move along row
+      const late = column < sc ? sc : column;
+      const early = column < sc ? column : sc;
+
+      const boxes = document.querySelectorAll(`.box.row-${sr}`);
+      for (const box of boxes) {
+        const bc = parseInt(Array.from(box.classList).find((x) => x.startsWith('col-')).substring(4), 10);
+
+        if (bc > late) { break; } // Too late
+        if (bc < early) { continue; } // Too early
+
+        box.classList.add(`selected${Box._selected.type}`);
+        Box._selected.list.push(box);
+      }
+    } else {
+      // Move along column
+      const late = row < sr ? sr : row;
+      const early = row < sr ? row : sr;
+
+      const boxes = document.querySelectorAll(`.box.col-${sc}`);
+      for (const box of boxes) {
+        const br = parseInt(Array.from(box.classList).find((x) => x.startsWith('row-')).substring(4), 10);
+
+        if (br > late) { break; } // Too late
+        if (br < early) { continue; } // Too early
+
+        box.classList.add(`selected${Box._selected.type}`);
+        Box._selected.list.push(box);
+      }
+    }
   },
 
   onUnhovered: function(box, row, column) {
@@ -208,18 +304,69 @@ const Box = {
     }
   },
 
-  onClicked: function(e, box) {
-    if (e.button === 2) { // Right click
-      box.classList.remove('ticked');
-      box.classList.toggle('unticked');
-
-      Helpers.checkForFinishedValues(box);
-    } else if (e.button === 0) { // Left click
-      box.classList.toggle('ticked');
-      box.classList.remove('unticked');
-
-      Helpers.checkForFinishedValues(box);
+  onMouseDown: function(e) {
+    if (e.buttons === 1 || e.buttons === 2) {
+      Box._selected.list = [e.target];
+      if (
+        (e.buttons === 1 && e.target.classList.contains('ticked')) ||
+        (e.buttons === 2 && e.target.classList.contains('unticked'))
+      ) {
+        Box._selected.type = 3; // Unset
+      } else {
+        Box._selected.type = e.buttons;
+      }
     }
+  },
+
+  onMouseUp: function() {
+    const single = Box._selected.list.length === 1;
+    if (Box._selected.type === 1) {
+      Box._onMouseUp((box) => {
+        box.classList.remove('unticked');
+        if (single) {
+          box.classList.toggle('ticked');
+        } else {
+          box.classList.add('ticked');
+        }
+      });
+    } else if (Box._selected.type === 2) {
+      Box._onMouseUp((box) => {
+        box.classList.remove('ticked');
+        if (single) {
+          box.classList.toggle('unticked');
+        } else {
+          box.classList.add('unticked');
+        }
+      });
+    } else if (Box._selected.type === 3) {
+      Box._onMouseUp((box) => {
+        box.classList.remove('ticked', 'unticked');
+      });
+    }
+
+    const selected = document.querySelectorAll('.box.selected1, .box.selected2, .box.selected3');
+    for (const box of selected) {
+      box.classList.remove('selected1', 'selected2', 'selected3');
+    }
+    Box._selected.list = [];
+    Box._selected.type = null;
+  },
+
+  _onMouseUp: function(cb) {
+    const affectedClasses = [];
+
+    for (const box of Box._selected.list) {
+      const classes = Array.from(box.classList);
+      const row = classes.find((x) => x.startsWith('row-'));
+      const col = classes.find((x) => x.startsWith('col-'));
+
+      if (!affectedClasses.includes(row)) { affectedClasses.push(row); }
+      if (!affectedClasses.includes(col)) { affectedClasses.push(col); }
+
+      cb(box);
+    }
+
+    Helpers.checkForFinishedValues(affectedClasses);
   },
 }
 
@@ -236,7 +383,7 @@ const Row = {
     for (const value of values) {
       Row.control.add(container, value);
     }
-    CONTAINERS.rowControls.appendChild(container);
+    ELEMENTS.CONTAINERS.rowControls.appendChild(container);
 
     // Boxes
     colAmount = colAmount ?? AMOUNT.col;
@@ -287,7 +434,7 @@ const Row = {
 const Column = {
   add: function(values, rowAmount = null) {
     AMOUNT.col += 1;
-    CONTAINERS.box.style.gridTemplateColumns = `repeat(${AMOUNT.col}, 1fr)`;
+    ELEMENTS.CONTAINERS.box.style.gridTemplateColumns = `repeat(${AMOUNT.col}, 1fr)`;
     Helpers.updateGridDisplay();
 
     // Controls
@@ -298,7 +445,7 @@ const Column = {
     for (const value of values) {
       Column.control.add(container, value);
     }
-    CONTAINERS.colControls.appendChild(container);
+    ELEMENTS.CONTAINERS.colControls.appendChild(container);
 
     // Boxes
     rowAmount = rowAmount ?? AMOUNT.row;
@@ -312,7 +459,7 @@ const Column = {
   remove: function() {
     if (AMOUNT.col === 5) { return; } // Minimum amount
     AMOUNT.col -= 1;
-    CONTAINERS.box.style.gridTemplateColumns = `repeat(${AMOUNT.col}, 1fr)`;
+    ELEMENTS.CONTAINERS.box.style.gridTemplateColumns = `repeat(${AMOUNT.col}, 1fr)`;
     Helpers.updateGridDisplay();
 
     const elements = document.getElementsByClassName(`col-${AMOUNT.col + 1}`);
@@ -370,16 +517,47 @@ const Random = {
 }
 
 const Generator = {
+  range: {
+    min: 60,
+    max: 80,
+
+    set: {
+      min: function() {
+        const value = ELEMENTS.difficultyRange.min.value;
+        if (Helpers.isNumber(value)) {
+          Generator.range.min = Helpers.clamp(1, parseInt(value, 10), Generator.range.max);
+        }
+
+        ELEMENTS.difficultyRange.min.value = Generator.range.min;
+      },
+
+      max: function() {
+        const value = ELEMENTS.difficultyRange.max.value;
+        if (Helpers.isNumber(value)) {
+          Generator.range.max = Helpers.clamp(Generator.range.min, parseInt(value, 10), 100);
+        }
+
+        ELEMENTS.difficultyRange.max.value = Generator.range.max;
+      },
+    },
+
+    init: function() {
+      ELEMENTS.difficultyRange.min.value = Generator.range.min;
+      ELEMENTS.difficultyRange.max.value = Generator.range.max;
+
+      ELEMENTS.difficultyRange.min.addEventListener('blur', Generator.range.set.min);
+      ELEMENTS.difficultyRange.max.addEventListener('blur', Generator.range.set.max);
+    },
+  },
+
   generate: function() {
-    document.getElementById('winner-display').classList.add('hidden');
+    ELEMENTS.winnerDisplay.classList.add('hidden');
     Generator._disableFieldManipulation();
 
     const boxes = document.getElementsByClassName('box');
     Generator._resetBoxes(boxes);
 
-    // Select 60-80% of the available squares
-    const filled = Random.int.between(boxes.length * 0.6, boxes.length * 0.8);
-
+    const filled = Generator._filledRange(boxes.length);
     let freeBoxes = Array.from(boxes);
     const selectedBoxes = [];
     for (let i = 0; i < filled; ++i) {
@@ -399,8 +577,31 @@ const Generator = {
     }
   },
 
+  reset: function() {
+    ELEMENTS.winnerDisplay.classList.add('hidden');
+
+    const boxes = document.getElementsByClassName('box');
+    Generator._resetBoxes(boxes);
+
+    const controls = document.querySelectorAll('.control.finished');
+    for (const c of controls) {
+      if (parseInt(c.value, 10) !== 0) {
+        c.classList.remove('finished');
+      }
+    }
+  },
+
+  _filledRange: function(total) {
+    return Random.int.between(total * (Generator.range.min / 100), total * (Generator.range.max / 100));
+  },
+
   _disableFieldManipulation: function() {
-    document.getElementById('field').classList.add('generated');
+    ELEMENTS.field.classList.add('generated');
+
+    ELEMENTS.colHandling.classList.add('hidden');
+    ELEMENTS.rowHandling.classList.add('hidden');
+
+    ELEMENTS.btn.reset.disabled = false;
     const controls = document.getElementsByClassName('control');
     for (let i = 0; i < controls.length;) {
       controls[i].parentNode.removeChild(controls[i]);
@@ -429,15 +630,26 @@ const Generator = {
       const elem = Template.init(Template.control);
       elem.disabled = true;
       elem.value = value;
+      if (value === 0) {
+        elem.classList.add('finished');
+      }
       container.appendChild(elem);
     }
   },
 };
 
 window.addEventListener('load', () => {
-  CONTAINERS.box = document.getElementById('box-container');
-  CONTAINERS.rowControls = document.getElementById('row-controls');
-  CONTAINERS.colControls = document.getElementById('col-controls');
+  ELEMENTS.field = document.getElementById('field');
+  ELEMENTS.winnerDisplay = document.getElementById('winner-display');
+  ELEMENTS.colHandling = document.getElementById('col-handling');
+  ELEMENTS.rowHandling = document.getElementById('row-handling');
+
+  ELEMENTS.difficultyRange.min = document.getElementById('difficulty-range-min');
+  ELEMENTS.difficultyRange.max = document.getElementById('difficulty-range-max');
+
+  ELEMENTS.CONTAINERS.box = document.getElementById('box-container');
+  ELEMENTS.CONTAINERS.rowControls = document.getElementById('row-controls');
+  ELEMENTS.CONTAINERS.colControls = document.getElementById('col-controls');
 
   Template.box = document.getElementById('template-box');
   Template.control = document.getElementById('template-control');
@@ -454,6 +666,10 @@ window.addEventListener('load', () => {
     Column.add([AMOUNT.rowDefault], 0);
   }
 
+  ELEMENTS.btn.reset = document.getElementById('reset-btn');
+  ELEMENTS.btn.reset.disabled = true;
+  ELEMENTS.btn.reset.addEventListener('click', Generator.reset);
+
   document.getElementById('generate-btn').addEventListener('click', Generator.generate);
   document.getElementById('swap-theme-btn').addEventListener('click', Helpers.swapTheme);
 
@@ -462,4 +678,9 @@ window.addEventListener('load', () => {
 
   document.getElementById('sub-row-btn').addEventListener('click', () => Row.remove());
   document.getElementById('add-row-btn').addEventListener('click', () => Row.add([0]));
+
+  document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+  Generator.range.init();
+  Box.init();
 });

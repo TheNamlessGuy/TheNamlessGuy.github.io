@@ -7,6 +7,8 @@ body {
   --input-padding-size: 2px;
   --input-offset: calc((var(--input-size) / 2) - var(--input-padding-size));
   --input-btn-offset: calc(var(--input-border-size) + var(--input-padding-size));
+
+  user-select: none;
 }
 body.wide {
   --box-size: 4vh;
@@ -56,10 +58,10 @@ body.theme-light {
   --box-border-line: #000;
 
   --box-bg--default: #FFF;
-  --box-bg--selected: #C00;
+  --box-bg--selected: #0C0;
   --box-bg--deselected: #999;
 
-  --box-selected-select: rgba(204, 0, 0, 0.5); /* --box-bg--selected at half opacity */
+  --box-selected-select: rgba(0, 204, 0, 0.5); /* --box-bg--selected at half opacity */
   --box-selected-deselect: rgba(153, 153, 153, 0.5); /* --box-bg--deselected at half opacity */
   --box-selected-unset: rgba(255, 255, 255, 0.5); /* --box-bg--default at half opacity */
 
@@ -172,7 +174,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
+  user-select: none;
   width: 100%;
   height: 100%;
 }
@@ -292,6 +294,17 @@ body {
 #grid-size-display {
   color: var(--page-text);
   text-align: center;
+}
+#grid-size-display input {
+  width: 3ch;
+  text-align: center;
+  margin: 0 2px;
+  background-color: var(--input-bg);
+  color: var(--input-text);
+}
+#grid-size-display input:disabled {
+  user-select: none;
+  pointer-events: none;
 }
 
 #difficulty-display {

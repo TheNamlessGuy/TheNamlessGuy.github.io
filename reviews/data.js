@@ -1949,5 +1949,11 @@ Not to mention how it all feeds into telling the story so damn well.`,
     "reviewed_at": "2023-02-18",
     "description": "Absurd, but in the absurdist painting sense",
     "tags": ["movie"],
+  }, {
+    "title": "Ghosts",
+    "link": "https://www.imdb.com/title/tt8594324/",
+    "score": 8,
+    "reviewed_at": "2023-03-12",
+    "tags": ["show"],
   }]
 };

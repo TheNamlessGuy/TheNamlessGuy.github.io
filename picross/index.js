@@ -29,6 +29,51 @@ const ELEMENTS = {
 const GRID_DISPLAY = {
   row: null,
   col: null,
+
+  init: function() {
+    GRID_DISPLAY.row = document.getElementById('grid-size-row');
+    GRID_DISPLAY.row.addEventListener('blur', GRID_DISPLAY.onRowBlur);
+
+    GRID_DISPLAY.col = document.getElementById('grid-size-col');
+    GRID_DISPLAY.col.addEventListener('blur', GRID_DISPLAY.onColBlur);
+  },
+
+  update: function() {
+    GRID_DISPLAY.row.value = AMOUNT.row;
+    GRID_DISPLAY.col.value = AMOUNT.col;
+  },
+
+  disable: function() {
+    GRID_DISPLAY.row.disabled = true;
+    GRID_DISPLAY.col.disabled = true;
+  },
+
+  enable: function() {
+    GRID_DISPLAY.row.disabled = false;
+    GRID_DISPLAY.col.disabled = false;
+  },
+
+  onRowBlur: function() {
+    if (!Helpers.isNumber(GRID_DISPLAY.row.value)) {
+      GRID_DISPLAY.update();
+      return;
+    }
+
+    const value = parseInt(GRID_DISPLAY.row.value, 10);
+    while (AMOUNT.row > value) { Row.remove(); }
+    while (AMOUNT.row < value) { Row.add([0]); }
+  },
+
+  onColBlur: function() {
+    if (!Helpers.isNumber(GRID_DISPLAY.col.value)) {
+      GRID_DISPLAY.update();
+      return;
+    }
+
+    const value = parseInt(GRID_DISPLAY.col.value, 10);
+    while (AMOUNT.col > value) { Column.remove(); }
+    while (AMOUNT.col < value) { Column.add([0]); }
+  },
 };
 
 const AMOUNT = {
@@ -133,6 +178,8 @@ const Helpers = {
 
       ELEMENTS.colHandling.classList.remove('hidden');
       ELEMENTS.rowHandling.classList.remove('hidden');
+
+      GRID_DISPLAY.enable();
     }
   },
 
@@ -156,11 +203,6 @@ const Helpers = {
     const isLight = document.body.classList.contains('theme-light');
     document.body.classList.toggle('theme-light', !isLight);
     document.body.classList.toggle('theme-dark',   isLight);
-  },
-
-  updateGridDisplay: function() {
-    GRID_DISPLAY.row.innerText = AMOUNT.row;
-    GRID_DISPLAY.col.innerText = AMOUNT.col;
   },
 
   setDividingLine: function() {
@@ -435,7 +477,7 @@ const Box = {
 const Row = {
   add: function(values, colAmount = null) {
     AMOUNT.row += 1;
-    Helpers.updateGridDisplay();
+    GRID_DISPLAY.update();
 
     // Controls
     const container = Template.init(Template.controlsContainer);
@@ -459,7 +501,7 @@ const Row = {
   remove: function() {
     if (AMOUNT.row === 5) { return; } // Minimum amount
     AMOUNT.row -= 1;
-    Helpers.updateGridDisplay();
+    GRID_DISPLAY.update();
 
     const elements = document.getElementsByClassName(`row-${AMOUNT.row + 1}`);
     for (let i = 0; i < elements.length;) {
@@ -497,7 +539,7 @@ const Column = {
   add: function(values, rowAmount = null) {
     AMOUNT.col += 1;
     ELEMENTS.CONTAINERS.box.style.gridTemplateColumns = `repeat(${AMOUNT.col}, 1fr)`;
-    Helpers.updateGridDisplay();
+    GRID_DISPLAY.update();
 
     // Controls
     const container = Template.init(Template.controlsContainer);
@@ -522,7 +564,7 @@ const Column = {
     if (AMOUNT.col === 5) { return; } // Minimum amount
     AMOUNT.col -= 1;
     ELEMENTS.CONTAINERS.box.style.gridTemplateColumns = `repeat(${AMOUNT.col}, 1fr)`;
-    Helpers.updateGridDisplay();
+    GRID_DISPLAY.update();
 
     const elements = document.getElementsByClassName(`col-${AMOUNT.col + 1}`);
     for (let i = 0; i < elements.length;) {
@@ -581,7 +623,7 @@ const Random = {
 const Generator = {
   range: {
     min: 60,
-    max: 80,
+    max: 70,
 
     set: {
       min: function() {
@@ -662,6 +704,7 @@ const Generator = {
 
     ELEMENTS.colHandling.classList.add('hidden');
     ELEMENTS.rowHandling.classList.add('hidden');
+    GRID_DISPLAY.disable();
 
     ELEMENTS.btn.reset.disabled = false;
     const controls = document.getElementsByClassName('control');
@@ -721,8 +764,7 @@ window.addEventListener('load', () => {
   Template.control = document.getElementById('template-control');
   Template.controlsContainer = document.getElementById('template-controls-container');
 
-  GRID_DISPLAY.row = document.getElementById('grid-size-display-row');
-  GRID_DISPLAY.col = document.getElementById('grid-size-display-col');
+  GRID_DISPLAY.init();
 
   for (let r = 0; r < AMOUNT.rowDefault; ++r) {
     Row.add([AMOUNT.colDefault], AMOUNT.colDefault);

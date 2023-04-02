@@ -22,6 +22,7 @@ const TAGS = {
   GENRE_POWERMETAL: 'genre:powermetal',
   GENRE_ACAPELLA: 'genre:acapella',
   GENRE_TANGO: 'genre:tango',
+  GENRE_YE_OLDE: 'genre:ye-olde',
 };
 
 const CURRENT_URL = {

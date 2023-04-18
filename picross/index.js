@@ -230,15 +230,21 @@ const Helpers = {
   _setDividingLine: function(prefix, amount, offset) {
     let next = false;
     for (let i = 0; i < amount; ++i) {
-      const boxes = document.querySelectorAll(`.box.${prefix}-${i}`);
       const active = i % offset === 0;
 
+      const boxes = document.querySelectorAll(`.box.${prefix}-${i}`);
       for (const box of boxes) {
         box.classList.toggle(`${prefix}-line`, active);
         box.classList.toggle(`${prefix}-line2`, next);
       }
 
-      next = active;
+      const controls = document.querySelectorAll(`.controls-container.${prefix}-${i}`);
+      for (const control of controls) {
+        control.classList.toggle(`${prefix}-line`, active);
+        control.classList.toggle(`${prefix}-line2`, next);
+      }
+
+      next = i > 0 && active;
     }
   },
 

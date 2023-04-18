@@ -4,8 +4,9 @@ body {
 
   --input-size: calc(var(--box-size) / 2);
   --input-border-size: 1px;
+  --input-divider-size: 1px;
   --input-padding-size: 2px;
-  --input-offset: calc((var(--input-size) / 2) - var(--input-padding-size));
+  --input-offset: calc((var(--input-size) / 2) - var(--input-padding-size) - var(--input-divider-size));
   --input-btn-offset: calc(var(--input-border-size) + var(--input-padding-size));
 
   user-select: none;
@@ -24,9 +25,10 @@ body.theme-dark {
 
   --input-bg: #FFF;
   --input-bg--finished: #BBB;
-  --input-bg--hovered: rgba(0, 0, 0, 0.3);
+  --input-bg--hovered: #999;
   --input-text: #000;
   --input-text--finished: #555;
+  --input-divider: #FFF;
 
   --box-border: #AAA;
   --box-border-line: #000;
@@ -50,18 +52,19 @@ body.theme-light {
 
   --input-bg: #FFF;
   --input-bg--finished: #BBB;
-  --input-bg--hovered: rgba(0, 0, 0, 0.3);
+  --input-bg--hovered: #DDD;
   --input-text: #000;
   --input-text--finished: #555;
+  --input-divider: var(--box-border-line);
 
-  --box-border: #AAA;
+  --box-border: #D0D0D0;
   --box-border-line: #000;
 
   --box-bg--default: #FFF;
-  --box-bg--selected: #0C0;
+  --box-bg--selected: #97F6B6;
   --box-bg--deselected: #999;
 
-  --box-selected-select: rgba(0, 204, 0, 0.5); /* --box-bg--selected at half opacity */
+  --box-selected-select: rgba(151, 246, 182, 0.5); /* --box-bg--selected at half opacity */
   --box-selected-deselect: rgba(153, 153, 153, 0.5); /* --box-bg--deselected at half opacity */
   --box-selected-unset: rgba(255, 255, 255, 0.5); /* --box-bg--default at half opacity */
 
@@ -220,12 +223,25 @@ body {
   display: flex;
   width: 100%;
   position: relative;
+  border: var(--input-divider-size) solid rgba(0, 0, 0, 0);
 }
 #row-controls .controls-container {
   flex-direction: row;
 }
 #col-controls > .controls-container {
   flex-direction: column;
+}
+.controls-container.row-line {
+  border-bottom-color: var(--input-divider);
+}
+.controls-container.row-line2 {
+  border-top-color: var(--input-divider);
+}
+.controls-container.col-line {
+  border-right-color: var(--input-divider);
+}
+.controls-container.col-line2 {
+  border-left-color: var(--input-divider);
 }
 
 .controls-container > .control {
@@ -238,10 +254,10 @@ body {
   background-color: var(--input-bg);
 }
 #row-controls .controls-container {
-  margin: var(--input-offset) 0;
+  padding: var(--input-offset) 0;
 }
 #col-controls > .controls-container {
-  margin: 0 var(--input-offset);
+  padding: 0 var(--input-offset);
 }
 .controls-container > .control.finished {
   color: var(--input-text--finished);
@@ -253,13 +269,11 @@ body {
   pointer-events: none;
 }
 
-.controls-container.hovered-secondary:before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
+.controls-container.hovered-secondary > .control-btns > button {
   background-color: var(--input-bg--hovered);
-  z-index: 99999;
+}
+.controls-container.hovered-secondary > .control {
+  background-color: var(--input-bg--hovered);
 }
 
 .controls-container > .control-btns {

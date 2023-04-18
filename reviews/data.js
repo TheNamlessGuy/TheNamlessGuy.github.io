@@ -1009,10 +1009,10 @@ Back & Forth: 8`,
     "reviewed_at": "2021-07-04",
     "tags": ["show"],
   }, {
-    "title": "Mythic Quest: Raven's Banquet",
+    "title": "Mythic Quest",
     "link": "https://www.imdb.com/title/tt8879940/",
-    "score": 8.5,
-    "reviewed_at": "2021-07-07",
+    "score": 8,
+    "reviewed_at": "2023-04-14",
     "tags": ["show"],
   }, {
     "title": "Highlander",
@@ -2046,5 +2046,86 @@ Not to mention how it all feeds into telling the story so damn well.`,
     "score": 7,
     "reviewed_at": "2023-03-31",
     "tags": ["movie"],
+  }, {
+    "title": "Bullet Train",
+    "link": "https://www.imdb.com/title/tt12593682/",
+    "score": 8,
+    "reviewed_at": "2023-04-02",
+    "description": "What Baccano! should have been (yes, I know it's based on a book and has nothing to do with Baccano!, but you can't say that there aren't enough parallels to justify the comparison)",
+    "tags": ["movie"],
+  }, {
+    "title": "Baccano!",
+    "link": "https://myanimelist.net/anime/2251/Baccano/",
+    "score": 5,
+    "description": `SPOILERS! The show had a great start, and just fumbled the ending completely, to the point where I lost basically all interest.
+The entire premise of the show is based on having a set amount of characters whose storylines slowly converge. This is handled fantastically for about 80% of the plotlines.
+The first plotline we ever get introduced to is an old man reading a story to a young girl. Seemingly, this plotline was just completely forgotten, as it's brought up maybe one more time, but never goes anywhere.
+The plotline of the guy in the white tux gets about 75% done, then just stops.
+
+"You need to watch the OVAs!", you say. First of all, the story already concluded. You can't just patch together a second ending because you forgot to end some plotlines. Second of all, within the first 5 minutes of the first OVA, we:
+1) Are off the train (which was the entire premise of the show)
+2) Introduce new characters (completely missing the point of what made the original premise so interesting)
+I stopped watching halfway through the first OVA, just because it felt like a desperate attempt to either keep the money flowing, or to "fix" the misses in the actual ending.
+
+If it had resolved the remaining plotlines within the premise of the train, and not start introducing new characters, this would easily have been an 8/10. It's honestly sad that they fumbled the ending so hard.`,
+    "reviewed_at": "2023-04-02",
+    "tags": ["show", "anime"],
+  }, {
+    "title": "Gulltransporten",
+    "link": "https://www.imdb.com/title/tt18092672/",
+    "score": 7,
+    "reviewed_at": "2023-04-10",
+    "tags": ["movie"],
+  }, {
+    "title": "Kung Pow: Enter the Fist",
+    "link": "https://www.imdb.com/title/tt0240468/",
+    "score": 7.5,
+    "description": "What the fuck?",
+    "reviewed_at": "2023-04-11",
+    "tags": ["movie"],
+  }, {
+    "title": "Foundation",
+    "link": "https://www.imdb.com/title/tt0804484/",
+    "score": 7.5,
+    "reviewed_at": "2023-04-14",
+    "tags": ["show"],
+  }, {
+    "title": "1899",
+    "link": "https://www.imdb.com/title/tt9319668/",
+    "score": 7.5,
+    "reviewed_at": "2023-04-14",
+    "description": "Shame it got cancelled",
+    "tags": ["show"],
+  }, {
+    "title": "Kevin Can F**k Himself",
+    "link": "https://www.imdb.com/title/tt9257258/",
+    "score": 8,
+    "reviewed_at": "2023-04-14",
+    "description": `A show about showing how messed up life would be if you lived around a sitcom main character, since they are rarely - if ever - a good person.
+It does a fantastic job of this by constantly shifting between a sitcom format when the titular Kevin is around, and a seriously shot drama piece the rest of the time.
+It all really highlights how much presentation can condition us into thinking something very much not funny to be funny, as long as you don't dwell too much on it.
+Ran for the perfect amount of time, given the subject matter, and stuck the landing beautifully.`,
+    "tags": ["show"],
+  }, {
+    "title": "The White Lotus",
+    "link": "https://www.imdb.com/title/tt13406094/",
+    "score": 7,
+    "reviewed_at": "2023-04-15",
+    "description": "Very well written and acted for a show that's basically just a long commercial for the travel industry with no real plot",
+    "tags": ["show"],
+  }, {
+    "title": "The Bear",
+    "link": "https://www.imdb.com/title/tt14452776/",
+    "score": 8.75,
+    "reviewed_at": "2023-04-16",
+    "description": "Anxiety s(t)imulator, but in a good way",
+    "tags": ["show"],
+  }, {
+    "title": "Fleishman is in Trouble",
+    "link": "https://www.imdb.com/title/tt11527058/",
+    "score": 7.5,
+    "reviewed_at": "2023-04-18",
+    "description": "It's weid that we still need to tell people, even 40-somethings apparently, that people are in fact people. Would be a solid 6 if it weren't for the excellent writing and acting",
+    "tags": ["show"],
   }]
 };

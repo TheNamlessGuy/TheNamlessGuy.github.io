@@ -769,4 +769,8 @@ PLAYLISTS.add('music', [
   {title: 'Oasis - Wonderwall',                                                                          source: 'youtube', src: 'FVdjZYfDuLE', tags: []},
   {title: 'Robbie Williams - Let Me Entertain You',                                                      source: 'youtube', src: 'qg_agm9jOf4', tags: []},
   {title: 'blink-182 - All the Small Things',                                                            source: 'youtube', src: '9Ht5RZpzPqw', tags: []},
+  {title: 'Mr Little Jeans - Oh Sailor (feat. The Silverlake Conservatory of Music Youth Chorale)',      source: 'youtube', src: 'T5Os1RRYDsA', tags: []},
+  {title: 'Tomoya Ohtani (feat. Kellin Quinn) - Undefeatable',                                           source: 'youtube', src: 'u_FRDqHT5y0', tags: []},
+  {title: 'Packwood - We Drink Light',                                                                   source: 'youtube', src: 'jxp0OBrmEbo', tags: []},
+  {title: 'Don McCloskey - We Drink Light',                                                              source: 'youtube', src: '4ItphmcYXpg', tags: []},
 ]);

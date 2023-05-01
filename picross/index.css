@@ -25,6 +25,7 @@ body.theme-dark {
 
   --input-bg: #FFF;
   --input-bg--finished: #BBB;
+  --input-bg--finished--truly: #0B0;
   --input-bg--hovered: #999;
   --input-text: #000;
   --input-text--finished: #555;
@@ -52,6 +53,7 @@ body.theme-light {
 
   --input-bg: #FFF;
   --input-bg--finished: #BBB;
+  --input-bg--finished--truly: #0B0;
   --input-bg--hovered: #DDD;
   --input-text: #000;
   --input-text--finished: #555;
@@ -274,6 +276,9 @@ body {
 }
 .controls-container.hovered-secondary > .control {
   background-color: var(--input-bg--hovered);
+}
+.controls-container.finished > .control {
+  background-color: var(--input-bg--finished--truly);
 }
 
 .controls-container > .control-btns {

@@ -724,7 +724,7 @@ PLAYLISTS.add('music', [
   {title: 'WALK THE MOON - Shut Up and Dance',                                                           source: 'youtube', src: 'GGsuLVlLObc', tags: [TAGS.CLASSIC, TAGS.DANCE]},
   {title: 'Reserva Fantasma - Too Hot to Notice',                                                        source: 'youtube', src: 'FFDuJm6dMz4', tags: []},
   {title: 'Dschinghis Khan - Moskau',                                                                    source: 'youtube', src: 'RMiJIrRzHw0', tags: [TAGS.CLASSIC]},
-  {title: 'City and Color - The Girl',                                                                   source: 'youtube', src: 'uhm7hiJLnAg', tags: [TAGS.SINGALONG]},
+  {title: 'City and Color - The Girl',                                                                   source: 'youtube', src: 'mS8xDo-qM8w', tags: [TAGS.SINGALONG]},
   {title: 'Creature Comfort - Woke Up Drunk',                                                            source: 'youtube', src: 'WzUOGnhoEdg', tags: []},
   {title: 'The Notwist - Consequence',                                                                   source: 'youtube', src: 'dMEk3nG1e-Y', tags: []},
   {title: 'HUNDREDS - Consequence',                                                                      source: 'youtube', src: 'ZJDMlf4AzSU', tags: []},

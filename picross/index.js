@@ -33,9 +33,15 @@ const GRID_DISPLAY = {
   init: function() {
     GRID_DISPLAY.row = document.getElementById('grid-size-row');
     GRID_DISPLAY.row.addEventListener('blur', GRID_DISPLAY.onRowBlur);
+    GRID_DISPLAY.row.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') { GRID_DISPLAY.onRowBlur(); }
+    });
 
     GRID_DISPLAY.col = document.getElementById('grid-size-col');
     GRID_DISPLAY.col.addEventListener('blur', GRID_DISPLAY.onColBlur);
+    GRID_DISPLAY.col.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') { GRID_DISPLAY.onColBlur(); }
+    });
   },
 
   update: function() {
@@ -94,25 +100,36 @@ const Template = {
 }
 
 const Helpers = {
-  calculateValues: function(boxes, isSelected, stopProcessing = () => false, returnZeroIfEmpty = true) {
+  END_TYPE: {
+    COUNTABLE: 0,
+    SKIPPABLE: 1,
+  },
+
+  calculateValues: function(boxes, isSelected, optional = {}) {
+    const isEnd = optional.isEnd ?? ((x) => isSelected(x) ? null : Helpers.END_TYPE.COUNTABLE);
+    const stopProcessing = optional.stopProcessing ?? ((x) => false);
+    const addLast = optional.addLast ?? true;
+
     const values = [];
     let combo = 0;
 
-    for (let i = 0; i < boxes.length; ++i) {
-      if (stopProcessing(boxes[i])) {
+    for (let b = 0; b < boxes.length; ++b) {
+      if (stopProcessing(boxes[b])) {
         break;
       }
 
-      const selected = isSelected(boxes[i]);
-      if (combo > 0 && !selected) {
-        values.push(combo);
+      const endType = isEnd(boxes[b]);
+      if (endType != null) {
+        if (endType === Helpers.END_TYPE.COUNTABLE && combo > 0) {
+          values.push(combo);
+        }
         combo = 0;
-      } else if (selected) {
+      } else if (isSelected(boxes[b])) {
         combo += 1;
       }
     }
 
-    if (combo > 0 || (returnZeroIfEmpty && values.length === 0)) {
+    if (addLast && (combo > 0 || values.length === 0)) {
       values.push(combo);
     }
 
@@ -138,21 +155,25 @@ const Helpers = {
     const boxValues = Helpers.calculateValues(boxes, (x) => x.classList.contains('ticked'));
     if (Helpers.equal.array(controlValues, boxValues)) {
       for (const control of controls) {
-        control.classList.add('finished');
+        Helpers._setControlFinished(control, boxValues);
       }
 
       return;
     } else {
       for (const control of controls) {
-        control.classList.remove('finished');
+        Helpers._setControlFinished(control, boxValues, false);
       }
     }
 
     // Check for "anchored" sequences from the beginning
-    let values = Helpers.calculateValues(boxes, (x) => x.classList.contains('ticked'), (x) => !x.classList.contains('ticked') && !x.classList.contains('unticked'), false);
+    let values = Helpers.calculateValues(boxes, (x) => x.classList.contains('ticked'), {
+      stopProcessing: (x) => !x.classList.contains('ticked') && !x.classList.contains('unticked'),
+      isEnd: (x) => x.classList.contains('ticked') ? null : (x.classList.contains('unticked') ? Helpers.END_TYPE.COUNTABLE : Helpers.END_TYPE.SKIPPABLE),
+      addLast: false,
+    });
     for (let i = 0; i < values.length && i < controlValues.length; ++i) {
       if (values[i] === controlValues[i]) {
-        controls[i].classList.add('finished');
+        Helpers._setControlFinished(controls[i], boxValues);
       } else {
         break;
       }
@@ -160,19 +181,34 @@ const Helpers = {
 
     // Check for "anchored" sequences from the end
     boxes = boxes.reverse();
-    values = Helpers.calculateValues(boxes, (x) => x.classList.contains('ticked'), (x) => !x.classList.contains('ticked') && !x.classList.contains('unticked'), false);
-    console.log(c, 1, values, controlValues);
+    values = Helpers.calculateValues(boxes, (x) => x.classList.contains('ticked'), {
+      stopProcessing: (x) => !x.classList.contains('ticked') && !x.classList.contains('unticked'),
+      isEnd: (x) => x.classList.contains('ticked') ? null : (x.classList.contains('unticked') ? Helpers.END_TYPE.COUNTABLE : Helpers.END_TYPE.SKIPPABLE),
+      addLast: false,
+    });
     for (let i = 0, j = controlValues.length - 1; i < values.length, j > 0; ++i, --j) {
       if (values[i] === controlValues[j]) {
-        controls[j].classList.add('finished');
+        Helpers._setControlFinished(controls[j], boxValues);
       } else {
         break;
       }
     }
   },
 
+  _setControlFinished: function(control, values, isFinished = true) {
+    control.classList.toggle('finished', isFinished);
+    const container = control.parentNode;
+    const controls = container.getElementsByClassName('control');
+    const hasUnfinished = Array.from(controls).some((x) => !x.classList.contains('finished'));
+    if (hasUnfinished || controls.length !== values.length) {
+      container.classList.remove('finished');
+    } else if (!hasUnfinished) {
+      container.classList.add('finished');
+    }
+  },
+
   _checkIfWon: function() {
-    const unsolved = document.querySelectorAll(`.control:not(.finished)`);
+    const unsolved = document.querySelectorAll(`.controls-container:not(.finished)`);
     if (unsolved.length === 0) {
       ELEMENTS.winnerDisplay.classList.remove('hidden');
 
@@ -683,6 +719,7 @@ const Generator = {
       const boxes = document.querySelectorAll(`.box.${c}`);
       const values = Helpers.calculateValues(boxes, (x) => selectedBoxes.includes(x));
       const container = document.querySelector(`.controls-container.${c}`);
+      container.classList.remove('finished');
       Generator._addValues(values, container);
     }
   },
@@ -697,6 +734,7 @@ const Generator = {
     for (const c of controls) {
       if (parseInt(c.value, 10) !== 0) {
         c.classList.remove('finished');
+        c.parentElement.classList.remove('finished');
       }
     }
   },
@@ -743,6 +781,7 @@ const Generator = {
       elem.value = value;
       if (value === 0) {
         elem.classList.add('finished');
+        container.classList.add('finished');
       }
       container.appendChild(elem);
     }

@@ -235,8 +235,11 @@ const Helpers = {
     },
   },
 
-  swapTheme: function() {
-    const isLight = document.body.classList.contains('theme-light');
+  swapTheme: function(isLight = null) {
+    if (isLight == null) {
+      isLight = document.body.classList.contains('theme-light');
+    }
+
     document.body.classList.toggle('theme-light', !isLight);
     document.body.classList.toggle('theme-dark',   isLight);
   },
@@ -296,6 +299,51 @@ const Helpers = {
 
   isNumber: function(value) {
     return value != null && !isNaN(value) && !isNaN(parseFloat(value));
+  },
+
+  saveConfig: function() {
+    if (document.cookie === '') {
+      const confirmed = confirm('In order to save data, the website will have to save a cookie for you. Is that OK?');
+      if (!confirmed) {
+        return;
+      }
+    }
+
+    const data = {
+      theme: document.body.classList.contains('theme-light') ? 'l' : 'd',
+      grid: {
+        row: parseInt(GRID_DISPLAY.row.value, 10),
+        col: parseInt(GRID_DISPLAY.col.value, 10),
+      },
+      difficulty: {
+        min: parseInt(Generator.range.min, 10),
+        max: parseInt(Generator.range.max, 10),
+      },
+    };
+    document.cookie = `data=${JSON.stringify(data)}; Secure; SameSite = strict`;
+  },
+
+  loadConfig: function() {
+    if (document.cookie === '') {
+      return;
+    }
+
+    const data = JSON.parse(document.cookie.substring(5)); // 5 = 'data='.length
+
+    // Theme
+    Helpers.swapTheme(data.theme === 'd');
+
+    // Grid
+    while (AMOUNT.row > data.grid.row) { Row.remove(); }
+    while (AMOUNT.row < data.grid.row) { Row.add([0]); }
+    while (AMOUNT.col > data.grid.col) { Column.remove(); }
+    while (AMOUNT.col < data.grid.col) { Column.add([0]); }
+
+    // Difficulty
+    ELEMENTS.difficultyRange.min.value = data.difficulty.min;
+    ELEMENTS.difficultyRange.max.value = data.difficulty.max;
+    Generator.range.set.min();
+    Generator.range.set.max();
   },
 };
 
@@ -812,11 +860,11 @@ window.addEventListener('load', () => {
   GRID_DISPLAY.init();
 
   for (let r = 0; r < AMOUNT.rowDefault; ++r) {
-    Row.add([AMOUNT.colDefault], AMOUNT.colDefault);
+    Row.add([0], AMOUNT.colDefault);
   }
 
   for (let c = 0; c < AMOUNT.colDefault; ++c) {
-    Column.add([AMOUNT.rowDefault], 0);
+    Column.add([0], 0);
   }
 
   ELEMENTS.btn.reset = document.getElementById('reset-btn');
@@ -824,7 +872,8 @@ window.addEventListener('load', () => {
   ELEMENTS.btn.reset.addEventListener('click', Generator.reset);
 
   document.getElementById('generate-btn').addEventListener('click', Generator.generate);
-  document.getElementById('swap-theme-btn').addEventListener('click', Helpers.swapTheme);
+  document.getElementById('swap-theme-btn').addEventListener('click', () => Helpers.swapTheme());
+  document.getElementById('save-config-btn').addEventListener('click', Helpers.saveConfig);
 
   document.getElementById('sub-col-btn').addEventListener('click', () => Column.remove());
   document.getElementById('add-col-btn').addEventListener('click', () => Column.add([0]));
@@ -836,4 +885,6 @@ window.addEventListener('load', () => {
 
   Generator.range.init();
   Box.init();
+
+  Helpers.loadConfig();
 });

@@ -52,9 +52,9 @@ body.theme-light {
   --winner-text: #00B300;
 
   --input-bg: #FFF;
-  --input-bg--finished: #BBB;
-  --input-bg--finished--truly: #0B0;
-  --input-bg--hovered: #DDD;
+  --input-bg--finished: #DDD;
+  --input-bg--finished--truly: #54D854;
+  --input-bg--hovered: #BBB;
   --input-text: #000;
   --input-text--finished: #555;
   --input-divider: var(--box-border-line);
@@ -63,10 +63,10 @@ body.theme-light {
   --box-border-line: #000;
 
   --box-bg--default: #FFF;
-  --box-bg--selected: #97F6B6;
+  --box-bg--selected: #B1FA9F;
   --box-bg--deselected: #999;
 
-  --box-selected-select: rgba(151, 246, 182, 0.5); /* --box-bg--selected at half opacity */
+  --box-selected-select: rgba(177, 250, 159, 0.5); /* --box-bg--selected at half opacity */
   --box-selected-deselect: rgba(153, 153, 153, 0.5); /* --box-bg--deselected at half opacity */
   --box-selected-unset: rgba(255, 255, 255, 0.5); /* --box-bg--default at half opacity */
 

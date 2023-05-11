@@ -2127,5 +2127,12 @@ Ran for the perfect amount of time, given the subject matter, and stuck the land
     "reviewed_at": "2023-04-18",
     "description": "It's weid that we still need to tell people, even 40-somethings apparently, that people are in fact people. Would be a solid 6 if it weren't for the excellent writing and acting",
     "tags": ["show"],
+  }, {
+    "title": "Mamma Mia! Here We Go Again",
+    "link": "https://www.imdb.com/title/tt6911608/",
+    "score": 4.5,
+    "reviewed_at": "2023-05-07",
+    "description": "Two hours of absolutely nothing happening, followed by a Cher and Meryl Streep cameo. All set to an ABBA soundtrack, which is why it isn't lower",
+    "tags": ["movie", "musical"],
   }]
 };

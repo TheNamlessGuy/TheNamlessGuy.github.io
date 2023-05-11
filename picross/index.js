@@ -14,9 +14,14 @@ const ELEMENTS = {
     reset: null,
   },
 
-  difficultyRange: {
-    min: null,
-    max: null,
+  difficulty: {
+    range: {
+      min: null,
+      max: null,
+    },
+    combo: {
+      max: null,
+    },
   },
 
   CONTAINERS: {
@@ -318,6 +323,7 @@ const Helpers = {
       difficulty: {
         min: parseInt(Generator.range.min, 10),
         max: parseInt(Generator.range.max, 10),
+        combo_max: Generator.combo.max == null ? null : parseInt(Generator.combo.max, 10),
       },
     };
     document.cookie = `data=${JSON.stringify(data)}; Secure; SameSite = strict`;
@@ -340,10 +346,14 @@ const Helpers = {
     while (AMOUNT.col < data.grid.col) { Column.add([0]); }
 
     // Difficulty
-    ELEMENTS.difficultyRange.min.value = data.difficulty.min;
-    ELEMENTS.difficultyRange.max.value = data.difficulty.max;
+    ELEMENTS.difficulty.range.min.value = data.difficulty.min;
+    ELEMENTS.difficulty.range.max.value = data.difficulty.max;
     Generator.range.set.min();
     Generator.range.set.max();
+    if (data.difficulty.combo_max != null) {
+      ELEMENTS.difficulty.combo.max.value = data.difficulty.combo_max;
+      Generator.combo.set.max();
+    }
   },
 };
 
@@ -717,31 +727,96 @@ const Generator = {
 
     set: {
       min: function() {
-        const value = ELEMENTS.difficultyRange.min.value;
+        const value = ELEMENTS.difficulty.range.min.value;
         if (Helpers.isNumber(value)) {
           Generator.range.min = Helpers.clamp(1, parseInt(value, 10), Generator.range.max);
         }
 
-        ELEMENTS.difficultyRange.min.value = Generator.range.min;
+        ELEMENTS.difficulty.range.min.value = Generator.range.min;
       },
 
       max: function() {
-        const value = ELEMENTS.difficultyRange.max.value;
+        const value = ELEMENTS.difficulty.range.max.value;
         if (Helpers.isNumber(value)) {
           Generator.range.max = Helpers.clamp(Generator.range.min, parseInt(value, 10), 100);
         }
 
-        ELEMENTS.difficultyRange.max.value = Generator.range.max;
+        ELEMENTS.difficulty.range.max.value = Generator.range.max;
       },
     },
 
     init: function() {
-      ELEMENTS.difficultyRange.min.value = Generator.range.min;
-      ELEMENTS.difficultyRange.max.value = Generator.range.max;
+      ELEMENTS.difficulty.range.min.value = Generator.range.min;
+      ELEMENTS.difficulty.range.max.value = Generator.range.max;
 
-      ELEMENTS.difficultyRange.min.addEventListener('blur', Generator.range.set.min);
-      ELEMENTS.difficultyRange.max.addEventListener('blur', Generator.range.set.max);
+      ELEMENTS.difficulty.range.min.addEventListener('blur', Generator.range.set.min);
+      ELEMENTS.difficulty.range.max.addEventListener('blur', Generator.range.set.max);
     },
+  },
+
+  combo: {
+    max: null,
+
+    set: {
+      max: function() {
+        const value = ELEMENTS.difficulty.combo.max.value;
+        if (value === '') {
+          Generator.combo.max = null;
+        } else if (Helpers.isNumber(value)) {
+          Generator.combo.max = Helpers.clamp(0, parseInt(value, 10), Math.max(AMOUNT.col, AMOUNT.row));
+        }
+
+        ELEMENTS.difficulty.combo.max.value = Generator.combo.max;
+      },
+    },
+
+    init: function() {
+      ELEMENTS.difficulty.combo.max.value = Generator.combo.max;
+      ELEMENTS.difficulty.combo.max.addEventListener('blur', Generator.combo.set.max);
+    },
+  },
+
+  boxCanBeSet: function(box, selectedBoxes) {
+    if (Generator.combo.max == null) {
+      return true;
+    }
+
+    const col = parseInt(Array.from(box.classList).find(x => x.startsWith('col-')).substring(4), 10);
+    const row = parseInt(Array.from(box.classList).find(x => x.startsWith('row-')).substring(4), 10);
+
+    // Column value
+    const selectedRows = Array.from(document.getElementsByClassName(`col-${col}`))
+      .filter(x => selectedBoxes.includes(x))
+      .map(a => parseInt(Array.from(a.classList).find(x => x.startsWith('row-')).substring(4), 10))
+      .sort((a, b) => a > b);
+
+    let colValue = 1;
+    for (let i = row - 1; i >= 0; --i) {
+      if (!selectedRows.includes(i)) { break; }
+      colValue += 1;
+    }
+    for (let i = row + 1; i <= AMOUNT.row; ++i) {
+      if (!selectedRows.includes(i)) { break; }
+      colValue += 1;
+    }
+
+    // Row value
+    const selectedCols = Array.from(document.getElementsByClassName(`row-${row}`))
+      .filter(x => selectedBoxes.includes(x))
+      .map(a => parseInt(Array.from(a.classList).find(x => x.startsWith('col-')).substring(4), 10))
+      .sort((a, b) => a > b);
+
+    let rowValue = 1;
+    for (let i = col - 1; i >= 0; --i) {
+      if (!selectedCols.includes(i)) { break; }
+      rowValue += 1;
+    }
+    for (let i = col + 1; i <= AMOUNT.col; ++i) {
+      if (!selectedCols.includes(i)) { break; }
+      rowValue += 1;
+    }
+
+    return !(colValue > Generator.combo.max || rowValue > Generator.combo.max);
   },
 
   generate: function() {
@@ -754,12 +829,16 @@ const Generator = {
     const filled = Generator._filledRange(boxes.length);
     let freeBoxes = Array.from(boxes);
     const selectedBoxes = [];
-    for (let i = 0; i < filled; ++i) {
+    for (let i = 0; i < filled && freeBoxes.length > 0;) {
       const idx = Random.index(freeBoxes);
       const box = freeBoxes[idx];
       freeBoxes.splice(idx, 1);
+      if (!Generator.boxCanBeSet(box, selectedBoxes)) {
+        continue;
+      }
 
       selectedBoxes.push(box);
+      ++i;
     }
 
     const classes = Generator._getRowAndColClasses();
@@ -846,8 +925,9 @@ window.addEventListener('load', () => {
   ELEMENTS.colHandling = document.getElementById('col-handling');
   ELEMENTS.rowHandling = document.getElementById('row-handling');
 
-  ELEMENTS.difficultyRange.min = document.getElementById('difficulty-range-min');
-  ELEMENTS.difficultyRange.max = document.getElementById('difficulty-range-max');
+  ELEMENTS.difficulty.range.min = document.getElementById('difficulty-range-min');
+  ELEMENTS.difficulty.range.max = document.getElementById('difficulty-range-max');
+  ELEMENTS.difficulty.combo.max = document.getElementById('difficulty-combo-max');
 
   ELEMENTS.CONTAINERS.box = document.getElementById('box-container');
   ELEMENTS.CONTAINERS.rowControls = document.getElementById('row-controls');
@@ -884,6 +964,7 @@ window.addEventListener('load', () => {
   document.addEventListener('contextmenu', (e) => e.preventDefault());
 
   Generator.range.init();
+  Generator.combo.init();
   Box.init();
 
   Helpers.loadConfig();

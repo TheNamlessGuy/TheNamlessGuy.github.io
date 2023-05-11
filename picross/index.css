@@ -339,6 +339,11 @@ body {
   text-align: center;
 }
 
+#difficulty-display > #difficulty-combo-text > input {
+  width: 3ch;
+  text-align: center;
+}
+
 #winner-display {
   position: absolute;
   width: 100%;

@@ -368,7 +368,6 @@ PLAYLISTS.add('music', [
   {title: 'Mindthings - Rebirth',                                                                        source: 'youtube', src: 'zi1f8O98C2w', tags: []},
   {title: 'Doris Day - Que Sera, Sera',                                                                  source: 'youtube', src: 'SdhAfMor9BM', tags: []},
   {title: 'The Dead South - In Hell I\'ll Be in Good Company',                                           source: 'youtube', src: 'xiiq-jZgbQ4', tags: []},
-  {title: 'The Interrupters - Bad Guy',                                                                  source: 'youtube', src: 'gmRy-JW5aps', tags: []},
   {title: 'Peter Schilling - Major Tom (Coming Home)',                                                   source: 'youtube', src: 'Ggkaj2lRPuM', tags: []},
   {title: 'Dragonforce - Through The Fire And Flames',                                                   source: 'youtube', src: 'zRrYN1c9mFg', tags: []},
   {title: 'Týr - Take Your Tyrant',                                                                      source: 'youtube', src: '98jbAIJtr3A', tags: []},
@@ -773,4 +772,15 @@ PLAYLISTS.add('music', [
   {title: 'Tomoya Ohtani (feat. Kellin Quinn) - Undefeatable',                                           source: 'youtube', src: 'u_FRDqHT5y0', tags: []},
   {title: 'Packwood - We Drink Light',                                                                   source: 'youtube', src: 'jxp0OBrmEbo', tags: []},
   {title: 'Don McCloskey - We Drink Light',                                                              source: 'youtube', src: '4ItphmcYXpg', tags: []},
+  {title: 'Yoshihito Yano (feat. Saki Kabata) - Lonely Rolling Star',                                    source: 'youtube', src: '7_QydNXI_ok', tags: [TAGS.VIDYA]},
+  {title: 'RJD2 (feat. STS) - Doin\' It Right',                                                          source: 'youtube', src: '4BMUmdjv_zg', tags: []},
+  {title: 'LOCASH - I Love This Life',                                                                   source: 'youtube', src: 'cd1HS2Yf7Yw', tags: []},
+  {title: 'Michael Franti - I\'m Alive (Life Sounds Like)',                                              source: 'youtube', src: '2wV3qwlfRGo', tags: []},
+  {title: 'Wesley Dean - Feels Like WOAH',                                                               source: 'youtube', src: 'B2ebrCdY3Mo', tags: []},
+  {title: 'Train - Hey, Soul Sister',                                                                    source: 'youtube', src: 'kVpv8-5XWOI', tags: []}, // For the longest time I couldn't figure out where I recognized the chord progression from. Then I realized that the song is in 4 Chords by Axis of Awesome
+  {title: 'Phillip Phillips - Home',                                                                     source: 'youtube', src: 'HoRkntoHkIE', tags: []},
+  {title: 'First Aid Kit - On the Road Again',                                                           source: 'youtube', src: 'CUJCt4zA-mU', tags: []},
+  {title: 'Elvis Presley - If I Can Dream',                                                              source: 'youtube', src: '0q3PpEX4sNk', tags: []},
+  {title: 'Canned Heat - Going Up The Country',                                                          source: 'youtube', src: '4eQMA_noRYQ', tags: []},
+  {title: 'Joni Mitchell - Big Yellow Taxi',                                                             source: 'youtube', src: '2595abcvh2M', tags: []},
 ]);

@@ -2132,7 +2132,106 @@ Ran for the perfect amount of time, given the subject matter, and stuck the land
     "link": "https://www.imdb.com/title/tt6911608/",
     "score": 4.5,
     "reviewed_at": "2023-05-07",
-    "description": "Two hours of absolutely nothing happening, followed by a Cher and Meryl Streep cameo. All set to an ABBA soundtrack, which is why it isn't lower",
+    "description": "Two hours of absolutely nothing happening, followed by a Cher and Meryl Streep cameo. All set to an ABBA soundtrack, which is why the score isn't lower",
     "tags": ["movie", "musical"],
+  }, {
+    "title": "Dungeons & Dragons: Honor Among Thieves",
+    "link": "https://www.imdb.com/title/tt2906216/",
+    "score": 6.5,
+    "reviewed_at": "2023-06-17",
+    "description": "The pacing in the very beginning was way off, but got better after the story actually starts. Puppetry was top tier",
+    "tags": ["movie"],
+  }, {
+    "title": "The Super Mario Bros. Movie",
+    "link": "https://www.imdb.com/title/tt6718170/",
+    "score": 6,
+    "reviewed_at": "2023-06-29",
+    "description": "Incredibly safe. None of the celebrity actors really sounded like themselves, surprisingly... aside from the DK laughs",
+    "tags": ["movie"],
+  }, {
+    "title": "Bram Stoker's Dracula",
+    "link": "https://www.imdb.com/title/tt0103874/",
+    "score": 6,
+    "reviewed_at": "2023-07-01",
+    "description": "Beautifully shot, incredibly disjointed. Probably mostly because the time and space skips feel like scene transitions, and not that actual movement happened",
+    "tags": ["movie"],
+  }, {
+    "title": "The Amazing Maurice",
+    "link": "https://www.imdb.com/title/tt10473036/",
+    "score": 6,
+    "reviewed_at": "2023-07-01",
+    "description": "Haven't read the book yet, but it's an alright kids movie",
+    "tags": ["movie"],
+  }, {
+    "title": "RRR",
+    "link": "https://www.imdb.com/title/tt8178634/",
+    "score": 7.5,
+    "reviewed_at": "2023-07-01",
+    "description": "Everything I expected and more",
+    "tags": ["movie"],
+  }, {
+    "title": "Willy Wonka & the Chocolate Factory",
+    "link": "https://www.imdb.com/title/tt0067992/",
+    "score": 9,
+    "reviewed_at": "2023-07-27",
+    "description": "Fantastic representation of the madman Wonka is, from Wilder's acting to the set decor truly looking like someone mad went to town on an old factory. And yet, he is one of two decent adults in the entire film.",
+    "tags": ["movie", "musical"],
+  }, {
+    "title": "Waterworld",
+    "link": "https://www.imdb.com/title/tt0114898/",
+    "score": 6,
+    "reviewed_at": "2023-07-08",
+    "tags": ["movie"],
+  }, {
+    "title": "King Arthur: Legend of the Sword",
+    "link": "https://www.imdb.com/title/tt1972591/",
+    "score": 7,
+    "reviewed_at": "2023-07-09",
+    "description": "I feel like this would have been better as a standalone fantasy movie, rather than trying to coopt Arthurian legend",
+    "tags": ["movie"],
+  }, {
+    "title": "Snowpiercer",
+    "link": "https://www.imdb.com/title/tt1706620/",
+    "score": 6.5,
+    "reviewed_at": "2023-07-30",
+    "description": "Weird",
+    "tags": ["movie"],
+  }, {
+    "title": "Pikmin 4",
+    "link": "https://www.nintendo.com/store/products/pikmin-4-switch/",
+    "score": 7.5,
+    "reviewed_at": "2023-08-20",
+    "description": "Don't care much for the hectic dandori stuff, but Pikmin is always a hoot.",
+    "tags": ["game"],
+  }, {
+    "title": "The Legend of Zelda: Tears of the Kingdom",
+    "link": "https://www.nintendo.com/store/products/the-legend-of-zelda-tears-of-the-kingdom-switch/",
+    "score": 9.5,
+    "reviewed_at": "2023-08-24",
+    "description": "What a game",
+    "tags": ["game"],
+  }, {
+    "title": "The Black Cauldron",
+    "link": "https://www.imdb.com/title/tt0088814/",
+    "score": 7,
+    "reviewed_at": "2023-80-29",
+    "description": "Beautiful animation",
+    "tags": ["movie"],
+  }, {
+    "title": "Hogwarts Legacy",
+    "link": "https://store.steampowered.com/app/990080/Hogwarts_Legacy/",
+    "score": 6,
+    "reviewed_at": "2023-08-30",
+    "description": `Where do you even start? The ubisoft open world design? The characters that you're not really given a reason to care about? The fact that 90% of the game feels like a generic fantasy thing, with no relation to the franchise whatsoever? The combat at least starts out fun, but quickly devolves into tedium (although unlocking the explosive barrel thing near the end was a nice change of pace).
+
+This is a mediocre game by most metrics. Any open world game has two tasks to fulfill:
+1) Have a big, sprawling, beautiful open world - this game checks that box.
+2) Make the world feel rewarding to explore (not just through sheer amount of content, but also through variety) - this is where the game (like any other ubisoft open world game) fails.
+
+There are a lot of things I could go into and nitpick (the console-first design that cripples the PC experience, the map being SO SLOW TO OPEN PLEASE I JUST WANT TO LOOK WHERE I'M GOING, the same four-ish enemies over and over, ...), but I'll simply say this:
+The focus in development was clearly the quests. Follow the developers directive, and focus on the quests as well. Ignore actually exploring the world, and just look at it as it passes by below, when you fly on your broom. If you like Harry Potter, this'll scratch that itch.
+
+And yes, I did 100% the game.`,
+    "tags": ["game"],
   }]
 };

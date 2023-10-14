@@ -2116,9 +2116,9 @@ Ran for the perfect amount of time, given the subject matter, and stuck the land
   }, {
     "title": "The Bear",
     "link": "https://www.imdb.com/title/tt14452776/",
-    "score": 8.75,
-    "reviewed_at": "2023-04-16",
-    "description": "Anxiety s(t)imulator, but in a good way",
+    "score": 9.5,
+    "reviewed_at": "2023-09-10",
+    "description": "Anxiety simulator, but in a good way",
     "tags": ["show"],
   }, {
     "title": "Fleishman is in Trouble",
@@ -2233,5 +2233,29 @@ The focus in development was clearly the quests. Follow the developers directive
 
 And yes, I did 100% the game.`,
     "tags": ["game"],
+  }, {
+    "title": "Oliver and Company",
+    "link": "https://www.imdb.com/title/tt0095776/",
+    "score": 7.5,
+    "reviewed_at": "2023-09-02",
+    "tags": ["movie"],
+  }, {
+    "title": "Sällskapsresan eller Finns det svenskt kaffe på grisfesten",
+    "link": "https://www.imdb.com/title/tt0081590/",
+    "score": 7.5,
+    "reviewed_at": "2023-09-24",
+    "tags": ["movie"],
+  }, {
+    "title": "Pseudoregalia",
+    "link": "https://rittzler.itch.io/pseudoregalia",
+    "score": 8,
+    "reviewed_at": "2023-09-28",
+    "tags": ["game"],
+  }, {
+    "title": "Love and Monsters",
+    "link": "https://www.imdb.com/title/tt2222042/",
+    "score": 7.5,
+    "reviewed_at": "2023-10-14",
+    "tags": ["movie"],
   }]
 };

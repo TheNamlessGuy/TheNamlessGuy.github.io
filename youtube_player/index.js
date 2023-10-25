@@ -15,6 +15,7 @@ const TAGS = {
   CHILL: 'chill',
   DANCE: 'dance',
   CLASSIC: 'classic',
+  MASHUP: 'mashup',
 
   GENRE_MUSICAL: 'genre:musical',
   GENRE_INSTRUMENTAL: 'genre:instrumental',

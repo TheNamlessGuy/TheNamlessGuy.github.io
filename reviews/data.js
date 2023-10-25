@@ -2257,5 +2257,18 @@ And yes, I did 100% the game.`,
     "score": 7.5,
     "reviewed_at": "2023-10-14",
     "tags": ["movie"],
+  }, {
+    "title": "A Quiet Place",
+    "link": "https://www.imdb.com/title/tt6644200/",
+    "score": 5.5,
+    "reviewed_at": "2023-10-25",
+    "description": "With horror, believeability is everything. And this just wasn't for the most part. Well acted and well directed though",
+    "tags": ["movie"],
+  }, {
+    "title": "Page Eight",
+    "link": "https://www.imdb.com/title/tt1797469/",
+    "score": 5,
+    "reviewed_at": "2023-10-25",
+    "tags": ["movie"],
   }]
 };

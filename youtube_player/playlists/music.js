@@ -578,8 +578,6 @@ PLAYLISTS.add('music', [
   {title: 'Skirt - ODDTAXI (feat. PUNPEE)',                                                              source: 'youtube', src: 'LKMw0hBDBUw', tags: []},
   {title: 'Matt Bomer - People Like Us (feat. Alan Mingo Jr.)',                                          source: 'youtube', src: 'xJ5XK4k5vtA', tags: []},
   {title: 'Tribe Friday - forward is the way out',                                                       source: 'youtube', src: 'SJLwXbsXWjM', tags: []},
-  {title: 'Geoff Castelluci - Sixteen Tons',                                                             source: 'youtube', src: '3MXovHX3YNg', tags: []},
-  {title: 'VoicePlay - My Mother Told Me (feat. Jose Rosario Jr)',                                       source: 'youtube', src: 'bs4ZJpWJh_Q', tags: []},
   {title: 'Acquire A Cappella - Turret Opera',                                                           source: 'youtube', src: '6cc237zmfd0', tags: []},
   {title: 'Cory Wong - Hästråtta',                                                                       source: 'youtube', src: 'PLOwPxkZ6Pc', tags: []},
   {title: 'Field Medic - talkin johnny & june (your arms around me)',                                    source: 'youtube', src: '8x-_xHDsRuE', tags: []},

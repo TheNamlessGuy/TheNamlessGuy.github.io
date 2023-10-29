@@ -2270,5 +2270,29 @@ And yes, I did 100% the game.`,
     "score": 5,
     "reviewed_at": "2023-10-25",
     "tags": ["movie"],
+  }, {
+    "title": "Night on Earth",
+    "link": "https://www.imdb.com/title/tt11497922/",
+    "score": 8,
+    "reviewed_at": "2023-10-28",
+    "description": "The narrator reads it with just a bit too much drama, but that's apparently standard in US documentaries so I can't blame her (or whoever was in charge of the decision)",
+    "tags": ["show"],
+  }, {
+    "title": "Gorogoa",
+    "link": "https://www.gog.com/en/game/gorogoa",
+    "score": 9,
+    "reviewed_at": "2023-10-29",
+    "description": `SPOILER! My interpretation of the story:
+
+The dragon is meant to be some sort of diety, spirituality in general, the unknown, the loss of a loved one, or anything else in the general ballpark of "frightening world".
+The young boy, seeking answers to a scary world, seeks the knowledge of those that came before him, in the form of a book. Focusing on the wrong thing entirely, he ignores the people holding the bowl, and focuses on the bowl itself.
+Presumably, he thinks appeasing the dragon with an offering will appease it (read: making the outside world less scary), and he sets out on an adventure to do just that. The dragon ultimately rejects him, engulfing his world in darkness.
+
+By the end of the game, we find out that the entire game takes place in the memories of the old man. He himself sees the connections of his past selves and the fruits that he carried.
+However, it's only now that he has all this experience that he realizes that the fruits were a metaphor, and why the people offering the bowl were as important as the bowl itself.
+Through his rememberance, he finally sees the fruits (experiences, emotions) for what they are, and he is finally accepted by the dragon (the world is no longer scary).
+
+The message, presumably, being that chasing (spiritual) answers is no way to live a fruitful life. Instead, you should experience life, and the answers will find you in time.`,
+    "tags": ["game"],
   }]
 };

@@ -2294,5 +2294,38 @@ Through his rememberance, he finally sees the fruits (experiences, emotions) for
 
 The message, presumably, being that chasing (spiritual) answers is no way to live a fruitful life. Instead, you should experience life, and the answers will find you in time.`,
     "tags": ["game"],
+  }, {
+    "title": "VVVVVV",
+    "link": "https://www.gog.com/game/vvvvvv",
+    "score": 8,
+    "reviewed_at": "2023-10-31",
+    "description": `The lack of coyote jump is apparent. That, along with the character being a bit too fast per button press, and the fact that there seems to be some sort of momentum mechanic, makes this feel not as good as it should. It's still a shitton of fun though, with great music to boot`,
+    "tags": ["game"],
+  }, {
+    "title": "Supernatural",
+    "link": "https://www.imdb.com/title/tt0460681/",
+    "score": 6,
+    "reviewed_at": "2023-11-04",
+    "description": "The first 5 seasons are closer to an 8 by themselves, but the rest of the show drags it down. There are certainly good moments later on (especially in the last few seasons), but there are a few seasons in the middle where the only episodes that really matter are the first and the last",
+    "tags": ["show"],
+  }, {
+    "title": "Graveyard Keeper",
+    "link": "https://www.gog.com/game/graveyard_keeper",
+    "score": 7.5,
+    "reviewed_at": "2023-11-07",
+    "description": `Entertaining for the most part, but the late game devolves into a lot of running around your house to fetch that one item you had one too few of, and sitting in your stone garden meditating.
+The beginning spews a ton of information on you immediately (especially with DLCs installed).
+Too few things give blue progression points.
+Game of Crone DLC doesn't really match the tone of the rest of the game whatsoever (and I'm not sure who thought it was a good idea to introduce even more waiting into its mechanics).
+
+All around enjoyable, but a bit tedious towards the end.`,
+    "tags": ["game"],
+  }, {
+    "title": "One Last Game",
+    "link": "https://gooseladdergames.itch.io/onelastgame",
+    "score": 9,
+    "reviewed_at": "2023-11-07",
+    "description": `Simple and effective`,
+    "tags": ["game"],
   }]
 };

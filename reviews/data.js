@@ -1196,8 +1196,32 @@ Back & Forth: 8`,
   }, {
     "title": "Heaven's Vault",
     "link": "https://www.gog.com/game/heavens_vault",
-    "score": 9,
-    "reviewed_at": "2021-12-03",
+    "score": 9.5,
+    "reviewed_at": "2023-11-10",
+    "description": `One of my favorite games. It has a LOT of jank, and a lot of things that are frustrating, but it also has a shitton of heart. At the end of the day, that's all that really matters.
+
+Spoilers from here on out.
+
+To go into the jank/nitpick aspects:
+* Camera angles don't are chosen without seemingly caring about whether or not all characters are on screen, if there is something inbetween the camera and what the player is supposed to look at, and other such small issues. Doesn't affect the major dialogues, but some of the run of the mill ones suffer
+* Object pop-in/pop-out happens all the time. This was fixed for me by a <a href="https://www.pcgamingwiki.com/wiki/Heaven%27s_Vault#Issues_fixed">regedit change</a>: <code>HKEY_CURRENT_USER/Software/Inkle Ltd/Heaven's Vault/UnityGraphicQuality_h1669003810</code> => Base: decimal, Value data: 100
+* The game heavily relies on the fact that you SHOULD NOT be save scumming. It saves after every decision you make, even if you didn't realize it was a decision to begin with. There are a few times I chose a dialog option which lead to me being locked out of stuff to do. Doesn't really matter at the end of the day, as you can always beat the game without seeing that content. On the other hand, FOMO
+* Some of the UI elements bug out, and you have to work your way around them. Words scroll off screen, and won't let you scroll them back on (easily at least - it's always possible), for example
+* It does feel like a mobile port in some places
+* The music doesn't seem to know if it wants to play or not some times
+* Interesting, world-building dialogue sometimes gets interrupted (with no way of getting back to it) by "Hey remember to turn left"
+* Moving is <i>slow</i>
+* It's not always clear <i>why</i> Aliya doesn't let you start/continue a translation. The difference between a full translation situation and an "I give up" situation feel random, even if there probably is logic behind it.
+* The language doesn't do enough to differentiate itself from an english cipher. Sentence structuring is much the same, and so on. But I can understand that doing it any other way would alienate a much larger portion of the audience.
+
+The shit I absolutely adore:
+* A <i>lot</i> of effort has gone into crafting the language. You can very early on determine stuff like "if this symbol exists, it negates something", "if a symbol is surrounded by these two symbols it's a thing (read: noun)", and so on.
+** I genuinely got excited whenever I got a new prompt, even if it was some random cloth from some abandoned ruin.
+* The artstyle, while simplistic, is great
+* The sailing is very relaxing, and the controls of it feel just right. It was annoying that you couldn't skip them when you repeated routes, but that has since been patched.
+* The story is told in a very intriguing way. You get dripfed information at just the right pace, and the narrative changes quite drastically depending on your choices (even if you didn't realize it). You always reach the sea, but there are many rivers to take on the way.
+** There are actual repercussions to your actions, unintentional or not. Just like in real life.
+* All the characters are distinct, even the ones that are "one-offs"`,
     "tags": ["game"],
   }, {
     "title": "The Elder Scrolls III: Morrowind",

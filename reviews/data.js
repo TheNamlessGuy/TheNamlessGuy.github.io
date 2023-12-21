@@ -657,7 +657,7 @@ const _raw_data = {
     "title": "The Mandalorian",
     "link": "https://www.imdb.com/title/tt8111088/",
     "score": 7.5,
-    "reviewed_at": "2020-12-25",
+    "reviewed_at": "2023-12-21",
     "tags": ["show"],
   }, {
     "title": "National Lampoon's Christmas Vacation",
@@ -2351,5 +2351,70 @@ All around enjoyable, but a bit tedious towards the end.`,
     "reviewed_at": "2023-11-07",
     "description": `Simple and effective`,
     "tags": ["game"],
+  }, {
+    "title": "Weird: The Al Yankovic Story",
+    "link": "https://www.imdb.com/title/tt17076046/",
+    "score": 8,
+    "reviewed_at": "2023-11-19",
+    "description": "Worst biographical movie I've ever seen",
+    "tags": ["movie"],
+  }, {
+    "title": "Ocean's Eleven",
+    "link": "https://www.imdb.com/title/tt0240772/",
+    "score": 7,
+    "reviewed_at": "2023-11-20",
+    "tags": ["movie"],
+  }, {
+    "title": "Goetia",
+    "link": "https://www.gog.com/en/game/goetia",
+    "score": 6,
+    "reviewed_at": "2023-11-21",
+    "description": `A point-and-click puzzle game that takes too much inspiration from the early days of the genre.
+The difficulty of about half the puzzles don't come from complexity or innovating on mechanics, but tedium and guesswork. Some even require real world knowledge not gainable in game, which is always a big no-no.
+With a guide by your side for when you get stuck, the better designed puzzles and the story are decent enough to warrant a playthrough.
+
+Spoilers for a handful of puzzles that I felt indicative of the games flaws:
+* Having to guess the name of the person in the ouija board scene, as there are seemingly no hints whatsoever to who it is, besides the name being mentioned in a note nearby (along with a bunch of other names - guesswork).
+* The music puzzles require you to know how to play piano (or at least how a piano is layed out). The do-re-mi-fa-so-la-ti-do puzzle also requires you to know which corresponds to which note. All without any hints to how a piano is layed out or anything of the sort in game. Requiring real world knowledge is always bad.
+* Having to give Anton his glyph thing requires far too much investment in order to complete 1.5 puzzles. Even when you do understand it, it's tedium to actually solve. Shame, because it was one of the more interesting parts in the story.
+* Haborym's pendant puzzle, where the pieces don't fit together, is just poor UX design.
+* The "paper trail" quest requiring you to just find a random book as the first step on the trail is a weird choice. While I can understand that, from a writing standpoint, perhaps the characters thought the word "chariot" to be intrinsically linked with the book, the player most likely does not.`,
+    "tags": ["game"],
+  }, {
+    "title": "Star Wars Jedi: Survivor",
+    "link": "https://store.steampowered.com/app/1774580/STAR_WARS_Jedi_Survivor/",
+    "score": 7.5,
+    "reviewed_at": "2023-12-19",
+    "description": `In many ways, a complete upgrade of the previous game in the series. In other ways, a step back.
+
+There is a LOT of nice stuff here. All the good stuff from the previous game, and more. Movement flows even better, combat (for the most part) is both improved and more varied, the world feels more rewarding to explore, the story - although predictable - is enjoyable, and so on.
+However, as with most things, the flaws stick out far more than the good stuff. The game often suffers from what I'm guessing is a "too many cooks" situation - there is no coherent understanding of what the game wants as an identity. For example:
+* The game has a block and riposte system, but the riposte is seemingly no more damage than a regular attack. The game also actively punishes you for trying to use the system, since if you miss the first parry, you can only block for the remainder of the opponents attack flurry (or at least for a time? Not sure how the mechanics work here).
+* The game has a dodge system, but you cannot dodge more than two times in quick succession without getting punished. On its own that doesn't sound bad, but when most late-game enemies having an attack radius bigger than a single dodge, it becomes a problem.
+* The game is designed for one-on-one combat (especially when you take the above points into consideration), but the game constantly uses enemy/boss spam in order to up the difficulty. None of the systems in the game work well when you are trying to manage multiple enemies. Even the "Swap targeted enemy" function barely does what you want it to, as it only cares about horizontal changes, and not vertical ones. If there are two enemies are in front of each other, the one in the back being targeted, and I hit down, it should swap to the one in front. It should NOT do nothing.
+
+These issues, along with a few other deadly design sins (some listed below), nets the game a lower rating than the core gameplay loop deserves.
+* Instant kill attacks. There is a very distinct line between challenging and time wasting, and these types of shenanigans are exclusively on the "time wasting" side (along with enemies that heal themselves, and ones that stun you for an extended period of time. The healing one I didn't run across/notice in this game though). The mindset behind these mechanics is a relic of the quarter-eating arcade days, and that's where it should have stayed.
+* Health spam. A lot of bosses are just really tanky for seemingly no other reason than for the combat to take longer.
+* Questionable hitboxes. This seemingly mostly an issue with the big, non-human enemies. I can't tell you how many times I got damaged by one of the Oggdo AFTER its attack animation was finished, and/or I was standing to the side of it. Not to mention the Rancor grab.
+* The game forces you into a boss battle while you're playing as a completely new, different character, who you never play as again. A boss battle is supposed to test the skills you've honed up until that point, and by taking them away (and introducing "new" ones), you don't get that.
+
+However, I should mention that most of my issues with combat only really arose when fighting non-humanoid enemies, which is a fairly small percentage of the fights overall. A surprisingly large chunk of bosses though.
+
+Shoutout to my main man Rick. Best door technician I ever met.`,
+    "tags": ["game"],
+  }, {
+    "title": "The Book of Boba Fett",
+    "link": "https://www.imdb.com/title/tt13668894/",
+    "score": 6,
+    "reviewed_at": "2023-12-18",
+    "description": "This has the distinct feel of 'the higher-ups made me do it'. In the first handful of episodes, there's a distinct lack of something. I can't quite put my finger on if it's the writing, the directing, the acting from the main actor, or some combination of them all, but something is very off. It's still worth a watch, but perhaps only because the last three episodes are significantly better (and feel like they're from a different show entirely)",
+    "tags": ["show"],
+  }, {
+    "title": "Gen V",
+    "link": "https://www.imdb.com/title/tt13159924/",
+    "score": 8,
+    "reviewed_at": "2023-12-21",
+    "tags": ["show"],
   }]
 };

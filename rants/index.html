@@ -4,14 +4,17 @@
     <meta charset="utf-8" />
     <title>Namless rants</title>
     <link rel="stylesheet" type="text/css" href="index.css" />
-    <script src="data.js"></script>
-    <script src="code.js"></script>
-    <script src="index.js"></script>
-    <link rel="shortcut icon" href="/favicon.ico">
+    <script src="custom-elements/content.js"></script>
+    <script src="custom-elements/link-list.js"></script>
   </head>
   <body>
-    <div id="container-wrapper">
-      <div id="container"></div>
-    </div>
+    <c-content>
+      <h1>Rants</h1>
+      <c-link-list>
+        <a class="rant" href="/rants/why-fantasy/">Why fantasy?</a>
+        <!--<a class="rant" href="/rants/programming-language-features/">Programming language features</a>--> <!-- TODO: Look this one over -->
+        <a class="rant" href="/rants/my-wandersong-ending/">My Wandersong ending</a>
+      </c-link-list>
+    </c-content>
   </body>
 </html>

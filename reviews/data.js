@@ -2505,5 +2505,18 @@ Shoutout to my main man Rick. Best door technician I ever met.`,
     "score": 9.5,
     "reviewed_at": "2024-01-08",
     "tags": ["music", "artist:metric"],
+  }, {
+    "title": "Barbie",
+    "link": "https://www.imdb.com/title/tt1517268/",
+    "score": 7.5,
+    "reviewed_at": "2024-01-11",
+    "description": "I feel like I am not the target audience, so the emotional climax of the movie didn't hit the way it feels like it was intended to (since I don't have that connection with Barbie, nor have I ever really had to struggle with the issues the movie tries to face... but I guess that's part of the point), but I enjoyed the movie regardless",
+    "tags": ["movie"],
+  }, {
+    "title": "Staged",
+    "link": "https://www.imdb.com/title/tt12369754/",
+    "score": 7.75,
+    "reviewed_at": "2024-01-16",
+    "tags": ["show"],
   }]
 };

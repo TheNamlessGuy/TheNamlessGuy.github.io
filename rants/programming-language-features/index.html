@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Programming language features - Namless rants</title>
+    <link rel="stylesheet" type="text/css" href="../index.css" />
+    <script src="../custom-elements/content.js"></script>
+    <script src="../custom-elements/rant.js"></script>
+    <script src="../custom-elements/paragraph.js"></script>
+    <script src="../custom-elements/table-of-contents.js"></script>
+    <script src="../custom-elements/codeblock.js"></script>
+    <script src="../custom-elements/code.js"></script>
+  </head>
+  <body>
+    <c-content>
+      <h1>Programming language features</h1>
+      <c-rant>
+        <c-paragraph>
+          <div>Often when I'm coding, I find something that I want to be able to do, but I can't do it cleanly due to the design of the language. This is a list of such features.</div>
+        </c-paragraph>
+        <c-table-of-contents></c-table-of-contents>
+        <h2>Features all languages should have</h2>
+        <c-paragraph>
+          <div>Things I've encountered in some languages, or things I would really just want to be able to do.</div>
+        </c-paragraph>
+
+        <h3>Function parameter constants</h3>
+        <c-paragraph>
+          <div>I stole this one from Erlang, although it probably exists in other languages. Basically, say you have a function like this:</div>
+          <c-codeblock language="psuedo">
+            func myCoolFunc(int param, bool reversed) {
+              if (reversed) {
+                cFunc(param);
+                bFunc(param);
+                aFunc(param);
+              } else {
+                aFunc(param);
+                bFunc(param);
+                cFunc(param);
+              }
+            }
+          </c-codeblock>
+          <div>A dumb example, but it serves its purpose. Now, imagine you could write it like this instead:</div>
+          <c-codeblock language="pseudo">
+            func myCoolFunc(int param, true) {
+              cFunc(param);
+              bFunc(param);
+              aFunc(param);
+            }
+
+            func myCoolFunc(int param, false) {
+              aFunc(param);
+              bFunc(param);
+              cFunc(param);
+            }
+          </c-codeblock>
+          <div>See how <i>objectively</i> better that is?</div>
+        </c-paragraph>
+
+        <h3>Default function parameter values</h3>
+        <c-paragraph>
+          <div>Please and thank you.</div>
+          <c-codeblock language="pseudo">
+            func cool(int param = 0) {
+              // ...
+            }
+          </c-codeblock>
+        </c-paragraph>
+
+        <c-paragraph>
+          <h3>Python-style parameter specification</h3>
+          <div>In python you can specify a parameter out of order by referencing it by name. This is a very useful idea.</div>
+          <c-codeblock language="pseudo">
+            func cool(int param1 = 0, param2 = 0) {
+              // ...
+            }
+
+            cool(param2 = 1);
+          </c-codeblock>
+        </c-paragraph>
+
+        <h3>Scope creation control</h3>
+        <c-paragraph>
+          <div>
+            I often find myself thinking that I want to break code out to a function in order to make it more readable, but this will come at a runtime cost of a scope creation,
+            which isn't great. Granted, that's not really a huge major issue that every language immediately needs to turn their attention to,
+            but that's what got me to start thinking about it. There are four types of scopes the programmer should be able to create:
+          </div>
+          <ul>
+            <li>No scope - Simply don't open a new scope when entering the code block</li>
+            <li>Closed scope - The code block can't access anything declared outside of it</li>
+            <li>Open declaration scope - The code block has its own scope, but can access things declared in the scope(s) above where it was created</li>
+            <li>Open call scope - The code block has its own scope, but can access things declared in the scope(s) above where it was called</li>
+          </ul>
+          <div>
+            The 'no scope' one fixes the original issue I experienced. With this I would no longer feel bad anytime I need to write a 'random number between' function.
+            This can of course be used as a 'injectable' code block as well (which is basically the same thing but the phrasing makes me think of other scenarios it could be used).
+          </div>
+          <div>
+            The 'closed scope' is good in a few scenarios. Callback functions not holding the exact scope they were created in hostage until they get discarded
+            (JavaScript developers probably understand this, as this is basically the issue with 'arrow functions'), and it should probably be used in most for-loops and such.
+          </div>
+          <div>"Oh but what if I want to use only one or two variables from the above scope?", you may be asking. Honestly, I don't know how you would do that while still maintaining nice syntax</div>
+          <div>The 'open declaration scope' is basically what we are used to in most modern languages. This should probably be default.</div>
+          <div>The 'open call scope' is very specific when it needs to be used. Its usecase lies when you need an inline function that needs to create variables but shouldn't tarnish the 'parent' scope.</div>
+        </c-paragraph>
+
+        <h3>Conditional 'ternary' operator but for non-value results</h3>
+        <c-paragraph>
+          <div>This sounds weird, but generally I stole it from bash: <c-code>[[ mybool ]] && echo "yes" || echo "no"</c-code>. Granted, this isn't syntax you really should use out of really basic testing (in bash), but imagine if you could.</div>
+          <div>
+            The more observant reader might have noticed I put ternary in quotations in the header for this section,
+            and that's because (much like in bash) I figure you should also be able to do just the good or bad one, and have a noop otherwise. This is an example syntax:
+          </div>
+          <c-codeblock language="pseudo">
+            (mybool) ? doYesThing() : doNoThing();
+            (mybool) ? doYesThing();
+            (mybool) ?: doNoThing();
+
+            int myint = 5;
+            myint = (mybool) ?: doNoThing(); // Should either result in syntax error, or have the value of myint (5 in this case) persist when mybool == true
+          </c-codeblock>
+        </c-paragraph>
+
+        <h3>Pointers/references and allowing the programmer to decide between pass-by-reference and pass-by-value</h3>
+        <c-paragraph>
+          <div>Most people in the business seem to have nightmares about pointers from back in their earlier programming days, but they are insanely useful from time to time.</div>
+          <div>
+            I added the name 'reference', since you can pretty much abstract away the idea that it points to a memory address in most languages and have it change absolutely nothing.
+            I prefer using the word 'reference', but that's mostly because the pointer syntax in C++ is absolute ass, while the reference syntax is how it should be.
+          </div>
+        </c-paragraph>
+        <c-paragraph>
+          <div>
+            The main point of this section isn't the actual pointers however, but what they let you as a programmer do: you get to decide whether you want to pass-by-reference or not.
+            This is something most languages seem to want to absolutely fuck you over with. In my experience, most languages have pass-by-value sometimes and pass-by-reference in other
+            cases, even if the syntax itself looks exactly the same. This is incredibly user-unfriendly, and I don't really understand why most people just roll over and accept it.
+            It's probably the leading thing for any bugs I write or issues I face in those types of languages.
+          </div>
+          <c-codeblock language="pseudo">
+            // Disgusting! Ew! Spit on it! Ptooey
+            MyClass c = new MyClass(abacus = false);
+            func myfunc(MyClass c) {
+              c.abacus = true;
+            }
+
+            myfunc(c);
+            print(c.abacus); // => true
+          </c-codeblock>
+          <c-codeblock language="pseudo">
+            // Wonderful
+            MyClass c = new MyClass(abacus = false);
+            func myfunc(MyClass c) {
+              c.abacus = true;
+            }
+
+            myfunc(c);
+            print(c.abacus); // => false
+
+            myfunc(&c);
+            print(c.abacus); // => true
+          </c-codeblock>
+        </c-paragraph>
+
+        <h3>Constructors with return values</h3>
+        <c-paragraph>
+          <div>Basically, exceptions are bad and ugly, and we should use this instead. I'll let the code speak for itself on this one:</div>
+          <c-codeblock language="pseudo">
+            // Good version
+            class MyClass {
+              constructor(int inparam1, bool inparam2) {
+                if (inparam1 > 5) {
+                  return null;
+                }
+
+                MyClass this = MyClass.instantiate(); // Allocates memory and whatever else is needed
+                this.myint = inparam1;
+                this.mybool = inparam2;
+                return this;
+              }
+            }
+
+            MyClass c = new MyClass(7, false);
+            if (c === null) {
+              print('Uh oh');
+            }
+          </c-codeblock>
+          <c-codeblock language="pseudo">
+            // Bad version
+            class MyClass {
+              constructor(int inparam1, bool inparam2) {
+                if (inparam1 > 5) {
+                  throw new YouDidItWrongException('inparam1 no bigger than 4 pls');
+                }
+
+                this.myint = inparam1;
+                this.mybool = inparam2;
+              }
+            }
+
+            MyClass c; // We could at least get rid of this if we had scope control, see that subsection.
+            try {
+              MyClass c = new MyClass(7, false);
+            } catch (YouDidItWrongException e) {
+              print('You did it wrong');
+            }
+          </c-codeblock>
+        </c-paragraph>
+
+        <h3>Multiple inheritances</h3>
+        <c-paragraph>
+          <div>
+            I really don't see why this would be an issue ever. The biggest issue is the 'two parents have the same function' issue people keep bringing up,
+            but the compiler should easily be able to see that any call to the function is ambiguous, and should then prompt you to specify which of them you are calling.
+          </div>
+          <c-codeblock language="pseudo">
+            class Parent1 {
+              func foo() { /* ... */ }
+            };
+
+            class Parent2 {
+              func foo() { /* ... */ }
+            };
+
+            class Child: Parent1, Parent2 {
+              func bar() {
+                foo(); // Compilation error
+                Parent1::foo(); // Perfectly fine
+              }
+            };
+          </c-codeblock>
+          <div>
+            Some languages work around this by use of interfaces (which isn't really a solution to the problem. Granted, it might not have been intended to be, but people keep saying it is), or traits.
+          </div>
+          <div>
+            I will say that traits are a step in the right direction, and is basically how inheritance should work from the get-go,
+            but at least in my experience any language that has one also has the other, which is just incredibly redundant.
+          </div>
+        </c-paragraph>
+
+        <h3>Events</h3>
+        <c-paragraph>
+          <div>
+            Basically the only thing I liked about C# is that you can subscribe to a variable changing value, and influence said value.
+            This would be great to use for something like a video game perk/status effect system.
+          </div>
+          <c-codeblock language="pseudo">
+            class DoubleIncome: Perk {
+              // ...
+              static onActivation() {
+                onChange(player.money, func(value) {
+                  if (value < player.money) { return value; }
+                  return player.money + (value - player.money) * 2;
+                });
+              }
+            }
+          </c-codeblock>
+        </c-paragraph>
+
+        <h3>'finally' on all code blocks</h3>
+        <c-paragraph>
+          <div>
+            Any time you open a connection to a server or some such and you need to shut it down at the end of a function,
+            the only real choice you have is to wrap the function in a try-catch.
+          </div>
+          <c-codeblock language="pseudo">
+            func doTheThing() {
+              Connection conn;
+              try {
+                conn = connect();
+                // ...
+              } finally {
+                conn.close();
+              }
+            }
+          </c-codeblock>
+          <div>Obviously this is incredibly ugly. Now check a look at this:</div>
+          <c-codeblock language="pseudo">
+            func doTheThing() {
+              Connection conn = connect();
+              // ...
+            } finally {
+              conn.close();
+            }
+          </c-codeblock>
+          <div><i>Hnnnnnnnnnnnnnnnnnnnng</i>, as the kids say. Much cleaner. Of course, you should be able to do the same with if-statements, loops, etc.</div>
+          <div>
+            I'd draw the line at class code blocks, since they're not really executed as much as evaluated. Perhaps if you wanted to execute some code after object creation?
+            But given the constructor with return value thing from above, you could just put a finally on the constructor. Anyway,
+            the same scenario but with a loop instead of a function:
+          </div>
+          <c-codeblock language="pseudo">
+            Connection conn = connect();
+            while (true) {
+              // ...
+            } finally {
+              conn.close();
+            }
+          </c-codeblock>
+        </c-paragraph>
+
+        <h3>Labels</h3>
+        <c-paragraph>
+          <div>Labels in general are pretty good to use, at least when used in conjunction with <c-code>break</c-code> and <c-code>continue</c-code>, etc.</div>
+          <c-codeblock language="pseudo">
+            #outer while (true) {
+              // ...
+              #inner while (true) {
+                if (/* ... */) {
+                  break #outer;
+                }
+              }
+            }
+          </c-codeblock>
+          <div>
+            For clarification, that <c-code>break</c-code> would get you out of both loops.
+            Now imagine if you could do it with <c-code>return</c-code> statements as well. This would be pretty useless without the "'finally' on all code blocks" thing from above.
+            But with it, you could suddenly do a lot.
+          </div>
+          <c-codeblock language="pseudo">
+            func foo() {
+              if (/* ... */) { return 1 #ret1; }
+              if (/* ... */) { return 'abababbaba' #ret2; }
+              if (/* ... */) { return 'bababaabab' #ret3; }
+            } finally #ret1 {
+              // Handle ret1 specifically
+            } finally {
+              // Handle all other cases
+            }
+          </c-codeblock>
+        </c-paragraph>
+
+        <h3>#define or other ways to declare compile-time variables</h3>
+        <img src="res/i-just-think-theyre-neat.jpg" />
+
+        <h3>Function overloading</h3>
+        <c-paragraph>
+          <div>Not gonna go too deep into this one, it should be obvious why it's useful. Especially with the "function parameter constants" thing above</div>
+        </c-paragraph>
+
+        <h3>Objects/Hashmaps and JavaScript-style access syntax</h3>
+        <c-paragraph>
+          <div>
+            If there's anything JS did right, it's the object access syntax. Allowing you do do the <c-code>dict['value']</c-code> thing when you absolutely needed to,
+            but also giving you the freedom to make it actually readable with the <c-code>dict.value</c-code> syntax.
+          </div>
+          <div>
+            For this reason (and some others), I say all languages should have some sort of builtin hashmap (in its standard lib or not) and have the same syntax.
+            While I can agree that the keys should be locked to strings for the sake of simplicity, the value should be whatever type you want it to be.
+          </div>
+        </c-paragraph>
+
+        <h3>Multiple return values</h3>
+        <c-paragraph>
+          <div>It's just really useful. Steal the spreading syntax from any language that has it:</div>
+          <c-codeblock language="pseudo">
+            func myfunc() {
+              return [1, false];
+            }
+
+            [int a, bool b] = myfunc();
+          </c-codeblock>
+        </c-paragraph>
+
+        <h2>Features no languages should have</h2>
+
+        <h3>No public, protected, private, or similar</h3>
+        <c-paragraph>
+          <div>This is one of by biggest gripes. There are only two reasons you would ever set something as not public:</div>
+          <ul>
+            <li>You do not trust the people who will interface with your code</li>
+            <li>You think you are smarter than the people who will interface with your code</li>
+          </ul>
+          <div>
+            You should always trust the people that interface with your code, because it is purely their fault if they break something on their end.
+            They shouldn't be messing with parts of your code that they do not understand. They should, however, be allowed to use any of your code if they do understand it.
+          </div>
+          <div>The quality of your code is not tied to what people do with it. It stands on its own merit.</div>
+        </c-paragraph>
+        <c-paragraph>
+          <div>Now, you might still want to flag that a variable or a function isn't intended to be used outside unless you absolutely know what you're doing. This issue was solved by python programmers ages ago however: prefix the name with a '_'.</div>
+        </c-paragraph>
+
+        <h3>Typeless anything</h3>
+        <c-paragraph>
+          <div>No typeless variables, no typeless return values, etc.</div>
+          <div>Pretty sure this is one of the features with the highest bug creation amount.</div>
+        </c-paragraph>
+
+        <h3>Declaration and initialization/assignment syntax being the same</h3>
+        <c-paragraph>
+          <div>Looking at you, python.</div>
+          <c-codeblock language="pseudo">
+            // Do this
+            int a = 5;
+            a = 10;
+          </c-codeblock>
+          <c-codeblock language="pseudo">
+            // Not this
+            a = 5;
+            a = 10;
+          </c-codeblock>
+        </c-paragraph>
+
+        <h3>Implicit pass-by-reference</h3>
+        <c-paragraph>
+          <div>100% for creating bugs, and has no other practical uses.</div>
+        </c-paragraph>
+
+        <h3>Indentation based code blocks</h3>
+        <img src="res/stop-it-get-some-help.jpg" />
+
+        <h3>'Weak' comparison</h3>
+        <c-paragraph>
+          <div>This isn't really an issue if you follow the "no typelessness" rule.</div>
+        </c-paragraph>
+
+        <h2>Features that languages technically should have but that you should never ever use</h2>
+
+        <h3>Redeclaring variables</h3>
+        <c-paragraph>
+          <div>Controversial, I know. But sometimes I need throwaway variables when debugging and I can't keep using <c-code>tmp</c-code>. But in a typed language I might need it to be an int in one point of the code, and a string in another. Thus, redeclaration.</div>
+        </c-paragraph>
+
+        <h3>Nested ternary</h3>
+        <c-paragraph>
+          <div>It would be weird to restrict this, but at the same time it is so incredibly ugly that no one should ever use it, and people who do should be flayed.</div>
+        </c-paragraph>
+
+        <h3>Multilevel inheritance</h3>
+        <c-paragraph>
+          <div>
+            Now, in some cases multilevel inheritance will actually improve your code, which is why I put this in this category.
+            But if you've ever spent any time with a hardcore Java programmer (or just OOP in general), you'll probably understand why I absolutely loathe this concept.
+          </div>
+          <div>
+            If you haven't had the pleasure, check out the Eclipse source code and see how many levels of abstraction any given class is.
+            Pretty sure I found one that was over 30 classes deep at one point.
+          </div>
+        </c-paragraph>
+
+        <h3>Exceptions</h3>
+        <c-paragraph>
+          <div>Exceptions should only be available if you specify a flag to your compiler/interpreter, so it can be used in debugging. No production build should ever have exceptions if it can help it.</div>
+          <div>If you do have exceptions in production, at least make it so you have to handle them in your code. An exception should never bubble up past your main function.</div>
+        </c-paragraph>
+      </c-rant>
+    </c-content>
+  </body>
+</html>

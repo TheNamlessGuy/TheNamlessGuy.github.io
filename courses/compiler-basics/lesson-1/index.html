@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../index.css" />
+        <script src="../custom-elements/sidebar-content.js"></script>
+        <script src="../custom-elements/code-block.js"></script>
+        <script src="../custom-elements/page.js"></script>
+        <script src="index.js"></script>
+    </head>
+    <body>
+        <page-element>
+            <h1>Lesson 1 - BNF & Calculator</h1>
+            <p>
+                In this first lesson, we'll go over the basic logic that you should manage in order to write your own compiler/interpreter, as well as write a basic implementation.<br>
+                We'll be using javascript to write the implementation. This guide presumes that you know (or at least are willing to learn) JS.
+            </p>
+            <!-- START: Chapter 1 -->
+            <h2>Chapter 1 - What is BNF?</h2>
+            <p>
+                BNF (<a href="https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form">Backus-Naur Form</a>) is a type of documentation that should explain the grammar of your language.
+                It essentially describes how the interpreter should interpret your language. It should be said that BNF isn't a strict syntax or anything.
+                There are many variants and the rules are loose in general. As long as you can make yourself understood, you'll get far. All throughout this course, I will use the dialect I'm used to.
+            </p>
+            <p>
+                I'd say that the simplest way to explain BNF is through examples. Otherwise it might get very abstract and confusing.<br>
+                The language we are building during this lesson is a simple calculator. You'll be able to write <code>12 + 5</code> and get the result <code>17</code>.
+                To get started, the interpreter of course needs somewhere to begin. We'll call this node the <code>start</code> node:
+                <code-block snippet="bnf-1.bnf"></code-block>
+                The start node then of course needs to do something. Perhaps identify that there is a number nearby? Let's define a <code>number</code> node:
+                <code-block snippet="bnf-2.bnf"></code-block>
+                As you might be able to interpret, we are saying that the <code>number</code> node can be resolved using the regex <code>/\d+/</code>, which (if you don't know regex) essentially means "one or more digits in a row".
+                Seems like a reasonable definition of a number to me.
+                Then, we can define the <code>start</code> node to read a <code>number</code>:
+                <code-block snippet="bnf-3.bnf"></code-block>
+                Wow! If we were to write an implementation of this, we could have our program realize that our input has a number!
+            </p>
+            <p>
+                Before we move on to some implementation however, let's move the bar a few steps further: we want our calcular to be able to run a simple addition between two numbers. We'll define this as such:
+                <code-block snippet="bnf-4.bnf"></code-block>
+                Now, if we were to follow this documentation and make an implementation, we should be able to add two numbers together and absolutely nothing else. Let's give it a try!
+            </p>
+            <!-- END: Chapter 1 -->
+            <!-- START: Chapter 2 -->
+            <h2>Chapter 2 - Basic implementation</h2>
+            <p>
+                While it doesn't necessarily work like this when you're building some compiler or interpreter that should be fast and efficient, we will build our implementation in three different components:<br>
+                1. Tokenizer<br>
+                2. Parser<br>
+                3. Abstract syntax tree (AST)<br>
+                We'll implement the end result BNF grammar of the chapter above using these three, in order.<br>
+                You won't have to understand these in depth after this lesson, we'll go deeper into what each component is in the future lessons.
+            </p>
+            <h3>The tokenizer</h3>
+            <p>
+                The job of the tokenizer is to break down the given text into the compoents displayed in the BNF. In our current implementation, we will have exactly two types of tokens:<br>
+                1. A number (<code>/\d+/</code>)<br>
+                2. A plus sign (<code>+</code>)<br>
+                All the rest is just fluff that we will need later on.
+            </p>
+            <p>
+                Here's a very basic example of a tokenizer:
+                <code-block function="compile1" language="js" name="compile"></code-block>
+                You can try the code using the form below:<br>
+                <input id="code-input-1" placeholder="Addition goes here" value="12 + 5"> <button id="code-submit-1">Compile</button> <code id="code-output-1" class="block inline">No result yet</code>
+            </p>
+            <p>
+                <h3>The parser</h3>
+            </p>
+            <!-- END: Chapter 2 -->
+        </page-element>
+    </body>
+</html>

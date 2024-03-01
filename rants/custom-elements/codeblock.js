@@ -22,6 +22,8 @@ class CodeBlockElement extends HTMLElement {
     lines = lines.map(x => x.substring(prefixLength));
     content.innerHTML = lines.join('<br>');
 
+    // TODO: Syntax highlighting
+
     this.attachShadow({mode: 'closed'}).append(style, content);
   }
 

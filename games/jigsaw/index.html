@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Jigsaw puzzle generator - Namless Things</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="custom-elements/modals/base.js"></script>
+    <script src="custom-elements/modals/image-select.js"></script>
+    <script src="index.js"></script>
+    <link rel="shortcut icon" href="/favicon.ico">
+  </head>
+  <body>
+    <div id="solve-box-container">
+      <div id="solve-box">
+        <img id="solve-img" crossorigin="anonymous">
+        <div id="piece-location-container"></div>
+      </div>
+      <div id="options">
+        <div id="errors"></div>
+        <button id="generate">Generate puzzle</button>
+        <hr>
+        <button id="select-image">Select image</button>
+        <div>
+          <label id="selected-img-name"></label>
+        </div>
+        <hr>
+        <div>
+          <label>Amount of pieces:</label>
+          <input id="pieces-amount" placeholder="Amount of pieces..." type="number">
+        </div>
+      </div>
+    </div>
+    <div id="pieces"></div>
+  </body>
+</html>

@@ -2518,5 +2518,55 @@ Shoutout to my main man Rick. Best door technician I ever met.`,
     "score": 7.75,
     "reviewed_at": "2024-01-16",
     "tags": ["show"],
+  }, {
+    "title": "A Highland Song",
+    "link": "https://www.inklestudios.com/a-highland-song/",
+    "score": 8,
+    "reviewed_at": "2024-01-20",
+    "description": "A fantastically cozy little game that does a horrible job of selling you on what it's all about. It presents you with a time limit early on, which ultimately doesn't matter. However, for a new player, this just adds a layer of stress. All you get for getting to the end 'on time' is a slightly different ending. That being said, this game is all about the journey, and it does that part fantastically, if a bit jank at times. There's a lot of heart here though, and in the end, isn't that what matters the most?",
+    "tags": ["game"],
+  }, {
+    "title": "The Dark Crystal",
+    "link": "https://www.imdb.com/title/tt0083791/",
+    "score": 7.5,
+    "reviewed_at": "2024-01-27",
+    "description": "Jim Henson was truly a master of his craft",
+    "tags": ["movie"],
+  }, {
+    "title": "Devs",
+    "link": "https://www.imdb.com/title/tt8134186/",
+    "score": 8,
+    "reviewed_at": "2024-02-04",
+    "description": `Very well put together overall. However, it often flipflops between seemingly understanding the subject matter, and not understanding it fully. In most cases of this it can be chalked up to an unreliable narrator, but it still feels sort of jarring.
+Throughout I was often reminded of Annihilation. Seeing as they share the same director (something I looked up afterwards), it makes a lot of sense.
+The cinematography is great, but it does drag some points on longer than they needed to, especially early on. The choice of music is similarly polarising; sometimes it's great, sometimes it's strange. The lead actress also overenunciates at certain points (but not always), reminding me of someone trying to hide their natural accent, or just starting out voice acting.
+
+All the above are just minor nitpicks, and I would say that if you're into the more philosophical angle of sci-fi, you'll love this.`,
+    "tags": ["show"],
+  }, {
+    "title": "Ted Lasso",
+    "link": "https://www.imdb.com/title/tt10986410/",
+    "score": 9,
+    "reviewed_at": "2024-02-09",
+    "description": `Basically roughly 30 hours of people realizing and owning up to their mistakes, somehow without it ending up feeling forced or played out. Perhaps because, at the end, they still aren't perfect people - simply better.`,
+    "tags": ["show"],
+  }, {
+    "title": "A Goofy Movie",
+    "link": "https://www.imdb.com/title/tt0113198/",
+    "score": 8.5,
+    "reviewed_at": "2024-02-12",
+    "tags": ["show"],
+  }, {
+    "title": "9",
+    "link": "https://www.imdb.com/title/tt0472033/",
+    "score": 7,
+    "reviewed_at": "2024-02-12",
+    "tags": ["show"],
+  }, {
+    "title": "Rio",
+    "link": "https://www.imdb.com/title/tt1436562/",
+    "score": 6.75,
+    "reviewed_at": "2024-02-12",
+    "tags": ["show"],
   }]
 };

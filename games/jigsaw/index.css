@@ -4,6 +4,8 @@ html, body {
   width: 100vw;
   height: 100vh;
   background-color: #000;
+
+  --img-max-size: 85vh;
 }
 
 a:visited { color: inherit; }
@@ -17,16 +19,15 @@ a:visited { color: inherit; }
 }
 
 #solve-img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: var(--img-max-size);
+  max-height: var(--img-max-size);
 }
 #solve-box-container.active #solve-img { visibility: hidden; }
 
 #solve-box {
-  --size: 85vh;
   position: relative;
-  max-width: var(--size);
-  max-height: var(--size);
+  max-width: var(--img-max-size);
+  max-height: var(--img-max-size);
   border: 1px solid #FFF;
 }
 

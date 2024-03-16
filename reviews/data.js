@@ -2471,7 +2471,7 @@ Shoutout to my main man Rick. Best door technician I ever met.`,
     "link": "https://ilovemetricstore.com/collections/music/products/formentera-ii-12-vinyl-marble-blue-limited-edition",
     "score": 8.5,
     "reviewed_at": "2024-01-07",
-    "tags": ["music", "artist:metric"],
+    "tags": ["music", "artist:Metric"],
   }, {
     "title": "Uncharted",
     "link": "https://www.imdb.com/title/tt1464335/",
@@ -2504,7 +2504,7 @@ Shoutout to my main man Rick. Best door technician I ever met.`,
     "link": "https://ilovemetricstore.com/collections/music/products/fantasies-12-vinyl-sea-blue-translucent",
     "score": 9.5,
     "reviewed_at": "2024-01-08",
-    "tags": ["music", "artist:metric"],
+    "tags": ["music", "artist:Metric"],
   }, {
     "title": "Barbie",
     "link": "https://www.imdb.com/title/tt1517268/",
@@ -2568,5 +2568,62 @@ All the above are just minor nitpicks, and I would say that if you're into the m
     "score": 6.75,
     "reviewed_at": "2024-02-12",
     "tags": ["show"],
+  }, {
+    "title": "Shaun of the Dead",
+    "link": "https://www.imdb.com/title/tt0365748/",
+    "score": 7,
+    "reviewed_at": "2024-03-01",
+    "tags": ["movie"],
+  }, {
+    "title": "Hot Fuzz",
+    "link": "https://www.imdb.com/title/tt0425112/",
+    "score": 7.5,
+    "reviewed_at": "2024-03-03",
+    "tags": ["movie"],
+  }, {
+    "title": "Control",
+    "link": "https://www.gog.com/en/game/control_ultimate_edition",
+    "score": 8.5,
+    "reviewed_at": "2024-03-16",
+    "description": `
+Having played none of the Remedy games between this and Alan Wake, this is a big step up in every department.
+The story feels much more fleshed out, and not as much of a "babbys first cosmic horror". There's a lot of thought put into the universe, and how it's all presented.
+
+The ending felt off, as if they had to not do the final bossfight due to budget reasons, and opted to just cut to black instead. Same with the post-story DLC "The Foundation", which has a far better ending, but (presumably since it's a DLC) doesn't actually offer up an ending to the game itself. Both of these issues end up making the game give no real sense of closure.
+
+That, along with some gripes with the core gameplay loop (flying controls, and the fact that the service weapon is next to pointless once you get the throwing ability) nets it the score it gets. It could easily have reached at least 9 otherwise.`,
+    "tags": ["movie"],
+  }, {
+    "title": "WinSetView",
+    "link": "https://lesferch.github.io/WinSetView/",
+    "score": 9,
+    "reviewed_at": "2024-03-10",
+    "description": "Does what it sets out to do and does it well. Could use some UI work, but its perfectly manageable",
+    "tags": ["software"]
+  }, {
+    "title": "Caravan Palace - Gangbusters Melody Club",
+    "link": "https://caravanpalace.bandcamp.com/album/gangbusters-melody-club",
+    "score": 8,
+    "reviewed_at": "2024-03-10",
+    "tags": ["music", "artist:Caravan Palace"]
+  }, {
+    "title": "GoLang",
+    "link": "https://go.dev/",
+    "score": 3,
+    "reviewed_at": "2024-03-12",
+    "description": `
+Tried to learn it because the syntax looked nice. Immediately ran into several problems, all of them having to do with the import system:
+* You have to have go installed in order to write functional code, not just to execute it (since you apparently have to run go mod every 2 seconds). This means that its impossible to dockerize it in a reasonable manner (i.e. writing code locally, executing it in the docker image).
+* For some dumbfuck reason, they've decided to abstract the imports away from "I want that file over there", which is all an import system should ever be. Anything else just introduces a shitton of overhead for the programmer for no reason.
+* The recommended WoW is to name your module after the URL where you can find it, meaning modules will have long ass names that make no sense (github usernames, for example). In addition, you have to specify the import in each file that is going to use it, meaning you have to remember what all the dumbass long names are, and you seemingly can't alias them.
+* You can't tell how to use module once its imported by just looking at the code. "import github.com/foo/bar.gov" can apparently result in a module named "banana". ?????????????
+* Why the <i>fuck</i> do I have to define a new module in order to put a function in a separate file?
+* <a href="https://go.dev/doc/tutorial/call-module-code">This entire tutorial</a>, and the fact that apparently this is both official, accepted, and even considered good.
+
+I was looking for a language to write a webserver in, and since I don't want to write the entire implementation in one file, this language is entirely useless for the purpose.
+Maybe it's good for one-file scripts, but I don't see why you would use it over python, which is already installed <i>everywhere</i>.
+
+The only good thing I can say about it is that the syntax looks nice, and that the pointer belongs to the type, not the variable.`,
+    "tags": ["programming-language"]
   }]
 };

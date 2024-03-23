@@ -2555,19 +2555,19 @@ All the above are just minor nitpicks, and I would say that if you're into the m
     "link": "https://www.imdb.com/title/tt0113198/",
     "score": 8.5,
     "reviewed_at": "2024-02-12",
-    "tags": ["show"],
+    "tags": ["movie"],
   }, {
     "title": "9",
     "link": "https://www.imdb.com/title/tt0472033/",
     "score": 7,
     "reviewed_at": "2024-02-12",
-    "tags": ["show"],
+    "tags": ["movie"],
   }, {
     "title": "Rio",
     "link": "https://www.imdb.com/title/tt1436562/",
     "score": 6.75,
     "reviewed_at": "2024-02-12",
-    "tags": ["show"],
+    "tags": ["movie"],
   }, {
     "title": "Shaun of the Dead",
     "link": "https://www.imdb.com/title/tt0365748/",
@@ -2592,7 +2592,7 @@ The story feels much more fleshed out, and not as much of a "babbys first cosmic
 The ending felt off, as if they had to not do the final bossfight due to budget reasons, and opted to just cut to black instead. Same with the post-story DLC "The Foundation", which has a far better ending, but (presumably since it's a DLC) doesn't actually offer up an ending to the game itself. Both of these issues end up making the game give no real sense of closure.
 
 That, along with some gripes with the core gameplay loop (flying controls, and the fact that the service weapon is next to pointless once you get the throwing ability) nets it the score it gets. It could easily have reached at least 9 otherwise.`,
-    "tags": ["movie"],
+    "tags": ["game"],
   }, {
     "title": "WinSetView",
     "link": "https://lesferch.github.io/WinSetView/",
@@ -2625,5 +2625,45 @@ Maybe it's good for one-file scripts, but I don't see why you would use it over 
 
 The only good thing I can say about it is that the syntax looks nice, and that the pointer belongs to the type, not the variable.`,
     "tags": ["programming-language"]
+  }, {
+    "title": "The Rookie",
+    "link": "https://www.imdb.com/title/tt7587890/",
+    "score": 6.5,
+    "reviewed_at": "2024-03-19",
+    "description": `Pretty decent for a police procedural.
+
+What makes it stand out the most to me is the use of body cam footage, and other non-standard camera choices.
+Other than that, the show (like most others) devolves from the original subject into a character driven drama.`,
+    "tags": ["show"],
+  }, {
+    "title": "Watchmen",
+    "link": "https://www.imdb.com/title/tt0409459/",
+    "score": 7.5,
+    "reviewed_at": "2024-03-20",
+    "tags": ["movie"],
+  }, {
+    "title": "The World's End",
+    "link": "https://www.imdb.com/title/tt1213663/",
+    "score": 7.5,
+    "reviewed_at": "2024-03-21",
+    "description": `
+Having rewatched the entire Cornetto trilogy recently, I'm left with some thoughts - about The World's End specifically, but also about the entire trilogy in its whole.
+What makes these movies so good to me is not just the execution, but the (perceived) concept behind them as well. They're all parodies of specific types of movies, and they all parody the very concept of character growth.
+
+Shaun of the Dead is about a "loser" who, in any other zombie movie, would end up as the "cool guy", or the "hero". But instead, he doesn't transform whatsoever. He stays who he is, which is the main focus of the entire movie. The movie starts out with telling us about his regular plans (going to the pub with "the guys"), and shows us how he continually chooses to go back to that same formula over and over again. Even after the crisis is over, he stays the same.
+
+Hot Fuzz is about a cop who sees everything in black and white, who gets thrust into a scenario where everything is gray. He clears the gray fog surrounding him, and sees that it was all just a black and white that people were trying to hide, meaning that he never actually changes. He does this to the point where the only real character growth in the movie makes him an actively worse cop, by embracing the "badass cop" genre the entire movie is a parody of to begin with.
+
+The World's End is about a man who doesn't know his place in the adult, modern world; a man who wants to relive his high school glory days, and it ends with him doing just that. It seemingly takes it a step further in the "lmao character growth" department than its predecessors, by recognizing the type of person who didn't see the parody aspects of the first two films, and integrating that type of personality into the main character of the finale to the trilogy. A highly exaggerated version of said persona, but said persona nontheless. In doing that, they not only parody the genre and character growth, but also - in some sense - the last two movies of its own trilogy.
+
+I'd rate all of the movies individually in the mid to high sevens, but when you look at the trilogy as a whole, I'd rate it closer to a high eight/low nine, mainly due to this pseudo-related narrative.`,
+    "tags": ["movie"],
+  }, {
+    "title": "Hi-Fi Rush",
+    "link": "https://store.steampowered.com/app/1817230/HiFi_RUSH/",
+    "score": 9,
+    "reviewed_at": "2024-03-21",
+    "description": `Insanely fun and charming. Stole my idea of style fighter + rhythm game, but they nailed it so I can't be mad. Only opens the market for more games in the genre.`,
+    "tags": ["game"],
   }]
 };

@@ -2666,7 +2666,7 @@ I'd rate all of the movies individually in the mid to high sevens, but when you 
     "description": `Insanely fun and charming. Stole my idea of style fighter + rhythm game, but they nailed it so I can't be mad. Only opens the market for more games in the genre.`,
     "tags": ["game"],
   }, {
-    "title": "Hi-Fi Rush",
+    "title": "Dredge",
     "link": "https://www.gog.com/game/dredge",
     "score": 7,
     "reviewed_at": "2024-03-31",

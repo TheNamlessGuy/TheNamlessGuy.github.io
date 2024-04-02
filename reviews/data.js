@@ -2665,5 +2665,14 @@ I'd rate all of the movies individually in the mid to high sevens, but when you 
     "reviewed_at": "2024-03-21",
     "description": `Insanely fun and charming. Stole my idea of style fighter + rhythm game, but they nailed it so I can't be mad. Only opens the market for more games in the genre.`,
     "tags": ["game"],
+  }, {
+    "title": "Hi-Fi Rush",
+    "link": "https://www.gog.com/game/dredge",
+    "score": 7,
+    "reviewed_at": "2024-03-31",
+    "description": `Very enjoyable. Good atmosphere. Story felt obvious but the visuals made up for it.
+
+My biggest gripe is really that, after a certain point, most of the upgrades feel pointless. Outside of quests and completing the encyclopedia, the net and the pots are useless. The final fishing rod is worse than the ones before it. A lot of the later boat upgrades don't really do anything when you consider what equipment exists in the game, and so on.`,
+    "tags": ["game"],
   }]
 };

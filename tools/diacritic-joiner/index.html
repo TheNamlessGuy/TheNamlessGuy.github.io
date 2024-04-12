@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Diacritic Joiner - Namless Things</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="index.css"/>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <div>
+      <h1>Diacritic joiner</h1>
+      <p>
+        Press the letter you want to join diacritics to on your keyboard, then press the relevant diacritics.<br>
+        Note that they are placed on in the same order they were selected.
+      </p>
+      <p>Ctrl-click on a diacritic mark to see some more information about it.</p>
+    </div>
+    <div class="flex space-around">
+      <div id="character-container" class="flex space-around align-center">
+        <span id="character">A</span>
+      </div>
+    </div>
+    <div>
+      <h2>Above</h2>
+      <div id="diacritics-container-above"></div>
+    </div>
+    <div>
+      <h2>Overlay</h2>
+      <div id="diacritics-container-middle"></div>
+    </div>
+    <div>
+      <h2>Below</h2>
+      <div id="diacritics-container-below"></div>
+    </div>
+
+    <div id="modal-container" class="hidden">
+      <div id="modal">
+        <h1>
+          <span id="modal-diacritic-container">
+            <span id="modal-diacritic" class="flex space-around align-center"></span>
+          </span>
+          <span id="modal-title"></span>
+        </h1>
+        <span id="modal-description"></span>
+      </div>
+    </div>
+  </body>
+</html>

@@ -2674,5 +2674,120 @@ I'd rate all of the movies individually in the mid to high sevens, but when you 
 
 My biggest gripe is really that, after a certain point, most of the upgrades feel pointless. Outside of quests and completing the encyclopedia, the net and the pots are useless. The final fishing rod is worse than the ones before it. A lot of the later boat upgrades don't really do anything when you consider what equipment exists in the game, and so on.`,
     "tags": ["game"],
+  }, {
+    "title": "Back to the Future",
+    "link": "https://www.imdb.com/title/tt0088763/",
+    "score": 8.5,
+    "reviewed_at": "2024-04-02",
+    "tags": ["movie"],
+  }, {
+    "title": "Back to the Future Part II",
+    "link": "https://www.imdb.com/title/tt0096874/",
+    "score": 8,
+    "reviewed_at": "2024-04-02",
+    "tags": ["movie"],
+  }, {
+    "title": "Back to the Future Part III",
+    "link": "https://www.imdb.com/title/tt0099088/",
+    "score": 8,
+    "reviewed_at": "2024-04-02",
+    "tags": ["movie"],
+  }, {
+    "title": "Attack on Titan",
+    "link": "https://myanimelist.net/anime/16498/Shingeki_no_Kyojin",
+    "score": 9,
+    "description": `Spoilers.
+
+A great depiction of the antagonist-protagonist trope. Ultimately, it feels like the series was about human nature (especially fear of the different/unknown), and the fact that, even given superpowers, humans are still humans.`,
+    "reviewed_at": "2024-04-04",
+    "tags": ["show", "anime"],
+  }, {
+    "title": "The Contractor",
+    "link": "https://www.imdb.com/title/tt10323676/",
+    "score": 3.5,
+    "description": `Is there anyone on planet earth that actually thinks these types of movies are good?`,
+    "reviewed_at": "2024-04-05",
+    "tags": ["movie"],
+  }, {
+    "title": "No Hard Feelings",
+    "link": "https://www.imdb.com/title/tt15671028/",
+    "score": 3.5,
+    "description": `This could easily have had a mid-movie "old people don't understand young people" twist, but instead it ended up just being bad`,
+    "reviewed_at": "2024-04-05",
+    "tags": ["movie"],
+  }, {
+    "title": "The Fifth Element",
+    "link": "https://www.imdb.com/title/tt0119116/",
+    "score": 7,
+    "description": `Weird, but in that 80s-90s good way.`,
+    "reviewed_at": "2024-04-13",
+    "tags": ["movie"],
+  }, {
+    "title": "Fallout",
+    "link": "https://www.imdb.com/title/tt12637874/",
+    "score": 8,
+    "description": `Incredibly well produced (besides the power armors looking very light and plasticy).
+Fits well into the Fallout universe, but doesn't have the same absurdist humor vibes that the games do. But, at the same time, I acknowledge that keeping up with the games on that front wouldn't really work in a cinematic format.
+Reveals some things that have been kept secret in the Fallout lore, which feels like a weird choice, but I can live with it.
+The story is largely the same as Fallout 3, but that doesn't really matter.
+
+Thankfully, the days of Uwe Boll are long behind us.`,
+    "reviewed_at": "2024-04-14",
+    "tags": ["show"],
+  }, {
+    "title": "The Emperor's New Groove",
+    "link": "https://www.imdb.com/title/tt0120917/",
+    "score": 7.5,
+    "reviewed_at": "2024-04-14",
+    "tags": ["movie"],
+  }, {
+    "title": "3 Body Problem",
+    "link": "https://www.imdb.com/title/tt13016388/",
+    "score": 6.75,
+    "description": `Perhaps I would have liked it more if I knew what the series was when I went into it. Based on the name and a brief back-cover type description, I assumed the show would take one of two very different directions than it took:
+1) A more philosophical look into science, religion, and the link between. Perhaps using an alien force as an overwhelming god.
+2) Similar to 1, but more of a cosmic horror vibe than a sci-fi vibe.
+Unfortunately, it felt like it went with the simpler, basic bitch option of 3.
+
+That being said, the basic bitch option is executed as well as it could have been (I assume, not having read the source material).
+It does however lean a bit too heavily on the interpersonal relationships of the characters in the show, rather than the premise itself... at least for my tastes.`,
+    "reviewed_at": "2024-04-21",
+    "tags": ["show"],
+  }, {
+    "title": "The Room",
+    "link": "https://store.steampowered.com/app/288160/The_Room/",
+    "score": 7.5,
+    "reviewed_at": "2024-04-24",
+    "tags": ["game"],
+  }, {
+    "title": "The Room Two",
+    "link": "https://store.steampowered.com/app/425580/The_Room_Two/",
+    "score": 7.75,
+    "reviewed_at": "2024-04-24",
+    "description": "Straight upgrade of the first one",
+    "tags": ["game"],
+  }, {
+    "title": "The Room Three",
+    "link": "https://store.steampowered.com/app/456750/The_Room_Three/",
+    "score": 7.75,
+    "reviewed_at": "2024-04-24",
+    "description": "Best one so far. Myst vibes. The transition animations are a bit too long though. Several times I thought I missed something because I tried to do the obvious thing a fraction of a second too early, and because of it I couldn't turn the key (or whatever)",
+    "tags": ["game"],
+  }, {
+    "title": "Vampyr",
+    "link": "https://www.gog.com/game/vampyr",
+    "score": 7.75,
+    "reviewed_at": "2024-04-26",
+    "description": `
+There are a lot of things that could be improved with this game. Nothing is bad outright, but nothing individually feels as good as it could/should either.
+* The combat varies from really fluent and good to really wonky and (feeling, but not being) unresponsive.
+* The game apparently registered me as embracing two people, even though I was very careful to never do such a thing. This unfortunately locked me out of the true ending, but what else is YouTube for?
+* The sickness mechanic was a good idea, but at the end all it does is make you have to run around a bunch each time you want to level up. Scarcity of ingredients, changes to characters when sick, maybe not even being able to finish quests, and other such changes would have made the mechanic feel much more involved.
+* A fair bit of the game feel rushed. Some quests feel half done. Once you've finished all the quests in an area there's basically no reason to go back, and (for the most part), you can do all quests day 1 when you get to an area.
+But by God if it doesn't ooze with charm out of everywhere it can muster. Every time I got frustrated due to dodging not working (which was sometimes justified, but it doesn't give enough of a response to the button inputs to make it feel valid), abilities not triggering, and somehow attacking around enemies, the love the game is crafted with drew me back in right away.
+
+It really deserves a more polished sequel.
+`,
+    "tags": ["game"],
   }]
 };

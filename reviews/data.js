@@ -2789,5 +2789,11 @@ But by God if it doesn't ooze with charm out of everywhere it can muster. Every 
 It really deserves a more polished sequel.
 `,
     "tags": ["game"],
+  }, {
+    "title": "Blade",
+    "link": "https://www.imdb.com/title/tt0120611/",
+    "score": 7.5,
+    "reviewed_at": "2024-04-27",
+    "tags": ["movie"],
   }]
 };

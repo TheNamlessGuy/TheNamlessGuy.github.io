@@ -90,8 +90,8 @@ const GRID_DISPLAY = {
 const AMOUNT = {
   row: 0,
   col: 0,
-  rowDefault: 10,
-  colDefault: 10,
+  rowDefault: 15,
+  colDefault: 15,
 };
 
 const Template = {

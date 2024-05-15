@@ -1,30 +1,7 @@
-class CustomHeaderElement extends CustomHTMLElement {
-  static key = 'c-header';
-  static style = `
-.container {
-  margin-top: 15px;
-  position: relative;
-}
+class CustomHeaderElement extends HTMLElement {
+  constructor() {
+    super();
 
-.lhs, .rhs {
-  position: absolute;
-  top: 0;
-
-  height: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-.lhs { left: 0; }
-.rhs { right: 0; }
-
-.center {
-  font-size: 200%;
-  font-weight: bold;
-}
-`;
-
-  init() {
     const container = document.createElement('div');
     container.classList.add('container');
 
@@ -52,8 +29,36 @@ class CustomHeaderElement extends CustomHTMLElement {
     }
 
     container.append(lhs, center, rhs);
-    return [container];
+
+    const style = document.createElement('style');
+    style.textContent = `
+@import url("/generic.css");
+
+.container {
+  margin-top: 15px;
+  position: relative;
+}
+
+.lhs, .rhs {
+  position: absolute;
+  top: 0;
+
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.lhs { left: 0; }
+.rhs { right: 0; }
+
+.center {
+  font-size: 200%;
+  font-weight: bold;
+}
+`;
+
+    this.attachShadow({mode: 'closed'}).append(style, container);
   }
 }
 
-window.addEventListener('DOMContentLoaded', () => CustomHeaderElement.setup());
+window.addEventListener('DOMContentLoaded', () => customElements.define('c-header', CustomHeaderElement));

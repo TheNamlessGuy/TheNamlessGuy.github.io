@@ -1,17 +1,7 @@
-class LinkContainerElement extends CustomHTMLElement {
-  static key = 'c-link-container';
-  static style = `
-.title {
-  font-size: 150%;
-  margin-bottom: 15px;
-}
+class LinkContainerElement extends HTMLElement {
+  constructor() {
+    super();
 
-.description {
-  font-style: italic;
-}
-`;
-
-  init() {
     const titleElem = this.getElementsByTagName('title')[0];
     const descriptionElem = this.getElementsByTagName('description')[0];
 
@@ -30,8 +20,22 @@ class LinkContainerElement extends CustomHTMLElement {
     description.classList.add('description');
     description.append(...descriptionElem.childNodes);
 
-    return [title, description];
+    const style = document.createElement('style');
+    style.textContent = `
+@import url("/generic.css");
+
+.title {
+  font-size: 150%;
+  margin-bottom: 15px;
+}
+
+.description {
+  font-style: italic;
+}
+`;
+
+    this.attachShadow({mode: 'closed'}).append(style, title, description);
   }
 }
 
-window.addEventListener('DOMContentLoaded', () => LinkContainerElement.setup());
+window.addEventListener('DOMContentLoaded', () => customElements.define('c-link-container', LinkContainerElement));

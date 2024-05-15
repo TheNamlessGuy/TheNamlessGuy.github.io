@@ -177,29 +177,6 @@ const Table = {
   },
 };
 
-const QueryParameters = {
-  set: function(key, value) {
-    const url = new URL(window.location.href);
-
-    if (value) {
-      url.searchParams.set(key, value);
-    } else {
-      url.searchParams.delete(key);
-    }
-
-    window.history.replaceState(null, '', url.toString());
-  },
-
-  get: function(key, defaultValue = null) {
-    const url = new URL(window.location.href);
-    if (url.searchParams.has(key)) {
-      return url.searchParams.get(key);
-    }
-
-    return defaultValue;
-  },
-};
-
 window.addEventListener('DOMContentLoaded', () => {
   Table.generate(_raw_data);
 

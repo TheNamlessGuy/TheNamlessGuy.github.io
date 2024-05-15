@@ -8,6 +8,8 @@ body.theme-light {
 
   --separator-color-0: var(--text-color-0);
   --separator-color-1: var(--text-color-1);
+
+  --error-color: #F00;
 }
 
 body.theme-dark {
@@ -23,6 +25,8 @@ body.theme-dark {
   --separator-color-0: var(--text-color-0);
   --separator-color-0-1: var(--text-color-0-1);
   --separator-color-1: var(--text-color-1);
+
+  --error-color: #FF0033;
 }
 
 html, body {
@@ -66,13 +70,35 @@ button:disabled {
   color: var(--text-color-1);
 }
 
+input {
+  background-color: var(--bg-color-1);
+  color: var(--text-color-0);
+  border: 1px solid var(--separator-color-0);
+  border-radius: 5px;
+  padding: 3px;
+  outline: none;
+}
+
+select {
+  background-color: var(--bg-color-1);
+  color: var(--text-color-0);
+  border: 1px solid var(--separator-color-0);
+  border-radius: 5px;
+  padding: 3px;
+}
+
 .hidden { display: none !important; }
+.invisible { visibility: hidden !important; }
+.w50 { width: 50%; }
 .w60 { width: 60%; }
 .w80 { width: 80%; }
+.w95 { width: 95%; }
+.w100 { width: 100%; }
 .center { margin: 0 auto; }
 .center-text { text-align: center; }
 .flex { display: flex; }
 .flex.space-around { justify-content: space-around; }
+.flex.space-between { justify-content: space-between; }
 .flex.align-center { align-items: center; }
 .whitespace-pre { white-space: pre; }
 .text-right { text-align: right; }

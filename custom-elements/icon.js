@@ -1,44 +1,56 @@
-class CustomIconElement extends CustomHTMLElement {
-  static key = 'c-icon';
-  static style = `
-a {
-  text-decoration: none;
-  color: var(--text-color-0) !important;
-}
-`;
-
+class CustomIconElement extends HTMLElement {
   static map = {
     'home': '⌂',
     'back': '⮜',
     'sort-asc-desc': '⬍',
   };
 
-  init() {
-    let element = document.createElement('div');
-    if (this.innerText in CustomIconElement.map) {
-      element.innerText = CustomIconElement.map[this.innerText];
-    } else {
-      element.innerText = `What is a '${this.innerText}'?`;
-    }
+  _icon = null;
+  _elements = {
+    icon: null,
+    link: null,
+  };
 
-    if (this.hasAttribute('size')) {
-      element.style.fontSize = this.getAttribute('size');
-    }
+  constructor() {
+    super();
 
-    if (this.hasAttribute('url')) {
-      const link = document.createElement('a');
-      link.href = this.getAttribute('url');
-      link.append(element);
-      element = link;
-    }
+    this._elements.icon = document.createElement('div');
+    this.icon = this.innerText;
 
-    return [element];
+    this.size = this.getAttribute('size');
+
+    this._elements.link = document.createElement('a');
+    this._elements.link.append(this._elements.icon);
+    this.url = this.getAttribute('url');
+
+    const style = document.createElement('style');
+    style.textContent = `
+@import url("/generic.css");
+
+a {
+  text-decoration: none;
+  color: var(--text-color-0) !important;
+}
+`;
+
+    this.attachShadow({mode: 'closed'}).append(style, this._elements.link.href ? this._elements.link : this._elements.icon);
   }
+
+  set icon(icon) {
+    this._icon = icon;
+
+    if (icon in CustomIconElement.map) {
+      this._elements.icon.innerText = CustomIconElement.map[icon];
+    } else {
+      this._elements.icon.innerText = `What is a '${icon}'?`;
+    }
+  }
+
+  set size(size) { this._elements.icon.style.fontSize = size; }
+  set url(url) { this._elements.link.href = url; }
 }
 
 class CustomHeaderIconElement extends CustomIconElement {
-  static key = 'c-header-icon';
-
   static trimURLSegment(url, amount) {
     url = new URL(url).pathname;
 
@@ -58,32 +70,28 @@ class CustomHeaderIconElement extends CustomIconElement {
     'back': {size: '200%', url: () => this.trimURLSegment(window.location.href, 1), title: 'Back'},
   };
 
-  init() {
-    if (this.innerText in CustomHeaderIconElement.map) {
-      const data = CustomHeaderIconElement.map[this.innerText];
+  constructor() {
+    super();
+
+    if (this._icon in CustomHeaderIconElement.map) {
+      const data = CustomHeaderIconElement.map[this._icon];
 
       if (data.size && !this.hasAttribute('size')) {
-        this.setAttribute('size', data.size);
+        this.size = data.size;
       }
 
       if (data.url && !this.hasAttribute('url')) {
-        if (typeof data.url === 'function') {
-          this.setAttribute('url', data.url());
-        } else {
-          this.setAttribute('url', data.url);
-        }
+        this.url = (typeof data.url === 'function') ? data.url() : data.url;
       }
 
       if (data.title && !this.hasAttribute('title')) {
-        this.setAttribute('title', data.title);
+        this.title = data.title;
       }
     }
-
-    return super.init();
   }
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  CustomIconElement.setup();
-  CustomHeaderIconElement.setup();
+  customElements.define('c-icon', CustomIconElement);
+  customElements.define('c-header-icon', CustomHeaderIconElement);
 });

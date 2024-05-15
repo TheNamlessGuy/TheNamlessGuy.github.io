@@ -1,28 +1,7 @@
-class CustomSeparatorElement extends CustomHTMLElement {
-  static key = 'c-separator';
-  static style = `
-div {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  margin: 15px 0;
-}
+class CustomSeparatorElement extends HTMLElement {
+  constructor() {
+    super();
 
-div::before,
-div::after {
-  content: '';
-  flex-grow: 1;
-  border-bottom: 1px solid;
-}
-
-div:not(:empty)::before { margin-right: 10px; }
-div:not(:empty)::after { margin-left: 10px; }
-
-div.primary::before, div.primary::after { border-color: var(--separator-color-0); }
-div.faded::before, div.faded::after { border-color: var(--separator-color-1); }
-`;
-
-  init() {
     const element = document.createElement('div');
     while (this.hasChildNodes()) {
       const node = this.childNodes[0];
@@ -44,8 +23,33 @@ div.faded::before, div.faded::after { border-color: var(--separator-color-1); }
       element.classList.add('primary');
     }
 
-    return [element];
+    const style = document.createElement('style');
+    style.textContent = `
+@import url("/generic.css");
+
+div {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 15px 0;
+}
+
+div::before,
+div::after {
+  content: '';
+  flex-grow: 1;
+  border-bottom: 1px solid;
+}
+
+div:not(:empty)::before { margin-right: 10px; }
+div:not(:empty)::after { margin-left: 10px; }
+
+div.primary::before, div.primary::after { border-color: var(--separator-color-0); }
+div.faded::before, div.faded::after { border-color: var(--separator-color-1); }
+`;
+
+    this.attachShadow({mode: 'closed'}).append(style, element);
   }
 }
 
-window.addEventListener('DOMContentLoaded', () => CustomSeparatorElement.setup());
+window.addEventListener('DOMContentLoaded', () => customElements.define('c-separator', CustomSeparatorElement));

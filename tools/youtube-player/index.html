@@ -4,70 +4,66 @@
     <meta charset="utf-8"/>
     <title>YouTube player</title>
     <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/generic.css"/>
     <link rel="stylesheet" type="text/css" href="index.css"/>
 
     <script src="/generic.js"></script>
-    <script src="https://www.youtube.com/iframe_api"></script>
+
+    <script src="/custom-elements/icon.js"></script>
+    <script src="/custom-elements/header.js"></script>
+    <script src="/custom-elements/select.js"></script>
+    <script src="/custom-elements/separator.js"></script>
+
     <script src="index.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+
     <script src="playlists/music.js"></script>
     <script src="playlists/bideobames.js"></script>
     <script src="playlists/memes.js"></script>
     <script src="playlists/gamesiplayedasakid.js"></script>
-    <link rel="shortcut icon" href="/favicon.ico">
   </head>
-  <body>
-    <template id="entry-template">
-      <div class="entry-container">
-        <div class="entry-container-left">
-          <button class="play-button">Play</button>
-        </div>
-        <div class="entry-container-center">
-          <input class="entry-id" type="text">
-        </div>
-        <div class="entry-container-right">
-          <button class="plus-button">+</button>
-          <button class="minus-button">-</button>
-          <div class="entry-index-container text-faded">#<span class="entry-index"></span></div>
-          <input class="entry-title" type="text">
-        </div>
-      </div>
-    </template>
+  <body class="w95 center center-text">
+    <div id="header">
+      <c-header>
+        <lhs>
+          <c-header-icon>home</c-header-icon>
+          <c-header-icon title="Back to 'Tools'">back</c-header-icon>
+        </lhs>
+        <center>YouTube player</center>
+      </c-header>
 
-    <div id="video-and-controls-container">
-      <div>
-        <div class="center">
-          <div id="player"></div>
-        </div>
+      <c-separator></c-separator>
+    </div>
 
-        <div class="controls center mt-15">
-          <span>Loop type:</span>
-          <select id="loop-type" title="Loop type">
+    <div id="content" class="flex">
+      <div class="w50">
+        <div id="player"></div>
+        <div class="flex space-around">
+          <c-select id="loop-type" label="Loop type:">
             <option value="1">One</option>
             <option value="2" selected>All</option>
             <option value="3">Once</option>
             <option value="4">Don't</option>
-          </select>
+          </c-select>
 
-          <span>Playlist:</span>
-          <select id="playlists" title="Playlists">
+          <c-select id="playlists" label="Playlist:">
             <option value="" selected>None</option>
             <option value="music">Music</option>
-            <option value="bideobames">Video Game Music</option>
+            <option value="bideobames">Video game music</option>
             <option value="memes">Memes</option>
             <option value="gamesiplayedasakid">Games I played as a kid</option>
-          </select>
-
-          <button id="save-button" title="Save playlist to a bookmark">Save</button>
+          </c-select>
         </div>
+        <!--
+          TODO:
+          * List info somewhere around here
+          * Save & load custom playlists
+        -->
+      </div>
 
-        <div class="center mt-15">
-          <a id="save-link" class="hidden">Bookmark this link to save</a>
-        </div>
-
-        <hr />
+      <div class="w50" style="overflow-y: auto">
+        <table id="playlist" class="center text-left"></table>
       </div>
     </div>
-
-    <div id="entry-list"></div>
   </body>
 </html>

@@ -6,6 +6,39 @@ const Theme = {
     document.body.classList.toggle('theme-dark', to === 'dark');
     document.body.classList.toggle('theme-light', to === 'light');
   },
+};
+
+const QueryParameters = {
+  set: function(key, value) {
+    const url = new URL(window.location.href);
+
+    if (value) {
+      url.searchParams.set(key, value);
+    } else {
+      url.searchParams.delete(key);
+    }
+
+    window.history.replaceState(null, '', url.toString());
+  },
+
+  get: function(key, defaultValue = null) {
+    const url = new URL(window.location.href);
+    if (url.searchParams.has(key)) {
+      return url.searchParams.get(key);
+    }
+
+    return defaultValue;
+  },
+
+  has: function(key) {
+    return new URL(window.location.href).searchParams.has(key);
+  },
+};
+
+Math.clamp = function(min, value, max) {
+  if (value < min) { return min; }
+  if (value > max) { return max; }
+  return value;
 }
 
 window.addEventListener('DOMContentLoaded', () => {

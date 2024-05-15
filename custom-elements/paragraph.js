@@ -1,7 +1,7 @@
-class CustomParagraphElement extends CustomHTMLElement {
-  static key = 'c-paragraph';
+class CustomParagraphElement extends HTMLElement {
+  constructor() {
+    super();
 
-  init() {
     const element = document.createElement('div');
     element.style.textAlign = 'left';
     element.style.marginBottom = '1.1em';
@@ -16,7 +16,10 @@ class CustomParagraphElement extends CustomHTMLElement {
       }
     }
 
-    return [element];
+    const style = document.createElement('style');
+    style.textContent = '@import url("/generic.css");';
+
+    this.attachShadow({mode: 'closed'}).append(style, element);
   }
 
   _indent() {
@@ -27,4 +30,4 @@ class CustomParagraphElement extends CustomHTMLElement {
   }
 }
 
-window.addEventListener('DOMContentLoaded', () => CustomParagraphElement.setup());
+window.addEventListener('DOMContentLoaded', () => customElements.define('c-paragraph', CustomParagraphElement));

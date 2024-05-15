@@ -1,324 +1,222 @@
-const sort = {
-  by: 'reviewed_at',
-  asc: false,
-};
-const sortDefault = JSON.parse(JSON.stringify(sort));
+const Table = {
+  sorted: {
+    by: null,
+    asc: null,
 
-const sortDirections = {
-  'title': true,
-  'score': false,
-  'reviewed_at': false,
-  'description': true,
-}
-
-function setURLParameter(key, value) {
-  const url = new URL(window.location.href);
-
-  if (value) {
-    url.searchParams.set(key, value);
-  } else {
-    url.searchParams.delete(key);
-  }
-
-  window.history.replaceState(null, '', url.toString());
-}
-
-function loadTemplates() {
-  return {
-    tableHeader: document.getElementById('template-table-header'),
-    tableBody: document.getElementById('template-table-body'),
-    tableRow: document.getElementById('template-table-row'),
-  };
-}
-
-function initTemplate(template) {
-  return template.content.firstElementChild.cloneNode(true);
-}
-
-function onSorterClick(which) {
-  if (sort.by !== which) {
-    sort.by = which;
-
-    if (sort.asc === sortDirections[which]) {
-      sort.asc = !sort.asc;
-    } else {
-      sort.asc = sortDirections[which];
+    default: {
+      by: 'reviewed_at',
+      asc: false,
     }
-  } else {
-    sort.asc = !sort.asc;
-  }
+  },
 
-  setURLParameter('sort-by', sort.by === sortDefault.by ? null : sort.by);
-  setURLParameter('sort-direction', sort.asc === sortDefault.asc ? null : (sort.asc ? 'asc' : 'desc'));
-  generateTable(_raw_data);
-}
+  _setup: {
+    header: function(table) {
+      const rows = Array.from(table.getElementsByTagName('thead')[0].getElementsByTagName('th'));
 
-function generateHeader(table, templates) {
-  const header = initTemplate(templates.tableHeader);
-  table.appendChild(header);
+      for (const row of rows) {
+        const by = row.getAttribute('key');
+        const sorter = row.getElementsByTagName('c-icon')[0];
+        sorter.addEventListener('click', () => Table.sort(by, (Table.sorted.by === by) ? !Table.sorted.asc : false));
+      }
+    },
 
-  [].slice.call(header.getElementsByClassName('table-sorter')).forEach(function(e) {
-    const which = [].slice.call(e.classList).find(x => x.startsWith('table-sorter-')).substr(13).replaceAll('-', '_'); // 13 = 'table-sorter-'.length
-    e.addEventListener('click', () => { onSorterClick(which); });
-  });
-}
+    row: function(row, id) {
+      const container = document.createElement('tr');
+      container.id = `table-row-${id}`;
+      container.addEventListener('click', () => {
+        ReviewModal.show(row);
+      });
 
-function generateBody(table, templates) {
-  const body = initTemplate(templates.tableBody);
-  table.appendChild(body);
+      const title = document.createElement('td');
+      title.classList.add('title');
+      title.innerText = row.title ?? '';
 
-  return body;
-}
+      const score = document.createElement('td');
+      score.classList.add('score');
+      score.innerText = row.score ?? '';
 
-function showModal(elemID) {
-  hideActiveModal();
+      const reviewedAt = document.createElement('td');
+      reviewedAt.classList.add('reviewed_at');
+      if (row.reviewed_at) {
+        reviewedAt.innerText = row.reviewed_at[row.reviewed_at.length - 1];
+      }
 
-  const modal = document.getElementById(elemID);
-  modal.classList.remove('hidden');
-  modal.classList.add('active-modal');
-  document.getElementById('modal-container').classList.remove('hidden');
-  recenterModal(modal);
-  return modal;
-}
+      const descriptionContainer = document.createElement('td');
+      descriptionContainer.classList.add('description');
+      const description = document.createElement('div');
+      description.title = row.description ?? '';
+      description.innerText = row.description ?? '';
+      descriptionContainer.append(description);
 
-function recenterModal(modal) {
-  modal.style.marginLeft = -(modal.offsetWidth / 2) + 'px';
-  modal.style.marginTop = -(modal.offsetHeight / 2) + 'px';
+      container.append(title, score, reviewedAt, descriptionContainer);
+      return container;
+    },
+  },
 
-  const boundingRect = modal.getBoundingClientRect();
-  if (boundingRect.y - 5 < 0) {
-    modal.style.marginTop = -(modal.offsetHeight / 2) + Math.abs(boundingRect.y - 5) + 'px';
-  }
-}
+  generate: function(data) {
+    const table = document.getElementById('table');
+    Table._setup.header(table);
 
-function hideActiveModal() {
-  const active = document.getElementsByClassName('active-modal')[0];
-  if (active) {
-    active.classList.remove('active-modal');
-    active.classList.add('hidden');
-  }
-
-  document.getElementById('modal-container').classList.add('hidden');
-  setURLParameter('viewing', null);
-}
-
-function showReviewInfoModal(item) {
-  if (!item) { return; }
-  const modal = showModal('review-info-modal');
-
-  const linkElem = modal.getElementsByClassName('modal-data-link')[0];
-  setAndGetValue(item.link, 'No link', linkElem);
-  linkElem.href = item.link ?? '#';
-
-  setAndGetValue(item.title, 'No title', modal.getElementsByClassName('modal-data-title')[0]);
-  setAndGetValue(item.score, 'Not reviewed yet', modal.getElementsByClassName('modal-data-score')[0]);
-  setAndGetValue(item.reviewed_at, item.score ? 'Reviewed long ago, might not be accurate' : 'No reviewed at date', modal.getElementsByClassName('modal-data-reviewed-at')[0]);
-  setAndGetValue(item.description?.replaceAll('\n', '<br>'), 'No description', modal.getElementsByClassName('modal-data-description')[0]);
-  setAndGetValue(item.tags, 'No tags', modal.getElementsByClassName('modal-data-tags')[0]);
-
-  recenterModal(modal);
-  setURLParameter('viewing', item.id);
-}
-
-function showSearchHelpModal() {
-  showModal('search-help-modal');
-}
-
-function setAndGetValue(value, defaultValue, container) {
-  if (!value) {
-    container.classList.add('empty');
-    container.innerHTML = defaultValue;
-    return defaultValue;
-  }
-
-  container.classList.remove('empty');
-  container.innerHTML = Array.isArray(value) ? value.join(', ') : value;
-  return value;
-}
-
-function generateTableEntry(container, item, templates) {
-  const row = initTemplate(templates.tableRow);
-  item._row = row;
-
-  setAndGetValue(item.title, 'No title', row.getElementsByClassName('table-cell-title')[0]);
-  setAndGetValue(item.score, 'Not reviewed yet', row.getElementsByClassName('table-cell-score')[0]);
-  setAndGetValue(item.reviewed_at, item.score ? 'Reviewed long ago' : 'No reviewed at date', row.getElementsByClassName('table-cell-reviewed-at')[0]);
-
-  const description = row.getElementsByClassName('table-cell-description')[0].getElementsByTagName('div')[0];
-  description.dataset.content = setAndGetValue(item.description, 'No description', description);
-
-  row.addEventListener('click', () => { showReviewInfoModal(item); });
-  container.appendChild(row);
-}
-
-function sortItems(items) {
-  items = JSON.parse(JSON.stringify(items));
-  items.forEach((item, i) => item.id = i + 1);
-
-  const sorted = items.sort((a, b) => {
-    if (a[sort.by] == null && b[sort.by] != null) {
-      return -1;
-    } else if (a[sort.by] != null && b[sort.by] == null) {
-      return 1;
+    const tbody = table.getElementsByTagName('tbody')[0];
+    for (let i = 0; i < data.items.length; ++i) {
+      const row = Table._setup.row(data.items[i], i);
+      if (i + 1 === data.items.length) { row.classList.add('last'); }
+      tbody.append(row);
     }
+  },
 
-    if (a[sort.by] > b[sort.by]) {
-      return 1;
-    } else if (a[sort.by] < b[sort.by]) {
-      return -1;
-    } else if (a.title > b.title) {
-      return sort.asc ? 1 : -1;
-    } else if (a.title < b.title) {
-      return sort.asc ? -1 : 1;
-    }
+  _matchesFilter: function(row, query) {
+    const idx = parseInt(row.id.substring('table-row-'.length));
+    const title = row.getElementsByClassName('title')[0].innerText.toLowerCase();
+    const desc = row.getElementsByClassName('description')[0].innerText.toLowerCase();
+    const tags = _raw_data.items[idx].tags ?? [];
 
-    return 0;
-  });
+    for (let term of query) {
+      const negated = term.startsWith('-');
+      if (negated) { term = term.substring(1); }
 
-  if (!sort.asc) {
-    sorted.reverse();
-  }
-
-  return sorted;
-}
-
-function setSearchables(item) {
-  item._search = {};
-  item._search.title = item.title?.toLowerCase() ?? '';
-  item._search.score = item.score?.toString() ?? '';
-  item._search.reviewed_at = item.reviewed_at?.toLowerCase() ?? '';
-  item._search.description = item.description?.toLowerCase() ?? '';
-  item._search.tags = item.tags.map(x => x.toLowerCase());
-}
-
-let items = null;
-function generateTable(data) {
-  const templates = loadTemplates();
-
-  const table = document.getElementById('table');
-  while (table.hasChildNodes()) {
-    table.removeChild(table.lastChild);
-  }
-
-  generateHeader(table, templates);
-  const body = generateBody(table, templates);
-
-  let lastItem = null;
-  items = sortItems(data.items);
-  for (const item of items) {
-    if (item._row) {
-      item._row.classList.remove('last');
-      body.appendChild(item._row);
-    } else {
-      generateTableEntry(body, item, templates);
-      setSearchables(item);
-    }
-
-    if (!body.lastChild.classList.contains('hidden')) {
-      lastItem = body.lastChild;
-    }
-  }
-
-  if (lastItem) {
-    lastItem.classList.add('last');
-  }
-}
-
-function itemMatchesFilter(item, split) {
-  for (let s of split) {
-    const negative = s.startsWith('-');
-    if (negative) { s = s.substr(1); }
-
-    if (s.startsWith('t:') || s.startsWith('tag:')) {
-      if (item._search.tags.includes(s.substr(s.startsWith('t:') ? 2 : 4)) === negative) { return false; }
-    } else if (s.startsWith('score:')) {
-      if (item._search.score === s.substr(6) === negative) { return false; }
-    } else if (s.startsWith('title:')) {
-      if (item._search.title.includes(s.substr(6)) === negative) { return false; }
-    } else if (s.startsWith('desc:')) {
-      if (item._search.description.includes(s.substr(5)) === negative) { return false; }
-    } else if (s.startsWith('date:')) {
-      if (item._search.reviewed_at.startsWith(s.substr(5)) === negative) { return false; }
-    } else {
-      let match = item._search.title.includes(s);
-      if (match) {
-        if (match === negative) { return false; }
+      if (term.startsWith('t:')) {
+        if (tags.includes(term.substring(2)) === negated) { return false; }
       } else {
-        match = item._search.description.includes(s);
-        if (match === negative) { return false; }
+        let match = title.includes(term);
+        if (match) {
+          if (negated) { return false; }
+        } else {
+          match = desc.includes(term);
+          if (match === negated) { return false; }
+        }
       }
     }
-  }
 
-  return true;
-}
+    return true;
+  },
 
-function filter(query) {
-  const split = query.toLowerCase().split(' ');
+  filter: function(query) {
+    const table = document.getElementById('table');
+    const tbody = table.getElementsByTagName('tbody')[0];
+    const rows = Array.from(tbody.getElementsByTagName('tr')).filter((row) => row.id !== 'no-results-row');
 
-  let matches = 0;
-  let lastMatch = null;
-  for (const item of items) {
-    item._row.classList.remove('last');
+    const split = query.toLowerCase().split(' ');
+    let lastVisible = null;
+    for (const row of rows) {
+      row.classList.remove('last');
 
-    const match = itemMatchesFilter(item, split);
-    if (match) {
-      matches += 1;
-      lastMatch = item._row;
-      item._row.classList.remove('hidden');
-    } else {
-      item._row.classList.add('hidden');
+      if (Table._matchesFilter(row, split)) {
+        lastVisible = row;
+        row.classList.remove('hidden');
+      } else {
+        row.classList.add('hidden');
+      }
     }
-  }
 
-  document.getElementById('table-no-results-row').classList.toggle('hidden', matches !== 0);
-  if (lastMatch !== null) {
-    lastMatch.classList.add('last');
-  }
-}
+    const noResults = document.getElementById('no-results-row');
+    if (lastVisible != null) {
+      noResults.classList.add('hidden');
+      noResults.classList.remove('last');
+      lastVisible.classList.add('last');
+    } else {
+      noResults.classList.add('last');
+      noResults.classList.remove('hidden');
+    }
 
-function startup() {
-  const url = new URL(window.location.href);
+    QueryParameters.set('q', query);
+  },
 
-  if (url.searchParams.has('sort-by')) {
-    sort.by = url.searchParams.get('sort-by');
-  }
+  sort: function(by, asc) {
+    Table.sorted.by = by;
+    Table.sorted.asc = asc;
 
-  if (url.searchParams.has('sort-direction')) {
-    sort.asc = url.searchParams.get('sort-direction') === 'asc';
-  }
+    const table = document.getElementById('table');
+    const tbody = table.getElementsByTagName('tbody')[0];
+    const rows = Array.from(tbody.getElementsByTagName('tr')).filter((row) => row.id !== 'no-results-row');
 
-  generateTable(_raw_data);
+    const before = asc ? 1 : -1;
+    const after  = asc ? -1 : 1;
 
-  if (url.searchParams.has('q')) {
-    const search = document.getElementById('search');
-    search.value = url.searchParams.get('q');
-    filter(search.value);
-  }
+    const sorted = rows.sort((a, b) => {
+      aTitle = a.getElementsByClassName('title')[0].innerText;
+      bTitle = b.getElementsByClassName('title')[0].innerText;
+      a = a.getElementsByClassName(by)[0].innerText;
+      b = b.getElementsByClassName(by)[0].innerText;
 
-  if (url.searchParams.has('viewing')) {
-    let id = parseInt(url.searchParams.get('viewing'));
-    showReviewInfoModal(items.find((item) => item.id === id));
-  }
-}
+      if (a === '' && b !== '') {
+        return after;
+      } else if (a !== '' && b === '') {
+        return before;
+      }
 
-window.addEventListener('load', () => {
-  startup();
+      if (a > b) {
+        return before;
+      } else if (a < b) {
+        return after;
+      } else if (aTitle > bTitle) {
+        return before;
+      } else if (aTitle < bTitle) {
+        return after;
+      }
 
-  document.getElementById('modal-container').addEventListener('click', () => {
-    hideActiveModal();
-  });
-  [].slice.call(document.getElementsByClassName('modal')).forEach(elem => {
-    elem.addEventListener('click', (e) => {
-      e.stopPropagation();
+      return 0;
     });
-  });
+
+    let lastVisible = null;
+    for (let r = 0; r < rows.length; ++r) {
+      tbody.append(rows[r]);
+      rows[r].classList.remove('last');
+
+      if (!rows[r].classList.contains('hidden')) {
+        lastVisible = rows[r];
+      }
+    }
+
+    if (lastVisible) {
+      lastVisible.classList.add('last');
+    }
+
+    QueryParameters.set('sort-by', (Table.sorted.default.by === by) ? null : by);
+    QueryParameters.set('sort-direction', (Table.sorted.default.asc === asc) ? null : (asc ? 'asc' : 'desc'));
+  },
+};
+
+const QueryParameters = {
+  set: function(key, value) {
+    const url = new URL(window.location.href);
+
+    if (value) {
+      url.searchParams.set(key, value);
+    } else {
+      url.searchParams.delete(key);
+    }
+
+    window.history.replaceState(null, '', url.toString());
+  },
+
+  get: function(key, defaultValue = null) {
+    const url = new URL(window.location.href);
+    if (url.searchParams.has(key)) {
+      return url.searchParams.get(key);
+    }
+
+    return defaultValue;
+  },
+};
+
+window.addEventListener('DOMContentLoaded', () => {
+  Table.generate(_raw_data);
+
+  Table.sort(
+    QueryParameters.get('sort-by', Table.sorted.default.by),
+    QueryParameters.get('sort-direction', Table.sorted.default.asc) === 'asc',
+  );
 
   const search = document.getElementById('search');
-  search.addEventListener('keyup', () => {
-    filter(search.value);
-    setURLParameter('q', search.value);
-  });
+  search.value = QueryParameters.get('q', '');
+  Table.filter(search.value);
+  search.addEventListener('keyup', () => Table.filter(search.value));
 
-  document.getElementById('search-help').addEventListener('click', () => showSearchHelpModal());
+  const viewing = QueryParameters.get('viewing');
+  if (viewing) {
+    document.getElementById(`table-row-${viewing}`).click();
+  }
+
+  document.getElementById('search-help').addEventListener('click', () => SearchHelpModal.show());
 });

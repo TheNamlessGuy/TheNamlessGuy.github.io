@@ -2,216 +2,53 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <title>Namless Things</title>
-    <link rel="stylesheet" type="text/css" href="index.css"/>
+    <title></title>
     <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/generic.css"/>
+
+    <script src="/generic.js"></script>
+    <script src="/custom-elements/base.js"></script>
+    <script src="/custom-elements/header.js"></script>
+    <script src="/custom-elements/separator.js"></script>
+    <script src="/custom-elements/link-container.js"></script>
   </head>
-  <body>
-    <div class="content">
-      <h1>Hello! Enjoy some free links to stuff I've probably made:</h1>
+  <body class="w60 center center-text">
+    <c-header>Hello! Here's some stuff I've done</c-header>
 
-      <div class="separator">Pages on this site</div>
+    <c-separator></c-separator>
 
-      <div class="link-container">
-        <div class="link-title">
-          <a class="link" href="/games/">Games</a>
-        </div>
-        <div class="link-description">A handful of games on this site</div>
-      </div>
+    <c-link-container>
+      <title url="/games/">Games</title>
+      <description>A collection of games hosted on this site</description>
+    </c-link-container>
 
-      <div class="separator separator-faded"></div>
+    <c-separator faded></c-separator>
 
-      <div class="link-container">
-        <div class="link-title">
-          <a class="link" href="/tools/">Tools</a>
-        </div>
-        <div class="link-description">A handful of tools on this site</div>
-      </div>
+    <c-link-container>
+      <title url="/tools/">Tools</title>
+      <description>A collection of tools hosted on this site</description>
+    </c-link-container>
 
-      <div class="separator separator-faded"></div>
+    <c-separator faded></c-separator>
 
-      <div class="link-container">
-        <div class="link-title">
-          <a class="link" href="/youtube_player/">YouTube Player</a>
-        </div>
-        <div class="link-description">Youtube's playlist functionality sucks, so I made my own</div>
-      </div>
+    <c-link-container>
+      <title url="/rants/">Rants</title>
+      <description>It's like a blog, but more annoyed.</description>
+    </c-link-container>
 
-      <div class="separator separator-faded"></div>
+    <c-separator faded></c-separator>
 
-      <div class="link-container">
-        <div class="link-title">
-          <a class="link" href="/rants/">Rants</a>
-        </div>
-        <div class="link-description">Some dumb rants I do sometimes</div>
-      </div>
+    <c-link-container>
+      <title url="/reviews/">Reviews</title>
+      <description>For people who care about what I like and not (i.e. me)</description>
+    </c-link-container>
 
-      <div class="separator separator-faded"></div>
+    <c-separator faded></c-separator>
 
-      <div class="link-container">
-        <div class="link-title">
-          <a class="link" href="/reviews/">Reviews</a>
-        </div>
-        <div class="link-description">Scoring and stuff for movies, shows, games, etc.</div>
-      </div>
-
-      <div class="separator separator-faded"></div>
-
-      <div class="link-container">
-        <div class="link-title">
-          <a class="link" href="/letter-typing/">Dancing letter typing</a>
-        </div>
-        <div class="link-description">Wow funny :)</div>
-      </div>
-
-      <div class="separator">
-        <span>Some browser plugins I've gone and done</a></span>
-      </div>
-
-      <div class="link-container">
-        <div class="link-title">
-          <a class="link" href="https://github.com/TheNamlessGuy/browser-tab-grouper">Tab Grouper</a>
-        </div>
-        <div class="link-description">
-          I wanted the tab grouping function found in chrome, but I'm not ready to sell the remaining 2% of my soul to Google yet.
-        </div>
-      </div>
-
-      <div class="separator separator-faded"></div>
-
-      <div class="link-container">
-        <div class="link-title">
-          <a class="link" href="https://github.com/TheNamlessGuy/browser-redirector">Redirector</a>
-        </div>
-        <div class="link-description">
-          Redirect from and/or block pages based on regexes.
-        </div>
-      </div>
-
-      <div class="separator separator-faded"></div>
-
-      <div class="link-container">
-        <div class="link-title">
-          <a class="link" href="https://github.com/TheNamlessGuy/browser-bookmarker">Bookmarker</a>
-        </div>
-        <div class="link-description">
-          <div>Handle bookmarks for your favorite sites easier.</div>
-          <div>Tired of trying to move your recipe from "To try" to "Liked", accidentally moving the cursor outside of the dropdown, and having to start the entire process all over again? This plugin is for you!</div>
-        </div>
-      </div>
-
-      <div class="separator separator-faded"></div>
-
-      <div class="link-container">
-        <div class="link-title">
-          <a class="link" href="https://github.com/TheNamlessGuy/browser-request-sender">Request sender</a>
-        </div>
-        <div class="link-description">
-          Send GET, POST, PUT, etc requests from the browser. Save templates.
-        </div>
-      </div>
-
-      <div class="separator separator-faded"></div>
-
-      <div class="link-container">
-        <div class="link-title">
-          <a class="link" href="https://github.com/TheNamlessGuy/browser-no-youtube-shorts">No YouTube Shorts</a>
-        </div>
-        <div class="link-description">
-          Redirects you from the /shorts/ page on youtube to the /watch page, so that you don't have to deal with that god awful interface.
-        </div>
-      </div>
-
-      <div class="separator separator-faded"></div>
-
-      <div class="link-container">
-        <div class="link-title">
-          <a class="link" href="https://github.com/TheNamlessGuy/browser-google-translator">Google Translator</a>
-        </div>
-        <div class="link-description">
-          Translate text or whole pages using Google Translate. Select what languages are available in the menu
-        </div>
-      </div>
-
-      <div class="separator separator-faded"></div>
-
-      <div class="link-container">
-        <div class="link-title">
-          <a class="link" href="https://github.com/TheNamlessGuy/browser-image-searcher">Image Searcher</a>
-        </div>
-        <div class="link-description">
-          Right click on images to search for them using various image searching pages. Select which ones you want available.
-        </div>
-      </div>
-
-      <div class="separator separator-faded"></div>
-
-      <div class="link-container">
-        <div class="link-title">
-          <a class="link" href="https://github.com/TheNamlessGuy/browser-history-cleaner">History Cleaner</a>
-        </div>
-        <div class="link-description">
-          Cleans your visited pages and cookies after a set interval, with the option of giving some exceptions.
-        </div>
-      </div>
-
-      <div class="separator separator-faded"></div>
-
-      <div class="link-container">
-        <div class="link-title">
-          <a class="link" href="https://github.com/TheNamlessGuy/browser-youtubeplusplus">YouTube++</a>
-        </div>
-        <div class="link-description">
-          Some QOL for watching stuff on YouTube.
-        </div>
-      </div>
-
-      <div class="separator separator-faded"></div>
-
-      <div class="link-container">
-        <div class="link-title">
-          <a class="link" href="https://github.com/TheNamlessGuy/browser-notes">Notes</a>
-        </div>
-        <div class="link-description">
-          Take notes in the browser. Save the notes if you want to. Format JSON
-        </div>
-      </div>
-
-      <div class="separator">
-        <span>Other things on my <a class="link" href="https://github.com/TheNamlessGuy">GitHub</a></span>
-      </div>
-
-      <div class="link-container">
-        <div class="link-title">
-          <a class="link" href="https://github.com/TheNamlessGuy/jaws">JAWS</a>
-        </div>
-        <div class="link-description">
-          A simple wiki system I made for my book writing/lore keeping
-        </div>
-      </div>
-
-      <div class="separator separator-faded"></div>
-
-      <div class="link-container">
-        <div class="link-title">A couple of game jam games</div>
-        <div class="link-description">
-          <a href="https://github.com/TheNamlessGuy/gamejam2016">Capitalism Ruined My Vacation!</a><br>
-          <a href="https://github.com/TheNamlessGuy/gamejamMay2017">Eat Ice Cream or something I can't remember the name of it</a><br>
-          <a href="https://github.com/TheNamlessGuy/gamejamMay2018">Coyote king of the bouncing palace realm</a><br>
-          <a href="https://github.com/TheNamlessGuy/gamejamJan2019">Ball Bounce Wow</a>
-        </div>
-      </div>
-
-      <!-- <div class="link-container">
-        <div class="link-title">
-          <a class="link" href="https://github.com/TheNamlessGuy/TrayBot">TrayBot</a>
-        </div>
-        <div class="link-description">
-          A Windows QoL tool inspired by Mac's Spotlight. You can create shortcuts to open folders, programs, change your clipboard, etc.<br>
-          It was the first thing I tried to write in Win32 API, so excuse the shitty code. I'll rewrite it one day.
-        </div>
-      </div> -->
-
-    </div>
+    <c-link-container>
+      <title url="/projects/">Projects</title>
+      <description>A couple of programming projects I've got going on</description>
+    </c-link-container>
   </body>
 </html>

@@ -1,19 +1,10 @@
-body {
-  background-color: #000;
-  color: #FFF;
-}
 h1 { text-align: center; }
 p { text-align: center; }
 
-.hidden { display: none !important; }
-.flex { display: flex; }
-.flex.space-around { justify-content: space-around; }
-.flex.align-center { align-items: center; }
-
 #character-container {
   font-size: 100px;
-  background-color: #333;
-  border: 1px solid #FFF;
+  background-color: var(--bg-color-1);
+  border: 1px solid var(--separator-color-0);
   border-radius: 5px;
   height: 150px;
   width: 150px;
@@ -25,15 +16,15 @@ p { text-align: center; }
   height: 48px;
   font-size: 40px;
   cursor: pointer;
-  background-color: #333;
-  border: 1px solid #FFF;
+  background-color: var(--bg-color-1);
+  border: 1px solid var(--separator-color-0);
   border-radius: 5px;
   display: inline-block;
   margin: 5px;
   padding: 5px;
   user-select: none;
 }
-.diacritic-container.active { background-color: #777; }
+.diacritic-container.active { background-color: var(--bg-color-2); }
 
 #modal-container {
   position: absolute;
@@ -51,8 +42,8 @@ p { text-align: center; }
 #modal {
   min-width: 150px;
   max-width: 60vw;
-  background-color: #000;
-  border: 1px solid #FFF;
+  background-color: var(--bg-color-0);
+  border: 1px solid var(--separator-color-0);
   border-radius: 5px;
   padding: 5px;
 }

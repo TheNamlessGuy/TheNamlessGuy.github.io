@@ -1,0 +1,81 @@
+body.theme-light {
+  --bg-color-0: #F00;
+  --bg-color-1: #F00;
+  --bg-color-2: #F00;
+
+  --text-color-0: #F00;
+  --text-color-1: #F00;
+
+  --separator-color-0: var(--text-color-0);
+  --separator-color-1: var(--text-color-1);
+}
+
+body.theme-dark {
+  --bg-color-0: #000033;
+  --bg-color-1: #000066;
+  --bg-color-1-1: #000077;
+  --bg-color-2: #000099;
+
+  --text-color-0: #FFFFFF;
+  --text-color-0-1: #EEEEEE;
+  --text-color-1: #444444;
+
+  --separator-color-0: var(--text-color-0);
+  --separator-color-0-1: var(--text-color-0-1);
+  --separator-color-1: var(--text-color-1);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+body {
+  background-color: var(--bg-color-0);
+  color: var(--text-color-0);
+}
+
+a { color: var(--text-color-0); }
+a:visited { color: var(--text-color-1); }
+
+button {
+  cursor: pointer;
+  background-color: var(--bg-color-1);
+  color: var(--text-color-0);
+  border: 1px solid var(--separator-color-0);
+  border-radius: 5px;
+  padding: 3px;
+}
+button:hover {
+  background-color: var(--bg-color-1-1);
+  color: var(--text-color-0);
+  border-color: var(--separator-color-0-1);
+}
+button:active:not(:disabled) {
+  background-color: var(--bg-color-0);
+  border-color: var(--separator-color-1);
+}
+button:disabled {
+  cursor: not-allowed;
+  background-color: var(--bg-color-0);
+  color: var(--text-color-1);
+}
+
+.hidden { display: none !important; }
+.w60 { width: 60%; }
+.w80 { width: 80%; }
+.center { margin: 0 auto; }
+.center-text { text-align: center; }
+.flex { display: flex; }
+.flex.space-around { justify-content: space-around; }
+.flex.align-center { align-items: center; }
+.whitespace-pre { white-space: pre; }
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+.inline-block { display: inline-block; }
+.italic { font-style: italic; }

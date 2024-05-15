@@ -1,8 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head></head>
-  <body>
-    <p>This page will look better one day</p>
-    <a href="/tools/diacritic-joiner">Diacritic joiner</a>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Tools</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/generic.css"/>
+
+    <script src="/generic.js"></script>
+    <script src="/custom-elements/base.js"></script>
+    <script src="/custom-elements/icon.js"></script>
+    <script src="/custom-elements/header.js"></script>
+    <script src="/custom-elements/separator.js"></script>
+    <script src="/custom-elements/link-container.js"></script>
+  </head>
+  <body class="w60 center center-text">
+    <c-header>
+      <lhs><c-header-icon>home</c-header-icon></lhs>
+      <center>Tools</center>
+    </c-header>
+
+    <c-separator></c-separator>
+
+    <c-link-container>
+      <title url="/tools/diacritic-joiner/">Diacritic joiner</title>
+      <description>Add diacritics onto alphabetical characters</description>
+    </c-link-container>
+
+    <c-separator faded></c-separator>
+
+    <c-link-container>
+      <title url="/tools/youtube-player/">YouTube player</title>
+      <description>YouTube's playlist functionality sucks, so I made my own</description>
+    </c-link-container>
+
+    <c-separator faded></c-separator>
+
+    <c-link-container>
+      <title url="/tools/letter-typing/">Dancing letter typing</title>
+      <description>Wow funny :)</description>
+    </c-link-container>
   </body>
 </html>

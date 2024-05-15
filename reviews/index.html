@@ -2,112 +2,58 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <title>Namless Reviews</title>
+    <title>Reviews</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/generic.css"/>
     <link rel="stylesheet" type="text/css" href="index.css"/>
+
+    <script src="/generic.js"></script>
+    <script src="/custom-elements/base.js"></script>
+    <script src="/custom-elements/icon.js"></script>
+    <script src="/custom-elements/header.js"></script>
+    <script src="/custom-elements/separator.js"></script>
     <script src="data.js"></script>
     <script src="index.js"></script>
-    <link rel="shortcut icon" href="/favicon.ico">
+    <script src="/custom-elements/modals.js"></script>
+    <script src="modals/review.js"></script>
+    <script src="modals/search-help.js"></script>
   </head>
-  <body>
-    <!-- START: Table header template -->
-    <template id="template-table-header">
+  <body class="w80 center center-text">
+    <c-header>
+      <lhs><c-header-icon>home</c-header-icon></lhs>
+      <center>Reviews</center>
+    </c-header>
+
+    <c-separator></c-separator>
+
+    <p>
+      All other review sites suck. You can't review anything you want, they use a limited scoring system, and so on. So here we are!<br>
+      Just so everyone is on the same page, this is the scale I use:
+      <table class="center">
+        <tr><td class="text-right">10</td><td class="text-left">- The best thing ever. No faults, and nothing I would have done differently, personally.</td></tr>
+        <tr><td class="text-right">5</td><td class="text-left">- Incredibly average. Didn't like it, didn't dislike it. See: Avatar (2009).</td></tr>
+        <tr><td class="text-right">0</td><td class="text-left">- The worst thing ever. Everyone involved should be in jail.</td></tr>
+      </table>
+    </p>
+
+    <div id="search-container">
+      <input id="search" placeholder="Search...">
+      <button id="search-help">?</button>
+    </div>
+
+    <table id="table">
       <thead>
-        <tr id="table-header">
-          <td class="table-header-cell">
-            Title
-            <span class="table-sorter table-sorter-title">⬍</span>
-          </td>
-          <td class="table-header-cell">
-            Score
-            <span class="table-sorter table-sorter-score">⬍</span>
-          </td>
-          <td class="table-header-cell">
-            Reviewed at
-            <span class="table-sorter table-sorter-reviewed-at">⬍</span>
-          </td>
-          <td class="table-header-cell">
-            Description
-            <span class="table-sorter table-sorter-description">⬍</span>
-          </td>
+        <tr>
+          <th key="title"><span>Title</span> <c-icon class="inline-block">sort-asc-desc</c-icon></th>
+          <th key="score"><span>Score</span> <c-icon class="inline-block">sort-asc-desc</c-icon></th>
+          <th key="reviewed_at"><span>Reviewed at</span> <c-icon class="inline-block">sort-asc-desc</c-icon></th>
+          <th key="description"><span>Description</span> <c-icon class="inline-block">sort-asc-desc</c-icon></th>
         </tr>
       </thead>
-    </template>
-    <!-- END: Table header template -->
-    <!-- START: Table body template -->
-    <template id="template-table-body">
       <tbody>
-        <td id="table-no-results-row" class="hidden" colspan="4">No results!</td>
+        <tr id="no-results-row" class="hidden"><td colspan="4">No results!</td></tr>
       </tbody>
-    </template>
-    <!-- END: Table body template -->
-    <!-- START: Table row template -->
-    <template id="template-table-row">
-      <tr class="table-row">
-        <td class="table-cell table-cell-title"></td>
-        <td class="table-cell table-cell-score"></td>
-        <td class="table-cell table-cell-reviewed-at"></td>
-        <td class="table-cell table-cell-description"><div></div></td>
-      </tr>
-    </template>
-    <!-- END: Table row template -->
-
-    <div id="container">
-      <div id="text-container">
-        <h1>Reviews</h1>
-        <div style="margin-bottom: 10px;">
-          So all other review sites suck, since you either can't review all things, they use a shitty limited scoring system, or what have you. So here we are!<br>
-          Just so everyone is on the same page, this is the scale I use:
-          <table id="scale-table">
-            <tr>
-              <td>10</td><td>- The best thing ever. No faults, nothing I would have done different personally</td>
-            </tr>
-            <tr>
-              <td>5</td><td>- Incredibly average. Didn't like it, didn't dislike it. See: Avatar (2009)</td>
-            </tr>
-            <tr>
-              <td>0</td><td>- The worst thing ever. Everyone involved should be in jail</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-
-      <div id="search-container">
-        <input id="search" placeholder="Search...">
-        <button id="search-help">?</button>
-      </div>
-      <table id="table"></table>
-    </div>
-
-    <div id="modal-container" class="hidden">
-      <div id="review-info-modal" class="modal hidden">
-        <div class="modal-data-title-container">
-          <div class="modal-data modal-data-title"></div>
-          <a class="modal-data modal-data-link"></a>
-        </div>
-        <div class="modal-data-score-reviewed-at-container">
-          <div class="modal-data-score-container">Score: <span class="modal-data modal-data-score"></span></div>
-          <div class="modal-data-reviewed-at-container">Reviewed at: <span class="modal-data modal-data-reviewed-at"></span></div>
-        </div>
-        <div class="modal-data modal-data-description"></div>
-        <div class="modal-data-tags-container">
-          Tags: <span class="modal-data modal-data-tags"></span>
-        </div>
-      </div>
-      <div id="search-help-modal" class="modal hidden">
-        <div class="modal-title">Search help</div>
-        To search, just write your query into the search box. Each word (separated by space) is searched for in the title and description of the review.<br>
-        If you want to search a specific field, prefix the word with:
-        <div style="margin-left: 10px;">
-          <span class="tag-prefix">t:</span> or <span class="tag-prefix">tag:</span> to search tags (search word must match exactly)<br>
-          <span class="tag-prefix">score:</span> to search the score (search word must match exactly)<br>
-          <span class="tag-prefix">title:</span> to search the title<br>
-          <span class="tag-prefix">desc:</span> to search the description<br>
-          <span class="tag-prefix">date:</span> to search the reviewed at date (result must start with search word. <span class="tag-prefix">date:2021</span> for all reviews from 2021, for example)<br>
-        </div>
-        For example, to search for games, type <span class="tag-prefix">t:game</span>.<br>
-        You can prefix a search word with - in order to negate the search. If it matches a review, the review won't show up. For example, no games: <span class="tag-prefix">-t:game</span><br>
-        If all search words match, it shows up!
-      </div>
-    </div>
+    </table>
   </body>
 </html>

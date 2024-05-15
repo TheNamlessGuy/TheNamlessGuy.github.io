@@ -1,20 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <title>Namless rants</title>
-    <link rel="stylesheet" type="text/css" href="index.css" />
-    <script src="custom-elements/content.js"></script>
-    <script src="custom-elements/link-list.js"></script>
+    <meta charset="utf-8"/>
+    <title>Rants</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/generic.css"/>
+
+    <script src="/generic.js"></script>
+    <script src="/custom-elements/base.js"></script>
+    <script src="/custom-elements/icon.js"></script>
+    <script src="/custom-elements/header.js"></script>
+    <script src="/custom-elements/separator.js"></script>
+    <script src="/custom-elements/link-container.js"></script>
   </head>
-  <body>
-    <c-content>
-      <h1>Rants</h1>
-      <c-link-list>
-        <a class="rant" href="/rants/why-fantasy/">Why fantasy?</a>
-        <!--<a class="rant" href="/rants/programming-language-features/">Programming language features</a>--> <!-- TODO: Look this one over -->
-        <a class="rant" href="/rants/my-wandersong-ending/">My Wandersong ending</a>
-      </c-link-list>
-    </c-content>
+  <body class="w60 center center-text">
+    <c-header>
+      <lhs><c-header-icon>home</c-header-icon></lhs>
+      <center>Rants</center>
+    </c-header>
+
+    <c-separator></c-separator>
+
+    <c-link-container>
+      <title url="/rants/why-fantasy">Why fantasy?</title>
+      <description>I'm currently writing a collection of fantasy short stories, if you didn't know. "Why fantasy?", you might ask? Well, this is the rant for you.</description>
+    </c-link-container>
+
+    <c-separator faded></c-separator>
+
+    <c-link-container>
+      <title url="/rants/my-wandersong-ending">My Wandersong ending</title>
+      <description>Wandersong is one of my favorite games. Have you ever had that feeling where something gets <i>so</i> close to perfect (for you), but it doesn't quite reach? That's how I felt about the game, and I had to write down my thoughts about it somewhere, so I could get them out of my head.</description>
+    </c-link-container>
   </body>
 </html>

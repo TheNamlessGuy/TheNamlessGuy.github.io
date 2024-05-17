@@ -1,15 +1,15 @@
 body.theme-light {
-  --bg-color-0: #F00;
-  --bg-color-1: #F00;
-  --bg-color-2: #F00;
+  --bg-color-0: #9999FF;
+  --bg-color-1: #6699FF;
+  --bg-color-2: #336699;
 
-  --text-color-0: #F00;
-  --text-color-1: #F00;
+  --text-color-0: #000000;
+  --text-color-1: #777777;
 
   --separator-color-0: var(--text-color-0);
   --separator-color-1: var(--text-color-1);
 
-  --error-color: #F00;
+  --error-color: #FF0033;
 }
 
 body.theme-dark {

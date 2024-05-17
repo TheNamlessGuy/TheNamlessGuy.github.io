@@ -188,6 +188,7 @@ const Playlist = {
     title.classList.add('title');
     title.placeholder = 'Title';
     tr.append(td(title));
+    title.addEventListener('input', () => Playlist.setEntryTitle(tr, title.value, false));
     if (data.title) { Playlist.setEntryTitle(tr, data.title, false); }
 
     if (data.after?.nextSibling) {

@@ -1,101 +1,7 @@
-/* START: GENERICS */
-/* .hidden {
-  display: none;
-} */
-
-/* .invisible {
-  visibility: hidden;
-} */
-
-/* .center {
-  text-align: center;
-} */
-
-/* .text-faded {
-  color: #555;
-} */
-
-/* .mt-15 {
-  margin-top: 15px;
-} */
-/* END: GENERICS */
-
-/* START: SPECIFICS */
-/* body {
-  background-color: #000;
-  margin: 0;
-} */
-
-/* hr {
-  width: 90vw;
-  color: #555;
-} */
-
-/* .controls {
-  color: #FFF;
-} */
-
-/* .controls > * {
-  margin-right: 10px;
-} */
-
 #player {
   min-height: 420px;
   min-width: 640px;
 }
-
-/* #video-and-controls-container {
-  position: sticky;
-  top: 0;
-  background-color: #000;
-} */
-/* #video-and-controls-container > div {
-  padding-top: 8px;
-  padding-bottom: 1px;
-} */
-
-/* .entry-container {
-  margin: 10px;
-  display: table;
-  width: 99%;
-  border-collapse: collapse;
-  table-layout: fixed;
-} */
-
-/* .entry-container-left, .entry-container-center, .entry-container-right {
-  display: table-cell;
-} */
-
-/* .entry-container-left {
-  text-align: right;
-} */
-
-/* .entry-container-right {
-  text-align: left;
-} */
-
-/* .entry-container-center {
-  width: 150px;
-} */
-
-/* .entry-id {
-  margin-left: 5px;
-  margin-right: 5px;
-  width: 90%;
-} */
-
-/* .entry-index-container {
-  display: inline;
-  margin-left: 15px;
-} */
-
-/* .entry-title {
-  display: inline;
-  margin-left: 15px;
-  background-color: #000;
-  border-color: #111;
-  color: #FFF;
-} */
 
 /* https://stackoverflow.com/a/37074484 */
 html, body, #content { height: 100%; }
@@ -103,7 +9,6 @@ html, body, #content { height: 100%; }
 body { overflow-y: hidden; }
 
 #playlist { height: fit-content; }
-
 #playlist span.index { color: var(--text-color-1); }
 
 #playlist tr.current input.title {

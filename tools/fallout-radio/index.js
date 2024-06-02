@@ -300,7 +300,7 @@ const RadioStation = {
           return {
             intro: null,
             main: null,
-            outro: Random.bool() ? null : Random.element([...station.genericOutros, ...RadioStation._stations.gnr.news.genericOutros]),
+            outro: Random.bool() ? null : Random.element(RadioStation._stations.gnr.news.genericOutros),
           };
 
           // TODO
@@ -319,7 +319,7 @@ const RadioStation = {
       },
     },
 
-    agatha: {
+    agatha: { // TODO
       music: {
         list: [
           {display: 'Antonín Dvořák - Adagio ma non troppo - Violin Concerto in A Minor',  main: '8DzVYYutjGg'},

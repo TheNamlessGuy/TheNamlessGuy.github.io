@@ -452,7 +452,14 @@ const _raw_data = {
     "title": "How I Met Your Mother",
     "link": "https://www.imdb.com/title/tt0460649/",
     "score": 6.75,
-    "reviewed_at": ["2020-07-25"],
+    "reviewed_at": ["2020-07-25", "2024-05-31"],
+    "description": `
+It really is insane how much better the <a href="https://www.youtube.com/watch?v=nhB5oQgQpOI">alternate ending</a> is. I understand that the official ending is the one they planned from the beginning, and if you look at it from where the show started, it makes sense.
+
+What <i>doesn't</i> make sense is ignoring the last 6 or so seasons of character growth that made it so the original ending no longer fit. They could have built towards the official ending better by, for example, <i>not</i> showing that Ted and Robin just don't fit together, and that every time they try, it ends awfully.
+
+With the alternate ending, I'd bump it up to a 7.5/10.
+`,
     "tags": ["show"],
   }, {
     "title": "Coco",

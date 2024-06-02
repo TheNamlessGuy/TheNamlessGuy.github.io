@@ -55,6 +55,7 @@ button {
   border-radius: 5px;
   padding: 3px;
 }
+button * { pointer-events: none; }
 button:hover {
   background-color: var(--bg-color-1-1);
   color: var(--text-color-0);
@@ -89,6 +90,7 @@ select {
 
 .hidden { display: none !important; }
 .invisible { visibility: hidden !important; }
+.w40 { width: 40%; }
 .w50 { width: 50%; }
 .w60 { width: 60%; }
 .w80 { width: 80%; }

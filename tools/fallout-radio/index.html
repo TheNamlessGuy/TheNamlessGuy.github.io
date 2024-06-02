@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Fallout Radio Simulator</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/generic.css"/>
+    <link rel="stylesheet" type="text/css" href="index.css"/>
+
+    <script src="/generic.js"></script>
+    <script src="/custom-elements/separator.js"></script>
+    <script src="index.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+  </head>
+  <body>
+    <div id="notifications-container"></div>
+
+    <div id="screen" class="theme-green">
+      <div id="screen-settings" class="hidden bottom-bar-container">
+        <div id="screen-settings-general" class="w40 hidden">
+          <div class="item">
+            <span class="item-selected"></span>
+            <span class="item-name">TODO - Sound effect volume, hardcoded theme, etc</span>
+          </div>
+        </div> <!-- screen-settings-general -->
+
+        <div id="screen-settings-player" class="w40 hidden">
+          <div class="item">
+            <span class="item-selected"></span>
+            <span class="item-name">TODO - Set what level and karma the player should have</span>
+          </div>
+        </div> <!-- screen-settings-player -->
+
+        <div id="screen-settings-stations" class="w40 hidden">
+          <div class="item">
+            <span class="item-selected"></span>
+            <span class="item-name">TODO - Toggle individual songs, checkbox for killing Three-Dog, etc</span>
+          </div>
+        </div> <!-- screen-settings-stations -->
+
+        <div class="bottom-bar">
+          <div class="separator"><div></div><div></div></div>
+          <div class="selectable selected" mapping="screen-settings-general">General</div>
+          <div class="separator"><div></div><div></div></div>
+          <div class="selectable" mapping="screen-settings-player">Player</div>
+          <div class="separator"><div></div><div></div></div>
+          <div class="selectable" mapping="screen-settings-stations">Stations</div>
+          <div class="separator"><div></div><div></div></div>
+        </div> <!-- bottom-bar -->
+      </div>
+
+      <div id="screen-data" class="bottom-bar-container">
+        <div id="screen-data-quests" class="w40 hidden">
+          <div class="item">
+            <span class="item-selected"></span>
+            <span class="item-name">TODO - Select quest stages that affect radio announcements</span>
+          </div>
+        </div> <!-- screen-data-quests -->
+
+        <div id="screen-data-radio" class="w40">
+          <div class="item" theme="green" station="enclave">
+            <span class="item-selected"></span>
+            <span class="item-name">Enclave Radio</span>
+          </div>
+          <div class="item" theme="green" station="gnr">
+            <span class="item-selected"></span>
+            <span class="item-name">Galaxy News Radio</span>
+          </div>
+          <div class="item" theme="green" station="agatha">
+            <span class="item-selected"></span>
+            <span class="item-name">Agatha's Station</span>
+          </div>
+          <div class="item" theme="amber" station="mojave">
+            <span class="item-selected"></span>
+            <span class="item-name">Mojave Music Radio</span>
+          </div>
+          <div class="item" theme="amber" station="new_vegas">
+            <span class="item-selected"></span>
+            <span class="item-name">Radio New Vegas</span>
+          </div>
+          <div class="item" theme="amber" station="black_mountain">
+            <span class="item-selected"></span>
+            <span class="item-name">Black Mountain Radio</span>
+          </div>
+        </div> <!-- screen-data-radio -->
+
+        <div class="bottom-bar">
+          <div class="separator"><div></div><div></div></div>
+          <div class="selectable" mapping="screen-data-quests">Quests</div>
+          <div class="separator"><div></div><div></div></div>
+          <div class="selectable selected" mapping="screen-data-radio">Radio</div>
+          <div class="separator"><div></div><div></div></div>
+        </div> <!-- bottom-bar -->
+      </div> <!-- screen-data -->
+    </div>
+    <img id="pipboy" src="res/img/pipboy.png" />
+    <button id="settings-btn" class="pipboy-btn" mapping="screen-settings"><img></button>
+    <button id="items-btn" class="pipboy-btn disabled"><img></button>
+    <button id="data-btn" class="pipboy-btn selected" mapping="screen-data"><img></button>
+
+    <div id="player" class="hidden"></div>
+  </body>
+</html>

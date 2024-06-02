@@ -8,6 +8,12 @@ const Theme = {
   },
 };
 
+const Random = {
+  bool: function() { return Math.random() < 0.5; },
+  integer: function(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; },
+  element: function(array) { return array[Random.integer(0, array.length - 1)]; },
+};
+
 const QueryParameters = {
   set: function(key, value) {
     const url = new URL(window.location.href);

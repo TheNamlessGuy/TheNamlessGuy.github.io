@@ -139,11 +139,11 @@ const RadioStation = {
           {main: '4Mn4kpD5U3Q'}, // Speech - Water, Water Everywhere
           {main: 'q9kQ3T0SZkY'}, // Speech - The Colonel's Restoration
           {main: 'QnmIiXygUxc'}, // Speech - We Are At War
-          // {main: null}, // Quote - "... never be destroyed ..." - Abraham Lincoln
-          // {main: null}, // Quote - "... destroy my enemies ..." - Abraham Lincoln
-          // {main: null}, // Quote - "Everybody likes a compliment" - Abraham Lincoln
-          // {main: null}, // Quote - "Avoid popularity if you would have peace" - Abraham Lincoln
-          // {main: null}, // Quote - "... do a job right ..." - Martin Van Buren
+          {main: '062EiIfRMmc'}, // Quote - "... never be destroyed ..." - Abraham Lincoln
+          {main: 'x77k6LgKQ2c'}, // Quote - "... destroy my enemies ..." - Abraham Lincoln
+          {main: '9WpWksP2IrQ'}, // Quote - "Everybody likes a compliment" - Abraham Lincoln
+          {main: 'mZUMuidm2NQ'}, // Quote - "Avoid popularity if you would have peace" - Abraham Lincoln
+          {main: 'gEJklTlYd2M'}, // Quote - "... do a job right ..." - Martin Van Buren
         ],
 
         genericIntros: [
@@ -319,7 +319,7 @@ const RadioStation = {
       },
     },
 
-    agatha: { // TODO
+    agatha: {
       music: {
         list: [
           {display: 'Antonín Dvořák - Adagio ma non troppo - Violin Concerto in A Minor',  main: '8DzVYYutjGg'},
@@ -350,12 +350,11 @@ const RadioStation = {
           '8dffntgyfn4', // Crazy Wolfgang
           'JWWdwjG5Bzs', // Amazing imagination
 
-          // TODO
-          // null, // Doc Hoff
-          // null, // Player, thank you
-          // null, // Poor old lady
-          // null, // Mother
-          // null, // Help out those in need
+          '0XYXPaSXO5k', // Doc Hoff
+          'PACKdCoq8Xs', // Player, thank you
+          'msc4h2444PQ', // Poor old lady
+          'esvOlthws9A', // Mother
+          'TwVsBFRLiU0', // Help out those in need
         ],
 
         genericOutros: [],

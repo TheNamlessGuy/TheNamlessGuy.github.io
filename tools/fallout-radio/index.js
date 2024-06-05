@@ -81,6 +81,12 @@ const YouTube = {
   stop: function() {
     YouTube._player.pauseVideo();
   },
+
+  skipToEnd: function() {
+    if (YouTube._player.getPlayerState() !== 1) { return; }
+
+    YouTube._player.seekTo(YouTube._player.getDuration(), true);
+  },
 };
 
 YouTube.initialize(); // We want to do this before YT even has a chance to load, hence why it's here
@@ -212,11 +218,11 @@ const RadioStation = {
       news: {
         generic: {
           list: [
-            // {main: ''}, // BoS outcasts
-            // {main: ''}, // BoS propaganda
-            // {main: ''}, // Evergreen mills
-            // {main: ''}, // Talon company
-            // {main: ''}, // Weather forecast
+            {main: 'eoa8NHEqqwk'}, // BoS outcasts
+            {main: 'TeuThtDR3uQ'}, // BoS propaganda
+            {main: 'DJcN98GxSTk'}, // Evergreen mills
+            {main: 'V2lvGzoTQfk'}, // Talon company
+            {main: 'EgcI2gfpSDM'}, // Weather forecast
           ],
 
           genericIntros: [],
@@ -225,11 +231,11 @@ const RadioStation = {
 
         psa: {
           list: [
-            // {main: ''}, // Ghouls
-            // {main: ''}, // Raiders
-            // {main: ''}, // Super mutants
-            // {main: ''}, // Repairs
-            // {main: ''}, // Yao Guai
+            {main: 'wL9gZAL7qYk'}, // Ghouls
+            {main: 'Jkqqs4EzNfg'}, // Raiders
+            {main: 'JPw8Cf4d97E'}, // Super mutants
+            {main: 'Bw1spx3jW3U'}, // Repairs
+            {main: 'cBWn9PjsnZ0'}, // Yao Guai
             // {main: ''}, // Radiation
           ],
 
@@ -297,14 +303,7 @@ const RadioStation = {
         ],
 
         get: function() {
-          return {
-            intro: null,
-            main: null,
-            outro: Random.bool() ? null : Random.element(RadioStation._stations.gnr.news.genericOutros),
-          };
-
-          // TODO
-          const station = RadioStation._stations.gnr.news[Random.element(['generic', 'psa', 'player', 'drama'])];
+          const station = RadioStation._stations.gnr.news[Random.element(['generic', 'psa'/*, 'player'*//*, 'drama'*/])];
           if (station.get) {
             return station.get();
           }
@@ -666,6 +665,12 @@ window.addEventListener('DOMContentLoaded', async () => {
 
       SFX['menu-item_click'].play();
     });
+  });
+
+  document.addEventListener('keyup', (e) => {
+    if (e.key === 'ArrowRight') {
+      YouTube.skipToEnd();
+    }
   });
 
   Notifications.clear();

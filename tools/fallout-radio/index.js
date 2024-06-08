@@ -185,8 +185,8 @@ const RadioStation = {
     gnr: { // TODO
       music: {
         list: [
-          {display: 'Tex Beneke - A Wonderful Guy',                                                main: 'vY8UUmIeoPQ'},
-          {display: 'Cole Porter - Anything Goes',                                                 main: 'dxCjpEc66Dw'},
+          {display: 'Tex Beneke - A Wonderful Guy',                          intro: 'F7noUPUl2_g', main: 'vY8UUmIeoPQ'},
+          {display: 'Cole Porter - Anything Goes',                           intro: 'PHw4L70F3f0', main: 'dxCjpEc66Dw'},
           {display: 'Sid Phillips - Boogie Man',                                                   main: '2x-xqjrp-f0'},
           {display: 'Roy Brown - Butcher Pete (Part 1)',                     intro: 'lC47eohxTVU', main: 'DD2qpctTR9o'},
           {display: 'Danny Kaye - Civilization (Bongo, Bongo, Bongo)',       intro: 'c154P9uFlIk', main: 'b8x0weOPhGc'},
@@ -196,15 +196,15 @@ const RadioStation = {
           {display: 'Bob Crosby and the Bobcats - Happy Times',              intro: 'xtXYGUWfVjw', main: 'qG4G_pUkd0s'},
           {display: `The Ink Spots - I Don't Want to Set the World on Fire`, intro: 'FV4gSnKMpeY', main: 'TmIwm5RElRs'},
           {display: `Jack Shaindlin - I'm Tickled Pink`,                                           main: 'cUuT379liW0'},
-          {display: 'Ella Fitzgerald - Into Each Life Some Rain Must Fall',                        main: 'fEzzd-6tX1k'},
+          {display: 'Ella Fitzgerald - Into Each Life Some Rain Must Fall',  intro: 'YgU_f_MOxrY', main: 'fEzzd-6tX1k'},
           {display: 'Billy Munn - Jazzy Interlude',                                                main: '4Nf1KxOAlug'},
           {display: 'Gerhard Trede - Jolly Days',                                                  main: '6qtMHIvBL5E'},
           {display: `Jack Shaindlin - Let's Go Sunning`,                                           main: 'xnwNxAYAcNU'},
-          {display: 'The Ink Spots - Maybe',                                                       main: 'Wd_fO_SUgPs'},
-          {display: 'Roy Brown - Mighty, Mighty Man',                                              main: 'iMmribsb8bc'},
+          {display: 'The Ink Spots - Maybe',                                 intro: 'vCcY5q-oDHE', main: 'Wd_fO_SUgPs'},
+          {display: 'Roy Brown - Mighty, Mighty Man',                        intro: '2t6UL8KrAew', main: 'iMmribsb8bc'},
           {display: 'Eddy Christiani - Rhythm for You',                                            main: 'JAkaA6V3Gxo'},
           {display: 'Allan Gray - Swing Doors',                                                    main: 'MKBSAzpyBzk'},
-          {display: 'Bob Crosby and the Bobcats - Way Back Home',                                  main: 'DPkizW2SFSY'},
+          {display: 'Bob Crosby and the Bobcats - Way Back Home',            intro: 'c4fsx_wwPzU', main: 'DPkizW2SFSY'},
         ],
 
         genericIntros: [
@@ -236,7 +236,7 @@ const RadioStation = {
             {main: 'JPw8Cf4d97E'}, // Super mutants
             {main: 'Bw1spx3jW3U'}, // Repairs
             {main: 'cBWn9PjsnZ0'}, // Yao Guai
-            // {main: ''}, // Radiation
+            {main: 'sTZFpZb6pWg'}, // Radiation
           ],
 
           genericIntros: [
@@ -279,12 +279,12 @@ const RadioStation = {
           // null, // Enclave fakeout
           // null, // Ain't life grand?
           // null, // One dog ain't enough
-          // null, // Voice in the darkness
+          'LLd7WO5OND0', // Voice in the darkness
           // null, // Loud and proud
-          // null, // Wake up, wasteland!
+          'hhwRg5oMJQQ', // Wake up, wasteland!
           // null, // Lord and master
           // null, // All you need to know
-          // null, // What's up, Wastelanders?
+          'wBJPR-bnppA', // What's up, Wastelanders?
           // null, // Post-apocalyptia
           // null, // And here's me!
           // null, // Time for the news

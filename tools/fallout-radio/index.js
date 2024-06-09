@@ -246,6 +246,15 @@ const RadioStation = {
             '-5O_shjrmts', // Super important PSA
           ],
           genericOutros: [],
+
+          get: function() {
+            const segment = Random.element(RadioStation._stations.gnr.news.psa.list);
+            return {
+              ...segment,
+              intro: Random.element([...station.genericIntros, ...RadioStation._stations.gnr.news.genericIntros]),
+              outro: Random.bool() ? null : Random.element([...station.genericOutros, ...RadioStation._stations.gnr.news.genericOutros]),
+            };
+          },
         },
 
         player: {

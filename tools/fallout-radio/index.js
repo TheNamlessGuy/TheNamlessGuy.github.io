@@ -240,10 +240,10 @@ const RadioStation = {
           ],
 
           genericIntros: [
-            // null, // Time for PSA
+            'SGtqTTybKhM', // Time for PSA
             // null, // Listen close for PSA
-            // null, // Up next - PSA
-            // null, // Super important PSA
+            '489mJClzH04', // Up next - PSA
+            '-5O_shjrmts', // Super important PSA
           ],
           genericOutros: [],
         },
@@ -274,25 +274,25 @@ const RadioStation = {
 
         genericIntros: [ // Useable across multiple news types
           // null, // Disc jockey
-          // null, // That's that OTHER radio station
-          // null, // Stupefied
+          'ij-__nZ16m8', // That's that OTHER radio station
+          'ENm29FGBYeo', // Stupefied
           // null, // Enclave fakeout
           // null, // Ain't life grand?
-          // null, // One dog ain't enough
+          'PKndrbkTZY8', // One dog ain't enough
           'LLd7WO5OND0', // Voice in the darkness
           // null, // Loud and proud
           'hhwRg5oMJQQ', // Wake up, wasteland!
           // null, // Lord and master
           // null, // All you need to know
           'wBJPR-bnppA', // What's up, Wastelanders?
-          // null, // Post-apocalyptia
+          'w1Ly79UL90I', // Post-apocalyptia
           // null, // And here's me!
-          // null, // Time for the news
-          // null, // Regularly scheduled program
+          '1C1PABExtwc', // Time for the news
+          'Kqp5eVWXAuo', // Regularly scheduled program
           // null, // News time, children
           // null, // Bit of news
           // null, // Cashews
-          // null, // Salisbury steak
+          'vRmJhvVekjU', // Salisbury steak
           // null, // Global peace forever
           // null, // Ready? Me neither
         ],

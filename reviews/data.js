@@ -2802,5 +2802,24 @@ It really deserves a more polished sequel.
     "score": 7.5,
     "reviewed_at": ["2024-04-27"],
     "tags": ["movie"],
+  }, {
+    "title": "The Host",
+    "link": "https://www.imdb.com/title/tt1517260/",
+    "score": 4,
+    "reviewed_at": ["2024-06-09"],
+    "tags": ["movie"],
+  }, {
+    "title": "Paradise",
+    "link": "https://www.imdb.com/title/tt21308888/",
+    "score": 6,
+    "reviewed_at": ["2024-06-09"],
+    "tags": ["movie"],
+  }, {
+    "title": "Silo",
+    "link": "https://www.imdb.com/title/tt14688458/",
+    "score": 8.5,
+    "reviewed_at": ["2024-06-09"],
+    "description": "A bit slow at times, but overall really good",
+    "tags": ["show"],
   }]
 };

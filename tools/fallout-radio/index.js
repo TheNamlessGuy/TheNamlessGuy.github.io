@@ -251,8 +251,8 @@ const RadioStation = {
             const segment = Random.element(RadioStation._stations.gnr.news.psa.list);
             return {
               ...segment,
-              intro: Random.element([...station.genericIntros, ...RadioStation._stations.gnr.news.genericIntros]),
-              outro: Random.bool() ? null : Random.element([...station.genericOutros, ...RadioStation._stations.gnr.news.genericOutros]),
+              intro: Random.element([...RadioStation._stations.gnr.news.psa.genericIntros, ...RadioStation._stations.gnr.news.genericIntros]),
+              outro: Random.bool() ? null : Random.element([...RadioStation._stations.gnr.news.psa.genericOutros, ...RadioStation._stations.gnr.news.genericOutros]),
             };
           },
         },
@@ -320,7 +320,7 @@ const RadioStation = {
           const segment = Random.element(station.list);
           return {
             ...segment,
-            intro: Random.bool() ? null : (segment.intro && Random.bool()) ? segment.intro : Random.element([...station.genericIntros, ...RadioStation._stations.gnr.news.genericIntros]),
+            intro: segment.intro && Random.bool() ? segment.intro : Random.element([...station.genericIntros, ...RadioStation._stations.gnr.news.genericIntros]),
             outro: Random.bool() ? null : (segment.outro && Random.bool()) ? segment.outro : Random.element([...station.genericOutros, ...RadioStation._stations.gnr.news.genericOutros]),
           };
         },
@@ -413,12 +413,12 @@ const RadioStation = {
     new_vegas: { // TODO
       music: {
         list: [
-          {display: `Dean Martin - Ain't That a Kick in the Head?`,                                   main: 'vaj6YGOLskQ'},
+          {display: `Dean Martin - Ain't That a Kick in the Head?`,             intro: 'mGT97UEjgi4', main: 'vaj6YGOLskQ'},
           {display: 'Marty Robbins - Big Iron',                                                       main: 'pPArO-OI_3U'},
           {display: 'Frank Sinatra - Blue Moon',                                intro: 'xRsr4SxebhI', main: 'GD6PreqIz6o'},
-          {display: 'Guy Mitchell - Heartaches by the Number',                                        main: 'Zr6k3mvZRQA'},
+          {display: 'Guy Mitchell - Heartaches by the Number',                  intro: 'HcdSV4DMDNs', main: 'Zr6k3mvZRQA'},
           {display: `The Ink Spots - It's a Sin to Tell a Lie`,                 intro: 'oysgsmX_Jks', main: 'eP9nD0TsqEI'},
-          {display: 'The Kay Kyser Orchestra - Jingle, Jangle, Jingle',                               main: 's0ofuXYkYi0'},
+          {display: 'The Kay Kyser Orchestra - Jingle, Jangle, Jingle',         intro: '5U4rG_nhERw', main: 's0ofuXYkYi0'},
           {display: 'Peggy Lee - Johnny Guitar',                                                      main: 'IeCWuN0dc5w'},
           {display: 'Nat King Cole - Love Me as Though There Were No Tomorrow',                       main: 'zJP_kokzcxg'},
           {display: 'Carmen Dragon and his Orchestra - Mad About the Boy',                            main: 'kgOkwV5xX8w'},
@@ -447,13 +447,13 @@ const RadioStation = {
       news: {
         generic: {
           list: [
-            // {main: ''}, // Bitter Springs
-            // {main: ''}, // Camp Golf
-            // {main: ''}, // Jacobstown
-            // {main: ''}, // Lee Oliver
-            // {main: ''}, // NCR Correctional Facility
-            // {main: ''}, // Nipton
-            // {main: ''}, // Shot in the head
+            {main: 'NN-7EUicYcU'}, // Bitter Springs
+            {main: '_IPUbyJwdVk'}, // Camp Golf
+            {main: 'Oga7R5njeGQ'}, // Jacobstown
+            {main: '9erOTzuVn24'}, // Lee Oliver
+            {main: 'kFxB3p3wkEQ'}, // NCR Correctional Facility
+            {main: 'St8fRpXQMQE'}, // Nipton
+            {main: 'o5h7ADdhTCI'}, // Shot in the head
           ],
 
           genericIntros: [],
@@ -508,16 +508,11 @@ const RadioStation = {
         ],
 
         get: function() {
-          return {
-            intro: Random.bool() ? null : Random.element(RadioStation._stations.new_vegas.news.genericIntros),
-            outro: Random.bool() ? null : Random.element(RadioStation._stations.new_vegas.news.genericOutros),
-          };
-          // TODO
-          const station = RadioStation._stations.new_vegas.news[Random.element(['generic', 'player'])];
+          const station = RadioStation._stations.new_vegas.news[Random.element(['generic'/*, 'player'*/])];
           const segment = Random.element(station.list);
           return {
             ...segment,
-            intro: Random.bool() ? null : (segment.intro && Random.bool()) ? segment.intro : Random.element([...station.genericIntros, ...RadioStation._stations.new_vegas.news.genericIntros]),
+            intro: segment.intro && Random.bool() ? segment.intro : Random.element([...station.genericIntros, ...RadioStation._stations.new_vegas.news.genericIntros]),
             outro: Random.bool() ? null : (segment.outro && Random.bool()) ? segment.outro : Random.element([...station.genericOutros, ...RadioStation._stations.new_vegas.news.genericOutros]),
           };
         },

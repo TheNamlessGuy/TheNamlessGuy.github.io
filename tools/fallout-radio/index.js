@@ -419,11 +419,11 @@ const RadioStation = {
           {display: 'Guy Mitchell - Heartaches by the Number',                  intro: 'HcdSV4DMDNs', main: 'Zr6k3mvZRQA'},
           {display: `The Ink Spots - It's a Sin to Tell a Lie`,                 intro: 'oysgsmX_Jks', main: 'eP9nD0TsqEI'},
           {display: 'The Kay Kyser Orchestra - Jingle, Jangle, Jingle',         intro: '5U4rG_nhERw', main: 's0ofuXYkYi0'},
-          {display: 'Peggy Lee - Johnny Guitar',                                                      main: 'IeCWuN0dc5w'},
-          {display: 'Nat King Cole - Love Me as Though There Were No Tomorrow',                       main: 'zJP_kokzcxg'},
-          {display: 'Carmen Dragon and his Orchestra - Mad About the Boy',                            main: 'kgOkwV5xX8w'},
+          {display: 'Peggy Lee - Johnny Guitar',                                intro: 'lRy0v5jWiBQ', main: 'IeCWuN0dc5w'},
+          {display: 'Nat King Cole - Love Me as Though There Were No Tomorrow', intro: 'E8kylZM18qQ', main: 'zJP_kokzcxg'},
+          {display: 'Carmen Dragon and his Orchestra - Mad About the Boy',      intro: 'CAWGnS9hL68', main: 'kgOkwV5xX8w'},
           {display: 'Pete Thomas - Sit and Dream',                                                    main: 'VcLk3fQ3Zwg'},
-          {display: `Bing Crosby - Something's Gotta Give`,                                           main: '5K7Q409AWKk'},
+          {display: `Bing Crosby - Something's Gotta Give`,                     intro: 'DLa9IJzeYDQ', main: '5K7Q409AWKk'},
           {display: 'Jeff Hooper - Where Have You Been All My Life?',                                 main: 'Zi2mbSG609Q'},
           {display: `The Dave Barbour Quartet - Why Don't You Do Right?`,                             main: '4uTcw_A80Bo'},
           {display: 'Gerhard Trede - American Swing',                                                 main: '58MZ8ECtPTw'},
@@ -486,12 +486,12 @@ const RadioStation = {
           // null, // Magic in the air
           // null, // More news for you
           // null, // Mrs. New Vegas
-          // null, // News bring us closer
-          // null, // Newsman fedora
-          // null, // No news is good news
+          'Cmpfw2jjFrA', // News bring us closer
+          'jBa-tM_dyD8', // Newsman fedora
+          'svtHL5qu7Ag', // No news is good news
           '-CGclHVZ_v0', // Nuclear Winter Wonderland
           'kSuC8P4zS74', // Thank you for listening
-          // null, // The right place
+          'pmlu9w6bdjA', // The right place
           '1RM3uEnQ24E', // Wonderful in your own way
           'mkOZH_DOJhc', // You're all so great
         ],
@@ -500,10 +500,10 @@ const RadioStation = {
           // Shoutout to https://www.youtube.com/@roetheboat1/videos
           'CHcM7FOn7G8', // Sponsor - Gomorrah
           'oyu_xylWVfg', // Sponsor - Primm
-          // null, // Sponsor - Silver Rush
+          'R_1b6p3BayA', // Sponsor - Silver Rush
           'XuYAQIGlxj0', // Sponsor - The Tops
           '0Vl9s8rsjQg', // Sponsor - Ultra-Luxe
-          // null, // Sponsor - Vault 21
+          'ZsOw62cBcYk', // Sponsor - Vault 21
           'Z1JJTdQdQUY', // Sponsor - Vikki and Vance
         ],
 

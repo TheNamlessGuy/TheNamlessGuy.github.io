@@ -272,10 +272,10 @@ const RadioStation = {
 
         drama: {
           list: [
-            // {main: ''}, // Escape from Paradise Falls!
-            // {main: ''}, // Super Mutant Mayhem!
-            // {main: ''}, // In the Black Widow's Web!
-            // {main: ''}, // Between Rockopolis and a Hard Place!
+            {main: 'CfczL6v0Jh8'}, // Escape from Paradise Falls!
+            {main: 'i_KPuT1NIkw'}, // Super Mutant Mayhem!
+            {main: 'vcB2VVDQ_j4'}, // In the Black Widow's Web!
+            {main: 'AjBsFhtUneM'}, // Between Rockopolis and a Hard Place!
           ],
 
           get: function() { return Random.element(RadioStation._stations.gnr.news.drama.list); },
@@ -298,7 +298,7 @@ const RadioStation = {
           'BfvLk7mINHs', // And here's me!
           '1C1PABExtwc', // Time for the news
           'Kqp5eVWXAuo', // Regularly scheduled program
-          // null, // News time, children
+          'weiP7VWyuoU', // News time, children
           'qqLD37pZg64', // Bit of news
           'C6WojI70HYM', // Cashews
           'vRmJhvVekjU', // Salisbury steak
@@ -312,7 +312,7 @@ const RadioStation = {
         ],
 
         get: function() {
-          const station = RadioStation._stations.gnr.news[Random.element(['generic', 'psa'/*, 'player'*//*, 'drama'*/])];
+          const station = RadioStation._stations.gnr.news[Random.element(['generic', 'psa'/*, 'player'*/, 'drama'])];
           if (station.get) {
             return station.get();
           }
@@ -471,12 +471,12 @@ const RadioStation = {
 
         genericIntros: [
           // Shoutout to https://www.youtube.com/@roetheboat1/videos
-          // null, // Best looking audience
+          'qCKXo9_TpiU', // Best looking audience
           'XKBBtOHIfGE', // Charisma
-          // null, // Coming on too strong
-          // null, // Extraordinarily beautiful
-          // null, // Fanning the flames
-          // null, // Filling in
+          'Ha55gQLehnU', // Coming on too strong
+          'gNmBqpMvpgc', // Extraordinarily beautiful
+          'aPVMwtaUbp8', // Fanning the flames
+          'E1N_J6nLYgQ', // Filling in
           // null, // Get you some news
           'EwDrmA6Fuic', // Good feeling
           // null, // Got news for you

@@ -182,7 +182,7 @@ const RadioStation = {
       },
     },
 
-    gnr: { // TODO
+    gnr: {
       music: {
         list: [
           {display: 'Tex Beneke - A Wonderful Guy',                          intro: 'F7noUPUl2_g', main: 'vY8UUmIeoPQ'},
@@ -477,15 +477,15 @@ const RadioStation = {
           'gNmBqpMvpgc', // Extraordinarily beautiful
           'aPVMwtaUbp8', // Fanning the flames
           'E1N_J6nLYgQ', // Filling in
-          // null, // Get you some news
+          'toZJoyfFnD0', // Get you some news
           'EwDrmA6Fuic', // Good feeling
-          // null, // Got news for you
-          // null, // I love you
-          // null, // If you like the news
-          // null, // Jukebox
-          // null, // Magic in the air
-          // null, // More news for you
-          // null, // Mrs. New Vegas
+          'kHISZEMGdlI', // Got news for you
+          'nQcgjQ9OO1s', // I love you
+          'XfqOmS8VgI8', // If you like the news
+          'D5ZOj6FxSYw', // Jukebox
+          'X8R0OPPBbe8', // Magic in the air
+          'Nu0abFUhXDM', // More news for you
+          'rbkybhSBjSo', // Mrs. New Vegas
           'Cmpfw2jjFrA', // News bring us closer
           'jBa-tM_dyD8', // Newsman fedora
           'svtHL5qu7Ag', // No news is good news

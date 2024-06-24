@@ -1,4 +1,9 @@
 class CustomParagraphElement extends HTMLElement {
+  static _insertIndentAfter = [
+    'br',
+    'ul',
+  ];
+
   constructor() {
     super();
 
@@ -11,8 +16,18 @@ class CustomParagraphElement extends HTMLElement {
       node.remove();
       element.append(node);
 
-      if (node instanceof HTMLElement && node.tagName.toLowerCase() === 'br') {
-        element.append(this._indent());
+      if (node instanceof HTMLElement) {
+        const tag = node.tagName.toLowerCase();
+        if (tag === 'c-code' && node.block) {
+          element.append(this._indent());
+        } else {
+          for (const identifier of CustomParagraphElement._insertIndentAfter) {
+            if (tag === identifier) {
+              element.append(this._indent());
+              break;
+            }
+          }
+        }
       }
     }
 

@@ -88,6 +88,11 @@ select {
   padding: 3px;
 }
 
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
 .hidden { display: none !important; }
 .invisible { visibility: hidden !important; }
 .w40 { width: 40%; }
@@ -107,3 +112,4 @@ select {
 .text-left { text-align: left; }
 .inline-block { display: inline-block; }
 .italic { font-style: italic; }
+.bg-0 { background-color: var(--bg-color-0); }

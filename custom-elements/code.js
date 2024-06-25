@@ -6,8 +6,8 @@ class CustomCodeElement extends HTMLElement {
     this.style.textAlign = 'left';
 
     let lines = this.innerText.split('\n');
-    lines.pop();
-    lines.shift();
+    if (lines[0].trim() === '') { lines.shift(); }
+    if (lines[lines.length - 1].trim() === '') { lines.pop(); }
     lines = this._clearCommonWhitespace(lines);
 
     const language = this.getAttribute('language');
@@ -42,7 +42,7 @@ class CustomCodeElement extends HTMLElement {
     const linesToCheck = lines.slice(1).filter(x => x.length > 0);
 
     let i = 0;
-    while (lines[0][i] != null && linesToCheck.every((l) => l[i] === lines[0][i])) {
+    while (lines[0][i] === ' ' && linesToCheck.every((l) => l[i] === lines[0][i])) {
       i++;
     }
 

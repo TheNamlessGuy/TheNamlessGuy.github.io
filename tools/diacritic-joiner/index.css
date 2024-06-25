@@ -24,7 +24,7 @@ p { text-align: center; }
   padding: 5px;
   user-select: none;
 }
-.diacritic-container.active { background-color: var(--bg-color-2); }
+.diacritic-container.active { background-color: var(--bg-color-3); }
 
 #modal-container {
   position: absolute;

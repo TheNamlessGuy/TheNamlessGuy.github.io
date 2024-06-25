@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Lesson 0</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/generic.css"/>
+
+    <script src="/courses/compiler-howto/generic.js"></script>
+    <script src="/courses/generic.js"></script>
+    <script src="/generic.js"></script>
+    <script src="/custom-elements/code.js"></script>
+    <script src="/custom-elements/icon.js"></script>
+    <script src="/custom-elements/header.js"></script>
+    <script src="/custom-elements/separator.js"></script>
+    <script src="/custom-elements/paragraph.js"></script>
+    <script src="/custom-elements/footnote.js"></script>
+  </head>
+  <body class="w50 center center-text">
+    <div class="sticky bg-0">
+      <c-header>
+        <lhs>
+          <c-header-icon>home</c-header-icon>
+          <c-header-icon title="Back to the course">up</c-header-icon>
+        </lhs>
+        <center>How to set up your working environment</center>
+        <rhs>
+          <c-header-icon title="To the next lesson" url="/courses/compiler-howto/lesson-1/">forward</c-header-icon>
+        </rhs>
+      </c-header>
+
+      <c-separator></c-separator>
+    </div>
+
+    <c-paragraph>
+      Since you're reading this, I'll assume you have access to a browser<c-footnote>If you don't, and are reading this via wget or some other insane way of doing things, God help you, because I sure won't.</c-footnote>. I'll also assume that you have some basic knowledge of programming, since this should NOT be your first foray into the subject.
+    </c-paragraph>
+    <c-paragraph>
+      So, somewhere on your computer, save the following HTML file:
+      <c-code block language="html">
+        &lt;!DOCTYPE html>
+        &lt;html>
+          &lt;head>
+            &lt;script src="index.js">&lt;/script>
+          &lt;/head>
+          &lt;body>
+            &lt;textarea id="code">&lt;/textarea>&lt;br>
+            &lt;button id="btn">Compile&lt;/code>
+          &lt;/body>
+        &lt;/html>
+      </c-code>
+
+      Then, in the same folder, save the following JS file as "index.js":
+      <c-code block language="javascript">
+        window.addEventListener('DOMContentLoaded', () => {
+          document.getElementById('btn').addEventListener('click', () => compile(document.getElementById('code').value))
+        });
+
+        function compile(code) {
+          // Write your code here
+        }
+      </c-code>
+
+      Open the HTML file in your browser (dragging it into an empty tab should work), and then you're basically done. Write/paste the code you want to test into the field, then press the "compile" button.<br>
+      Open up the browser console (you'll have to look up how to do this for your browser yourself) to see logging, errors, results, whatever.<br>
+      Remember to refresh the page between code changes!
+    </c-paragraph>
+  </body>
+</html>

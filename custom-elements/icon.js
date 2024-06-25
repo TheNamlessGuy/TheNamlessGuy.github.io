@@ -2,6 +2,8 @@ class CustomIconElement extends HTMLElement {
   static map = {
     'home': '⌂',
     'back': '⮜',
+    'forward': '⮞',
+    'up': '⮝',
     'sort-asc-desc': '⬍',
   };
 
@@ -68,6 +70,8 @@ class CustomHeaderIconElement extends CustomIconElement {
   static map = {
     'home': {size: '200%', url: '/', title: 'Home'},
     'back': {size: '200%', url: () => this.trimURLSegment(window.location.href, 1), title: 'Back'},
+    'forward': {size: '200%', title: 'Forward'},
+    'up': {size: '200%', url: () => this.trimURLSegment(window.location.href, 1), title: 'Back'},
   };
 
   constructor() {

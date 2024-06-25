@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Lesson 1</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/generic.css"/>
+
+    <script src="/courses/compiler-howto/generic.js"></script>
+    <script src="/courses/generic.js"></script>
+    <script src="/generic.js"></script>
+    <script src="/custom-elements/code.js"></script>
+    <script src="/custom-elements/icon.js"></script>
+    <script src="/custom-elements/header.js"></script>
+    <script src="/custom-elements/separator.js"></script>
+    <script src="/custom-elements/paragraph.js"></script>
+    <script src="/custom-elements/footnote.js"></script>
+  </head>
+  <body class="w50 center center-text">
+    <div class="sticky bg-0">
+      <c-header>
+        <lhs>
+          <c-header-icon>home</c-header-icon>
+          <c-header-icon title="Back to the course">up</c-header-icon>
+          <c-header-icon title="To the previous lesson" url="/courses/compiler-howto/lesson-0/">back</c-header-icon>
+        </lhs>
+        <center>Introduction, overview, and documentation</center>
+        <rhs>
+          <c-header-icon title="To the next lesson" url="/courses/compiler-howto/lesson-2/">forward</c-header-icon>
+        </rhs>
+      </c-header>
+
+      <c-separator></c-separator>
+    </div>
+
+    <h2>Introduction</h2>
+    <c-paragraph>
+      This course will follow the construction of two languages:
+      <ul>
+        <li>
+          a calculator language:<br>
+          <c-code block language="compiler-howto--calc">3 * (2 + 5)</c-code>
+        </li>
+        <li>
+          a scripting language:<br>
+          <c-code block language="compiler-howto--script">
+            OUTPUT "What's your name? ";
+            var name = INPUT;
+            OUTPUT "Hello, " + name + "!\n";
+          </c-code>
+        </li>
+      </ul>
+      Both languages will be interpreted, and written in JavaScript. I'll leave it to you to write a compiled language, but you should understand how to do it after having taking this course.<br>
+      The scripting language is meant for people who are interested in getting to know things on a deeper level. We'll go into some more advanced concepts (variables and functions, for example).
+    </c-paragraph>
+    <c-paragraph>
+      Each lesson, you will find sections like these:
+      <details class="blue">
+        <summary>Calculator language</summary>
+        <div>Dummy text</div>
+      </details>
+      <details class="purple">
+        <summary>Scripting language</summary>
+        <div>Dummy text</div>
+      </details>
+      The header of each can be clicked in order to toggle the text within it.<br>
+      The contents of each pertain to the language specified in the header. The idea is mostly to separate the basics (the calculator language) from the more advanced cases (the scripting language). If you're here for the basics, you won't have to click any of these elements.
+    </c-paragraph>
+
+    <h2>Overview</h2>
+    <c-paragraph>
+      The flow of the program (input > tokenizer > parser > execution)
+    </c-paragraph>
+
+    <h2>Documentation</h2>
+
+    <details class="blue" open>
+      <summary>Calculator language</summary>
+
+      <div>
+        <c-paragraph>
+          Blah blah BNF basics.<br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et varius nulla. Etiam leo libero, aliquet sit amet pellentesque eget, finibus sed lectus. Proin vestibulum risus eget nibh auctor consectetur. Cras varius nibh at nunc tempor, in suscipit enim sollicitudin. Vestibulum in lacinia dui, in molestie massa. Vivamus volutpat leo nibh, nec sagittis purus rutrum a. Suspendisse molestie ipsum venenatis nulla elementum vestibulum. Donec ultricies neque in sodales consequat. Donec eleifend consequat turpis, sit amet porta dolor tempus a. Aenean et dolor quis sem ullamcorper iaculis et quis massa. Duis lorem urna, egestas at ante nec, rhoncus egestas dui. Etiam ac libero sed leo aliquet imperdiet. Donec id tristique lacus.
+        </c-paragraph>
+      </div>
+    </details>
+
+    <c-separator faded></c-separator>
+
+    <details class="purple">
+      <summary>Scripting language</summary>
+
+      <div>
+        <c-paragraph>
+          Perhaps some more advanced BNF cases.<br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et varius nulla. Etiam leo libero, aliquet sit amet pellentesque eget, finibus sed lectus. Proin vestibulum risus eget nibh auctor consectetur. Cras varius nibh at nunc tempor, in suscipit enim sollicitudin. Vestibulum in lacinia dui, in molestie massa. Vivamus volutpat leo nibh, nec sagittis purus rutrum a. Suspendisse molestie ipsum venenatis nulla elementum vestibulum. Donec ultricies neque in sodales consequat. Donec eleifend consequat turpis, sit amet porta dolor tempus a. Aenean et dolor quis sem ullamcorper iaculis et quis massa. Duis lorem urna, egestas at ante nec, rhoncus egestas dui. Etiam ac libero sed leo aliquet imperdiet. Donec id tristique lacus.
+        </c-paragraph>
+      </div>
+    </details>
+  </body>
+</html>

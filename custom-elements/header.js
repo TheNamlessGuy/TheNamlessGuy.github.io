@@ -18,7 +18,7 @@ class CustomHeaderElement extends HTMLElement {
       lhs.append(...lhsElem.childNodes);
     }
 
-    const center = document.createElement('div');
+    const center = document.createElement('h1');
     center.classList.add('center');
     center.innerText = centerElem ? centerElem.innerText : this.innerText;
 

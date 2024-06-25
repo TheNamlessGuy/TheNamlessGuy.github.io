@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/generic.css"/>
+
+    <script src="/courses/compiler-howto/generic.js"></script>
+    <script src="/courses/generic.js"></script>
+    <script src="/generic.js"></script>
+    <script src="/custom-elements/icon.js"></script>
+    <script src="/custom-elements/header.js"></script>
+    <script src="/custom-elements/separator.js"></script>
+    <script src="/custom-elements/paragraph.js"></script>
+    <script src="/custom-elements/link-container.js"></script>
+  </head>
+  <body class="w50 center center-text">
+    <div class="sticky bg-0">
+      <c-header>
+        <lhs>
+          <c-header-icon>home</c-header-icon>
+          <c-header-icon title="Back to 'Courses'">back</c-header-icon>
+        </lhs>
+        <center>How to write a (basic) compiler/interpreter</center>
+      </c-header>
+
+      <c-separator></c-separator>
+    </div>
+
+    <c-paragraph>
+      In this course, I'll cover the basics of how to write your own compiler and/or interpreter. Theoretically, you could write your own python interpreter after finishing this course, even if it probably wouldn't be as fast as the official ones.<br>
+      We won't be covering such things as optimization (such as <a href="https://en.wikipedia.org/wiki/Loop_unrolling">loop unrolling</a>, for example), but we'll cover the basics of how you could find such patterns. I'll leave the rest up to you.
+    </c-paragraph>
+    <c-paragraph>
+      The course is split up into four lessons, which are listed below. Click on where you'd like to start from (I'd recommend lesson 0 or 1), and go from there.<br>
+      Note that you can move between lessons using the left and right arrows on the header, once on a lesson page.
+    </c-paragraph>
+
+    <c-separator></c-separator>
+
+    <c-link-container>
+      <title url="/courses/compiler-howto/lesson-0/">Lesson 0 - (Optional) How to set up your working environment</title>
+      <description>Unsure of how to execute JavaScript code? Check here first</description>
+    </c-link-container>
+
+    <c-separator faded></c-separator>
+
+    <c-link-container>
+      <title url="/courses/compiler-howto/lesson-1/">Lesson 1 - Introduction, overview, and documentation</title>
+      <description>We'll go through the basics of the course, a basic overview of the flow of the program (along with some terminology), and how to write documentation for your compiler/interpreter</description>
+    </c-link-container>
+
+    <c-separator faded></c-separator>
+
+    <c-link-container>
+      <title url="/courses/compiler-howto/lesson-2/">Lesson 2 - Tokenizing</title>
+      <description>This will explain what a tokenizer is, and how it works</description>
+    </c-link-container>
+
+    <c-separator faded></c-separator>
+
+    <c-link-container>
+      <title url="/courses/compiler-howto/lesson-3/">Lesson 3 - Parsing</title>
+      <description>We've tokenized our code. How do we build a syntax tree out of it?</description>
+    </c-link-container>
+
+    <c-separator faded></c-separator>
+
+    <c-link-container>
+      <title url="/courses/compiler-howto/lesson-4/">Lesson 4 - Execution</title>
+      <description>We know what the user wants to do, so let's do it</description>
+    </c-link-container>
+  </body>
+</html>

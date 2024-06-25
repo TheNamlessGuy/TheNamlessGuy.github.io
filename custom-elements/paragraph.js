@@ -1,4 +1,10 @@
 class CustomParagraphElement extends HTMLElement {
+  static _insertIndentAfter = [
+    'br',
+    'ul',
+    'details',
+  ];
+
   constructor() {
     super();
 
@@ -8,10 +14,11 @@ class CustomParagraphElement extends HTMLElement {
     element.append(this._indent());
 
     for (const node of Array.from(this.childNodes)) {
+      const shouldIndentAfter = this._shouldIndentAfter(node);
+
       node.remove();
       element.append(node);
-
-      if (node instanceof HTMLElement && node.tagName.toLowerCase() === 'br') {
+      if (shouldIndentAfter) {
         element.append(this._indent());
       }
     }
@@ -27,6 +34,34 @@ class CustomParagraphElement extends HTMLElement {
     indent.style.whiteSpace = 'pre';
     indent.innerText = '  ';
     return indent;
+  }
+
+  _shouldIndentAfter(node) {
+    if (!(node instanceof HTMLElement)) {
+      return false;
+    }
+
+    // Find the next non-empty text node sibling, and check if we'll indent after that. If we are, we shouldn't indent after this
+    let nextNode = node.nextSibling;
+    while (nextNode.nodeType === Node.TEXT_NODE && nextNode.textContent.trim().length === 0) {
+      nextNode = nextNode.nextSibling;
+    }
+    if (nextNode && this._shouldIndentAfter(nextNode)) {
+      return false;
+    }
+
+    const tag = node.tagName.toLowerCase();
+    if (tag === 'c-code') {
+      return node.block;
+    }
+
+    for (const identifier of CustomParagraphElement._insertIndentAfter) {
+      if (tag === identifier) {
+        return true;
+      }
+    }
+
+    return false;
   }
 }
 

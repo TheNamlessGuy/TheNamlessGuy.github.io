@@ -1,9 +1,3 @@
-/**
- * TODO:
- * * Solve (Step and fully)
- * * Save function - hash?
- */
-
 const ELEMENTS = {
   field: null,
   winnerDisplay: null,

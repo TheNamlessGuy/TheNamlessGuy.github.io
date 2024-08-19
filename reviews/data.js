@@ -76,8 +76,8 @@ const _raw_data = {
   }, {
     "title": "Joker",
     "link": "https://www.imdb.com/title/tt7286456/",
-    "score": 8,
-    "reviewed_at": ["2020-07-25"],
+    "score": 8.75,
+    "reviewed_at": ["2020-07-25", "2024-08-18"],
     "tags": ["movie"],
   }, {
     "title": "Megamind",
@@ -325,7 +325,7 @@ const _raw_data = {
     "title": "Avatar: The Last Airbender",
     "link": "https://www.imdb.com/title/tt0417299/",
     "score": 9.5,
-    "reviewed_at": ["2020-07-25"],
+    "reviewed_at": ["2020-07-25", "2024-08-13"],
     "tags": ["show"],
   }, {
     "title": "The Legend of Korra",
@@ -2148,7 +2148,7 @@ Ran for the perfect amount of time, given the subject matter, and stuck the land
     "title": "The Bear",
     "link": "https://www.imdb.com/title/tt14452776/",
     "score": 9.5,
-    "reviewed_at": ["2023-09-10"],
+    "reviewed_at": ["2023-09-10", "2024-07-17"],
     "description": "Anxiety simulator, but in a good way",
     "tags": ["show"],
   }, {
@@ -2821,5 +2821,49 @@ It really deserves a more polished sequel.
     "reviewed_at": ["2024-06-09"],
     "description": "A bit slow at times, but overall really good",
     "tags": ["show"],
+  }, {
+    "title": "Chocolat",
+    "link": "https://www.imdb.com/title/tt0241303/",
+    "score": 7,
+    "reviewed_at": ["2024-07-10"],
+    "tags": ["movie"],
+    "description": "Weirdly reminiscent of Hunchback of Notre Dame. Especially the villain",
+  }, {
+    "title": "Gladiator",
+    "link": "https://www.imdb.com/title/tt0172495/",
+    "score": 7.5,
+    "reviewed_at": ["2024-07-10"],
+    "tags": ["movie"],
+  }, {
+    "title": "Austin Powers: International Man of Mystery",
+    "link": "https://www.imdb.com/title/tt0118655/",
+    "score": 5.5,
+    "reviewed_at": ["2024-07-11"],
+    "tags": ["movie"],
+  }, {
+    "title": "Batman: The Movie",
+    "link": "https://www.imdb.com/title/tt0060153/",
+    "score": 7,
+    "reviewed_at": ["2024-07-25"],
+    "tags": ["movie"],
+  }, {
+    "title": "Galaxy Quest",
+    "link": "https://www.imdb.com/title/tt0177789/",
+    "score": 7.5,
+    "reviewed_at": ["2024-07-25"],
+    "tags": ["movie"],
+  }, {
+    "title": "Fisherman's Friends",
+    "link": "https://www.imdb.com/title/tt1648186/",
+    "score": 8,
+    "reviewed_at": ["2024-07-24"],
+    "tags": ["movie"],
+  }, {
+    "title": "The Retirement Plan",
+    "link": "https://www.imdb.com/title/tt14827638/",
+    "score": 5.5,
+    "reviewed_at": ["2024-07-13"],
+    "tags": ["movie"],
+    "description": "Perfect example of why timing is important in comedy",
   }]
 };

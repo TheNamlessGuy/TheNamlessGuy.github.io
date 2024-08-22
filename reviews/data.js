@@ -2865,5 +2865,36 @@ It really deserves a more polished sequel.
     "reviewed_at": ["2024-07-13"],
     "tags": ["movie"],
     "description": "Perfect example of why timing is important in comedy",
+  }, {
+    "title": "Turnip Boy Commits Tax Evasion",
+    "link": "https://www.gog.com/game/turnip_boy_commits_tax_evasion",
+    "score": 7.5,
+    "reviewed_at": ["2024-08-19"],
+    "tags": ["game"],
+    "description": "Exactly what I expected and not what I expected at all at the same time",
+  }, {
+    "title": "Turnip Boy Commits Tax Evasion",
+    "link": "https://www.gog.com/en/game/turnip_boy_robs_a_bank",
+    "score": 7.5,
+    "reviewed_at": ["2024-08-22"],
+    "tags": ["game"],
+    "description": "A solid sequel. Nothing like the original, but also is",
+  }, {
+    "title": "DAVE THE DIVER",
+    "link": "https://store.steampowered.com/app/1868140/DAVE_THE_DIVER/",
+    "score": 8.5,
+    "reviewed_at": ["2024-08-22"],
+    "tags": ["game"],
+    "description": `
+Very cozy and enjoyable game. Has that over the top anime vibe, but without stepping over the line into annoying.
+
+There are only a few points that I didn't find great:
+1) With the amount of busy work, events, side quests, and such, it's very difficult to feel like you can take the time to do what you want. For example: from the time I got my first email event to the time I finished the game, I had one day where I didn't have <i>something</i> coming up soon
+2) The randomly generated map feels like it detracts more from the game than it adds. If we had gotten something similar to the moving around sequence you get in the Dredge DLC, where you can choose <i>where</i> you want to dive, it would have worked a lot better. For example: as it is, it's just annoying to try and three-star your Pokédex, since the fish you want only spawns in the seaweed jungle.
+3) The combat mechanics feel underpolished in comparison to the rest of the game. Not being able to aim fully up/down is annoying, but what really annoyed me is the fact that the controls in combat are unreliable. It seems the game listens to "button down" events, instead of "button held" events. This leads to situations where you may get hit and try to retaliate, but the game didn't register the fact that you right clicked due to the fact that the hit animation had 2 frames left. So instead, you stab the enemy with your knife, which doesn't "stun" it. Swapping weapons while paralyzed, and a bunch of other situations all suffer the same fate.
+4) The fact that different plants grow at different speeds ended up being annoying more than helpful, since it meant that you had to go to the farm three times per day instead of once.
+
+That being said, I did enjoy my time. The core gameplay loop is solid, and the issues with combat are something you can get used to, even if it doesn't feel great.
+`,
   }]
 };

@@ -1135,11 +1135,6 @@ Back & Forth: 8`,
     "score": 7,
     "tags": ["game"],
   }, {
-    "title": "Dishonored",
-    "link": "https://www.gog.com/game/dishonored_definitive_edition",
-    "score": 7,
-    "tags": ["game"],
-  }, {
     "title": "Trine 2: Complete Story",
     "link": "https://www.gog.com/game/trine_2_complete_story",
     "score": 7,
@@ -2310,7 +2305,7 @@ And yes, I did 100% the game.`,
     "tags": ["show"],
   }, {
     "title": "Gorogoa",
-    "link": "https://www.gog.com/en/game/gorogoa",
+    "link": "https://www.gog.com/game/gorogoa",
     "score": 9,
     "reviewed_at": ["2023-10-29"],
     "description": `SPOILER! My interpretation of the story:
@@ -2373,7 +2368,7 @@ All around enjoyable, but a bit tedious towards the end.`,
     "tags": ["movie"],
   }, {
     "title": "Goetia",
-    "link": "https://www.gog.com/en/game/goetia",
+    "link": "https://www.gog.com/game/goetia",
     "score": 6,
     "reviewed_at": ["2023-11-21"],
     "description": `A point-and-click puzzle game that takes too much inspiration from the early days of the genre.
@@ -2589,7 +2584,7 @@ All the above are just minor nitpicks, and I would say that if you're into the m
     "tags": ["movie"],
   }, {
     "title": "Control",
-    "link": "https://www.gog.com/en/game/control_ultimate_edition",
+    "link": "https://www.gog.com/game/control_ultimate_edition",
     "score": 8.5,
     "reviewed_at": ["2024-03-16"],
     "description": `
@@ -2873,8 +2868,8 @@ It really deserves a more polished sequel.
     "tags": ["game"],
     "description": "Exactly what I expected and not what I expected at all at the same time",
   }, {
-    "title": "Turnip Boy Commits Tax Evasion",
-    "link": "https://www.gog.com/en/game/turnip_boy_robs_a_bank",
+    "title": "Turnip Boy Robs a Bank",
+    "link": "https://www.gog.com/game/turnip_boy_robs_a_bank",
     "score": 7.5,
     "reviewed_at": ["2024-08-22"],
     "tags": ["game"],
@@ -2896,5 +2891,26 @@ There are only a few points that I didn't find great:
 
 That being said, I did enjoy my time. The core gameplay loop is solid, and the issues with combat are something you can get used to, even if it doesn't feel great.
 `,
+  }, {
+    "title": "Arx Fatalis",
+    "link": "https://www.gog.com/game/arx_fatalis",
+    "score": 8.75,
+    "reviewed_at": ["2024-08-26"],
+    "tags": ["game"],
+    "description": `
+It's incredible how a really janky, relatively short, relatively low on content game can outclass many modern AAA games in terms of how good it feels to play. Don't get me wrong, there is a <i>lot</i> of jank, especially coming from a modern game perspective, but there's so much charm and thought put into the game.
+
+Giving you a rudimentary system for interacting with the world, and then having said system be <i>the only way</i> to interact with the world, is great. The game lets you actually interact with it. You don't get a "Kill X" or "Spare X" moment, you get to talk to X then decide yourself if you walk away or not. There's no real frontloading of choice, because you have the exact same choices all the time. This is something even modern "immersive sims" don't seem to grasp well, at least from the ones I've tried. Give me something like this game, but with an expansive and filled world like Morrowind, and I'd play it over and over.
+`,
+  }, {
+    "title": "Grotto",
+    "link": "https://www.gog.com/game/grotto",
+    "score": 7.5,
+    "reviewed_at": ["2024-08-27"],
+    "tags": ["game"],
+    "description": `
+<a href="https://www.youtube.com/watch?v=iZlpsneDGBQ">Your actions have consequences!</a>
+
+The fact that you have to find constellations yourself is a weird mechanic. I'd recommend just looking up an unlock guide, since that part of the game really doesn't add anything. Other than that, pretty solid. Voice acting is dodgy at times, but that's not the focus of the game.`,
   }]
 };

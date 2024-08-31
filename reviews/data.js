@@ -1980,7 +1980,7 @@ Not to mention how it all feeds into telling the story so damn well.`,
     "title": "Ghosts",
     "link": "https://www.imdb.com/title/tt8594324/",
     "score": 8,
-    "reviewed_at": ["2023-03-12"],
+    "reviewed_at": ["2023-03-12", "2024-08-30"],
     "tags": ["show"],
   }, {
     "title": "We Have a Ghost",
@@ -2912,5 +2912,81 @@ Giving you a rudimentary system for interacting with the world, and then having 
 <a href="https://www.youtube.com/watch?v=iZlpsneDGBQ">Your actions have consequences!</a>
 
 The fact that you have to find constellations yourself is a weird mechanic. I'd recommend just looking up an unlock guide, since that part of the game really doesn't add anything. Other than that, pretty solid. Voice acting is dodgy at times, but that's not the focus of the game.`,
+  }, {
+    "title": "Samsara Room",
+    "link": "https://www.gog.com/game/samsara_room",
+    "score": 7.5,
+    "reviewed_at": ["2024-08-28"],
+    "tags": ["game", "game:rusty-lake"],
+    "description": "Cryptic, weird, and the moon logic feels not so moonian. Just what you want from a Rusty Lake game"
+  }, {
+    "title": "Cube Escape: Seasons",
+    "link": "https://www.gog.com/game/cube_escape_collection",
+    "score": 6,
+    "reviewed_at": ["2024-08-30"],
+    "tags": ["game", "game:rusty-lake"],
+    "description": "You can tell that these early games were early - the team hadn't yet gotten the nice UX of the later games."
+  }, {
+    "title": "Cube Escape: The Lake",
+    "link": "https://www.gog.com/game/cube_escape_collection",
+    "score": 7,
+    "reviewed_at": ["2024-08-30"],
+    "tags": ["game", "game:rusty-lake"],
+    "description": "Alternate ending is spooktacular"
+  }, {
+    "title": "Cube Escape: Arles",
+    "link": "https://www.gog.com/game/cube_escape_collection",
+    "score": 7,
+    "reviewed_at": ["2024-08-30"],
+    "tags": ["game", "game:rusty-lake"],
+    "description": "Good puzzles, but it feels weirdly out of place in the Rusty Lake franchise. The coloring puzzle was real nice"
+  }, {
+    "title": "Cube Escape: Harvey's Box",
+    "link": "https://www.gog.com/game/cube_escape_collection",
+    "score": 6.5,
+    "reviewed_at": ["2024-08-30"],
+    "tags": ["game", "game:rusty-lake"],
+    "description": "A lot of guess work when solving puzzles, even if you know the solution. For example, you just have to learn what level of filled glass gives off what note. The domino puzzle having multiple ways to even start is just diabolical time wastage. Maggot/fly puzzle is chef kiss emoji"
+  }, {
+    "title": "Cube Escape: Case 23",
+    "link": "https://www.gog.com/game/cube_escape_collection",
+    "score": 7.5,
+    "reviewed_at": ["2024-08-30"],
+    "tags": ["game", "game:rusty-lake"],
+    "description": "The story is going places! I don't appreciate the timed last chapter, but at least it's very short. Also, I hate sliding puzzles, but that's a purely personal gripe"
+  }, {
+    "title": "Cube Escape: The Mill",
+    "link": "https://www.gog.com/game/cube_escape_collection",
+    "score": 8,
+    "reviewed_at": ["2024-08-30"],
+    "tags": ["game", "game:rusty-lake"],
+    "description": "Story is quickly getting interesting"
+  }, {
+    "title": "Rusty Lake Hotel",
+    "link": "https://www.gog.com/game/rusty_lake_hotel",
+    "score": 8,
+    "reviewed_at": ["2024-08-31"],
+    "tags": ["game", "game:rusty-lake"],
+    "description": "Kind of annoying that some of the optional ingredients are missable - had to restart twice"
+  }, {
+    "title": "Cube Escape: Birthday",
+    "link": "https://www.gog.com/game/cube_escape_collection",
+    "score": 8.5,
+    "reviewed_at": ["2024-08-31"],
+    "tags": ["game", "game:rusty-lake"],
+    "description": "Based grandpa enjoyer"
+  }, {
+    "title": "Hook",
+    "link": "https://www.imdb.com/title/tt0102057/",
+    "score": 8.5,
+    "reviewed_at": ["2024-08-31"],
+    "tags": ["movie"],
+  }, {
+    "title": "Cube Escape: Theatre",
+    "link": "https://www.gog.com/game/cube_escape_collection",
+    "score": 7.5,
+    "reviewed_at": ["2024-08-31"],
+    "tags": ["game", "game:rusty-lake"],
+    "description": "Very chill, puzzle-focused entry"
   }]
 };

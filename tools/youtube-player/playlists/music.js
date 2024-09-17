@@ -725,7 +725,7 @@ Playlist.addPredesignedPlaylist('music', [
   {title: 'Noah Kahan - Stick Season',                                                                   source: 'youtube', src: 'gLA6VyT4QOw', tags: [Tags.SINGALONG]},
   {title: 'Explosions in the Sky - Your Hand in Mine',                                                   source: 'youtube', src: 'AH1S2e9TmWU', tags: [Tags.GENRE_INSTRUMENTAL]},
   {title: 'Diedarian - Awakening',                                                                       source: 'youtube', src: '8dMcdTUu5Ok', tags: [Tags.GENRE_INSTRUMENTAL]},
-  {title: 'Arknights - Lee / Invitation to Wine event theme',                                            source: 'youtube', src: 'wb2RfxUj_BQ', tags: []}, // TODO: Find composer
+  {title: 'Arknights - Lee / Invitation to Wine event theme',                                            source: 'youtube', src: 'wb2RfxUj_BQ', tags: [], found_through: 'ymfah'}, // TODO: Find composer
   {title: 'Ed Sheeran - Celestial',                                                                      source: 'youtube', src: 'eUlA12xv8To', tags: []},
   {title: 'Glenn Miller - In The Mood',                                                                  source: 'youtube', src: '_CI-0E_jses', tags: [Tags.GENRE_INSTRUMENTAL, Tags.CLASSIC]},
   {title: 'Tove Styrke - High and Low',                                                                  source: 'youtube', src: 'SyryMkH1_9g', tags: []},
@@ -763,7 +763,7 @@ Playlist.addPredesignedPlaylist('music', [
   {title: 'Robbie Williams - Let Me Entertain You',                                                      source: 'youtube', src: 'qg_agm9jOf4', tags: []},
   {title: 'blink-182 - All the Small Things',                                                            source: 'youtube', src: '9Ht5RZpzPqw', tags: []},
   {title: 'Mr Little Jeans - Oh Sailor (feat. The Silverlake Conservatory of Music Youth Chorale)',      source: 'youtube', src: 'T5Os1RRYDsA', tags: []},
-  {title: 'Tomoya Ohtani (feat. Kellin Quinn) - Undefeatable',                                           source: 'youtube', src: 'u_FRDqHT5y0', tags: [Tags.VIDYA], found_through: 'GameGrumps'},
+  {title: 'Tomoya Ohtani (feat. Kellin Quinn) - Undefeatable',                                           source: 'youtube', src: 'u_FRDqHT5y0', tags: [Tags.VIDYA, Tags.HYPE], found_through: 'GameGrumps'},
   {title: 'Packwood - We Drink Light',                                                                   source: 'youtube', src: 'jxp0OBrmEbo', tags: []},
   {title: 'Don McCloskey - We Drink Light',                                                              source: 'youtube', src: '4ItphmcYXpg', tags: []},
   {title: 'Yoshihito Yano (feat. Saki Kabata) - Lonely Rolling Star',                                    source: 'youtube', src: '7_QydNXI_ok', tags: [Tags.VIDYA], found_through: 'GameGrumps'},
@@ -848,6 +848,13 @@ Playlist.addPredesignedPlaylist('music', [
   {title: 'Hydelic - Connected',                                                                         source: 'youtube', src: '8HuDnXloq2s', tags: [],                           found_through: 'Tetris Effect'},
   {title: 'D\'Anthoni Wooten - Together Are We (Cheers for the Sea)',                                    source: 'youtube', src: 'Y3qnbcoKRPs', tags: [],                           found_through: 'Dave the Diver'},
   {title: 'The Great Orange - Viva La Vida (Minecraft Villager cover)',                                  source: 'youtube', src: '4wgIUckEZBg', tags: [],                           found_through: 'YouTube recommendation'},
-  {title: 'Jason Miller - Red Sun',                                                                      source: 'youtube', src: '23oZbJNSd0s', tags: [],                           found_through: 'ymfah'},
-  {title: 'Casey Edwards - Bury the Light',                                                              source: 'youtube', src: 'pvy9km7g6fw', tags: [],                           found_through: 'Devil May Cry V'},
+  {title: 'Jason Miller - Red Sun',                                                                      source: 'youtube', src: '23oZbJNSd0s', tags: [Tags.HYPE, Tags.VIDYA],      found_through: 'ymfah'},
+  {title: 'Casey Edwards - Bury the Light',                                                              source: 'youtube', src: 'pvy9km7g6fw', tags: [Tags.HYPE, Tags.VIDYA],      found_through: 'Devil May Cry V'},
+  {title: 'Barenaked Ladies - Pinch Me',                                                                 source: 'youtube', src: 'udBWSiRL7yU', tags: [],                           found_through: 'Scrubs'},
+  {title: 'Simple Minds - Don\'t You (Forget About Me)',                                                 source: 'youtube', src: 'D1x2R1I8Bmc', tags: [],                           found_through: 'Scrubs'},
+  {title: 'U2 - Beautiful Day',                                                                          source: 'youtube', src: 'rIKTwELuCLw', tags: [],                           found_through: 'Scrubs'},
+  {title: 'Bloodhound Gang - The Bad Touch',                                                             source: 'youtube', src: '523Lqlk4fm8', tags: [],                           found_through: 'Umbrella Academy'},
+  {title: 'Primus - The Devil Went Down To Georgia',                                                     source: 'youtube', src: 'X9uk9IcoQ0w', tags: [],                           found_through: 'YouTube recommendation'},
+  {title: 'Tyson Yen - The Only Thing I Know For Real',                                                  source: 'youtube', src: 'CXRxRTW6nXg', tags: [Tags.HYPE, Tags.VIDYA],      found_through: 'ymfah'},
+  {title: 'Mewmore - Surf (Pokémon Gold & Silver Remix)',                                                source: 'youtube', src: 'Z_QoacV76YU', tags: [Tags.VIDYA],                 found_through: 'YouTube recommendation'},
 ]);

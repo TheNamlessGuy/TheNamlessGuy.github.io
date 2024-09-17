@@ -243,12 +243,6 @@ const _raw_data = {
     "reviewed_at": ["2020-07-25"],
     "tags": ["show", "anime"],
   }, {
-    "title": "Attack on Titan",
-    "link": "https://myanimelist.net/anime/16498/Shingeki_no_Kyojin",
-    "score": 8.5,
-    "reviewed_at": ["2021-12-04"],
-    "tags": ["show", "anime"],
-  }, {
     "title": "Death Note",
     "link": "https://myanimelist.net/anime/1535/Death_Note",
     "score": 8,
@@ -2988,5 +2982,45 @@ The fact that you have to find constellations yourself is a weird mechanic. I'd 
     "reviewed_at": ["2024-08-31"],
     "tags": ["game", "game:rusty-lake"],
     "description": "Very chill, puzzle-focused entry"
+  }, {
+    "title": "Rusty Lake: Roots",
+    "link": "https://www.gog.com/game/rusty_lake_roots",
+    "score": 9,
+    "reviewed_at": ["2024-09-01"],
+    "tags": ["game", "game:rusty-lake"],
+    "description": "Fantastic entry. The last puzzle is a bit obtuse, but the rest of the game is great"
+  }, {
+    "title": "Cube Escape: The Cave",
+    "link": "https://www.gog.com/game/cube_escape_collection",
+    "score": 8,
+    "reviewed_at": ["2024-09-02"],
+    "tags": ["game", "game:rusty-lake"],
+    "description": "Some of the puzzles are a bit obtuse, and it's very long for a cube escape entry - but it is good"
+  }, {
+    "title": "The Umbrella Academy",
+    "link": "https://www.imdb.com/title/tt1312171/",
+    "score": 5.75,
+    "reviewed_at": ["2024-09-06"],
+    "tags": ["show"],
+    "description": `SPOILERS.
+
+One of those shows that got worse as it went on. Season 1 was pretty good (7.5) and season 2 was a solid follow-up, but it just lost its charm after that. Especially the last season, with plot holes aplenty, and several plot threads going absolutely nowhere.
+Plot devices mentioned in the last episode, that would solve the problem of the last episode, are not used to solve the problem because I guess the characters forgot about it? What was the point of introducing the device in the first place?
+
+Music choice was always pretty good though.`
+  }, {
+    "title": "Leo",
+    "link": "https://www.imdb.com/title/tt5755238/",
+    "score": 7,
+    "reviewed_at": ["2024-09-09"],
+    "tags": ["movie"],
+    "description": "Well made kids movie with stuff for adults as well. Songs aren't disney quality, but they fulfill their purpose"
+  }, {
+    "title": "The Banshees of Inisherin",
+    "link": "https://www.imdb.com/title/tt11813216/",
+    "score": 8,
+    "reviewed_at": ["2024-09-14"],
+    "tags": ["movie"],
+    "description": "I feel like I <i>should</i> write something, but I'm not sure what."
   }]
 };

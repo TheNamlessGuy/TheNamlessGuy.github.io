@@ -7,6 +7,7 @@ const Tags = {
   DANCE: 'dance',
   CLASSIC: 'classic',
   MASHUP: 'mashup',
+  HYPE: 'hype',
 
   GENRE_MUSICAL: 'genre:musical',
   GENRE_INSTRUMENTAL: 'genre:instrumental',

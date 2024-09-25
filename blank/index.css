@@ -5,7 +5,73 @@ html, body {
   width: 100vw;
   height: 100vh;
 }
+body.hidden-cursor { cursor: none; }
 
-.hidden-cursor {
-  cursor: none;
+#prompt-container {
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+#prompt {
+  color: inherit;
+  filter: invert(100%);
+  mix-blend-mode: difference;
+  opacity: 0.5;
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 0.5; }
+}
+.fade-in { animation: fade-in 0.5s; }
+
+@keyframes fade-out {
+  0% { opacity: 0.5; }
+  100% { opacity: 0; }
+}
+.fade-out { animation: fade-out 0.5s; }
+
+#options-dialog {
+  outline: none;
+  color: #FFF;
+  background-color: #000;
+  border: 1px solid #FFF;
+  border-radius: 5px;
+}
+
+#options-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 25px;
+  font-weight: bold;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+#options-x-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #FFF;
+  height: fit-content;
+  outline: none;
+}
+
+#options-color-container {
+  display: flex;
+  align-items: center;
+}
+#options-color-container > span { margin-right: 1ch; }
+#options-color {
+  border: 1px solid #FFF;
+  border-radius: 5px;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
 }

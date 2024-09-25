@@ -3018,9 +3018,34 @@ Music choice was always pretty good though.`
   }, {
     "title": "The Banshees of Inisherin",
     "link": "https://www.imdb.com/title/tt11813216/",
-    "score": 8,
+    "score": 7.5,
     "reviewed_at": ["2024-09-14"],
     "tags": ["movie"],
     "description": "I feel like I <i>should</i> write something, but I'm not sure what."
+  }, {
+    "title": "The Menu",
+    "link": "https://www.imdb.com/title/tt9764362/",
+    "score": 7.5,
+    "reviewed_at": ["2024-09-19"],
+    "tags": ["movie"],
+    "description": "Very gripping. Entire movie is build up, but unfortunately it fumbles the ending. Not a lot mind you, but still."
+  }, {
+    "title": "The Librarian: Quest for the Spear",
+    "link": "https://www.imdb.com/title/tt0412915/",
+    "score": 6,
+    "reviewed_at": ["2024-09-24"],
+    "tags": ["movie"],
+  }, {
+    "title": "The Specials",
+    "link": "https://www.imdb.com/title/tt0181836/",
+    "score": 6,
+    "reviewed_at": ["2024-09-24"],
+    "tags": ["movie"],
+  }, {
+    "title": "Chef",
+    "link": "https://www.imdb.com/title/tt2883512/",
+    "score": 7.5,
+    "reviewed_at": ["2024-09-25"],
+    "tags": ["movie"],
   }]
 };

@@ -9,5 +9,23 @@
 
     <script src="index.js"></script>
   </head>
-  <body></body>
+  <body>
+    <div id="prompt-container">
+      <span id="prompt">
+        Press F to toggle fullscreen<br>
+        Press F1 to toggle options
+      </span>
+    </div>
+
+    <dialog id="options-dialog">
+      <div id="options-header">
+        <span>Options</span>
+        <button id="options-x-btn">⨯</button>
+      </div>
+      <div id="options-color-container">
+        <span>Background color:</span>
+        <input id="options-color" type="color" value="#000000">
+      </div>
+    </dialog>
+  </body>
 </html>

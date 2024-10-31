@@ -17,7 +17,7 @@ body.hidden-cursor { cursor: none; }
 }
 
 #prompt {
-  color: inherit;
+  color: #000;
   filter: invert(100%);
   mix-blend-mode: difference;
   opacity: 0.5;

@@ -33,7 +33,9 @@ const Cursor = {
 
 const Options = {
   setBackgroundColor: function() {
-    document.body.style.backgroundColor = document.getElementById('options-color').value;
+    const color = document.getElementById('options-color').value;
+    document.body.style.backgroundColor = color;
+    document.getElementById('prompt').style.color = color;
   },
 
   dialog: {

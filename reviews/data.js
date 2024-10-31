@@ -583,9 +583,14 @@ With the alternate ending, I'd bump it up to a 7.5/10.
   }, {
     "title": "The Greatest Showman",
     "link": "https://www.imdb.com/title/tt1485796/",
-    "score": 9,
-    "reviewed_at": ["2020-09-23"],
+    "score": 8,
+    "reviewed_at": ["2020-09-23", "2024-10-16"],
     "tags": ["movie", "musical"],
+    "description": `The pacing is all over the place, especially in the beginning. Nothing ever feels like it's given room to land.
+
+But, on the other hand, that's one of the strengths of the film. Seeing all the underhanded shit Barnum does (not actually drinking anything during The Other Side, for example) is a large part of why I enjoy it so much. The first half movie is set from his own perspective of sorts, painting him like a good person, but as the movie goes on, it puts more and more focus on the fact that he really is just... conniving?
+
+Music is great. Choreography (especially in the two bar scenes) is top tier.`,
   }, {
     "title": "Brooklyn Nine-Nine",
     "link": "https://www.imdb.com/title/tt2467372/",
@@ -892,7 +897,7 @@ With the alternate ending, I'd bump it up to a 7.5/10.
     "title": "Knives Out",
     "link": "https://www.imdb.com/title/tt8946378/",
     "score": 8,
-    "reviewed_at": ["2021-05-05"],
+    "reviewed_at": ["2021-05-05", "2024-10-26"],
     "tags": ["movie"],
   }, {
     "title": "Legend",
@@ -3047,5 +3052,72 @@ Music choice was always pretty good though.`
     "score": 7.5,
     "reviewed_at": ["2024-09-25"],
     "tags": ["movie"],
+  }, {
+    "title": "The Maltese Falcon",
+    "link": "https://www.imdb.com/title/tt0033870/",
+    "score": 7,
+    "reviewed_at": ["2024-09-26"],
+    "tags": ["movie"],
+  }, {
+    "title": "Treasure Planet",
+    "link": "https://www.imdb.com/title/tt0133240/",
+    "score": 8,
+    "reviewed_at": ["2024-09-30"],
+    "tags": ["movie"],
+    "description": "Gorgeous animation and a well told story",
+  }, {
+    "title": "George of the Jungle",
+    "link": "https://www.imdb.com/title/tt0119190/",
+    "score": 7,
+    "reviewed_at": ["2024-09-30"],
+    "tags": ["movie"],
+  }, {
+    "title": "National Treasure",
+    "link": "https://www.imdb.com/title/tt0368891/",
+    "score": 7,
+    "reviewed_at": ["2024-10-04"],
+    "tags": ["movie"],
+    "description": "A bit too 'american patriotism' for me (a non-american), but still a solid treasure adventure movie",
+  }, {
+    "title": "The NeverEnding Story",
+    "link": "https://www.imdb.com/title/tt0088323/",
+    "score": 8,
+    "reviewed_at": ["2024-10-05"],
+    "tags": ["movie"],
+  }, {
+    "title": "Deadpool & Wolverine",
+    "link": "https://www.imdb.com/title/tt6263850/",
+    "score": 7,
+    "reviewed_at": ["2024-10-14"],
+    "tags": ["movie"],
+    "description": "Too much 'holy shit its Poopy Fartknuckle' MCU stuff for my taste, but it's decent in its own right. The 'The Proposal' bit was absolutely top tier"
+  }, {
+    "title": "Fisherman's Friends: One and All",
+    "link": "https://www.imdb.com/title/tt10373344/",
+    "score": 6,
+    "reviewed_at": ["2024-10-15"],
+    "tags": ["movie"],
+    "description": "Typical sequel. Music's still good though"
+  }, {
+    "title": "Mouthwashing",
+    "link": "https://store.steampowered.com/app/2475490/Mouthwashing/",
+    "score": 7.9,
+    "reviewed_at": ["2024-10-27"],
+    "tags": ["game"],
+    "description": "A fantastic story, but unfortunately bogged down by too many minigames, a lot of which feel like they were added either due to padding, or because 'oh spooky game needs spooky part'. Very few of them felt like they actually added to the story, and the ones that did were (unfortunately) the shortest."
+  }, {
+    "title": "Swords & Sandals: Gladiator",
+    "link": "https://www.gog.com/game/swords_and_sandals_classic_collection",
+    "score": 6,
+    "reviewed_at": ["2024-10-28"],
+    "tags": ["game"],
+    "description": "Janky as fuck, but a classic for a reason",
+  }, {
+    "title": "Yes, Your Grace",
+    "link": "https://www.gog.com/game/yes_your_grace",
+    "score": 8,
+    "reviewed_at": ["2024-10-30"],
+    "tags": ["game"],
+    "description": "From what I've understood from others, it's not good on a second playthrough. However, the first one was a great experience.",
   }]
 };

@@ -8,6 +8,10 @@ const Tags = {
   CLASSIC: 'classic',
   MASHUP: 'mashup',
   HYPE: 'hype',
+  HAPPY: 'happy',
+  DEPRESSO: 'depresso',
+  INDIE_MOVIE_VIBES: 'indie-movie-vibes',
+  BASE: 'mmm-spicy-baseline',
 
   GENRE_MUSICAL: 'genre:musical',
   GENRE_INSTRUMENTAL: 'genre:instrumental',
@@ -84,18 +88,20 @@ const Player = {
   },
 
   _onPlayerStateChange: function(e) {
-    if (e.data === YT.PlayerState.UNSTARTED && Player.video.title() !== '') {
-      Playlist.setEntryTitle(Playlist.getCurrentEntry(), title);
-      Title.set(Player.video.title());
+    const current = Playlist.getCurrentEntry();
+    const title = Player.video.title();
+
+    if (e.data === YT.PlayerState.UNSTARTED && title !== '') {
+      Playlist.setEntryTitle(current, title);
+      Title.set(Playlist.getEntryTitle(current) ?? title);
+      Information.setToCurrentEntry();
     } else if (e.data === YT.PlayerState.ENDED) {
       Playlist.playNextEntry();
     } else if (e.data === YT.PlayerState.PLAYING) {
-      const current = Playlist.getCurrentEntry();
-      const title = Player.video.title();
-
       Playlist.markEntryAsAvailable(current);
       Playlist.setEntryTitle(current, title);
-      Title.set(title);
+      Title.set(Playlist.getEntryTitle(current) ?? title);
+      Information.setToCurrentEntry();
     }
   },
 
@@ -201,6 +207,8 @@ const Playlist = {
     if (data.reindex ?? true) {
       Playlist._reindex();
     }
+
+    tr.playlistData = data;
   },
 
   playEntry: function(entry) {
@@ -252,6 +260,16 @@ const Playlist = {
     titleElem.style.width = `${Math.clamp(25, title.length, 85)}ch`;
   },
 
+  getEntryTitle: function(entry) {
+    const value = entry.getElementsByClassName('title')[0].value;
+    return (value === '') ? null : value;
+  },
+
+  getEntrySrc: function(entry) {
+    const value = entry.getElementsByClassName('src')[0].value;
+    return (value === '') ? null : value;
+  },
+
   setCurrentEntry: function(entry) {
     document.getElementById('playlist').getElementsByClassName('current')[0]?.classList.remove('current');
     entry.classList.add('current');
@@ -282,27 +300,15 @@ const Playlist = {
 
 const Controls = {
   initialize: function() {
-    document.addEventListener('keyup', (e) => {
-      if (e.key === 'ArrowLeft') {
-        Playlist.playPreviousEntry(true);
-      } else if (e.key === 'ArrowRight') {
-        Playlist.playNextEntry(true);
-      } else if (e.key === 'k') {
-        Player.togglePlay();
-      } else if (e.key === 'r') {
-        Player.stop();
-      } else if (e.key === 'c') {
-        Controls.scrollToCurrentPlaylistEntry();
-      } else if (e.key === '1') {
-        Controls.loopType.set(Controls.loopType.values.ONE);
-      } else if (e.key === '2') {
-        Controls.loopType.set(Controls.loopType.values.ALL);
-      } else if (e.key === '3') {
-        Controls.loopType.set(Controls.loopType.values.ONCE);
-      } else if (e.key === '4') {
-        Controls.loopType.set(Controls.loopType.values.DONT);
-      }
-    });
+    Hotkeys.register({key: 'ArrowLeft'},  () => Playlist.playPreviousEntry(true));
+    Hotkeys.register({key: 'ArrowRight'}, () => Playlist.playNextEntry(true));
+    Hotkeys.register({key: 'k'},          () => Player.togglePlay());
+    Hotkeys.register({key: 'r'},          () => Player.stop());
+    Hotkeys.register({key: 'c'},          () => Controls.scrollToCurrentPlaylistEntry());
+    Hotkeys.register({key: '1'},          () => Controls.loopType.set(Controls.loopType.values.ONE));
+    Hotkeys.register({key: '2'},          () => Controls.loopType.set(Controls.loopType.values.ALL));
+    Hotkeys.register({key: '3'},          () => Controls.loopType.set(Controls.loopType.values.ONCE));
+    Hotkeys.register({key: '4'},          () => Controls.loopType.set(Controls.loopType.values.DONT));
 
     document.getElementById('playlists').addEventListener('change', () => Controls.loadPlaylist(null));
     document.getElementById('loop-type').addEventListener('change', () => QueryParameters.set('loop', document.getElementById('loop-type').value));
@@ -340,14 +346,79 @@ const Controls = {
 const Title = {
   base: 'YouTube player - Namless Things',
 
-  set: function(title, partial = true) {
+  set: function(title) {
     if (title == null) { title = ''; }
+    document.title = `"${title}" on ${Title.base}`;
+  },
+};
 
-    if (partial) {
-      title = `"${title}" on ${Title.base}`;
+const Information = {
+  set: function(entry) {
+    const data = entry.playlistData;
+
+    Information._setTitle(data, entry);
+    Information._setDescription(data);
+    Information._setFoundThrough(data);
+    Information._setTags(data);
+  },
+
+  setToCurrentEntry: function() {
+    Information.set(Playlist.getCurrentEntry());
+  },
+
+  _setTitle: function(data, entry) {
+    const elem = document.getElementById('info-title');
+    elem.innerText = data?.title ?? Playlist.getEntryTitle(entry);
+    elem.title = `'${elem.innerText}' on YouTube`;
+    elem.href = Information._getLinkFromData(data) ?? Information._getLinkFromEntry(entry);
+  },
+
+  _setDescription: function(data) {
+    const elem = document.getElementById('info-description');
+    if (data?.description == null) {
+      elem.innerText = '';
+      elem.classList.remove('mb15p');
+    } else {
+      elem.innerText = data.description;
+      elem.classList.add('mb15p');
+      Information._replaceLinks(elem);
     }
+  },
 
-    document.title = title;
+  _setFoundThrough: function(data) {
+    const elem = document.getElementById('info-found-through');
+    if (data?.found_through == null) {
+      elem.innerText = '';
+    } else {
+      elem.innerText = `Found through: ${data.found_through}`;
+      Information._replaceLinks(elem);
+    }
+  },
+
+  _setTags: function(data) {
+    const elem = document.getElementById('info-tags');
+    while (elem.firstChild) { elem.removeChild(elem.lastChild); }
+
+    const tags = data?.tags ?? [];
+    for (const tag of tags) {
+      const span = document.createElement('span');
+      span.innerText = tag;
+      elem.append(span);
+    }
+  },
+
+  _replaceLinks: function(elem) {
+    Array.from(elem.innerText.matchAll(/(http|https):\/\/[^\s]+/g)).reverse().forEach((value) => {
+      elem.innerHTML = elem.innerHTML.substring(0, value.index) + `<a href="${value[0]}">${value[0]}</a>` + elem.innerHTML.substring(value.index + value[0].length);
+    });
+  },
+
+  _getLinkFromData: function(data) {
+    return (data == null) ? null : `https://youtu.be/${data.src}`;
+  },
+
+  _getLinkFromEntry: function(entry) {
+    return `https://youtu.be/${Playlist.getEntrySrc(entry)}`;
   },
 };
 

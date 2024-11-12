@@ -47,7 +47,66 @@ Math.clamp = function(min, value, max) {
   return value;
 }
 
+const Hotkeys = {
+  /** @type {{combo: {shift: boolean, ctrl: boolean, alt: boolean, meta: boolean, key: string}, callback: (e: KeyboardEvent) => void}[]} */
+  _registered: [],
+
+  init: function() {
+    document.addEventListener('keyup', Hotkeys._onKeyUp);
+  },
+
+  /**
+   * @param {{shift?: boolean, ctrl?: boolean, alt?: boolean, meta?: boolean, key: string}} combo
+   * @param {(e: KeyboardEvent) => void} callback
+   */
+  register: function(combo, callback) {
+    Hotkeys._registered.push({
+      callback: callback,
+      combo: {
+        key:   combo.key,
+        shift: combo.shift ?? false,
+        ctrl:  combo.ctrl  ?? false,
+        alt:   combo.alt   ?? false,
+        meta:  combo.meta  ?? false,
+      },
+    });
+  },
+
+  _activeElementIsTextEditable: function() {
+    const active = document.activeElement;
+
+    if (active.nodeType !== Node.ELEMENT_NODE) { return false; }
+    if (active.isContentEditable) { return true; }
+    if (active.tagName.toLowerCase() === 'textarea') { return !active.readOnly && !active.disabled; }
+    if (active.tagName.toLowerCase() === 'input') { return ['email', 'number', 'password', 'search', 'tel', 'text', 'url'].includes(active.type); }
+
+    return false;
+  },
+
+  /**
+   * @param {KeyboardEvent} e
+   * @returns
+   */
+  _onKeyUp: function(e) {
+    if (Hotkeys._activeElementIsTextEditable()) { return; }
+
+    for (const hotkey of Hotkeys._registered) {
+      if (
+        e.key      === hotkey.combo.key   &&
+        e.shiftKey === hotkey.combo.shift &&
+        e.ctrlKey  === hotkey.combo.ctrl  &&
+        e.altKey   === hotkey.combo.alt   &&
+        e.metaKey  === hotkey.combo.meta
+      ) {
+        hotkey.callback(e);
+      }
+    }
+  },
+}
+
 window.addEventListener('DOMContentLoaded', () => {
+  Hotkeys.init();
+
   function scrollbarWidth() {
     // https://stackoverflow.com/a/28361560
     const tmp = document.createElement('div');

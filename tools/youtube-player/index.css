@@ -37,3 +37,13 @@ body { overflow-y: hidden; }
     0 0 100px #FFFF33,
     0 0 150px #FFFF33;
 }
+
+#info-tags > span {
+  font-size: 12px;
+  color: #555;
+  text-decoration: underline;
+  font-style: italic;
+}
+
+.w640p { width: 640px; }
+.mw640p { max-width: 640px; }

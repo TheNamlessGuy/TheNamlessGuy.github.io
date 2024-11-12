@@ -96,7 +96,12 @@ select {
 .w80 { width: 80%; }
 .w95 { width: 95%; }
 .w100 { width: 100%; }
-.center { margin: 0 auto; }
+.w-fit-content { width: fit-content; }
+.mt5p { margin-top: 5px; }
+.mb5p { margin-bottom: 5px; }
+.mt15p { margin-top: 15px; }
+.mb15p { margin-bottom: 15px; }
+.center { margin-left: auto; margin-right: auto; }
 .center-text { text-align: center; }
 .flex { display: flex; }
 .flex.space-around { justify-content: space-around; }
@@ -107,3 +112,10 @@ select {
 .text-left { text-align: left; }
 .inline-block { display: inline-block; }
 .italic { font-style: italic; }
+.bold { font-weight: bold; }
+.underlined { text-decoration: none; border-bottom-style: solid; border-bottom-width: 1px; }
+.font-big { font-size: 30px; }
+.font-small { font-size: 12px; }
+.no-linebreak { white-space: nowrap; }
+.no-text-decor { text-decoration: none; }
+.overflow-ellipsis { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

@@ -3119,5 +3119,38 @@ Music choice was always pretty good though.`
     "reviewed_at": ["2024-10-30"],
     "tags": ["game"],
     "description": "From what I've understood from others, it's not good on a second playthrough. However, the first one was a great experience.",
+  }, {
+    "title": "Baby Driver",
+    "link": "https://www.imdb.com/title/tt3890160/",
+    "score": 8,
+    "reviewed_at": ["2024-11-01"],
+    "tags": ["movie"],
+    "description": "Brave take on a jukebox musical",
+  }, {
+    "title": "It's the Great Pumpkin, Charlie Brown",
+    "link": "https://www.imdb.com/title/tt0060550/",
+    "score": 8,
+    "reviewed_at": ["2024-11-01"],
+    "tags": ["movie"],
+  }, {
+    "title": "Severed Steel",
+    "link": "https://www.gog.com/game/severed_steel",
+    "score": 7,
+    "reviewed_at": ["2024-11-02"],
+    "tags": ["game"],
+    "description": "Feels very good to play",
+  }, {
+    "title": "Perfect Days",
+    "link": "https://www.imdb.com/title/tt27503384/",
+    "score": 8,
+    "reviewed_at": ["2024-11-02"],
+    "tags": ["movie"],
+  }, {
+    "title": "Clue",
+    "link": "https://www.imdb.com/title/tt0088930/",
+    "score": 9,
+    "reviewed_at": ["2024-11-12"],
+    "tags": ["movie"],
+    "description": "Part board game, part murder mystery, part Scooby-Doo. All fantastic",
   }]
 };

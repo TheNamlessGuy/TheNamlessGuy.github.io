@@ -38,7 +38,7 @@
     <div id="content" class="flex">
       <div class="w50">
         <div id="player"></div>
-        <div class="flex space-around">
+        <div class="flex space-between w640p center mt5p">
           <c-select id="loop-type" label="Loop type:">
             <option value="1">One</option>
             <option value="2" selected>All</option>
@@ -53,6 +53,13 @@
             <option value="memes">Memes</option>
             <option value="gamesiplayedasakid">Games I played as a kid</option>
           </c-select>
+        </div>
+        <hr class="w640p mt15p mb15p" />
+        <div class="w640p center">
+          <a id="info-title" class="font-big bold underlined overflow-ellipsis w-fit-content mw640p mb15p inline-block"></a>
+          <div id="info-description" class="text-left"></div>
+          <div id="info-found-through" class="text-left font-small italic"></div>
+          <div id="info-tags" class="text-left"></div>
         </div>
       </div>
 

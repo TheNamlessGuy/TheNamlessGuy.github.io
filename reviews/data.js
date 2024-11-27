@@ -1745,13 +1745,6 @@ The latter half of season 3 and most of season 4 does feel like a return to form
     "description": "Pretty much just The Lost World: Jurassic Park but worse. Not terrible, though",
     "tags": ["movie"],
   }, {
-    "title": "Arcane",
-    "link": "https://www.imdb.com/title/tt11126994/",
-    "score": 8.5,
-    "reviewed_at": ["2022-10-23"],
-    "description": "Story wasn't earth-shattering in its uniqueness, but was told very well. The animation was absolutely fantastic, with extra props to the few frame animations that seemed to be purely hand drawn.",
-    "tags": ["show"],
-  }, {
     "title": "Spirited",
     "link": "https://www.imdb.com/title/tt10999120/",
     "score": 7.5,
@@ -3152,5 +3145,45 @@ Music choice was always pretty good though.`
     "reviewed_at": ["2024-11-12"],
     "tags": ["movie"],
     "description": "Part board game, part murder mystery, part Scooby-Doo. All fantastic",
+  }, {
+    "title": "Minit",
+    "link": "https://www.gog.com/game/minit",
+    "score": 7,
+    "reviewed_at": ["2024-11-16"],
+    "tags": ["game"],
+  }, {
+    "title": "The Legend of Zelda - The Minish Cap",
+    "link": "https://www.nintendo.com/en-gb/Games/Game-Boy-Advance/The-Legend-of-Zelda-The-Minish-Cap-267486.html",
+    "score": 9,
+    "reviewed_at": ["2024-11-18"],
+    "tags": ["game"],
+    "description": "One of the best Zelda games out there. A bit jank in some areas, and has some bullshit if you want to 100%, but just doing the story leaves you with a great Zelda game",
+  }, {
+    "title": "Snack Shack",
+    "link": "https://www.imdb.com/title/tt22004344/",
+    "score": 7,
+    "reviewed_at": ["2024-11-21"],
+    "tags": ["movie"],
+    "description": "This is the most movie-like movie I've seen in a good while",
+  }, {
+    "title": "Gladiator II",
+    "link": "https://www.imdb.com/title/tt22004344/",
+    "score": 6.5,
+    "reviewed_at": ["2024-11-22"],
+    "tags": ["movie"],
+    "description": "As far as sequels go, this was very watchable. The twin emperors definitely were the best part, even if their (further) descent into madness was more of a sudden drop",
+  }, {
+    "title": "The Secret of Kells",
+    "link": "https://www.imdb.com/title/tt22004344/",
+    "score": 8,
+    "reviewed_at": ["2024-11-23"],
+    "tags": ["movie"],
+  }, {
+    "title": "Arcane",
+    "link": "https://www.imdb.com/title/tt11126994/",
+    "score": 9,
+    "reviewed_at": ["2022-10-23", "2024-11-27"],
+    "tags": ["show"],
+    "description": "Season two beats season one on most fronts. The animation is more stylized, and focuses more on trying to make you focus and feel the right things, rather than trying to convey what actually happened (which is a good thing). The only thing I can complain about is that season two feels a bit rushed. The OOMPH moments don't really land as well as they did in the first season, simply because they don't get enough time to. Stretching the show to three seasons (or maybe just adding a handful of episodes to season two?) would have made it jump up that final step.",
   }]
 };

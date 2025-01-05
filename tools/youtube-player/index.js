@@ -12,6 +12,7 @@ const Tags = {
   DEPRESSO: 'depresso',
   INDIE_MOVIE_VIBES: 'indie-movie-vibes',
   BASE: 'mmm-spicy-baseline',
+  CHRISTMAS: 'christmas',
 
   GENRE_MUSICAL: 'genre:musical',
   GENRE_INSTRUMENTAL: 'genre:instrumental',

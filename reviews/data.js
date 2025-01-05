@@ -392,7 +392,7 @@ const _raw_data = {
     "title": "What We Do in the Shadows",
     "link": "https://www.imdb.com/title/tt7908628/",
     "score": 7,
-    "reviewed_at": ["2020-07-25"],
+    "reviewed_at": ["2020-07-25", "2024-12-19"],
     "tags": ["show"],
   }, {
     "title": "Xavier: Renegade Angel",
@@ -512,8 +512,9 @@ With the alternate ending, I'd bump it up to a 7.5/10.
     "title": "The Hunchback of Notre Dame",
     "link": "https://www.imdb.com/title/tt0116583/",
     "score": 8.75,
-    "reviewed_at": ["2020-09-01"],
+    "reviewed_at": ["2020-09-01", "2024-12-31"],
     "tags": ["movie", "musical"],
+    "description": "The merchandiseable slop gargoyle characters keep it from being perfect"
   }, {
     "title": "Grease",
     "link": "https://www.imdb.com/title/tt0077631/",
@@ -572,7 +573,7 @@ With the alternate ending, I'd bump it up to a 7.5/10.
     "title": "The Lion King",
     "link": "https://www.imdb.com/title/tt0110357/",
     "score": 9,
-    "reviewed_at": ["2020-09-21"],
+    "reviewed_at": ["2020-09-21", "2024-12-31"],
     "tags": ["movie", "musical"],
   }, {
     "title": "Flyktingkrisen - en musikal",
@@ -1547,7 +1548,7 @@ The latter half of season 3 and most of season 4 does feel like a return to form
     "link": "https://www.imdb.com/title/tt0120762/",
     "score": 9,
     "description": "Shoutout to one of the few disney pricesses (especially for her time) who actually does something",
-    "reviewed_at": ["2022-02-20"],
+    "reviewed_at": ["2022-02-20", "2025-01-01"],
     "tags": ["movie"],
   }, {
     "title": "Zoey's Extraordinary Playlist",
@@ -2425,8 +2426,8 @@ Shoutout to my main man Rick. Best door technician I ever met.`,
   }, {
     "title": "The Holdovers",
     "link": "https://www.imdb.com/title/tt14849194/",
-    "score": 8.5,
-    "reviewed_at": ["2023-12-24"],
+    "score": 9,
+    "reviewed_at": ["2023-12-24", "2024-12-15"],
     "tags": ["movie"],
   }, {
     "title": "The Rehearsal",
@@ -3185,5 +3186,95 @@ Music choice was always pretty good though.`
     "reviewed_at": ["2022-10-23", "2024-11-27"],
     "tags": ["show"],
     "description": "Season two beats season one on most fronts. The animation is more stylized, and focuses more on trying to make you focus and feel the right things, rather than trying to convey what actually happened (which is a good thing). The only thing I can complain about is that season two feels a bit rushed. The OOMPH moments don't really land as well as they did in the first season, simply because they don't get enough time to. Stretching the show to three seasons (or maybe just adding a handful of episodes to season two?) would have made it jump up that final step.",
+  }, {
+    "title": "The Holiday",
+    "link": "https://www.imdb.com/title/tt0457939/",
+    "score": 5.5,
+    "reviewed_at": ["2024-12-02"],
+    "tags": ["movie"],
+    "description": "Competent, but not for me"
+  }, {
+    "title": "Elf",
+    "link": "https://www.imdb.com/title/tt0319343/",
+    "score": 6.5,
+    "reviewed_at": ["2024-12-03"],
+    "tags": ["movie"],
+  }, {
+    "title": "Indiana Jones and the Raiders of the Lost Ark",
+    "link": "https://www.imdb.com/title/tt0082971/",
+    "score": 8.75,
+    "reviewed_at": ["2024-12-06"],
+    "tags": ["movie"],
+  }, {
+    "title": "Gremlins",
+    "link": "https://www.imdb.com/title/tt0087363/",
+    "score": 8,
+    "reviewed_at": ["2024-12-21"],
+    "tags": ["movie"],
+  }, {
+    "title": "Miracle on 34th Street",
+    "link": "https://www.imdb.com/title/tt0039628/",
+    "score": 7,
+    "reviewed_at": ["2024-12-23"],
+    "tags": ["movie"],
+  }, {
+    "title": "Father Christmas Is Back",
+    "link": "https://www.imdb.com/title/tt13103340/",
+    "score": 3,
+    "reviewed_at": ["2024-12-24"],
+    "tags": ["movie"],
+  }, {
+    "title": "Dog Gone",
+    "link": "https://www.imdb.com/title/tt15334430/",
+    "score": 5.5,
+    "reviewed_at": ["2024-12-24"],
+    "tags": ["movie"],
+    "description": "Generic tear jerker, characters switch personalities at a certain point (the dad first goes 'dogs stay outside' even though he apparently knows of his wife's trauma)",
+  }, {
+    "title": "The Dream House",
+    "link": "https://www.imdb.com/title/tt0106779/",
+    "score": 5.5,
+    "reviewed_at": ["2024-12-27"],
+    "tags": ["movie"],
+    "description": "Didn't expect it to turn into Home Alone, but it worked better than expected",
+  }, {
+    "title": "A Quiet Place: Day One",
+    "link": "https://www.imdb.com/title/tt13433802/",
+    "score": 5.5,
+    "reviewed_at": ["2024-12-27"],
+    "tags": ["movie"],
+    "description": "Just like the other movie(s?), filled with nonsensical decision making from both the humans and the aliens. The aliens definitely fall into the uncanney-valley-esque dip of \"Dont really have a set of rules they seem to follow\"",
+  }, {
+    "title": "Oppenheimer",
+    "link": "https://www.imdb.com/title/tt15398776/",
+    "score": 9,
+    "reviewed_at": ["2024-12-27"],
+    "tags": ["movie"],
+    "description": "A bit too hectic in places. Most likely done on purpose to give effect, but at a detriment to the enjoyment",
+  }, {
+    "title": "The Little Mermaid",
+    "link": "https://www.imdb.com/title/tt0097757/",
+    "score": 7,
+    "reviewed_at": ["2024-12-28"],
+    "tags": ["movie"],
+  }, {
+    "title": "Beauty and the Beast",
+    "link": "https://www.imdb.com/title/tt0101414/",
+    "score": 7,
+    "reviewed_at": ["2024-12-29"],
+    "tags": ["movie"],
+  }, {
+    "title": "Aladdin",
+    "link": "https://www.imdb.com/title/tt0103639/",
+    "score": 7.5,
+    "reviewed_at": ["2024-12-30"],
+    "tags": ["movie"],
+    "description": "Some of the references Genie pulls out were made for people older than me. I feel that the movie might be more enjoyable for me if they landed better"
+  }, {
+    "title": "Tarzan",
+    "link": "https://www.imdb.com/title/tt0120855/",
+    "score": 7.5,
+    "reviewed_at": ["2025-01-04"],
+    "tags": ["movie"],
   }]
 };

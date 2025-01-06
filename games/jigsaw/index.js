@@ -10,23 +10,13 @@ const holdData = {
   },
 };
 
-Math.clamp = function clamp(min, value, max) {
-  if (value < min) { return min; }
-  if (value > max) { return max; }
-  return value;
-}
-
-const Random = {
-  bool: function() { return Math.random() < 0.5; },
-  number: function(min, max) { return Math.floor(Math.random() * (max - min + 1) + min); },
-  position: function(w, h) {
-    const box = document.getElementById('solve-box').getBoundingClientRect();
-    const leftSide = Random.bool();
-    return {
-      x: leftSide ? Random.number(0, box.x - w) : Random.number(box.right, document.documentElement.clientWidth - w),
-      y: Random.number(box.top, Math.clamp(box.bottom, box.bottom, document.documentElement.clientHeight - h)),
-    };
-  },
+Random.position = function(w, h) {
+  const box = document.getElementById('solve-box').getBoundingClientRect();
+  const leftSide = Random.bool();
+  return {
+    x: leftSide ? Random.integer(0, box.x - w) : Random.integer(box.right, document.documentElement.clientWidth - w),
+    y: Random.integer(box.top, Math.clamp(box.bottom, box.bottom, document.documentElement.clientHeight - h)),
+  };
 };
 
 const Errors = {
@@ -59,7 +49,7 @@ const Errors = {
   },
 }
 
-function addPiece(src, belongsTo, w, h) {
+function addPiece(src, belongsTo, w, h, connectingBitOffset) {
   const piece = document.createElement('img');
 
   piece.addEventListener('mousedown', (e) => {
@@ -71,10 +61,24 @@ function addPiece(src, belongsTo, w, h) {
     holdData.grabOffset.y = Math.abs(e.clientY - parseFloat(piece.style.top));
 
     holdData.listeners.mouseup = () => {
-      holdData.element?.classList.remove('held');
-      holdData.element = null;
+      if (holdData.element != null) {
+        const zIndex = parseInt(holdData.element.style.zIndex, 10);
+        const pieces = document.getElementsByClassName('piece');
+        Array.from(pieces).forEach((piece) => {
+          const pieceZIndex = parseInt(piece.style.zIndex, 10);
+          if (pieceZIndex > zIndex) {
+            piece.style.zIndex = pieceZIndex - 1;
+          }
+        });
+
+        holdData.element.style.zIndex = pieces.length;
+        holdData.element.classList.remove('held');
+        holdData.element = null;
+      }
+
       document.removeEventListener('mousemove', holdData.listeners.mousemove);
       document.removeEventListener('mouseup', holdData.listeners.mouseup);
+
       slotPieceIfMatch(piece);
     };
     document.addEventListener('mouseup', holdData.listeners.mouseup);
@@ -97,13 +101,17 @@ function addPiece(src, belongsTo, w, h) {
   const startingPosition = Random.position(w, h);
   piece.style.left = startingPosition.x + 'px';
   piece.style.top = startingPosition.y + 'px';
+  piece.style.zIndex = document.getElementsByClassName('piece').length;
   piece.setAttribute('location', belongsTo);
+  piece.setAttribute('connecting-bit-offset-x', connectingBitOffset.x);
+  piece.setAttribute('connecting-bit-offset-y', connectingBitOffset.y);
 
   document.getElementById('pieces').append(piece);
 }
 
 function addPieceLocation(x, y, w, h) {
   const location = document.createElement('div');
+  location.classList.add('location');
   location.style.position = 'absolute';
   location.style.left = (x * w) + 'px';
   location.style.top = (y * h) + 'px';
@@ -136,8 +144,13 @@ function slotPieceIfMatch(piece) {
     pieceCenter.y >= locationHitbox.y1 &&
     pieceCenter.y <= locationHitbox.y2
   ) {
-    piece.style.left = locationBox.x + 'px';
-    piece.style.top = locationBox.y + 'px';
+    const offset = {
+      x: parseFloat(piece.getAttribute('connecting-bit-offset-x')),
+      y: parseFloat(piece.getAttribute('connecting-bit-offset-y')),
+    };
+
+    piece.style.left = (locationBox.x - offset.x) + 'px';
+    piece.style.top = (locationBox.y - offset.y) + 'px';
     piece.classList.remove('moveable');
     checkWin();
   }
@@ -190,28 +203,216 @@ function generatePuzzle() {
     return;
   }
 
+  if (amount > 99999999) {
+    Errors.add(`Piece amount cannot exceed 100 million`);
+    return;
+  }
+
   amount = Math.sqrt(amount);
   if (amount % 1 !== 0) {
     Errors.add(`The piece amount must have an integer square root`);
     return;
   }
 
+  // TODO: There is absolutely a better, more concise way of doing these functions, but I need to go to bed
+  const draw = {
+    center: function(g, img, x, y, piece) {
+      g.drawImage(
+        img,
+
+        Math.floor(x * piece.actualSize.x),
+        Math.floor(y * piece.actualSize.y),
+        Math.ceil(piece.actualSize.x),
+        Math.ceil(piece.actualSize.y),
+
+        Math.floor(piece.size.connectingBitOffset.x),
+        Math.floor(piece.size.connectingBitOffset.y),
+        Math.ceil(piece.size.x),
+        Math.ceil(piece.size.y),
+      );
+    },
+
+    bit: {
+      left: function(g, img, x, y, piece) {
+        g.drawImage(
+          img,
+
+          Math.floor((x * piece.actualSize.x) - piece.actualSize.connectingBitOffset.x),
+          Math.floor((y * piece.actualSize.y) + (piece.actualSize.y / 4)),
+          Math.ceil(piece.actualSize.connectingBitOffset.x),
+          Math.ceil(piece.actualSize.y / 2),
+
+          0,
+          Math.floor(piece.size.connectingBitOffset.y + (piece.size.y / 4)),
+          Math.ceil(piece.size.connectingBitOffset.x),
+          Math.ceil(piece.size.y / 2),
+        );
+      },
+
+      right: function(g, img, x, y, piece) {
+        g.drawImage(
+          img,
+
+          Math.floor((x * piece.actualSize.x) + piece.actualSize.x),
+          Math.floor((y * piece.actualSize.y) + (piece.actualSize.y / 4)),
+          Math.ceil(piece.actualSize.connectingBitOffset.x),
+          Math.ceil(piece.actualSize.y / 2),
+
+          piece.size.x + piece.size.connectingBitOffset.x, // For the left offset
+          piece.size.connectingBitOffset.y + (piece.size.y / 4),
+          Math.ceil(piece.size.connectingBitOffset.x),
+          Math.ceil(piece.size.y / 2),
+        );
+      },
+
+      top: function(g, img, x, y, piece) {
+        g.drawImage(
+          img,
+
+          Math.floor((x * piece.actualSize.x) + (piece.actualSize.x / 4)),
+          Math.floor((y * piece.actualSize.y) - piece.actualSize.connectingBitOffset.y),
+          Math.ceil(piece.actualSize.x / 2),
+          Math.ceil(piece.actualSize.connectingBitOffset.y),
+
+          Math.floor(piece.size.connectingBitOffset.x + (piece.size.x / 4)),
+          0,
+          Math.ceil(piece.size.x / 2),
+          Math.ceil(piece.size.connectingBitOffset.y),
+        );
+      },
+
+      bottom: function(g, img, x, y, piece) {
+        g.drawImage(
+          img,
+
+          Math.floor((x * piece.actualSize.x) + (piece.actualSize.x / 4)),
+          Math.floor((y * piece.actualSize.y) + piece.actualSize.y),
+          Math.ceil(piece.actualSize.x / 2),
+          Math.ceil(piece.actualSize.connectingBitOffset.y),
+
+          Math.floor(piece.size.connectingBitOffset.x + (piece.size.x / 4)),
+          Math.floor(piece.size.y + piece.size.connectingBitOffset.y),
+          Math.ceil(piece.size.x / 2),
+          Math.ceil(piece.size.connectingBitOffset.y),
+        );
+      },
+    },
+
+    hole: {
+      left: function(g, piece) {
+        g.clearRect(
+          Math.floor(piece.size.connectingBitOffset.x),
+          Math.floor(piece.size.connectingBitOffset.y + (piece.size.y / 4)),
+          Math.ceil(piece.size.connectingBitOffset.x),
+          Math.ceil(piece.size.y / 2),
+        );
+      },
+
+      right: function(g, piece) {
+        g.clearRect(
+          Math.floor(piece.size.x), // piece.size.x + piece.size.connectingBitOffset.x - piece.size.connectingBitOffset.x
+          Math.floor(piece.size.connectingBitOffset.y + (piece.size.y / 4)),
+          Math.ceil(piece.size.connectingBitOffset.x),
+          Math.ceil(piece.size.y / 2),
+        );
+      },
+
+      top: function(g, piece) {
+        g.clearRect(
+          Math.floor(piece.size.connectingBitOffset.x + (piece.size.x / 4)),
+          Math.floor(piece.size.connectingBitOffset.y),
+          Math.ceil(piece.size.x / 2),
+          Math.ceil(piece.size.connectingBitOffset.y),
+        );
+      },
+
+      bottom: function(g, piece) {
+        g.clearRect(
+          Math.floor(piece.size.connectingBitOffset.x + (piece.size.x / 4)),
+          Math.floor(piece.size.y), // piece.size.y + piece.size.connectingBitOffset.y - piece.size.connectingBitOffset.y
+          Math.ceil(piece.size.x / 2),
+          Math.ceil(piece.size.connectingBitOffset.y),
+        );
+      },
+    },
+  };
+
   document.getElementById('solve-box-container').classList.add('active');
   const img = document.getElementById('solve-img');
 
-  const canvas = document.createElement('canvas');
-  canvas.width = img.width / amount;
-  canvas.height = img.height / amount;
-  const g = canvas.getContext('2d');
+  const piece = {
+    connectingBitOffset: 0.2,
 
-  const actualWidth = img.naturalWidth / amount;
-  const actualHeight = img.naturalHeight / amount;
+    size: {
+      x: img.width / amount,
+      y: img.height / amount,
+
+      connectingBitOffset: {
+        x: null,
+        y: null,
+      },
+    },
+
+    actualSize: {
+      x: img.naturalWidth / amount,
+      y: img.naturalHeight / amount,
+
+      connectingBitOffset: {
+        x: null,
+        y: null,
+      },
+    },
+  };
+  piece.size.connectingBitOffset.x = piece.size.x * piece.connectingBitOffset;
+  piece.size.connectingBitOffset.y = piece.size.y * piece.connectingBitOffset;
+  piece.actualSize.connectingBitOffset.x = piece.actualSize.x * piece.connectingBitOffset;
+  piece.actualSize.connectingBitOffset.y = piece.actualSize.y * piece.connectingBitOffset;
+
+  const canvas = document.createElement('canvas');
+  canvas.width = piece.size.x + (piece.size.connectingBitOffset.x * 2); // One offset for each end
+  canvas.height = piece.size.y + (piece.size.connectingBitOffset.y * 2); // One offset for each end
+  const g = canvas.getContext('2d');
 
   for (let x = 0; x < amount; ++x) {
     for (let y = 0; y < amount; ++y) {
-      g.drawImage(img, x * actualWidth, y * actualHeight, actualWidth, actualHeight, 0, 0, canvas.width, canvas.height);
-      const location = addPieceLocation(x, y, canvas.width, canvas.height);
-      addPiece(canvas.toDataURL(), location.id, canvas.width, canvas.height);
+      g.clearRect(0, 0, canvas.width, canvas.height);
+
+      draw.center(g, img, x, y, piece);
+
+      if (x > 0) {
+        if (x % 2 === 0) {
+          draw.hole.left(g, piece);
+        } else {
+          draw.bit.left(g, img, x, y, piece);
+        }
+      }
+
+      if (x < amount - 1) {
+        if (x % 2 === 0) {
+          draw.hole.right(g, piece);
+        } else {
+          draw.bit.right(g, img, x, y, piece);
+        }
+      }
+
+      if (y > 0) {
+        if (y % 2 === 0) {
+          draw.hole.top(g, piece);
+        } else {
+          draw.bit.top(g, img, x, y, piece);
+        }
+      }
+
+      if (y < amount - 1) {
+        if (y % 2 === 0) {
+          draw.hole.bottom(g, piece);
+        } else {
+          draw.bit.bottom(g, img, x, y, piece);
+        }
+      }
+
+      const location = addPieceLocation(x, y, piece.size.x, piece.size.y);
+      addPiece(canvas.toDataURL(), location.id, canvas.width, canvas.height, piece.size.connectingBitOffset);
     }
   }
 }

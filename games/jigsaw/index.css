@@ -35,7 +35,7 @@ img.piece { position: absolute; }
 img.piece.moveable { cursor: grab; }
 img.piece.moveable.held {
   cursor: move;
-  z-index: 999999;
+  z-index: 100000000 !important;
 }
 
 #options {

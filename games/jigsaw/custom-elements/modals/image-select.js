@@ -23,12 +23,12 @@ class ImageSelectModalElement extends BaseModalElement {
   static _apis = [{
     what: 'photo',
     who: 'https://picsum.photos/',
-    src: () => `https://picsum.photos/${Random.number(500, 1500)}`,
+    src: () => `https://picsum.photos/${Random.integer(500, 1500)}`,
   }, {
     what: 'photo',
     who: 'https://random.imagecdn.app/',
     src: () => {
-      const size = Random.number(500, 1500);
+      const size = Random.integer(500, 1500);
       return `https://random.imagecdn.app/${size}/${size}`;
     },
   }, {

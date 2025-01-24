@@ -3,7 +3,6 @@ html, body {
   padding: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #000;
 
   --img-max-size: 85vh;
 }
@@ -31,11 +30,26 @@ a:visited { color: inherit; }
   border: 1px solid #FFF;
 }
 
-img.piece { position: absolute; }
-img.piece.moveable { cursor: grab; }
-img.piece.moveable.held {
+#pieces, #piece-location-container { user-select: none; }
+
+puzzle-piece {
+  display: inline-block;
+  position: absolute;
+}
+
+puzzle-piece-container {
+  display: inline-block;
+  position: absolute;
+}
+puzzle-piece-container.moveable puzzle-piece { cursor: grab; }
+puzzle-piece-container.moveable.held {
   cursor: move;
   z-index: 100000000 !important;
+}
+
+puzzle-piece-slot {
+  pointer-events: none;
+  position: absolute;
 }
 
 #options {
@@ -53,8 +67,15 @@ img.piece.moveable.held {
 
 #options hr { width: 98%; }
 #options button { width: fit-content; }
-#options #pieces-amount { width: 8ch; }
 #options #select-image { margin-bottom: 5px; }
+#options #pieces-amount {
+  color: inherit;
+}
+#options #pieces-amount,
+#options #pieces-amount-x,
+#options #pieces-amount-y {
+  width: 8ch;
+}
 
 #piece-location-container {
   position: absolute;

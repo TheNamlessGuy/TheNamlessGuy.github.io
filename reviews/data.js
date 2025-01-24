@@ -16,7 +16,7 @@ const _raw_data = {
     "title": "Scrubs",
     "link": "https://www.imdb.com/title/tt0285403/",
     "score": 9.5,
-    "reviewed_at": ["2020-07-25"],
+    "reviewed_at": ["2020-07-25", "2025-01-07"],
     "tags": ["show"],
   }, {
     "title": "Psych",
@@ -1661,9 +1661,10 @@ The latter half of season 3 and most of season 4 does feel like a return to form
   }, {
     "title": "Our Flag Means Death",
     "link": "https://www.imdb.com/title/tt11000902/",
-    "score": 7,
-    "reviewed_at": ["2022-06-17"],
+    "score": 7.5,
+    "reviewed_at": ["2022-06-17", "2025-01-17"],
     "tags": ["show"],
+    "description": "The second season is shot in darkness a lot, which was a weird choice. But other than that, it's worth a watch"
   }, {
     "title": "South Park",
     "link": "https://www.imdb.com/title/tt0121955/",
@@ -3275,6 +3276,51 @@ Music choice was always pretty good though.`
     "link": "https://www.imdb.com/title/tt0120855/",
     "score": 7.5,
     "reviewed_at": ["2025-01-04"],
+    "tags": ["movie"],
+  }, {
+    "title": "Nine Sols",
+    "link": "https://shop.redcandlegames.com/bundles/nine-sols-drm-free-bundle",
+    "score": 8,
+    "reviewed_at": ["2025-01-08"],
+    "tags": ["game"],
+    "description": `Overall very good, but suffers from a few polish-level design decisions that drag the experience down. A few:
+* You can't pick your bloodstain up directly as a bossfight starts, it's only possible about a second after. This seemingly goes for any interactable (stand in front of a bonfire and see how long it takes for the prompt to show up), but it's especially noticeable with the bloodstains.
+* The unbound counter doesn't activate when you release the button, but half a second afterwards. You can see the animation start, but still get hit. For a reaction-based game such as this, having any delay in the combat is a strange choice
+* Steely Jade doesn't actually do what the description says it does. It only protects you during the standing still phase, not during the part where you move. Maybe that's what they mean by 'detonation', but that vocabulary doesn't show up in the rest of the game, so it's hard to know. Even if it does, it obviously doesn't stand out enough.
+* The input buffering mechanic doesn't work very well. I think there is one (it feels like it), but sometimes it doesn't trigger. Healing right after you've parried, for example.
+
+It also suffers from quite a few of the things mentioned in <a href="/rants/the-decline-of-fromsoftware-games">The Decline of FromSoftware Games</a>:
+* "The demand for perfection"
+* Multi-healthbar bossfights suck
+* Attack telegraphing sucks (sometimes)
+
+The 3rd phase of the final boss definitely passes the 'fun' barrier, and enters into 'tedious', since it's 50% visual noise.
+
+That being said, the other bossfights were fantastic - they all felt unique, and all fairly balanced (although I did poision Jiequan, so unsure how he works without it). Ji was definitely the best one.
+Shuanshuan is a goober, and I wish him all the best.`,
+  }, {
+    "title": "Indiana Jones and the Temple of Doom",
+    "link": "https://www.imdb.com/title/tt0087469/",
+    "score": 7,
+    "reviewed_at": ["2025-01-13"],
+    "tags": ["movie"],
+  }, {
+    "title": "Indiana Jones and the Last Crusade",
+    "link": "https://www.imdb.com/title/tt0097576/",
+    "score": 8.5,
+    "reviewed_at": ["2025-01-13"],
+    "tags": ["movie"],
+  }, {
+    "title": "Sonic the Hedgehog 3",
+    "link": "https://www.imdb.com/title/tt18259086/",
+    "score": 8,
+    "reviewed_at": ["2025-01-23"],
+    "description": `Solid movie for what it is, and it's largely what I expected from a Shadow-focused movie.
+
+The inclusion of Live and Learn is great, but I missed a 'Chaos control' and a 'SHADOW THE HEDGEHOG PISSED ON MY FUCKING WIFE' reference. With Eggman's livestream, they really should have had it include the 'I've come to make an announcement' line or something.
+Jim Carrey is great as usual, hope he returns for the next one.
+The next one being Amy-focused makes sense.
+If they're gonna make one movie per character, I'll gladly watch each one. The Rouge one is gonna be weird, and the Big the Cat one is gonna be the best one.`,
     "tags": ["movie"],
   }]
 };

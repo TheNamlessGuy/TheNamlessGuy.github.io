@@ -3,10 +3,15 @@
   <head>
     <meta charset="utf-8"/>
     <title>Jigsaw puzzle generator - Namless Things</title>
+    <link rel="stylesheet" type="text/css" href="/generic.css">
     <link rel="stylesheet" type="text/css" href="index.css">
     <script src="/generic.js"></script>
     <script src="custom-elements/modals/base.js"></script>
     <script src="custom-elements/modals/image-select.js"></script>
+    <script src="custom-elements/puzzle-piece.js"></script>
+    <script src="custom-elements/puzzle-piece-slot.js"></script>
+    <script src="custom-elements/puzzle-piece-container.js"></script>
+    <script src="custom-elements/solve-container.js"></script>
     <script src="index.js"></script>
     <link rel="shortcut icon" href="/favicon.ico">
   </head>
@@ -22,12 +27,21 @@
         <hr>
         <button id="select-image">Select image</button>
         <div>
+          <label>Current image:</label>
           <label id="selected-img-name"></label>
         </div>
         <hr>
-        <div>
-          <label>Amount of pieces:</label>
-          <input id="pieces-amount" placeholder="Amount of pieces..." type="number">
+        <div class="w100 flex space-between">
+          <label>Total amount of pieces:</label>
+          <input id="pieces-amount" disabled>
+        </div>
+        <div class="w100 flex space-between">
+          <label>Piece count along top and bottom:</label>
+          <input id="pieces-amount-x" placeholder="Pieces..." type="number">
+        </div>
+        <div class="w100 flex space-between">
+          <label>Piece count along left and right:</label>
+          <input id="pieces-amount-y" placeholder="Pieces..." type="number">
         </div>
       </div>
     </div>

@@ -100,10 +100,10 @@ class PuzzlePieceSlotElement extends HTMLElement {
   _hitbox() {
     const box = this.getBoundingClientRect();
     return {
-      x1: box.x + 0,//(box.width * 0.35),
-      x2: box.x + box.width,//(box.width * 0.65),
-      y1: box.y + 0,//(box.height * 0.35),
-      y2: box.y + box.height,//(box.height * 0.65),
+      x1: box.x + (box.width * 0.35),
+      x2: box.x + (box.width * 0.65),
+      y1: box.y + (box.height * 0.35),
+      y2: box.y + (box.height * 0.65),
     };
   }
 }

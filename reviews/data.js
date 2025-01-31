@@ -3322,5 +3322,18 @@ Jim Carrey is great as usual, hope he returns for the next one.
 The next one being Amy-focused makes sense.
 If they're gonna make one movie per character, I'll gladly watch each one. The Rouge one is gonna be weird, and the Big the Cat one is gonna be the best one.`,
     "tags": ["movie"],
+  }, {
+    "title": "Westworld",
+    "link": "https://www.imdb.com/title/tt0070909/",
+    "score": 7,
+    "reviewed_at": ["2025-01-27"],
+    "tags": ["movie"],
+  }, {
+    "title": "Indiana Jones and the Kingdom of the Crystal Skull",
+    "link": "https://www.imdb.com/title/tt0367882/",
+    "score": 5.5,
+    "reviewed_at": ["2025-01-31"],
+    "tags": ["movie"],
+    "description": "Definitely the worst in the series (so far)",
   }]
 };

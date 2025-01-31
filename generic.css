@@ -1,15 +1,23 @@
 body.theme-light {
   --bg-color-0: #9999FF;
   --bg-color-1: #6699FF;
+  --bg-color-1-1: #5588EE;
   --bg-color-2: #336699;
 
   --text-color-0: #000000;
+  --text-color-0-1: #111111;
   --text-color-1: #777777;
 
   --separator-color-0: var(--text-color-0);
+  --separator-color-0-1: var(--text-color-0-1);
   --separator-color-1: var(--text-color-1);
 
   --error-color: #FF0033;
+
+  --button-green: #33CC33;
+  --button-green-hover: #22BB22;
+  --button-green-disabled: #33CC99;
+  --button-green-active: #33CC99;
 }
 
 body.theme-dark {
@@ -27,6 +35,11 @@ body.theme-dark {
   --separator-color-1: var(--text-color-1);
 
   --error-color: #FF0033;
+
+  --button-green: #006600;
+  --button-green-hover: #007700;
+  --button-green-disabled: #003300;
+  --button-green-active: #003300;
 }
 
 html, body {
@@ -70,6 +83,10 @@ button:disabled {
   background-color: var(--bg-color-0);
   color: var(--text-color-1);
 }
+button.green { background-color: var(--button-green); }
+button.green:hover { background-color: var(--button-green-hover); }
+button.green:disabled { background-color: var(--button-green-disabled); }
+button.green:active:not(:disabled) { background-color: var(--button-green-active); }
 
 input {
   background-color: var(--bg-color-1);

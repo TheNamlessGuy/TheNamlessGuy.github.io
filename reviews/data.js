@@ -3335,5 +3335,11 @@ If they're gonna make one movie per character, I'll gladly watch each one. The R
     "reviewed_at": ["2025-01-31"],
     "tags": ["movie"],
     "description": "Definitely the worst in the series (so far)",
+  }, {
+    "title": "Happy Feet",
+    "link": "https://www.imdb.com/title/tt0366548/",
+    "score": 7,
+    "reviewed_at": ["2025-02-01"],
+    "tags": ["movie"],
   }]
 };

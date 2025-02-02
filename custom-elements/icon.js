@@ -7,6 +7,7 @@ class CustomIconElement extends HTMLElement {
 
   _icon = null;
   _elements = {
+    shadow: null,
     icon: null,
     link: null,
   };
@@ -20,7 +21,6 @@ class CustomIconElement extends HTMLElement {
     this.size = this.getAttribute('size');
 
     this._elements.link = document.createElement('a');
-    this._elements.link.append(this._elements.icon);
     this.url = this.getAttribute('url');
 
     const style = document.createElement('style');
@@ -33,7 +33,21 @@ a {
 }
 `;
 
-    this.attachShadow({mode: 'closed'}).append(style, this._elements.link.href ? this._elements.link : this._elements.icon);
+    this._elements.shadow = this.attachShadow({mode: 'closed'})
+    this._elements.shadow.append(style);
+    this._setElement();
+  }
+
+  _setElement() {
+    if (this._elements.shadow == null) { return; } // If this is the case, we'll come back here in a few lines
+
+    if (this._elements.link.href === window.location.href) {
+      this._elements.link.remove();
+      this._elements.shadow.append(this._elements.icon);
+    } else {
+      this._elements.link.append(this._elements.icon);
+      this._elements.shadow.append(this._elements.link);
+    }
   }
 
   set icon(icon) {
@@ -47,7 +61,7 @@ a {
   }
 
   set size(size) { this._elements.icon.style.fontSize = size; }
-  set url(url) { this._elements.link.href = url; }
+  set url(url) { this._elements.link.href = url ?? ''; this._setElement(); }
 }
 
 class CustomHeaderIconElement extends CustomIconElement {

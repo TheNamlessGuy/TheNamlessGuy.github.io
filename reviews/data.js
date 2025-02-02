@@ -3341,5 +3341,12 @@ If they're gonna make one movie per character, I'll gladly watch each one. The R
     "score": 7,
     "reviewed_at": ["2025-02-01"],
     "tags": ["movie"],
+  }, {
+    "title": "After Life",
+    "link": "https://www.imdb.com/title/tt8398600/",
+    "score": 8,
+    "reviewed_at": ["2025-02-02"],
+    "tags": ["show"],
+    "description": "About half the show feels like Ricky Gervais doing things that he thinks makes him seem cool. The other half is a great show, which plays displays difficult to capture emotions very competently. The ending to season 2 hits hard"
   }]
 };

@@ -3348,5 +3348,17 @@ If they're gonna make one movie per character, I'll gladly watch each one. The R
     "reviewed_at": ["2025-02-02"],
     "tags": ["show"],
     "description": "About half the show feels like Ricky Gervais doing things that he thinks makes him seem cool. The other half is a great show, which plays displays difficult to capture emotions very competently. The ending to season 2 hits hard"
+  }, {
+    "title": "The Longest Journey",
+    "link": "https://www.gog.com/game/the_longest_journey",
+    "score": 9,
+    "reviewed_at": ["2025-02-08"],
+    "tags": ["game"],
+    "description": `Well worthy of the title of one of the best point-and-click adventure games.
+
+Sure, there are some (countable on one hand) puzzles with some moon logic to them (the cave crystal puzzle, for example), but with guides and walkthroughs being readily available, that isn't much of a hassle.
+Despite that, it's a great game, and a good story with well defined characters.
+
+Crow will be bro forever.`,
   }]
 };

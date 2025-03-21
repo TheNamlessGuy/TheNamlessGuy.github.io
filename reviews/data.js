@@ -403,9 +403,11 @@ const _raw_data = {
   }, {
     "title": "BoJack Horseman",
     "link": "https://www.imdb.com/title/tt3398228/",
-    "score": 9.5,
-    "reviewed_at": ["2020-07-25"],
+    "score": 9.75,
+    "reviewed_at": ["2020-07-25", "2025-03-22"],
     "tags": ["show"],
+    "description": `BoJack Horseman is the type of show where you can either ramble on for hours about why it's special and important, or you can just sum it up as "it's fantastic", and truly mean "fantastic".
+I could list all the uncountable number of threads that make up this gorgeous ball of yarn, but, as a person who has never really excelled at communication, I'll just say that it's fantastic.`
   }, {
     "title": "Breaking Bad",
     "link": "https://www.imdb.com/title/tt0903747/",
@@ -1634,8 +1636,8 @@ The latter half of season 3 and most of season 4 does feel like a return to form
   }, {
     "title": "Severance",
     "link": "https://www.imdb.com/title/tt11280740/",
-    "score": 8.5,
-    "reviewed_at": ["2022-05-28"],
+    "score": 9,
+    "reviewed_at": ["2022-05-28", "2025-03-22"],
     "tags": ["show"],
   }, {
     "title": "Spaceballs",
@@ -3360,5 +3362,21 @@ Sure, there are some (countable on one hand) puzzles with some moon logic to the
 Despite that, it's a great game, and a good story with well defined characters.
 
 Crow will be bro forever.`,
+  }, {
+    "title": "Blade II",
+    "link": "https://www.imdb.com/title/tt0187738/",
+    "score": 7.5,
+    "reviewed_at": ["2025-03-04"],
+    "tags": ["movie"],
+  }, {
+    "title": "Pokémon Uranium",
+    "link": "https://pokemon-uranium.fandom.com/wiki/Main_Page",
+    "score": 6,
+    "reviewed_at": ["2025-03-06"],
+    "tags": ["game"],
+    "description": `A well made fan game, but it suffers from some major design flaws.
+Mainly the fact that it's designed for you to grind, but it doesn't give you level appropriate enemies to grind on, meaning you never get a decent amount of EXP. When a gym leader has pokemon 15 or so levels above the wild ones nearby, you easily run into the issue.
+
+Most of the fakemon are ok. The nuclear theme is a bit 14-year-old-on-deviantart edgy, but what are you gonna do.`,
   }]
 };

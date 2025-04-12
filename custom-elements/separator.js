@@ -1,8 +1,10 @@
 class CustomSeparatorElement extends HTMLElement {
+  _element = null;
+
   constructor() {
     super();
 
-    const element = document.createElement('div');
+    this._element = document.createElement('div');
     while (this.hasChildNodes()) {
       const node = this.childNodes[0];
       node.remove();
@@ -11,16 +13,16 @@ class CustomSeparatorElement extends HTMLElement {
         const span = document.createElement('span');
         span.classList.add('whitespace-pre');
         span.innerText = node.textContent;
-        element.append(span);
+        this._element.append(span);
       } else {
-        element.append(node);
+        this._element.append(node);
       }
     }
 
     if (this.hasAttribute('faded')) {
-      element.classList.add('faded');
+      this.faded();
     } else {
-      element.classList.add('primary');
+      this.primary();
     }
 
     const style = document.createElement('style');
@@ -48,7 +50,17 @@ div.primary::before, div.primary::after { border-color: var(--separator-color-0)
 div.faded::before, div.faded::after { border-color: var(--separator-color-1); }
 `;
 
-    this.attachShadow({mode: 'closed'}).append(style, element);
+    this.attachShadow({mode: 'closed'}).append(style, this._element);
+  }
+
+  faded() {
+    this._element.classList.remove('primary');
+    this._element.classList.add('faded');
+  }
+
+  primary() {
+    this._element.classList.add('primary');
+    this._element.classList.remove('faded');
   }
 }
 

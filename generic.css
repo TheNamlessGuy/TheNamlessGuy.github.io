@@ -105,6 +105,9 @@ select {
   padding: 3px;
 }
 
+h2 { text-decoration: underline; }
+h3 { font-style: italic; }
+
 .hidden { display: none !important; }
 .invisible { visibility: hidden !important; }
 .w40 { width: 40%; }

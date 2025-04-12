@@ -3291,10 +3291,10 @@ Music choice was always pretty good though.`
 * Steely Jade doesn't actually do what the description says it does. It only protects you during the standing still phase, not during the part where you move. Maybe that's what they mean by 'detonation', but that vocabulary doesn't show up in the rest of the game, so it's hard to know. Even if it does, it obviously doesn't stand out enough.
 * The input buffering mechanic doesn't work very well. I think there is one (it feels like it), but sometimes it doesn't trigger. Healing right after you've parried, for example.
 
-It also suffers from quite a few of the things mentioned in <a href="/rants/the-decline-of-fromsoftware-games">The Decline of FromSoftware Games</a>:
-* "The demand for perfection"
-* Multi-healthbar bossfights suck
-* Attack telegraphing sucks (sometimes)
+It also suffers from quite a few of the things mentioned in <a href="/rants/the-decline-of-soulslikes">The Decline of Soulslikes</a>:
+* The Demand for Perfection
+* Removing Player Progress
+* Style Over Substance
 
 The 3rd phase of the final boss definitely passes the 'fun' barrier, and enters into 'tedious', since it's 50% visual noise.
 
@@ -3378,5 +3378,12 @@ Crow will be bro forever.`,
 Mainly the fact that it's designed for you to grind, but it doesn't give you level appropriate enemies to grind on, meaning you never get a decent amount of EXP. When a gym leader has pokemon 15 or so levels above the wild ones nearby, you easily run into the issue.
 
 Most of the fakemon are ok. The nuclear theme is a bit 14-year-old-on-deviantart edgy, but what are you gonna do.`,
+  }, {
+    "title": "Mickey 17",
+    "link": "https://www.imdb.com/title/tt12299608/",
+    "score": 7.5,
+    "reviewed_at": ["2025-04-11"],
+    "tags": ["movie"],
+    "description": `Weird and enjoyable. Introduces plot hooks that it doesn't do much with, but if you accept them without expectations, they work.`,
   }]
 };

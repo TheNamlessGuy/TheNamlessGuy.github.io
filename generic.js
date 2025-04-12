@@ -45,7 +45,7 @@ Math.clamp = function(min, value, max) {
   if (value < min) { return min; }
   if (value > max) { return max; }
   return value;
-}
+};
 
 const Hotkeys = {
   /** @type {{combo: {shift: boolean, ctrl: boolean, alt: boolean, meta: boolean, key: string}, callback: (e: KeyboardEvent) => void}[]} */
@@ -102,10 +102,48 @@ const Hotkeys = {
       }
     }
   },
-}
+};
+
+const HeaderLinks = {
+  init: function() {
+    const elements = Array.from(document.querySelectorAll('h2, h3, h4, h5, h6'));
+
+    let titles = ['header'];
+    for (const element of elements) {
+      const title = HeaderLinks._titleify(element.innerText);
+      const level = HeaderLinks._level(element);
+
+      while (titles.length >= level) {
+        titles.pop();
+      }
+
+      if (titles.length <= level) {
+        titles.push(title);
+      }
+
+      element.id = titles.join('-');
+    }
+  },
+
+  _titleify: function(contents) {
+    return contents.toLowerCase().replaceAll(/[^a-zA-Z0-9]/g, '_');
+  },
+
+  _level: function(element) {
+    return parseInt(element.tagName.substring(1), 10);
+  },
+};
 
 window.addEventListener('DOMContentLoaded', () => {
+  if (!window.matchMedia) {
+    Theme.set('light');
+  } else {
+    Theme.set(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (event) { Theme.set(event.match ? 'dark' : 'light') });
+  }
+
   Hotkeys.init();
+  HeaderLinks.init();
 
   function scrollbarWidth() {
     // https://stackoverflow.com/a/28361560
@@ -127,12 +165,5 @@ window.addEventListener('DOMContentLoaded', () => {
     document.title += ' - Namless Things';
   } else {
     document.title = 'Namless Things';
-  }
-
-  if (!window.matchMedia) {
-    Theme.set('light');
-  } else {
-    Theme.set(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (event) { Theme.set(event.match ? 'dark' : 'light') });
   }
 });

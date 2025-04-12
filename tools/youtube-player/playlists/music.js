@@ -131,7 +131,7 @@ Playlist.addPredesignedPlaylist('music', [
   {title: 'cornandbeans - Lazy Summer Days',                                                             source: 'youtube', src: 'elnu8HdJHpc', tags: []},
   {title: 'Belanova - Tus Ojos',                                                                         source: 'youtube', src: 'iYBA0wC_cBU', tags: []},
   {title: 'Balthazar - Nightclub (Acoustic)',                                                            source: 'youtube', src: 'XGAxLYFExeY', tags: []},
-  {title: 'The Tallest Man on Earth - King of Spain',                                                    source: 'youtube', src: 'cKt_bPNKs_A', tags: []},
+  {title: 'The Tallest Man on Earth - King of Spain',                                                    source: 'youtube', src: 'JFZYG4fN1qU', tags: []},
   {title: 'The Jungle Giants - I Am What You Want Me To Be',                                             source: 'youtube', src: 'Rcgabv2Y8l8', tags: []},
   {title: 'San Cisco - Fred Astaire',                                                                    source: 'youtube', src: 'ultX5ZR-sQE', tags: []},
   {title: 'Q Lazzarus - Goodbye Horses',                                                                 source: 'youtube', src: 'zILmrAJgzSc', tags: []},

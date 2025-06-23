@@ -984,8 +984,8 @@ Back & Forth: 8`,
   }, {
     "title": "In the Heights",
     "link": "https://www.imdb.com/title/tt1321510/",
-    "score": 9,
-    "reviewed_at": ["2021-06-12"],
+    "score": 8,
+    "reviewed_at": ["2021-06-12", "2025-05-15"],
     "tags": ["movie", "musical"],
   }, {
     "title": "Blazing Saddles",
@@ -3385,5 +3385,47 @@ Most of the fakemon are ok. The nuclear theme is a bit 14-year-old-on-deviantart
     "reviewed_at": ["2025-04-11"],
     "tags": ["movie"],
     "description": `Weird and enjoyable. Introduces plot hooks that it doesn't do much with, but if you accept them without expectations, they work.`,
+  }, {
+    "title": "The Producers",
+    "link": "https://www.imdb.com/title/tt0063462/",
+    "score": 7,
+    "reviewed_at": ["2025-04-21"],
+    "tags": ["movie"],
+    "description": `They don't make movies like this anymore`,
+  }, {
+    "title": "Ferris Bueller's Day Off",
+    "link": "https://www.imdb.com/title/tt0091042/",
+    "score": 7.75,
+    "reviewed_at": ["2025-05-06"],
+    "tags": ["movie"],
+    "description": `The ending 'explanation' of all of his behavior (doing it all to help Cameron) really sells the whole movie.`,
+  }, {
+    "title": "Fly Knight",
+    "link": "https://www.igdb.com/games/flyknight--1",
+    "score": 7,
+    "reviewed_at": ["2025-06-06"],
+    "tags": ["game"],
+    "description": `A bit rough around the edges in some cases, but a good idea and a neat execution. The coop works well, if a bit unbalanced`,
+  }, {
+    "title": "The Wild Robot",
+    "link": "https://www.imdb.com/title/tt29623480/",
+    "score": 8,
+    "reviewed_at": ["2025-06-06"],
+    "tags": ["movie"],
+    "description": `A bit overt in its metaphors, but overall very good`,
+  }, {
+    "title": "Pita Hall",
+    "link": "https://www.imdb.com/title/tt35825882/",
+    "score": 5,
+    "reviewed_at": ["2025-06-16"],
+    "tags": ["movie"],
+    "description": `Feels like the language and cultural barriers stopped a lot of the jokes`,
+  }, {
+    "title": "Confess, Fletch",
+    "link": "https://www.imdb.com/title/tt35825882/",
+    "score": 7.25,
+    "reviewed_at": ["2025-06-16"],
+    "tags": ["movie"],
+    "description": `Pretty good for what it is, but doesn't do a lot to stand out`,
   }]
 };

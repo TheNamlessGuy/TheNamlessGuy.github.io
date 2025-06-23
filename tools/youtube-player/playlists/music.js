@@ -946,4 +946,10 @@ Playlist.addPredesignedPlaylist('music', [
   {title: 'Balduin - Hep Cat Boogie (feat. Kate Thomas)',                                                source: 'youtube', src: 'jGtybdncI2w', tags: [Tags.GENRE_ELECTROSWING],    found_through: 'https://www.youtube.com/watch?v=oaISU5KmTPA'},
   {title: '11 Acorn Lane - Perfect',                                                                     source: 'youtube', src: 'p_AlkCA7yzk', tags: [Tags.GENRE_ELECTROSWING],    found_through: 'https://www.youtube.com/watch?v=oaISU5KmTPA'},
   {title: 'ProleteR - What Lana Says',                                                                   source: 'youtube', src: 'mJdwDjUqAMQ', tags: [Tags.GENRE_ELECTROSWING],    found_through: 'https://www.youtube.com/watch?v=oaISU5KmTPA'},
+  {title: 'Maryze & Morganne - LANGUE',                                                                  source: 'youtube', src: 'U5LlQAR8we0', tags: [],                           found_through: 'YouTube recommendation'},
+  {title: 'Ghost - Mary on a Cross',                                                                     source: 'youtube', src: 'k5mX3NkA7jM', tags: [],                           found_through: 'YouTube recommendation'},
+  {title: 'João Gilberto - O Pato',                                                                      source: 'youtube', src: 'jq2f0jhFl6c', tags: [Tags.GENRE_BOSSA_NOVA],      found_through: 'https://www.youtube.com/watch?v=kuG3uTCb5a4'},
+  {title: 'Caetano Veloso - O Leaozinho',                                                                source: 'youtube', src: 'wJ2prEKx3_Y', tags: [Tags.GENRE_BOSSA_NOVA],      found_through: 'Friend recommendation'},
+  {title: 'Tom Jobin - Garota De Ipanema',                                                               source: 'youtube', src: 'WuenyQ4NCQE', tags: [Tags.GENRE_BOSSA_NOVA],      found_through: 'Friend recommendation'},
+  {title: 'Stan Getz - Desafinado',                                                                      source: 'youtube', src: 'oqHONL-LZ58', tags: [Tags.GENRE_BOSSA_NOVA],      found_through: 'Friend recommendation'},
 ]);

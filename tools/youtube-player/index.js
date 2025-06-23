@@ -22,6 +22,7 @@ const Tags = {
   GENRE_TANGO: 'genre:tango',
   GENRE_YE_OLDE: 'genre:ye-olde',
   GENRE_ELECTROSWING: 'genre:electroswing',
+  GENRE_BOSSA_NOVA: 'genre:bossa-nova',
 };
 
 const Player = {

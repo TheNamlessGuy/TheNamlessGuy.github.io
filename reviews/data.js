@@ -1117,89 +1117,89 @@ Back & Forth: 8`,
     "tags": ["movie"],
   }, {
     "title": "Amnesia: The Dark Descent",
-    "link": "https://www.gog.com/game/amnesia_the_dark_descent",
+    "link": "https://www.igdb.com/games/amnesia-the-dark-descent",
     "score": 7,
     "tags": ["game"],
   }, {
     "title": "Audiosurf",
-    "link": "https://store.steampowered.com/app/12900/AudioSurf/",
+    "link": "https://www.igdb.com/games/audiosurf",
     "score": 7,
     "reviewed_at": ["2021-12-03"],
     "tags": ["game"],
   }, {
     "title": "Bastion",
-    "link": "https://www.gog.com/game/bastion",
+    "link": "https://www.igdb.com/games/bastion",
     "score": 9,
     "tags": ["game"],
   }, {
     "title": "Assassin's Creed II",
-    "link": "https://store.steampowered.com/app/33230/Assassins_Creed_2/",
+    "link": "https://www.igdb.com/games/assassin-s-creed-ii",
     "score": 7,
     "tags": ["game"],
   }, {
     "title": "Trine 2: Complete Story",
-    "link": "https://www.gog.com/game/trine_2_complete_story",
+    "link": "https://www.igdb.com/games/trine-2-complete-story",
     "score": 7,
     "tags": ["game"],
   }, {
     "title": "Borderlands 2",
-    "link": "https://store.steampowered.com/app/49520/Borderlands_2/",
+    "link": "https://www.igdb.com/games/borderlands-2",
     "score": 7,
     "tags": ["game"],
   }, {
     "title": "The Elder Scrolls V: Skyrim",
-    "link": "https://store.steampowered.com/app/72850/The_Elder_Scrolls_V_Skyrim/",
+    "link": "https://www.igdb.com/games/the-elder-scrolls-v-skyrim",
     "score": 7,
     "reviewed_at": ["2021-12-03"],
     "tags": ["game"],
   }, {
     "title": "FTL",
-    "link": "https://www.gog.com/game/faster_than_light",
+    "link": "https://www.igdb.com/games/ftl-faster-than-light",
     "score": 6,
     "tags": ["game"],
   }, {
     "title": "Antichamber",
-    "link": "https://store.steampowered.com/app/219890/Antichamber/",
+    "link": "https://www.igdb.com/games/antichamber",
     "score": 7,
     "reviewed_at": ["2021-12-03"],
     "tags": ["game"],
   }, {
     "title": "Proteus",
-    "link": "https://store.steampowered.com/app/219680/Proteus/",
+    "link": "https://www.igdb.com/games/proteus",
     "score": 8,
     "reviewed_at": ["2021-12-03"],
     "description": "Just incredibly relaxing.",
     "tags": ["game"],
   }, {
     "title": "Brothers: A Tale of Two Sons",
-    "link": "https://www.gog.com/game/brothers_a_tale_of_two_sons",
+    "link": "https://www.igdb.com/games/brothers-a-tale-of-two-sons",
     "score": 8,
     "reviewed_at": ["2021-12-03"],
     "description": "Nice use of gameplay mechanics to tell the story.",
     "tags": ["game"],
   }, {
     "title": "Fallout 4",
-    "link": "https://store.steampowered.com/app/377160/Fallout_4/",
+    "link": "https://www.igdb.com/games/fallout-4",
     "score": 6.5,
     "reviewed_at": ["2021-12-03"],
     "tags": ["game"],
   }, {
     "title": "Wandersong",
-    "link": "https://www.gog.com/game/wandersong",
+    "link": "https://www.igdb.com/games/wandersong",
     "score": 9.5,
     "description": "Nothing amazingly groundbreaking, but it does what it sets out to do, and does it well. I would personally have done the ending a bit differently (as you can see here: https://thenamlessguy.github.io/rants/my-wandersong-ending.html), but it's still one of my favorite games.",
     "reviewed_at": ["2021-12-03"],
     "tags": ["game"],
   }, {
     "title": "Stars Die",
-    "link": "https://store.steampowered.com/app/1457740/Stars_Die/",
+    "link": "https://www.igdb.com/games/stars-die",
     "score": 8,
     "description": "Very much gives me the same feeling as when I read Lovecraft. Captures the cosmic horror vibes fantastically, without just jerking off Lovecraft's dead dongler.",
     "reviewed_at": ["2021-12-03"],
     "tags": ["game"],
   }, {
     "title": "Heaven's Vault",
-    "link": "https://www.gog.com/game/heavens_vault",
+    "link": "https://www.igdb.com/games/heavens-vault",
     "score": 9.5,
     "reviewed_at": ["2023-11-10"],
     "description": `One of my favorite games. It has a LOT of jank, and a lot of things that are frustrating, but it also has a shitton of heart. At the end of the day, that's all that really matters.
@@ -1229,13 +1229,13 @@ The shit I absolutely adore:
     "tags": ["game"],
   }, {
     "title": "The Elder Scrolls III: Morrowind",
-    "link": "https://www.gog.com/game/the_elder_scrolls_iii_morrowind_goty_edition",
+    "link": "https://www.igdb.com/games/the-elder-scrolls-iii-morrowind",
     "score": 8.5,
     "reviewed_at": ["2021-12-03"],
     "tags": ["game"],
   }, {
     "title": "The Elder Scrolls IV: Oblivion",
-    "link": "https://www.gog.com/game/elder_scrolls_iv_oblivion_game_of_the_year_edition_deluxe_the",
+    "link": "https://www.igdb.com/games/the-elder-scrolls-iv-oblivion",
     "score": 9,
     "description": `The perfect balance between the depth in Morrowind and the simplicity of Skyrim.
 Only thing I would really change is the leveling system, as I feel only leveling up from your major skills is kind of boring.
@@ -1246,7 +1246,7 @@ Maybe fix the difficulty curve as well. Did Battle of Kvatch at level 14 or some
     "tags": ["game"],
   }, {
     "title": "Inscryption",
-    "link": "https://www.gog.com/game/inscryption",
+    "link": "https://www.igdb.com/games/inscryption",
     "score": 8,
     "reviewed_at": ["2021-12-03"],
     "description": "While I didn't follow the ARG aspect of the game, I did still immensely enjoy the game itself. Go in blind if you haven't played it.",
@@ -1431,7 +1431,7 @@ Maybe fix the difficulty curve as well. Did Battle of Kvatch at level 14 or some
     "tags": ["movie"],
   }, {
     "title": "The First Tree",
-    "link": "https://www.gog.com/game/the_first_tree",
+    "link": "https://www.igdb.com/games/the-first-tree",
     "score": 3.5,
     "reviewed_at": ["2021-12-30"],
     "description": `The music is great, the voice acting ranges from great to passable, and the gameplay is... severely lacking. Spoilers after this.
@@ -1478,14 +1478,14 @@ The entire game feels disjointed and strange, but there is definite potential (i
     "tags": ["movie"],
   }, {
     "title": "The Forgotten City",
-    "link": "https://www.gog.com/game/the_forgotten_city",
+    "link": "https://www.igdb.com/games/the-forgotten-city",
     "score": 7.5,
     "reviewed_at": ["2022-01-26"],
     "description": "Waht a tweest. The Bethesda style zoom talk results in some stiff delivery at points (for example, the conversation you have with hood lady in the endings where you make it out), but very good for what it is.",
     "tags": ["game"],
   }, {
     "title": "Metroid Dread",
-    "link": "https://www.nintendo.com/games/detail/metroid-dread-switch/",
+    "link": "https://www.igdb.com/games/metroid-dread",
     "score": 8,
     "reviewed_at": ["2022-01-26"],
     "tags": ["game"],
@@ -1505,7 +1505,7 @@ The entire game feels disjointed and strange, but there is definite potential (i
     "tags": ["movie"],
   }, {
     "title": "Pokemon Legends: Arceus",
-    "link": "https://www.nintendo.com/games/detail/pokemon-legends-arceus-switch/",
+    "link": "https://www.igdb.com/games/pokemon-legends-arceus",
     "score": 8,
     "description": `Despite it looking like babbys first unity project, it plays fantastically.
 Combat is a bit simplified to the earlier entries, but the addition of the STRONG/AGILE style thing is neat.
@@ -1540,7 +1540,7 @@ The latter half of season 3 and most of season 4 does feel like a return to form
     "tags": ["show"],
   }, {
     "title": "AER - Memories of Old",
-    "link": "https://www.gog.com/game/aer",
+    "link": "https://www.igdb.com/games/aer-memories-of-old",
     "score": 7.5,
     "description": "If it had been any longer than it was, the experience would have suffered immensely. However, it is the perfect length for the gameplay they present.",
     "reviewed_at": ["2022-02-19"],
@@ -1608,7 +1608,7 @@ The latter half of season 3 and most of season 4 does feel like a return to form
     "tags": ["show"],
   }, {
     "title": "Murder by Numbers",
-    "link": "https://www.gog.com/game/murder_by_numbers",
+    "link": "https://www.igdb.com/games/murder-by-numbers",
     "score": 8.5,
     "description": "100%-ed it. Solid picross puzzle game. The timed parts feel extremely out of place, but once you get used to it they're not much of a hindrance (even though I wouldn't call it picross at that point anymore).",
     "reviewed_at": ["2022-05-08"],
@@ -1676,7 +1676,7 @@ The latter half of season 3 and most of season 4 does feel like a return to form
     "tags": ["show"],
   }, {
     "title": "Superliminal",
-    "link": "https://www.gog.com/game/superliminal",
+    "link": "https://www.igdb.com/games/superliminal",
     "score": 7.5,
     "reviewed_at": ["2022-07-22"],
     "tags": ["game"],
@@ -1689,7 +1689,7 @@ The latter half of season 3 and most of season 4 does feel like a return to form
     "tags": ["show"],
   }, {
     "title": "Dishonored",
-    "link": "https://www.gog.com/game/dishonored_definitive_edition",
+    "link": "https://www.igdb.com/games/dishonored",
     "score": 7,
     "reviewed_at": ["2022-09-11"],
     "description": "Simpler than I remembered, but still great. If I come back to it again in another 10 years, I'll probably say the same thing.",
@@ -1709,7 +1709,7 @@ The latter half of season 3 and most of season 4 does feel like a return to form
     "tags": ["movie"],
   }, {
     "title": "Kirby and the Forgotten Land",
-    "link": "https://kirbyandtheforgottenland.nintendo.com/",
+    "link": "https://www.igdb.com/games/kirby-and-the-forgotten-land",
     "score": 8,
     "reviewed_at": ["2022-09-30"],
     "description": "Solid Kirby game, if you're into that sort of thing (I am)",
@@ -1757,7 +1757,7 @@ The latter half of season 3 and most of season 4 does feel like a return to form
     "tags": ["movie"],
   }, {
     "title": "Shadows over Loathing",
-    "link": "https://store.steampowered.com/app/1939160/Shadows_Over_Loathing/",
+    "link": "https://www.igdb.com/games/shadows-over-loathing",
     "score": 7.5,
     "reviewed_at": ["2023-01-12"],
     "tags": ["game"],
@@ -1769,7 +1769,7 @@ The latter half of season 3 and most of season 4 does feel like a return to form
     "tags": ["movie"],
   }, {
     "title": "Pokémon Violet",
-    "link": "https://scarletviolet.pokemon.com/en-us/",
+    "link": "https://www.igdb.com/games/pokemon-violet",
     "score": 8,
     "reviewed_at": ["2023-01-20"],
     "description": "Definitely flawed programatically, but still tons of fun. Did not expect the final story arc to take the turns that it did, but it was executed well and I respect the hell out of it.",
@@ -1859,7 +1859,7 @@ The latter half of season 3 and most of season 4 does feel like a return to form
     "title": "Shrek",
     "link": "https://www.imdb.com/title/tt0126029/",
     "score": 9,
-    "reviewed_at": ["2023-01-22"],
+    "reviewed_at": ["2023-01-22", "2025-06-27"],
     "description": "Genuinely just good",
     "tags": ["movie"],
   }, {
@@ -2220,14 +2220,14 @@ Ran for the perfect amount of time, given the subject matter, and stuck the land
     "tags": ["movie"],
   }, {
     "title": "Pikmin 4",
-    "link": "https://www.nintendo.com/store/products/pikmin-4-switch/",
+    "link": "https://www.igdb.com/games/pikmin-4",
     "score": 7.5,
     "reviewed_at": ["2023-08-20"],
     "description": "Don't care much for the hectic dandori stuff, but Pikmin is always a hoot.",
     "tags": ["game"],
   }, {
     "title": "The Legend of Zelda: Tears of the Kingdom",
-    "link": "https://www.nintendo.com/store/products/the-legend-of-zelda-tears-of-the-kingdom-switch/",
+    "link": "https://www.igdb.com/games/the-legend-of-zelda-tears-of-the-kingdom",
     "score": 9.5,
     "reviewed_at": ["2023-08-24"],
     "description": "What a game",
@@ -2241,7 +2241,7 @@ Ran for the perfect amount of time, given the subject matter, and stuck the land
     "tags": ["movie"],
   }, {
     "title": "Hogwarts Legacy",
-    "link": "https://store.steampowered.com/app/990080/Hogwarts_Legacy/",
+    "link": "https://www.igdb.com/games/hogwarts-legacy",
     "score": 6,
     "reviewed_at": ["2023-08-30"],
     "description": `Where do you even start? The ubisoft open world design? The characters that you're not really given a reason to care about? The fact that 90% of the game feels like a generic fantasy thing, with no relation to the franchise whatsoever? The combat at least starts out fun, but quickly devolves into tedium (although unlocking the explosive barrel thing near the end was a nice change of pace).
@@ -2269,7 +2269,7 @@ And yes, I did 100% the game.`,
     "tags": ["movie"],
   }, {
     "title": "Pseudoregalia",
-    "link": "https://rittzler.itch.io/pseudoregalia",
+    "link": "https://www.igdb.com/games/pseudoregalia",
     "score": 8,
     "reviewed_at": ["2023-09-28"],
     "tags": ["game"],
@@ -2301,7 +2301,7 @@ And yes, I did 100% the game.`,
     "tags": ["show"],
   }, {
     "title": "Gorogoa",
-    "link": "https://www.gog.com/game/gorogoa",
+    "link": "https://www.igdb.com/games/gorogoa",
     "score": 9,
     "reviewed_at": ["2023-10-29"],
     "description": `SPOILER! My interpretation of the story:
@@ -2318,7 +2318,7 @@ The message, presumably, being that chasing (spiritual) answers is no way to liv
     "tags": ["game"],
   }, {
     "title": "VVVVVV",
-    "link": "https://www.gog.com/game/vvvvvv",
+    "link": "https://www.igdb.com/games/vvvvvv",
     "score": 8,
     "reviewed_at": ["2023-10-31"],
     "description": `The lack of coyote jump is apparent. That, along with the character being a bit too fast per button press, and the fact that there seems to be some sort of momentum mechanic, makes this feel not as good as it should. It's still a shitton of fun though, with great music to boot`,
@@ -2332,7 +2332,7 @@ The message, presumably, being that chasing (spiritual) answers is no way to liv
     "tags": ["show"],
   }, {
     "title": "Graveyard Keeper",
-    "link": "https://www.gog.com/game/graveyard_keeper",
+    "link": "https://www.igdb.com/games/graveyard-keeper",
     "score": 7.5,
     "reviewed_at": ["2023-11-07"],
     "description": `Entertaining for the most part, but the late game devolves into a lot of running around your house to fetch that one item you had one too few of, and sitting in your stone garden meditating.
@@ -2344,7 +2344,7 @@ All around enjoyable, but a bit tedious towards the end.`,
     "tags": ["game"],
   }, {
     "title": "One Last Game",
-    "link": "https://gooseladdergames.itch.io/onelastgame",
+    "link": "https://www.igdb.com/games/one-last-game",
     "score": 9,
     "reviewed_at": ["2023-11-07"],
     "description": `Simple and effective`,
@@ -2364,7 +2364,7 @@ All around enjoyable, but a bit tedious towards the end.`,
     "tags": ["movie"],
   }, {
     "title": "Goetia",
-    "link": "https://www.gog.com/game/goetia",
+    "link": "https://www.igdb.com/games/goetia",
     "score": 6,
     "reviewed_at": ["2023-11-21"],
     "description": `A point-and-click puzzle game that takes too much inspiration from the early days of the genre.
@@ -2380,7 +2380,7 @@ Spoilers for a handful of puzzles that I felt indicative of the games flaws:
     "tags": ["game"],
   }, {
     "title": "Star Wars Jedi: Survivor",
-    "link": "https://store.steampowered.com/app/1774580/STAR_WARS_Jedi_Survivor/",
+    "link": "https://www.igdb.com/games/star-wars-jedi-survivor",
     "score": 7.5,
     "reviewed_at": ["2023-12-19"],
     "description": `In many ways, a complete upgrade of the previous game in the series. In other ways, a step back.
@@ -2436,11 +2436,20 @@ Shoutout to my main man Rick. Best door technician I ever met.`,
     "title": "The Rehearsal",
     "link": "https://www.imdb.com/title/tt10802170/",
     "score": 9.25,
-    "reviewed_at": ["2023-12-27"],
+    "reviewed_at": ["2023-12-27", "2025-07-28"],
     "tags": ["show"],
+    "description": `This is definitely the kind of show where the less you know going in, the better. Stop reading now if you're interested, and go watch it.
+
+I decided to rewatch the first season along with watching season 2. I remember being surprised that the show was renewed after the first season, considering I felt that the message of the last episode was that the entire premise of the show was a bad idea.
+
+The first season is a great psychological exploration of parenthood, child actors, whether taking rehearsing to this level is good for any of the people involved, and a lot of other things. It's clear there's no defined goal. Perhaps the idea originally was to make something more episodic (similar to Nathan for You), only to stumble into the plot of the season?
+
+The second season, on the other hand, clearly does have a goal in mind. The first episode explains it clearly - having had a personal interest in aviation, Nathan wonders if its OK to use the budget of a comedy show to try and solve a real problem.
+
+While the second season is very good in its own right, I feel it suffers standing in the shadow of the first. It's good, but it's not <i>as</i> good. Although maybe that's just me.`,
   }, {
     "title": "Alan Wake",
-    "link": "https://www.gog.com/game/alan_wake",
+    "link": "https://www.igdb.com/games/alan-wake",
     "score": 7,
     "reviewed_at": ["2023-12-28"],
     "description": `The combat shows its age, and it's a shame that the special episodes rely so heavily on it, considering they're the best part of the game in every other sense. Still, the story is interesting enough (even if a bit simplistic for the near-cosmic horror stuff)`,
@@ -2518,7 +2527,7 @@ Shoutout to my main man Rick. Best door technician I ever met.`,
     "tags": ["show"],
   }, {
     "title": "A Highland Song",
-    "link": "https://www.inklestudios.com/a-highland-song/",
+    "link": "https://www.igdb.com/games/a-highland-song",
     "score": 8,
     "reviewed_at": ["2024-01-20"],
     "description": "A fantastically cozy little game that does a horrible job of selling you on what it's all about. It presents you with a time limit early on, which ultimately doesn't matter. However, for a new player, this just adds a layer of stress. All you get for getting to the end 'on time' is a slightly different ending. That being said, this game is all about the journey, and it does that part fantastically, if a bit jank at times. There's a lot of heart here though, and in the end, isn't that what matters the most?",
@@ -2580,7 +2589,7 @@ All the above are just minor nitpicks, and I would say that if you're into the m
     "tags": ["movie"],
   }, {
     "title": "Control",
-    "link": "https://www.gog.com/game/control_ultimate_edition",
+    "link": "https://www.igdb.com/games/control",
     "score": 8.5,
     "reviewed_at": ["2024-03-16"],
     "description": `
@@ -2658,14 +2667,14 @@ I'd rate all of the movies individually in the mid to high sevens, but when you 
     "tags": ["movie"],
   }, {
     "title": "Hi-Fi Rush",
-    "link": "https://store.steampowered.com/app/1817230/HiFi_RUSH/",
+    "link": "https://www.igdb.com/games/hi-fi-rush",
     "score": 9,
     "reviewed_at": ["2024-03-21"],
     "description": `Insanely fun and charming. Stole my idea of style fighter + rhythm game, but they nailed it so I can't be mad. Only opens the market for more games in the genre.`,
     "tags": ["game"],
   }, {
     "title": "Dredge",
-    "link": "https://www.gog.com/game/dredge",
+    "link": "https://www.igdb.com/games/dredge",
     "score": 7,
     "reviewed_at": ["2024-03-31"],
     "description": `Very enjoyable. Good atmosphere. Story felt obvious but the visuals made up for it.
@@ -2753,27 +2762,27 @@ It does however lean a bit too heavily on the interpersonal relationships of the
     "tags": ["show"],
   }, {
     "title": "The Room",
-    "link": "https://store.steampowered.com/app/288160/The_Room/",
+    "link": "https://www.igdb.com/games/the-room--1",
     "score": 7.5,
     "reviewed_at": ["2024-04-24"],
     "tags": ["game"],
   }, {
     "title": "The Room Two",
-    "link": "https://store.steampowered.com/app/425580/The_Room_Two/",
+    "link": "https://www.igdb.com/games/the-room-two",
     "score": 7.75,
     "reviewed_at": ["2024-04-24"],
     "description": "Straight upgrade of the first one",
     "tags": ["game"],
   }, {
     "title": "The Room Three",
-    "link": "https://store.steampowered.com/app/456750/The_Room_Three/",
+    "link": "https://www.igdb.com/games/the-room-three",
     "score": 7.75,
     "reviewed_at": ["2024-04-24"],
     "description": "Best one so far. Myst vibes. The transition animations are a bit too long though. Several times I thought I missed something because I tried to do the obvious thing a fraction of a second too early, and because of it I couldn't turn the key (or whatever)",
     "tags": ["game"],
   }, {
     "title": "Vampyr",
-    "link": "https://www.gog.com/game/vampyr",
+    "link": "https://www.igdb.com/games/vampyr",
     "score": 7.75,
     "reviewed_at": ["2024-04-26"],
     "description": `
@@ -2858,21 +2867,21 @@ It really deserves a more polished sequel.
     "description": "Perfect example of why timing is important in comedy",
   }, {
     "title": "Turnip Boy Commits Tax Evasion",
-    "link": "https://www.gog.com/game/turnip_boy_commits_tax_evasion",
+    "link": "https://www.igdb.com/games/turnip-boy-commits-tax-evasion",
     "score": 7.5,
     "reviewed_at": ["2024-08-19"],
     "tags": ["game"],
     "description": "Exactly what I expected and not what I expected at all at the same time",
   }, {
     "title": "Turnip Boy Robs a Bank",
-    "link": "https://www.gog.com/game/turnip_boy_robs_a_bank",
+    "link": "https://www.igdb.com/games/turnip-boy-robs-a-bank",
     "score": 7.5,
     "reviewed_at": ["2024-08-22"],
     "tags": ["game"],
     "description": "A solid sequel. Nothing like the original, but also is",
   }, {
     "title": "DAVE THE DIVER",
-    "link": "https://store.steampowered.com/app/1868140/DAVE_THE_DIVER/",
+    "link": "https://www.igdb.com/games/dave-the-diver",
     "score": 8.5,
     "reviewed_at": ["2024-08-22"],
     "tags": ["game"],
@@ -2889,7 +2898,7 @@ That being said, I did enjoy my time. The core gameplay loop is solid, and the i
 `,
   }, {
     "title": "Arx Fatalis",
-    "link": "https://www.gog.com/game/arx_fatalis",
+    "link": "https://www.igdb.com/games/arx-fatalis",
     "score": 8.75,
     "reviewed_at": ["2024-08-26"],
     "tags": ["game"],
@@ -2900,7 +2909,7 @@ Giving you a rudimentary system for interacting with the world, and then having 
 `,
   }, {
     "title": "Grotto",
-    "link": "https://www.gog.com/game/grotto",
+    "link": "https://www.igdb.com/games/grotto",
     "score": 7.5,
     "reviewed_at": ["2024-08-27"],
     "tags": ["game"],
@@ -2910,63 +2919,63 @@ Giving you a rudimentary system for interacting with the world, and then having 
 The fact that you have to find constellations yourself is a weird mechanic. I'd recommend just looking up an unlock guide, since that part of the game really doesn't add anything. Other than that, pretty solid. Voice acting is dodgy at times, but that's not the focus of the game.`,
   }, {
     "title": "Samsara Room",
-    "link": "https://www.gog.com/game/samsara_room",
+    "link": "https://www.igdb.com/games/samsara-room",
     "score": 7.5,
     "reviewed_at": ["2024-08-28"],
     "tags": ["game", "game:rusty-lake"],
     "description": "Cryptic, weird, and the moon logic feels not so moonian. Just what you want from a Rusty Lake game"
   }, {
     "title": "Cube Escape: Seasons",
-    "link": "https://www.gog.com/game/cube_escape_collection",
+    "link": "https://www.igdb.com/games/cube-escape-seasons",
     "score": 6,
     "reviewed_at": ["2024-08-30"],
     "tags": ["game", "game:rusty-lake"],
     "description": "You can tell that these early games were early - the team hadn't yet gotten the nice UX of the later games."
   }, {
     "title": "Cube Escape: The Lake",
-    "link": "https://www.gog.com/game/cube_escape_collection",
+    "link": "https://www.igdb.com/games/cube-escape-the-lake",
     "score": 7,
     "reviewed_at": ["2024-08-30"],
     "tags": ["game", "game:rusty-lake"],
     "description": "Alternate ending is spooktacular"
   }, {
     "title": "Cube Escape: Arles",
-    "link": "https://www.gog.com/game/cube_escape_collection",
+    "link": "https://www.igdb.com/games/cube-escape-arles",
     "score": 7,
     "reviewed_at": ["2024-08-30"],
     "tags": ["game", "game:rusty-lake"],
     "description": "Good puzzles, but it feels weirdly out of place in the Rusty Lake franchise. The coloring puzzle was real nice"
   }, {
     "title": "Cube Escape: Harvey's Box",
-    "link": "https://www.gog.com/game/cube_escape_collection",
+    "link": "https://www.igdb.com/games/cube-escape-harveys-box",
     "score": 6.5,
     "reviewed_at": ["2024-08-30"],
     "tags": ["game", "game:rusty-lake"],
     "description": "A lot of guess work when solving puzzles, even if you know the solution. For example, you just have to learn what level of filled glass gives off what note. The domino puzzle having multiple ways to even start is just diabolical time wastage. Maggot/fly puzzle is chef kiss emoji"
   }, {
     "title": "Cube Escape: Case 23",
-    "link": "https://www.gog.com/game/cube_escape_collection",
+    "link": "https://www.igdb.com/games/cube-escape-case-23",
     "score": 7.5,
     "reviewed_at": ["2024-08-30"],
     "tags": ["game", "game:rusty-lake"],
     "description": "The story is going places! I don't appreciate the timed last chapter, but at least it's very short. Also, I hate sliding puzzles, but that's a purely personal gripe"
   }, {
     "title": "Cube Escape: The Mill",
-    "link": "https://www.gog.com/game/cube_escape_collection",
+    "link": "https://www.igdb.com/games/cube-escape-the-mill",
     "score": 8,
     "reviewed_at": ["2024-08-30"],
     "tags": ["game", "game:rusty-lake"],
     "description": "Story is quickly getting interesting"
   }, {
     "title": "Rusty Lake Hotel",
-    "link": "https://www.gog.com/game/rusty_lake_hotel",
+    "link": "https://www.igdb.com/games/rusty-lake-hotel",
     "score": 8,
     "reviewed_at": ["2024-08-31"],
     "tags": ["game", "game:rusty-lake"],
     "description": "Kind of annoying that some of the optional ingredients are missable - had to restart twice"
   }, {
     "title": "Cube Escape: Birthday",
-    "link": "https://www.gog.com/game/cube_escape_collection",
+    "link": "https://www.igdb.com/games/cube-escape-birthday",
     "score": 8.5,
     "reviewed_at": ["2024-08-31"],
     "tags": ["game", "game:rusty-lake"],
@@ -2979,21 +2988,21 @@ The fact that you have to find constellations yourself is a weird mechanic. I'd 
     "tags": ["movie"],
   }, {
     "title": "Cube Escape: Theatre",
-    "link": "https://www.gog.com/game/cube_escape_collection",
+    "link": "https://www.igdb.com/games/cube-escape-theatre",
     "score": 7.5,
     "reviewed_at": ["2024-08-31"],
     "tags": ["game", "game:rusty-lake"],
     "description": "Very chill, puzzle-focused entry"
   }, {
     "title": "Rusty Lake: Roots",
-    "link": "https://www.gog.com/game/rusty_lake_roots",
+    "link": "https://www.igdb.com/games/rusty-lake-roots",
     "score": 9,
     "reviewed_at": ["2024-09-01"],
     "tags": ["game", "game:rusty-lake"],
     "description": "Fantastic entry. The last puzzle is a bit obtuse, but the rest of the game is great"
   }, {
     "title": "Cube Escape: The Cave",
-    "link": "https://www.gog.com/game/cube_escape_collection",
+    "link": "https://www.igdb.com/games/cube-escape-the-cave",
     "score": 8,
     "reviewed_at": ["2024-09-02"],
     "tags": ["game", "game:rusty-lake"],
@@ -3097,21 +3106,21 @@ Music choice was always pretty good though.`
     "description": "Typical sequel. Music's still good though"
   }, {
     "title": "Mouthwashing",
-    "link": "https://store.steampowered.com/app/2475490/Mouthwashing/",
+    "link": "https://www.igdb.com/games/mouthwashing",
     "score": 7.9,
     "reviewed_at": ["2024-10-27"],
     "tags": ["game"],
     "description": "A fantastic story, but unfortunately bogged down by too many minigames, a lot of which feel like they were added either due to padding, or because 'oh spooky game needs spooky part'. Very few of them felt like they actually added to the story, and the ones that did were (unfortunately) the shortest."
   }, {
     "title": "Swords & Sandals: Gladiator",
-    "link": "https://www.gog.com/game/swords_and_sandals_classic_collection",
+    "link": "https://www.igdb.com/games/swords-and-sandals-i-gladiator",
     "score": 6,
     "reviewed_at": ["2024-10-28"],
     "tags": ["game"],
     "description": "Janky as fuck, but a classic for a reason",
   }, {
     "title": "Yes, Your Grace",
-    "link": "https://www.gog.com/game/yes_your_grace",
+    "link": "https://www.igdb.com/games/yes-your-grace",
     "score": 8,
     "reviewed_at": ["2024-10-30"],
     "tags": ["game"],
@@ -3131,7 +3140,7 @@ Music choice was always pretty good though.`
     "tags": ["movie"],
   }, {
     "title": "Severed Steel",
-    "link": "https://www.gog.com/game/severed_steel",
+    "link": "https://www.igdb.com/games/severed-steel",
     "score": 7,
     "reviewed_at": ["2024-11-02"],
     "tags": ["game"],
@@ -3151,13 +3160,13 @@ Music choice was always pretty good though.`
     "description": "Part board game, part murder mystery, part Scooby-Doo. All fantastic",
   }, {
     "title": "Minit",
-    "link": "https://www.gog.com/game/minit",
+    "link": "https://www.igdb.com/games/minit",
     "score": 7,
     "reviewed_at": ["2024-11-16"],
     "tags": ["game"],
   }, {
     "title": "The Legend of Zelda - The Minish Cap",
-    "link": "https://www.nintendo.com/en-gb/Games/Game-Boy-Advance/The-Legend-of-Zelda-The-Minish-Cap-267486.html",
+    "link": "https://www.igdb.com/games/the-legend-of-zelda-the-minish-cap",
     "score": 9,
     "reviewed_at": ["2024-11-18"],
     "tags": ["game"],
@@ -3352,7 +3361,7 @@ If they're gonna make one movie per character, I'll gladly watch each one. The R
     "description": "About half the show feels like Ricky Gervais doing things that he thinks makes him seem cool. The other half is a great show, which plays displays difficult to capture emotions very competently. The ending to season 2 hits hard"
   }, {
     "title": "The Longest Journey",
-    "link": "https://www.gog.com/game/the_longest_journey",
+    "link": "https://www.igdb.com/games/the-longest-journey",
     "score": 9,
     "reviewed_at": ["2025-02-08"],
     "tags": ["game"],
@@ -3370,7 +3379,7 @@ Crow will be bro forever.`,
     "tags": ["movie"],
   }, {
     "title": "Pokémon Uranium",
-    "link": "https://pokemon-uranium.fandom.com/wiki/Main_Page",
+    "link": "https://www.igdb.com/games/pokemon-uranium",
     "score": 6,
     "reviewed_at": ["2025-03-06"],
     "tags": ["game"],
@@ -3427,5 +3436,40 @@ Most of the fakemon are ok. The nuclear theme is a bit 14-year-old-on-deviantart
     "reviewed_at": ["2025-06-16"],
     "tags": ["movie"],
     "description": `Pretty good for what it is, but doesn't do a lot to stand out`,
+  }, {
+    "title": "Shrek 2",
+    "link": "https://www.imdb.com/title/tt0298148/",
+    "score": 8.5,
+    "reviewed_at": ["2025-06-27"],
+    "tags": ["movie"],
+    "description": `Good sequel`,
+  }, {
+    "title": "Curb Your Enthusiasm",
+    "link": "https://www.imdb.com/title/tt30442373/",
+    "score": 8.5,
+    "reviewed_at": ["2025-07-08"],
+    "tags": ["show"],
+    "description": `Rarely a true laugh out loud moment, but never not enjoyable. As with any character driven comedy show, the characters eventually become caricatures of who they used to be. Maybe went on a bit too long, but the last episode was pretty good.`,
+  }, {
+    "title": "The Legend of Zelda: Oracle of Ages",
+    "link": "https://www.igdb.com/games/the-legend-of-zelda-oracle-of-ages",
+    "score": 6,
+    "reviewed_at": ["2025-07-20"],
+    "tags": ["game"],
+    "description": `I can't quite put my finger on what it is I don't like about it, but it really irks me. The combat is as annoying as it always was in the GBC games, but I can get past that. The switch hook is nice. The whole secrets thing is a nice idea, but pretty dumb in its execution. It's optional though, so who cares.`,
+  }, {
+    "title": "Escape from New York",
+    "link": "https://www.imdb.com/title/tt0082340/",
+    "score": 7,
+    "reviewed_at": ["2025-03-29"],
+    "tags": ["movie"],
+    "description": `Good for what it is. Cool guys, guns and explosions`,
+  }, {
+    "title": "Surveillance Camera Man 1-8",
+    "link": "https://www.imdb.com/title/tt13587614/",
+    "score": 9,
+    "reviewed_at": ["2025-07-29"],
+    "tags": ["movie"],
+    "description": `Dude's an asshole, but god damn if the result isn't interesting`,
   }]
 };

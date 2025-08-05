@@ -3471,5 +3471,12 @@ Most of the fakemon are ok. The nuclear theme is a bit 14-year-old-on-deviantart
     "reviewed_at": ["2025-07-29"],
     "tags": ["movie"],
     "description": `Dude's an asshole, but god damn if the result isn't interesting`,
+  }, {
+    "title": "The Fox and the Hound",
+    "link": "https://www.imdb.com/title/tt0082406/",
+    "score": 8.5,
+    "reviewed_at": ["2025-08-01"],
+    "tags": ["movie"],
+    "description": `If you need a good cry, this is it`,
   }]
 };

@@ -3478,5 +3478,19 @@ Most of the fakemon are ok. The nuclear theme is a bit 14-year-old-on-deviantart
     "reviewed_at": ["2025-08-01"],
     "tags": ["movie"],
     "description": `If you need a good cry, this is it`,
+  }, {
+    "title": "Rusty Lake Paradise",
+    "link": "https://www.igdb.com/games/rusty-lake-paradise",
+    "score": 8,
+    "reviewed_at": ["2025-08-06"],
+    "tags": ["game", "game:rusty-lake"],
+    "description": "Solid entry. Some of the puzzles are a bit too obscure (the bone drum thing, for example), and some a bit too tedious (the crab one), but otherwise good"
+  }, {
+    "title": "The Studio",
+    "link": "https://www.imdb.com/title/tt23649128/",
+    "score": 7.5,
+    "reviewed_at": ["2025-08-06"],
+    "tags": ["show"],
+    "description": `Very enjoyable. Feels like it hasn't quite found its footing yet.`,
   }]
 };

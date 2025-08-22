@@ -912,7 +912,7 @@ Music is great. Choreography (especially in the two bar scenes) is top tier.`,
     "title": "Invincible",
     "link": "https://www.imdb.com/title/tt6741278/",
     "score": 8,
-    "reviewed_at": ["2021-05-16"],
+    "reviewed_at": ["2021-05-16", "2025-08-22"],
     "tags": ["show"],
   }, {
     "title": "The Black Adder",
@@ -3492,5 +3492,18 @@ Most of the fakemon are ok. The nuclear theme is a bit 14-year-old-on-deviantart
     "reviewed_at": ["2025-08-06"],
     "tags": ["show"],
     "description": `Very enjoyable. Feels like it hasn't quite found its footing yet.`,
+  }, {
+    "title": "Princess Mononoke",
+    "link": "https://www.imdb.com/title/tt0119698/",
+    "score": 8.75,
+    "reviewed_at": ["2025-08-22"],
+    "tags": ["movie"],
+    "description": `The ending is a bit too 'and then everybody lived happily ever after', but other than that it's very good. Feels very much like halfway between an Aesop fable and some old folklore tale`,
+  }, {
+    "title": "John Wick",
+    "link": "https://www.imdb.com/title/tt2911666/",
+    "score": 7.25,
+    "reviewed_at": ["2025-08-22"],
+    "tags": ["movie"],
   }]
 };

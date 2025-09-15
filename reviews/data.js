@@ -1828,7 +1828,7 @@ The latter half of season 3 and most of season 4 does feel like a return to form
     "title": "Men in Black",
     "link": "https://www.imdb.com/title/tt0119654/",
     "score": 8,
-    "reviewed_at": ["2023-01-22"],
+    "reviewed_at": ["2023-01-22", "2025-09-15"],
     "tags": ["movie"],
   }, {
     "title": "Men in Black II",
@@ -3505,5 +3505,64 @@ Most of the fakemon are ok. The nuclear theme is a bit 14-year-old-on-deviantart
     "score": 7.25,
     "reviewed_at": ["2025-08-22"],
     "tags": ["movie"],
+  }, {
+    "title": "PEAK",
+    "link": "https://www.igdb.com/games/peak--1",
+    "score": 6.5,
+    "reviewed_at": ["2025-08-31"],
+    "tags": ["game"],
+    "description": "Fun with friends, probably not solo",
+  }, {
+    "title": "Baldur's Gate III",
+    "link": "https://www.igdb.com/games/baldurs-gate-iii",
+    "score": 9,
+    "reviewed_at": ["2025-08-31"],
+    "tags": ["game"],
+    "description": `Very good overall.
+
+Similarly to Divinity Original Sin II, you can feel the budget running out in the last act, but not in a way that worsens the gameplay experience much.
+
+Aside from a few bugs and nitpicks, there's only really one major gripe I have with the game: how the ending cutscenes are handled.
+Since I wanted to leave with Lae'zel, I didn't get to be there and comfort Karlach like I had promised I would. It would be so easy for the developers to split the Lae'zel cutscene into two, having one "Her story line finishes" cutscene, and one "She (and potentially the PC) leaves" cutscene, if they had planned ahead that far. Instead, my character just fucks off without even saying goodbye. Really soured the whole experience of the game a bit, although only enough to bring it down from a 9.5 to a 9.
+
+That being said, it's well worth playing if you have even a remote inkling of interest.`,
+  }, {
+    "title": "1000 Players Simulate Civilization: Rich & Poor",
+    "link": "https://www.youtube.com/watch?v=ef568d0CrRY",
+    "score": 8,
+    "reviewed_at": ["2025-08-31"],
+    "tags": ["video"],
+    "description": "Far more engaging than it has any right to be",
+  }, {
+    "title": "The Witness",
+    "link": "https://www.igdb.com/games/the-witness",
+    "score": 7,
+    "reviewed_at": ["2025-09-11"],
+    "tags": ["game"],
+    "description": `Spoilers or something. Overall it's a good game, but it suffers from a few issues that seem mired in the bones of the game itself.
+
+Here are the major ones:
+* The game relies too heavily on the 'aha' moment of the puzzles, but doesn't take into account that said moment will arrive at different times for different people. Getting through an area can become a slog. Once you've understood the puzzle logic, you're just trying to figure out the solution to the specific puzzle in front of you, which isn't what the reward system of the game is built around. Solving each individual puzzle doesn't feel rewarding, only figuring out how the logic works does.
+* The tetris puzzle logic differs in design from all the other puzzle types. The rule I have a gripe with is the fact that the icon itself doesn't have to be a part of the shape it's showing. I.e., if you have a line piece and an L piece, the L piece can cover the space of the line piece and vice versa, as long as they're grouped together. If this puzzle type had been standalone it would have been fine, but it's confusing within the context of the other puzzle types in the game. By every other puzzle type logic, the icon is the thing, not the mere presence of the icon.
+* The sound puzzles aren't really puzzles. If the witness were a horror game, the other puzzle types would be closer to creepy, "makes you think" kind of horror, while these would be jumpscares. Imagine if the black and white spot puzzle took place on a flickering screen or something. It would just be annoying... wait
+* The puzzles found in the world are an interesting idea, but the first one I (and I guess a lot of other players) stumble across - the black bar going straigt up from the sandcastle place - is so insanely obvious that it makes the realization cheap. After that the environmental puzzles just become another thing to look out for; not really different from a new panel.
+* The babby's first philosophy quotes are quite annoying. They're clearly a core part of the design, so skipping out on listening to them means you won't get the full experience of the game. However, every single one gives off the vibe of someone who just read a book, memorized a quote from it, and keeps slipping it into every day conversation in order to make themselves feel smart. I feel it would help if the quote had any bearing whatsoever to the area you found it in, connecting the audio and the visuals in the audio-visual experience that is a video game.
+* Timing based puzzles are an all or nothing design decision. Any puzzle game that suddenly throws a timed section in your face (especially towards the end) makes me really doubt the design and the designers. A timed puzzle and a non-timed puzzle are so different in their execution that they're essentially two different genres. There's nothing wrong with mixing genres, of course, but it does give severe tonal whiplash when it shows up out of the blue.
+* This is very specific, but including a one hour video in your video game (which I guess you expect players to just sit and listen to) is incredibly strange. Even the other videos were a stretch, but come on.`,
+  }, {
+    "title": "Bill",
+    "link": "https://www.imdb.com/title/tt2978576/",
+    "score": 6,
+    "reviewed_at": ["2025-09-15"],
+    "tags": ["movie"],
+  }, {
+    "title": "Paradise Killer",
+    "link": "https://www.igdb.com/games/paradise-killer",
+    "score": 8,
+    "reviewed_at": ["2025-09-15"],
+    "tags": ["game"],
+    "description": `Music is great, and the vibes are immaculate. The only real downside is that the collection part of the gameplay can get tedious towards the end, if you're trying to collect everything. There are a few places on the map (the waterfall ravine, for example) that just felt bad to find yourself in. Adding some more agency to the travel, and not just have it be 'run around until you find something' would probably be a good next step, if there was a sequel planned. Maybe something like Skyrim's Clairvoyance?
+
+If you want to buy this, do yourself a favor and buy the soundtrack AND the B-sides. The cheap part of me regrets not doing it directly. The other side is happy to give the devs a few more pinches of money.`,
   }]
 };

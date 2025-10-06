@@ -2132,8 +2132,8 @@ Ran for the perfect amount of time, given the subject matter, and stuck the land
     "title": "The White Lotus",
     "link": "https://www.imdb.com/title/tt13406094/",
     "score": 7,
-    "reviewed_at": ["2023-04-15"],
-    "description": "Very well written and acted for a show that's basically just a long commercial for the travel industry with no real plot",
+    "reviewed_at": ["2023-04-15", "2025-10-06"],
+    "description": "Suspiciously wealthy people get karmic justice",
     "tags": ["show"],
   }, {
     "title": "The Bear",
@@ -3564,5 +3564,25 @@ Here are the major ones:
     "description": `Music is great, and the vibes are immaculate. The only real downside is that the collection part of the gameplay can get tedious towards the end, if you're trying to collect everything. There are a few places on the map (the waterfall ravine, for example) that just felt bad to find yourself in. Adding some more agency to the travel, and not just have it be 'run around until you find something' would probably be a good next step, if there was a sequel planned. Maybe something like Skyrim's Clairvoyance?
 
 If you want to buy this, do yourself a favor and buy the soundtrack AND the B-sides. The cheap part of me regrets not doing it directly. The other side is happy to give the devs a few more pinches of money.`,
+  }, {
+    "title": "Wayne's World",
+    "link": "https://www.imdb.com/title/tt0105793/",
+    "score": 7,
+    "reviewed_at": ["2025-10-06"],
+    "tags": ["movie"],
+    "description": `Some of the references fall short, but it still translates surprisingly well to a modern audience.`,
+  }, {
+    "title": "Wayne's World",
+    "link": "https://www.imdb.com/title/tt0105793/",
+    "score": 7,
+    "reviewed_at": ["2025-10-06"],
+    "tags": ["movie"],
+    "description": `Some of the references fall short, but it still translates surprisingly well to a modern audience.`,
+  }, {
+    "title": "The Terminator",
+    "link": "https://www.imdb.com/title/tt0088247/",
+    "score": 7,
+    "reviewed_at": ["2025-10-06"],
+    "tags": ["movie"],
   }]
 };

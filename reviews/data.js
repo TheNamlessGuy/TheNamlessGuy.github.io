@@ -3584,5 +3584,12 @@ If you want to buy this, do yourself a favor and buy the soundtrack AND the B-si
     "score": 7,
     "reviewed_at": ["2025-10-06"],
     "tags": ["movie"],
+  }, {
+    "title": "Terminator 2: Judgement Day",
+    "link": "https://www.imdb.com/title/tt0088247/",
+    "score": 7,
+    "reviewed_at": ["2025-10-06"],
+    "tags": ["movie"],
+    "description": "Solid sequel. Has some plot holes, but what time travel story doesn't?",
   }]
 };

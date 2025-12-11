@@ -964,4 +964,13 @@ Playlist.addPredesignedPlaylist('music', [
   {title: 'Borislav Slavov - Song of Balduran',                                                          source: 'youtube', src: 'Iog3XDY1krA', tags: [],                           found_through: 'Baldur\'s Gate 3'},
   {title: 'Barry "Epoch" Topping - Paradise (Stay Forever)',                                             source: 'youtube', src: 'RO0s2oudSog', tags: [],                           found_through: 'Paradise Killer'},
   {title: 'Danheim & Gealdýr - Ymir',                                                                    source: 'youtube', src: 'PskDLbP1x1o', tags: [],                           found_through: 'Tainted Grail: The Fall of Avalon'},
+  {title: 'Billy Preston - Nothing From Nothing',                                                        source: 'youtube', src: 'IX2bE-OBtwk', tags: [],                           found_through: 'White Lotus'},
+  {title: 'The Temptations - My Girl',                                                                   source: 'youtube', src: 'y3KJ7d2qBoA', tags: []},
+  {title: 'Starcadian - Ultralove',                                                                      source: 'youtube', src: 'l6i1dU3ZS3M', tags: [],                           found_through: 'GameGrumps'},
+  {title: 'Starcadian - New Cydonia (feat. Hayley)',                                                     source: 'youtube', src: '9dabg-9KOOM', tags: [],                           found_through: 'GameGrumps'},
+  {title: 'Yogscast - Sk8r Dad',                                                                         source: 'youtube', src: 'O6JUtq1c0sU', tags: [],                           found_through: 'Yogscast'},
+  {title: 'M.I.A. - Paper Planes',                                                                       source: 'youtube', src: 'ewRjZoRtu0Y', tags: [],                           found_through: 'Slumdog Millionaire'},
+  {title: 'A.R. Rahman - JAI HO',                                                                        source: 'youtube', src: '2R3XstG35sE', tags: [],                           found_through: 'Slumdog Millionaire'},
+  {title: 'Mummy Joe - bird cowboy\'s song',                                                             source: 'youtube', src: 'E0VDIx0VkaE', tags: [],                           found_through: 'Mummy Joe'},
+  {title: 'Summersick - Out of Town',                                                                    source: 'youtube', src: 'rCXsVGL-qbA', tags: [],                           found_through: 'https://www.youtube.com/watch?v=cWMNw-rM5xk'},
 ]);

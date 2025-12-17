@@ -973,4 +973,6 @@ Playlist.addPredesignedPlaylist('music', [
   {title: 'A.R. Rahman - JAI HO',                                                                        source: 'youtube', src: '2R3XstG35sE', tags: [],                           found_through: 'Slumdog Millionaire'},
   {title: 'Mummy Joe - bird cowboy\'s song',                                                             source: 'youtube', src: 'E0VDIx0VkaE', tags: [],                           found_through: 'Mummy Joe'},
   {title: 'Summersick - Out of Town',                                                                    source: 'youtube', src: 'rCXsVGL-qbA', tags: [],                           found_through: 'https://www.youtube.com/watch?v=cWMNw-rM5xk'},
+  {title: 'Central Park - Own It',                                                                       source: 'youtube', src: 'ZM-Mu6uNAQo', tags: [],                           found_through: 'Central Park'},
+  {title: 'Huntrix - How It\'s Done',                                                                    source: 'youtube', src: '6oEJG-8kATc', tags: [],                           found_through: 'KPop Demon Hunters'},
 ]);

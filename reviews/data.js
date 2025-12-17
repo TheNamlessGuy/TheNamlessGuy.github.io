@@ -3674,5 +3674,19 @@ If you want to buy this, do yourself a favor and buy the soundtrack AND the B-si
     "reviewed_at": ["2025-12-11"],
     "tags": ["game"],
     "description": "Good game. Clearly inspired by Professor Layton, but doesn't have the same level of polish. Some puzzles have fuzzily defined rules, but none are really that difficult.",
+  }, {
+    "title": "How to with John Wilson",
+    "link": "https://www.imdb.com/title/tt10801534/",
+    "score": 8,
+    "reviewed_at": ["2025-12-17"],
+    "tags": ["show"],
+    "description": "Incredibly charming. Loses it a bit in the third season, but holds up well enough",
+  }, {
+    "title": "KPop Demon Hunters",
+    "link": "https://www.imdb.com/title/tt14205554/",
+    "score": 7,
+    "reviewed_at": ["2025-12-17"],
+    "tags": ["movie"],
+    "description": "Most of it was very well made, but the pacing was off (especially in the romance subplot), and the 3D calarts style with anime expressions just felt off",
   }]
 };

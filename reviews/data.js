@@ -3688,5 +3688,19 @@ If you want to buy this, do yourself a favor and buy the soundtrack AND the B-si
     "reviewed_at": ["2025-12-17"],
     "tags": ["movie"],
     "description": "Most of it was very well made, but the pacing was off (especially in the romance subplot), and the 3D calarts style with anime expressions just felt off",
+  }, {
+    "title": "Central Park",
+    "link": "https://www.imdb.com/title/tt8129006/",
+    "score": 7.5,
+    "reviewed_at": ["2026-01-28"],
+    "tags": ["show", "musical"],
+    "description": "Songs are good and the talents are high. The only thing really lacking is giving the characters some reasonable flaws. It feels like most flaws get invented and resolved in the same episode, leaving the characters feeling quite empty.",
+  }, {
+    "title": "Wake Up Dead Man",
+    "link": "https://www.imdb.com/title/tt14364480/",
+    "score": 8,
+    "reviewed_at": ["2026-01-28"],
+    "tags": ["movie"],
+    "description": "Honestly enjoyed it more than the second one, although I can see why others dislike the ending. It felt like a very clumsy way of executing a decent idea.",
   }]
 };

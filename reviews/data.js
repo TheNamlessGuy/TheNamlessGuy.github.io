@@ -246,7 +246,16 @@ const _raw_data = {
     "title": "Death Note",
     "link": "https://myanimelist.net/anime/1535/Death_Note",
     "score": 8,
+    "reviewed_at": ["2026-02-20"],
     "tags": ["show", "anime"],
+    "description": `Man, Light is a fucking idiot. Somehow, he becomes even more so once Near and Mello enter the picture. SPOILERS
+
+The death of L is probably the biggest mistake the show makes. The foundation of the show is the fight between the two characters. It could have worked if the show ended once L dies, showing an epilogue of what life became.
+It's really the same problem that Twin Peaks pulled, resolving the main hook long before the show was over, and the remaining hooks not being enticing enough.
+
+I've heard that Near and Mello are more likeable in the manga though, so who knows.
+
+The magic system (the death note rules) also don't really hold up to scrutiny, but they're solid enough for the story.`,
   }, {
     "title": "Death Note (2017)",
     "link": "https://www.imdb.com/title/tt1241317/",
@@ -1582,9 +1591,10 @@ The latter half of season 3 and most of season 4 does feel like a return to form
   }, {
     "title": "Schmigadoon!",
     "link": "https://www.imdb.com/title/tt11808942/",
-    "score": 6,
-    "reviewed_at": ["2022-04-08"],
+    "score": 7,
+    "reviewed_at": ["2022-04-08", "2026-02-13"],
     "tags": ["show"],
+    "description": "The second season felt more solid",
   }, {
     "title": "Dark Matter",
     "link": "https://www.imdb.com/title/tt4159076/",
@@ -1630,8 +1640,8 @@ The latter half of season 3 and most of season 4 does feel like a return to form
     "title": "Stargate",
     "link": "https://www.imdb.com/title/tt0111282/",
     "score": 8.5,
-    "reviewed_at": ["2022-05-26"],
-    "description": "No wonder this spawned so many good shows",
+    "reviewed_at": ["2022-05-26", "2026-03-28"],
+    "description": "No wonder this spawned so many shows",
     "tags": ["movie"],
   }, {
     "title": "Severance",
@@ -3702,5 +3712,92 @@ If you want to buy this, do yourself a favor and buy the soundtrack AND the B-si
     "reviewed_at": ["2026-01-28"],
     "tags": ["movie"],
     "description": "Honestly enjoyed it more than the second one, although I can see why others dislike the ending. It felt like a very clumsy way of executing a decent idea.",
+  }, {
+    "title": "Super",
+    "link": "https://www.imdb.com/title/tt1512235/",
+    "score": 7.5,
+    "reviewed_at": ["2026-02-13"],
+    "tags": ["movie"],
+    "description": "Like a really fucked up Kick-Ass meets a really fucked up Scott Pilgrim, but manages to pull it off well.",
+  }, {
+    "title": "District 9",
+    "link": "https://www.imdb.com/title/tt1136608/",
+    "score": 7.5,
+    "reviewed_at": ["2026-02-13"],
+    "tags": ["movie"],
+    "description": "Solid, well made movie. The type that has clear plot holes, but is very enjoyable despite it",
+  }, {
+    "title": "Bill and Ted's Excellent Adventure",
+    "link": "https://www.imdb.com/title/tt0096928/",
+    "score": 7,
+    "reviewed_at": ["2026-02-20"],
+    "tags": ["movie"],
+    "description": "Excellent",
+  }, {
+    "title": "Bill and Ted's Bogus Journey",
+    "link": "https://www.imdb.com/title/tt0101452/",
+    "score": 6,
+    "reviewed_at": ["2026-02-20"],
+    "tags": ["movie"],
+    "description": "With the larger character focus, I feel like it loses something over the original",
+  }, {
+    "title": "George of the Jungle 2",
+    "link": "https://www.imdb.com/title/tt0101452/",
+    "score": 5.5,
+    "reviewed_at": ["2026-02-20"],
+    "tags": ["movie"],
+    "description": "Enjoyable for what it is, but not much more",
+  }, {
+    "title": "A Minecraft Movie",
+    "link": "https://www.imdb.com/title/tt3566834/",
+    "score": 5,
+    "reviewed_at": ["2026-02-20"],
+    "tags": ["movie"],
+    "description": "Way more self aware than I thought",
+  }, {
+    "title": "Rush Hour 2",
+    "link": "https://www.imdb.com/title/tt0266915/",
+    "score": 7.75,
+    "reviewed_at": ["2026-02-20"],
+    "tags": ["movie"],
+    "description": "A rare case of the sequel being as good as the original",
+  }, {
+    "title": "Pluribus",
+    "link": "https://www.imdb.com/title/tt22202452/",
+    "score": 7,
+    "reviewed_at": ["2026-03-28"],
+    "tags": ["show"],
+    "description": "Weird take on the zombie genre",
+  }, {
+    "title": "Tron: Ares",
+    "link": "https://www.imdb.com/title/tt6604188/",
+    "score": 6.5,
+    "reviewed_at": ["2026-03-28"],
+    "tags": ["movie"],
+    "description": "At least it's better than Legacy",
+  }, {
+    "title": "Dracula: Dead and Loving It",
+    "link": "https://www.imdb.com/title/tt0112896/",
+    "score": 6,
+    "reviewed_at": ["2026-03-28"],
+    "tags": ["movie"],
+  }, {
+    "title": "Asteroid City",
+    "link": "https://www.imdb.com/title/tt14230388/",
+    "score": 8,
+    "reviewed_at": ["2026-04-14"],
+    "tags": ["movie"],
+  }, {
+    "title": "The Royal Tenenbaums",
+    "link": "https://www.imdb.com/title/tt0265666/",
+    "score": 6,
+    "reviewed_at": ["2026-04-14"],
+    "tags": ["movie"],
+  }, {
+    "title": "DragonHeart",
+    "link": "https://www.imdb.com/title/tt0116136/",
+    "score": 7,
+    "reviewed_at": ["2026-04-14"],
+    "tags": ["movie"],
   }]
 };

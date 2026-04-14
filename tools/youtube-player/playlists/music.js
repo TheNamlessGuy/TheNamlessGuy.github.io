@@ -744,7 +744,6 @@ Playlist.addPredesignedPlaylist('music', [
   {title: 'Nujabes - Luv(sic) (feat. Shing02)',                                                          source: 'youtube', src: 'Y4HWvsGs0rY', tags: []},
   {title: 'Angel - Tower',                                                                               source: 'youtube', src: 'ShADn-6PX_s', tags: []},
   {title: 'Maggie Rogers - Alaska',                                                                      source: 'youtube', src: '8BvRgwUisSg', tags: []},
-  {title: 'Susan Levine - What Moves You',                                                               source: 'youtube', src: '_thV16Ikjr0', tags: []},
   {title: 'Fox Stevenson - Bruises',                                                                     source: 'youtube', src: 'sFCpqrMMQGM', tags: []},
   {title: 'Anonymous - La Quinte Estampie Real',                                                         source: 'youtube', src: 'SjyZJnJ4VHE', tags: [Tags.GENRE_YE_OLDE]},
   {title: 'Vox Vulgaris - Rókatánc',                                                                     source: 'youtube', src: 'iDAQtXaB2mc', tags: [Tags.GENRE_YE_OLDE]},

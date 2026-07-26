@@ -41,6 +41,12 @@ const QueryParameters = {
   },
 };
 
+/**
+ * @param {number} min
+ * @param {number} value
+ * @param {number} max
+ * @returns {number}
+ */
 Math.clamp = function(min, value, max) {
   if (value < min) { return min; }
   if (value > max) { return max; }

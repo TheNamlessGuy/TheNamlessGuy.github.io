@@ -1,19 +1,24 @@
 class PuzzlePieceContainerElement extends HTMLElement {
+  /** @type {{x: number, y: number}} */
   _maxPiecePos = {
-    x: null,
-    y: null,
+    x: -1,
+    y: -1,
   };
 
+  /** @type {{x: number, y: number}} */
   _min = {
     x: 0,
     y: 0,
   };
 
+  /** @type {HTMLDivElement} */
   _container = null;
+
+  /** @type {{listeners: {mousemove: (e: MouseEvent) => void, mouseup: (e: MouseEvent) => void}, grabOffset: {x: number, y: number}}} */
   _holdData = {
     listeners: {
-      mousemove: null,
-      mouseup: null,
+      mousemove: () => {},
+      mouseup: () => {},
     },
 
     grabOffset: {
@@ -46,21 +51,42 @@ class PuzzlePieceContainerElement extends HTMLElement {
    * @returns {void}
    */
   addPiece(piece, generateSlots = true) {
+    const oldPosition = {
+      x: parseFloat(this.style.left) || 0,
+      y: parseFloat(this.style.top) || 0,
+    };
+
+    const oldMin = {
+      x: this._min.x,
+      y: this._min.y,
+    };
+
     this._container.append(piece);
 
     const pieces = this._pieces();
+
     this._min.x = Math.min(...pieces.map(piece => piece.x));
     this._min.y = Math.min(...pieces.map(piece => piece.y));
-    pieces.forEach(p => p.setPosition(p.x - this._min.x, p.y - this._min.y));
+
+    if (pieces.length > 1) { // Had a piece before calling this
+      const expansion = {
+        x: oldMin.x - this._min.x,
+        y: oldMin.y - this._min.y,
+      };
+
+      this.setGlobalPosition(oldPosition.x - (expansion.x * piece.w), oldPosition.y - (expansion.y * piece.h));
+    }
+
+    pieces.forEach(p => p.setContainerPosition(p.x - this._min.x, p.y - this._min.y));
 
     if (generateSlots) {
       this._generateSlots();
     }
 
-    const maxX = Math.max(pieces.map(piece => piece.x));
-    const maxY = Math.max(pieces.map(piece => piece.y));
-    this._container.style.width = `${Math.max(maxX - this._min.x, 1) * piece.fullW}px`;
-    this._container.style.height = `${Math.max(maxY - this._min.y, 1) * piece.fullH}px`;
+    const maxX = Math.max(...pieces.map(piece => piece.x));
+    const maxY = Math.max(...pieces.map(piece => piece.y));
+    this._container.style.width = `${((maxX - this._min.x) * piece.w) + piece.fullW}px`;
+    this._container.style.height = `${((maxY - this._min.y) * piece.h) + piece.fullH}px`;
     this.style.width = this._container.style.width;
     this.style.height = this._container.style.height;
   }
@@ -93,7 +119,7 @@ class PuzzlePieceContainerElement extends HTMLElement {
    * @param {number} y
    * @returns {void}
    */
-  setPosition(x, y) {
+  setGlobalPosition(x, y) {
     this.style.left = `${x}px`;
     this.style.top = `${y}px`;
   }
@@ -136,23 +162,29 @@ class PuzzlePieceContainerElement extends HTMLElement {
     this._slots().forEach(x => x.remove());
 
     const pieces = this._pieces();
+
+    /**
+     * @param {number} x
+     * @param {number} y
+     * @returns {boolean}
+     */
     const hasPiece = (x, y) => pieces.some(piece => piece.x === x && piece.y === y);
 
     for (const piece of pieces) {
       if (piece.x > 0 && !hasPiece(piece.x - 1, piece.y)) {
-        this.addSlot(new PuzzlePieceSlotElement(piece.x - 1, piece.y, piece.w, piece.h), piece._offset.x, 0);
+        this.addSlot(new PuzzlePieceSlotElement(piece.x - 1, piece.y, piece.w, piece.h), piece._offset.x, piece._offset.y);
       }
 
       if (piece.x + 1 < this._maxPiecePos.x && !hasPiece(piece.x + 1, piece.y)) {
-        this.addSlot(new PuzzlePieceSlotElement(piece.x + 1, piece.y, piece.w, piece.h), -piece._offset.x, 0);
+        this.addSlot(new PuzzlePieceSlotElement(piece.x + 1, piece.y, piece.w, piece.h), piece._offset.x, piece._offset.y);
       }
 
       if (piece.y > 0 && !hasPiece(piece.x, piece.y - 1)) {
-        this.addSlot(new PuzzlePieceSlotElement(piece.x, piece.y - 1, piece.w, piece.h), 0, piece._offset.y);
+        this.addSlot(new PuzzlePieceSlotElement(piece.x, piece.y - 1, piece.w, piece.h), piece._offset.x, piece._offset.y);
       }
 
       if (piece.y + 1 < this._maxPiecePos.y && !hasPiece(piece.x, piece.y + 1)) {
-        this.addSlot(new PuzzlePieceSlotElement(piece.x, piece.y + 1, piece.w, piece.h), 0, -piece._offset.y);
+        this.addSlot(new PuzzlePieceSlotElement(piece.x, piece.y + 1, piece.w, piece.h), piece._offset.x, piece._offset.y);
       }
     }
   }
@@ -161,14 +193,20 @@ class PuzzlePieceContainerElement extends HTMLElement {
    * @returns {PuzzlePieceSlotElement[]}
    */
   _slots() {
-    return Array.from(this.getElementsByTagName('puzzle-piece-slot'));
+    return Array.from(
+      /** @type {HTMLCollectionOf<PuzzlePieceSlotElement>} */
+      (this.getElementsByTagName('puzzle-piece-slot'))
+    );
   }
 
   /**
    * @returns {PuzzlePieceElement[]}
    */
   _pieces() {
-    return Array.from(this.getElementsByTagName('puzzle-piece'));
+    return Array.from(
+      /** @type {HTMLCollectionOf<PuzzlePieceElement>} */
+      (this.getElementsByTagName('puzzle-piece'))
+    );
   }
 
   /**
@@ -218,7 +256,7 @@ class PuzzlePieceContainerElement extends HTMLElement {
       }
     });
 
-    this.style.zIndex = containers.length;
+    this.style.zIndex = containers.length.toString(10);
     this.classList.remove('held');
 
     document.removeEventListener('mousemove', this._holdData.listeners.mousemove);
@@ -234,7 +272,11 @@ class PuzzlePieceContainerElement extends HTMLElement {
     const pieces = this._pieces();
 
     for (const piece of pieces) {
-      const slots = Array.from(document.getElementsByClassName(`slot-${piece.x}x${piece.y}`));
+      const slots = Array.from(
+        /** @type {HTMLCollectionOf<PuzzlePieceSlotElement>} */
+        (document.getElementsByClassName(`slot-${piece.x}x${piece.y}`))
+      );
+
       for (const slot of slots) {
         if (slot.isSlottable(piece)) {
           slot.container.merge(this);

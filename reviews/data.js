@@ -230,7 +230,7 @@ const _raw_data = {
     "title": "My Neighbor Totoro",
     "link": "https://myanimelist.net/anime/523/Tonari_no_Totoro",
     "score": 8.5,
-    "reviewed_at": ["2020-07-25"],
+    "reviewed_at": ["2020-07-25", "2026-07-26"],
     "tags": ["movie", "anime"],
   }, {
     "title": "Carole & Tuesday",
@@ -1533,9 +1533,9 @@ Everything just works very well, for what it is. Hope they continue the Legends 
   }, {
     "title": "Airplane!",
     "link": "https://www.imdb.com/title/tt0080339/",
-    "score": 9,
+    "score": 8,
     "description": "Classic for a reason",
-    "reviewed_at": ["2022-02-12"],
+    "reviewed_at": ["2022-02-12", "2026-07-26"],
     "tags": ["movie"],
   }, {
     "title": "Crazy Ex-Girlfriend",
@@ -2641,7 +2641,7 @@ I was looking for a language to write a webserver in, and since I don't want to 
 Maybe it's good for one-file scripts, but I don't see why you would use it over python, which is already installed <i>everywhere</i>.
 
 The only good thing I can say about it is that the syntax looks nice, and that the pointer belongs to the type, not the variable.`,
-    "tags": ["programming-language"]
+    "tags": ["programming", "programming-language"]
   }, {
     "title": "The Rookie",
     "link": "https://www.imdb.com/title/tt7587890/",
@@ -3582,13 +3582,6 @@ If you want to buy this, do yourself a favor and buy the soundtrack AND the B-si
     "tags": ["movie"],
     "description": `Some of the references fall short, but it still translates surprisingly well to a modern audience.`,
   }, {
-    "title": "Wayne's World",
-    "link": "https://www.imdb.com/title/tt0105793/",
-    "score": 7,
-    "reviewed_at": ["2025-10-06"],
-    "tags": ["movie"],
-    "description": `Some of the references fall short, but it still translates surprisingly well to a modern audience.`,
-  }, {
     "title": "The Terminator",
     "link": "https://www.imdb.com/title/tt0088247/",
     "score": 7,
@@ -3799,5 +3792,76 @@ If you want to buy this, do yourself a favor and buy the soundtrack AND the B-si
     "score": 7,
     "reviewed_at": ["2026-04-14"],
     "tags": ["movie"],
+  }, {
+    "title": "Jetpack Compose",
+    "link": "https://developer.android.com/compose/",
+    "score": 3,
+    "reviewed_at": ["2026-06-19"],
+    "tags": ["programming", "programming-library"],
+    "description": `What developer-hating fuck designed this?
+
+1) Why isn't the default parent element a screen-aware one? You know, like every other design library ever made
+2) Why can't I namespace my components? If I, in my code, have a button that belongs on the navbar, I should be able to render it using 'Navbar.Button' - but no, since the button needs to be scope aware within the function (for some fuckass reason - it's not like ALL PARENTS have a bottom right), I suddenly HAVE to define it as top level.
+
+The entire thing feels like it's designed by someone who only ever designed libraries, and has never written actual production code in their life. Since that's the case, I'm wondering what fuckhead decided to hire someone with the background of "never built a product" to determine what people who ACTUALLY build products are and are NOT allowed to do.
+
+Any library that RESTRICTS how you can use it is designed by an idiot.
+
+3/10 because the basic cases are well designed, at least. -7 because there's no regard for real life usage.`,
+  }, {
+    "title": "Shrinking",
+    "link": "https://www.imdb.com/title/tt15677150/",
+    "score": 6,
+    "reviewed_at": ["2026-07-26"],
+    "tags": ["show"],
+    "description": "Extremely codependent people try to convince you that their codependence is a good thing. It very much feels like a lesser Ted Lasso",
+  }, {
+    "title": "Batman",
+    "link": "https://www.imdb.com/title/tt0096895/",
+    "score": 6,
+    "reviewed_at": ["2026-07-26"],
+    "tags": ["movie"],
+    "description": "Not as good as I remembered. Competent though. Batman's neck not being movable is ridiculous",
+  }, {
+    "title": "Batman Returns",
+    "link": "https://www.imdb.com/title/tt0103776/",
+    "score": 6,
+    "reviewed_at": ["2026-07-26"],
+    "tags": ["movie"],
+    "description": "Danny DeVito does a good job. Catwoman being so oversexualized feels off",
+  }, {
+    "title": "Batman Forever",
+    "link": "https://www.imdb.com/title/tt0112462/",
+    "score": 6.5,
+    "reviewed_at": ["2026-07-26"],
+    "tags": ["movie"],
+    "description": "This is where 90s Batman really started taking shape. The over-the-top cartoony nonsense is great. Jim Carrey is perfect for the Riddler",
+  }, {
+    "title": "Batman & Robin",
+    "link": "https://www.imdb.com/title/tt0112462/",
+    "score": 7,
+    "reviewed_at": ["2026-07-26"],
+    "tags": ["movie"],
+    "description": "Now we're talking! Campy, cartoony nonsense seemingly designed to sell toys. Poison Ivy being so sexualized feels weird, but it also sort of feels like a parody of the trope?",
+  }, {
+    "title": "Robots",
+    "link": "https://www.imdb.com/title/tt0358082/",
+    "score": 6,
+    "reviewed_at": ["2026-07-26"],
+    "tags": ["movie"],
+    "description": "Not as good as I remember it being",
+  }, {
+    "title": "RoboCop",
+    "link": "https://www.imdb.com/title/tt0093870/",
+    "score": 7.5,
+    "reviewed_at": ["2026-07-26"],
+    "tags": ["movie"],
+    "description": "Shooting that guy in the dick was entirely justified. Sad that this has fallen to the 'action' genre, and not 'sci-fi psychological horror'. It's not send-shivers-down-your-spine scary, but it does make you fear the same fate. Gore, stop-motion, and general special effects are great.",
+  }, {
+    "title": "Last One Laughing: UK",
+    "link": "https://www.imdb.com/title/tt0093870/",
+    "score": 7,
+    "reviewed_at": ["2026-07-26"],
+    "tags": ["show"],
   }]
 };

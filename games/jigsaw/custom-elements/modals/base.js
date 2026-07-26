@@ -1,6 +1,16 @@
 class BaseModalElement extends HTMLElement {
+  /**
+   * @overload
+   * @param {'image-select-modal'} element
+   * @returns {ImageSelectModalElement}
+   */
+  /**
+   * @param {string} element
+   * @returns {BaseModalElement}
+   */
   static _open(element) {
-    const modal = new (customElements.get(element))();
+    const ModalClass = /** @type {new () => BaseModalElement} */ (customElements.get(element));
+    const modal = new ModalClass();
     modal.addEventListener('hidden', () => modal.remove());
     document.body.append(modal);
     return modal;
@@ -29,6 +39,7 @@ class BaseModalElement extends HTMLElement {
     this._elements.header.title.innerText = title ?? 'Modal';
   }
 
+  /** @type {BaseModalElementElements} */
   _elements = {
     style: null,
     container: null,
@@ -169,3 +180,28 @@ button { cursor: pointer; }
     this.dispatchEvent(new Event('hidden'));
   }
 }
+
+/** BaseModalElementElements
+ * @typedef {object} BaseModalElementElements
+ * @property {HTMLStyleElement} style
+ * @property {HTMLDivElement} container
+ * @property {HTMLDivElement} modal
+ * @property {BaseModalElementElements_Header} header
+ * @property {BaseModalElementElements_Body} body
+ * @property {BaseModalElementElements_Footer} footer
+ */
+/** BaseModalElementElements_Header
+ * @typedef {object} BaseModalElementElements_Header
+ * @property {HTMLDivElement} base
+ * @property {HTMLSpanElement} title
+ * @property {HTMLButtonElement} xButton
+ */
+/** BaseModalElementElements_Body
+ * @typedef {object} BaseModalElementElements_Body
+ * @property {HTMLDivElement} base
+ */
+/** BaseModalElementElements_Footer
+ * @typedef {object} BaseModalElementElements_Footer
+ * @property {HTMLDivElement} base
+ * @property {HTMLDivElement} buttonContainer
+ */

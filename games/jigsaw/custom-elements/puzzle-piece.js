@@ -1,4 +1,5 @@
 class PuzzlePieceElement extends HTMLElement {
+  /** @type {{x: number, y: number, w: number, h: number}} */
   _rect = {
     x: null,
     y: null,
@@ -6,6 +7,7 @@ class PuzzlePieceElement extends HTMLElement {
     h: null,
   };
 
+  /** @type {{x: number, y: number}} */
   _offset = {
     x: null,
     y: null,
@@ -46,9 +48,19 @@ class PuzzlePieceElement extends HTMLElement {
    * @param {number} y
    * @returns {void}
    */
-  setPosition(x, y) {
+  setGlobalPosition(x, y) {
     this.style.top = `${(y * this.h) - this._offset.y}px`;
     this.style.left = `${(x * this.w) - this._offset.x}px`;
+  }
+
+  /**
+   * @param {number} x
+   * @param {number} y
+   * @returns {void}
+   */
+  setContainerPosition(x, y) {
+    this.style.top = `${y * this.h}px`;
+    this.style.left = `${x * this.w}px`;
   }
 
   /**

@@ -1,4 +1,5 @@
 class ImageSelectModalElement extends BaseModalElement {
+  /** @type {'image-select-modal'} */
   static tagName = 'image-select-modal';
 
   static open(data) {
@@ -57,6 +58,7 @@ class ImageSelectModalElement extends BaseModalElement {
     extract: function(response) { return response.image; },
   }];
 
+  /** @type {(() => void)|null} */
   _onSelectedCallback = null;
   _onSelected() {
     if (this._onSelectedCallback) {
@@ -66,20 +68,25 @@ class ImageSelectModalElement extends BaseModalElement {
     this.hide();
   }
 
+  /** @type {((data: {name: string, src: string}) => void)|null} */
   _onFetchedCallback = null;
+  /** @param {{name: string, src: string}} data */
   _onFetched(data) {
     if (this._onFetchedCallback) {
       this._onFetchedCallback(data);
     }
   }
 
+  /** @type {((error: Error) => void)|null} */
   _onErrorCallback = null;
+  /** @param {Error} error */
   _onError(error) {
     if (this._onErrorCallback) {
       this._onErrorCallback(error);
     }
   }
 
+  /** @type {ImageSelectModalElementTabs} */
   _tabs = {
     container: null,
     contentContainer: null,
@@ -308,3 +315,21 @@ underline { text-decoration: underline; }
 }
 
 window.addEventListener('DOMContentLoaded', () => customElements.define(ImageSelectModalElement.tagName, ImageSelectModalElement));
+
+/** ImageSelectionModalElementTabs
+ * @typedef {object} ImageSelectModalElementTabs
+ * @property {HTMLDivElement} container
+ * @property {HTMLDivElement} contentContainer
+ * @property {ImageSelectionModalElementTabs_Entries} entries
+ */
+/** ImageSelectionModalElementTabs_Entries
+ * @typedef {object} ImageSelectionModalElementTabs_Entries
+ * @property {ImageSelectionModalElementTabs_Entry} pictures
+ * @property {ImageSelectionModalElementTabs_Entry} api
+ * @property {ImageSelectionModalElementTabs_Entry} upload
+ */
+/** ImageSelectionModalElementTabs_Entry
+ * @typedef {object} ImageSelectionModalElementTabs_Entry
+ * @property {HTMLSpanElement} tab
+ * @property {HTMLDivElement} body
+ */

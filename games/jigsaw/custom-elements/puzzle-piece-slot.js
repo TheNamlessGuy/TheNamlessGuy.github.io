@@ -1,4 +1,5 @@
 class PuzzlePieceSlotElement extends HTMLElement {
+  /** @type {{x: number, y: number, w: number, h: number}} */
   _rect = {
     x: null,
     y: null,
@@ -6,6 +7,7 @@ class PuzzlePieceSlotElement extends HTMLElement {
     h: null,
   };
 
+  /** @type {{x: number, y: number}} */
   _offset = {
     x: null,
     y: null,
@@ -16,7 +18,6 @@ class PuzzlePieceSlotElement extends HTMLElement {
    * @param {number} y
    * @param {number} w
    * @param {number} h
-   * @returns {void}
    */
   constructor(x, y, w, h) {
     super();
@@ -89,10 +90,7 @@ class PuzzlePieceSlotElement extends HTMLElement {
    */
   get offsetY() { return this._offset.y; }
 
-  /**
-   * @returns {PuzzlePieceContainerElement}
-   */
-  get container() { return this.parentElement.parentElement; }
+  get container() { return (/** @type {PuzzlePieceContainerElement} */ ((/** @type {HTMLDivElement} */ (this.parentElement)).parentElement)); }
 
   /**
    * @returns {{x1: number, x2: number, y1: number, y2: number}}

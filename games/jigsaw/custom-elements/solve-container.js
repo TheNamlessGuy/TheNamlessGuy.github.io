@@ -20,7 +20,7 @@ class SolveContainerElement extends PuzzlePieceContainerElement {
    */
   addPiece(piece) {
     this._container.append(piece);
-    piece.setPosition(piece.x, piece.y);
+    piece.setGlobalPosition(piece.x, piece.y);
     this._slots().find(slot => slot.x === piece.x && slot.y === piece.y)?.remove();
   }
 
@@ -43,6 +43,7 @@ class SolveContainerElement extends PuzzlePieceContainerElement {
     }
   }
 
+  /** @type {(() => void)|null} */
   _onWinCallback = null;
   onWin(callback) {
     this._onWinCallback = callback;

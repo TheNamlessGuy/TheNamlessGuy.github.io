@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Meme Generator</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/generic.css"/>
+
+    <script src="/generic.js"></script>
+
+    <script src="/custom-elements/icon.js"></script>
+    <script src="/custom-elements/header.js"></script>
+    <script src="/custom-elements/separator.js"></script>
+    <script src="/custom-elements/select.js"></script>
+    <script src="/custom-elements/tabs.js"></script>
+
+    <script src="custom-elements/text-modifier.js"></script>
+    <script src="custom-elements/image-modifier.js"></script>
+
+    <script src="index.js"></script>
+
+    <script src="templates/drake-hotline-bling/config.js"></script>
+    <script src="templates/wow-cool-robot/config.js"></script>
+  </head>
+  <body class="w80 center center-text">
+    <c-header>
+      <lhs>
+        <c-header-icon>home</c-header-icon>
+        <c-header-icon title="Back to 'Tools'">back</c-header-icon>
+      </lhs>
+      <center>Meme generator</center>
+    </c-header>
+
+    <c-separator></c-separator>
+
+    <div class="flex justify-content-center">
+      <div class="w80 p5p bg0-1">
+        <canvas id="current-image" class="maxw100"></canvas>
+      </div>
+      <div class="w-fit-content">
+        <c-tabs id="sidebar">
+          <tab selected>
+            <title>Existing</title>
+            <content>
+              <c-select id="template-select" label="Template:"></c-select>
+              <div class="mt15p mb15p">
+                <button id="generate" class="green">Generate</button>
+              </div>
+
+              <c-separator small></c-separator>
+
+              <div id="modifier-container"></div>
+            </content>
+          </tab>
+          <tab>
+            <title>Custom</title>
+            <content>
+              Coming soon
+            </content>
+          </tab>
+        </c-tabs>
+      </div>
+    </div>
+  </body>
+</html>

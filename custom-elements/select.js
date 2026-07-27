@@ -27,8 +27,6 @@ class CustomSelectElement extends HTMLElement {
     this.attachShadow({mode: 'closed'}).append(style, element);
   }
 
-  _select = null;
-
   get value() { return this._select.value; }
   set value(value) {
     this._select.value = value;
@@ -36,7 +34,20 @@ class CustomSelectElement extends HTMLElement {
     this._setWidth();
   }
 
+  /** @param {{id: string, display: string}} option */
+  addOption(option) {
+    const elem = document.createElement('option');
+    elem.value = option.id;
+    elem.textContent = option.display;
+    this._select.append(elem);
+  }
+
+  /** @type {HTMLSelectElement} */
+  _select = null;
+
   _setWidth() {
+    if (this._select.options.length === 0) { return; }
+
     const dummySelect = document.createElement('select');
     dummySelect.style.visibility = 'hidden';
 

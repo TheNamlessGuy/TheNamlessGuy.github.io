@@ -54,7 +54,7 @@ const Table = {
   },
 
   generate: function(data) {
-    const table = document.getElementById('table');
+    const table = /** @type {HTMLTableElement} */ (document.getElementById('table'));
     Table._setup.header(table);
 
     const tbody = table.getElementsByTagName('tbody')[0];
@@ -92,7 +92,7 @@ const Table = {
   },
 
   filter: function(query) {
-    const table = document.getElementById('table');
+    const table = /** @type {HTMLTableElement} */ (document.getElementById('table'));
     const tbody = table.getElementsByTagName('tbody')[0];
     const rows = Array.from(tbody.getElementsByTagName('tr')).filter((row) => row.id !== 'no-results-row');
 
@@ -109,7 +109,7 @@ const Table = {
       }
     }
 
-    const noResults = document.getElementById('no-results-row');
+    const noResults = /** @type {HTMLTableRowElement} */ (document.getElementById('no-results-row'));
     if (lastVisible != null) {
       noResults.classList.add('hidden');
       noResults.classList.remove('last');
@@ -126,7 +126,7 @@ const Table = {
     Table.sorted.by = by;
     Table.sorted.asc = asc;
 
-    const table = document.getElementById('table');
+    const table = /** @type {HTMLTableElement} */ (document.getElementById('table'));
     const tbody = table.getElementsByTagName('tbody')[0];
     const rows = Array.from(tbody.getElementsByTagName('tr')).filter((row) => row.id !== 'no-results-row');
 
@@ -134,8 +134,8 @@ const Table = {
     const after  = asc ? -1 : 1;
 
     const sorted = rows.sort((a, b) => {
-      aTitle = a.getElementsByClassName('title')[0].innerText;
-      bTitle = b.getElementsByClassName('title')[0].innerText;
+      const aTitle = a.getElementsByClassName('title')[0].innerText;
+      const bTitle = b.getElementsByClassName('title')[0].innerText;
       a = a.getElementsByClassName(by)[0].innerText;
       b = b.getElementsByClassName(by)[0].innerText;
 

@@ -11,17 +11,12 @@
 
     <script src="/custom-elements/icon.js"></script>
     <script src="/custom-elements/header.js"></script>
-    <script src="/custom-elements/separator.js"></script>
-    <script src="/custom-elements/select.js"></script>
-    <script src="/custom-elements/tabs.js"></script>
+    <script type="module" src="/custom-elements/separator.mjs"></script>
+    <script type="module" src="/custom-elements/select.mjs"></script>
+    <script type="module" src="/custom-elements/tabs.mjs"></script>
+    <script type="module" src="/custom-elements/accordion.mjs"></script>
 
-    <script src="custom-elements/text-modifier.js"></script>
-    <script src="custom-elements/image-modifier.js"></script>
-
-    <script src="index.js"></script>
-
-    <script src="templates/drake-hotline-bling/config.js"></script>
-    <script src="templates/wow-cool-robot/config.js"></script>
+    <script type="module" src="index.mjs"></script>
   </head>
   <body class="w80 center center-text">
     <c-header>
@@ -35,29 +30,29 @@
     <c-separator></c-separator>
 
     <div class="flex justify-content-center">
-      <div class="w80 p5p bg0-1">
+      <div class="w80 p5p bg0-1 flex align-center justify-content-center">
         <canvas id="current-image" class="maxw100"></canvas>
       </div>
       <div class="w-fit-content">
         <c-tabs id="sidebar">
-          <tab selected>
-            <title>Existing</title>
-            <content>
-              <c-select id="template-select" label="Template:"></c-select>
-              <div class="mt15p mb15p">
-                <button id="generate" class="green">Generate</button>
-              </div>
+          <tab id="existing" title="Existing" selected>
+            <c-select id="template-select" label="Template:"></c-select>
+            <div class="mt15p mb15p">
+              <button id="generate" class="green">Generate</button>
+            </div>
+            <c-accordion faded>
+              <section id="advanced-options" title="Advanced options">
+                Coming soon
+              </section>
+            </c-accordion>
 
-              <c-separator small></c-separator>
+            <c-separator></c-separator>
 
-              <div id="modifier-container"></div>
-            </content>
+            <div id="modifier-container"></div>
           </tab>
-          <tab>
-            <title>Custom</title>
-            <content>
-              Coming soon
-            </content>
+
+          <tab id="custom" title="Custom">
+            Coming soon
           </tab>
         </c-tabs>
       </div>

@@ -8,6 +8,7 @@ class BaseModal {
     container.style.display = 'flex';
   }
 
+  /** @type {HTMLDivElement} */
   element = null;
   constructor() {
     this.element = document.createElement('div');

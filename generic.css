@@ -98,6 +98,8 @@ input, textarea {
   padding: 3px;
   outline: none;
 }
+input.faded { border-color: var(--separator-color-1); }
+textarea.faded { border-color: var(--separator-color-1); }
 
 select {
   background-color: var(--bg-color-1);
@@ -133,6 +135,7 @@ h3 { font-style: italic; }
 
 .center { margin-left: auto; margin-right: auto; }
 .center-text { text-align: center; }
+.left-text { text-align: left; }
 
 .flex { display: flex; }
 .flex.space-around { justify-content: space-around; }

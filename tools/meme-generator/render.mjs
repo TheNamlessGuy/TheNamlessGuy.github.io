@@ -1,56 +1,4 @@
-/** FittingType
- * @typedef {'stretch'|'crop'|'contain'} FittingType
- *
- * 'stretch' = Stretch the image to fit the box perfectly
- * 'contain' = Render the image with the same proportions, within the box
- * 'crop' =
- */
-
-/** TemplateConfig
- * @typedef {object} TemplateConfig
- *
- * @property {string} id The ID to the config
- * @property {string} title The title of the config
- *
- * @property {object} background
- * @property {string} background.path The path to the background
- *
- * @property {TemplateConfigModifier[]} modifiers
- */
-/** TemplateConfig_Image
- * @typedef {object} TemplateConfig_Image
- *
- * @property {'image'} type
- *
- * @property {string} title
- * @property {number} x
- * @property {number} y
- * @property {number} w
- * @property {number} h
- *
- * @property {FittingType} defaultFittingType
- *
- * @property {string} pathToExampleValue
- */
-/** TemplateConfig_Text
- * @typedef {object} TemplateConfig_Text
- *
- * @property {'text'} type
- *
- * @property {string} title
- * @property {number} x
- * @property {number} y
- * @property {number} w
- * @property {number} h
- *
- * @property {string} defaultColor
- * @property {string} [defaultBackground]
- *
- * @property {string} exampleValue
- */
-/** TemplateConfigModifier
- * @typedef {TemplateConfig_Image|TemplateConfig_Text} TemplateConfigModifier
- */
+/** @import {FittingType} from './index.mjs' */
 
 /** ImageRenderModifier_Image
  * @typedef {object} ImageRenderModifier_Image
@@ -95,138 +43,7 @@
  * @property {string} [renderBoxesStrokeStyle]
  */
 
-const Templates = {
-  /** @type {TemplateConfig[]} */
-  _availableTemplates: [],
-
-  /** @param {TemplateConfig} config */
-  register(config) {
-    Templates._availableTemplates.push(config);
-  },
-
-  /**
-   * @param {string} id
-   * @returns {TemplateConfig}
-   */
-  get(id) {
-    for (const template of Templates._availableTemplates) {
-      if (template.id === id) {
-        return template;
-      }
-    }
-
-    throw new Error(`Unknown template ID '${id}'`);
-  },
-
-  getCurrent() {
-    return Templates.get(Templates._elements.select().value);
-  },
-
-  initialize() {
-    const select = Templates._elements.select();
-    for (const template of Templates._availableTemplates) {
-      select.addOption({id: template.id, display: template.title});
-    }
-
-    select.addEventListener('change', () => Templates.select(select.value));
-
-    Templates.select(select.value);
-  },
-
-  /** @param {string} id */
-  select(id) {
-    const template = Templates.get(id);
-
-    void Templates._renderExample(template);
-
-    const container = Templates._elements.modifierContainer();
-    while (container.lastChild != null) { container.removeChild(container.lastChild); }
-    for (const modifier of template.modifiers) {
-      if (modifier.type === 'image') {
-        container.append(new CustomImageModifierElement(modifier));
-      } else if (modifier.type === 'text') {
-        container.append(new CustomTextModifierElement(modifier));
-      } else {
-        throw new Error(`Unknown modifier type '${modifier.type}'`);
-      }
-    }
-  },
-
-  async renderCurrent() {
-    Render.empty();
-
-    const template = Templates.getCurrent();
-    const modifiers = Array.from(Templates._elements.modifierContainer().children).map((element) => {
-      if (element instanceof CustomImageModifierElement) {
-        return element.getModifier();
-      } else if (element instanceof CustomTextModifierElement) {
-        return element.getModifier();
-      } else {
-        throw new Error(`Unknown element '${element}'`);
-      }
-    });
-
-    await Render.image(template.background.path, modifiers, {});
-  },
-
-  /**
-   * @param {TemplateConfig} template
-   * @returns {Promise<void>}
-   */
-  async _renderExample(template) {
-    Render.empty();
-
-    const modifiers = template.modifiers.map((modifier) => {
-      if (modifier.type === 'image') {
-        return /** @satisfies {ImageRenderModifier_Image} */ ({
-          type: 'image',
-
-          x: modifier.x,
-          y: modifier.y,
-          w: modifier.w,
-          h: modifier.h,
-
-          path: modifier.pathToExampleValue,
-
-          fittingType: modifier.defaultFittingType,
-          opacity: 1,
-        });
-      } else if (modifier.type === 'text') {
-        return /** @satisfies {ImageRenderModifier_Text} */ ({
-          type: 'text',
-
-          x: modifier.x,
-          y: modifier.y,
-          w: modifier.w,
-          h: modifier.h,
-
-          text: modifier.exampleValue,
-
-          color: modifier.defaultColor,
-          background: modifier.defaultBackground ?? null,
-        });
-      }
-
-      throw new Error(`Unknown modifier type '${modifier.type}'`);
-    });
-
-    await Render.image(template.background.path, modifiers, {
-      renderBoxesStrokeStyle: 'black', // TODO: Checkbox for "render boxes" in the template config
-    });
-  },
-
-  _elements: {
-    select() {
-      return /** @type {CustomSelectElement} */ (document.getElementById('template-select'));
-    },
-
-    modifierContainer() {
-      return /** @type {HTMLDivElement} */ (document.getElementById('modifier-container'));
-    },
-  },
-};
-
-const Render = {
+export const Render = {
   empty() {
     const canvas = Render._canvas();
     const g = Render._g(canvas);
@@ -236,29 +53,24 @@ const Render = {
   },
 
   /**
-   * @param {string} backgroundPath
+   * @param {{path: string, render: 'first'|'last'}} template
    * @param {ImageRenderModifier[]} modifiers
    * @param {ImageRenderOptions} options
    * @returns {Promise<void>}
    */
-  async image(backgroundPath, modifiers, options) {
+  async image(template, modifiers, options) {
     const renderBoxesStrokeStyle = options.renderBoxesStrokeStyle ?? null;
 
-    const backgroundImage = await Render._loadImage(backgroundPath);
+    const templateImage = await Render._loadImage(template.path);
 
     const canvas = Render._canvas();
-    canvas.width = options.forcedWidth ?? backgroundImage.naturalWidth;
-    canvas.height = options.forcedHeight ?? backgroundImage.naturalHeight;
+    canvas.width = options.forcedWidth ?? templateImage.naturalWidth;
+    canvas.height = options.forcedHeight ?? templateImage.naturalHeight;
 
     const g = Render._g(canvas);
-    Render._drawFittedImage(g, backgroundImage, {
-      fittingType: options.forcedBackgroundFittingType ?? 'stretch',
-
-      x: 0,
-      y: 0,
-      w: canvas.width,
-      h: canvas.height,
-    });
+    if (template.render === 'first') {
+      Render._drawTemplateImage(canvas, g, templateImage);
+    }
 
     for (const modifier of modifiers) {
       if (modifier.type === 'image') {
@@ -283,6 +95,10 @@ const Render = {
         g.strokeStyle = renderBoxesStrokeStyle;
         g.strokeRect(modifier.x, modifier.y, modifier.w, modifier.h);
       }
+    }
+
+    if (template.render === 'last') {
+      Render._drawTemplateImage(canvas, g, templateImage);
     }
   },
 
@@ -369,6 +185,22 @@ const Render = {
     }
 
     throw new Error(`Unknown fitting type '${modifier.fittingType}'`);
+  },
+
+  /**
+   * @param {HTMLCanvasElement} canvas
+   * @param {CanvasRenderingContext2D} g
+   * @param {HTMLImageElement} image
+   */
+  _drawTemplateImage(canvas, g, image) {
+    Render._drawFittedImage(g, image, {
+      fittingType: 'stretch',
+
+      x: 0,
+      y: 0,
+      w: canvas.width,
+      h: canvas.height,
+    });
   },
 
   /**
@@ -545,9 +377,3 @@ const Render = {
     return lines;
   },
 };
-
-window.addEventListener('DOMContentLoaded', () => {
-  Templates.initialize();
-
-  (/** @type {HTMLButtonElement} */ (document.getElementById('generate'))).addEventListener('click', () => Templates.renderCurrent());
-});

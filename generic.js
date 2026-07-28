@@ -140,7 +140,15 @@ const HeaderLinks = {
   },
 };
 
-window.addEventListener('DOMContentLoaded', () => {
+function onDOMContentLoaded(callback) {
+  if (document.readyState === 'loading') {
+    window.addEventListener('DOMContentLoaded', callback, {once: true});
+  } else {
+    callback();
+  }
+}
+
+onDOMContentLoaded(() => {
   if (!window.matchMedia) {
     Theme.set('light');
   } else {

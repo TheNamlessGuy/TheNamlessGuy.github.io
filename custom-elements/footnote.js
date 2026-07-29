@@ -31,9 +31,9 @@ class CustomFootnoteFooterElement extends HTMLElement {
       return existing;
     }
 
-    const separator = document.createElement('c-separator');
+    const separator = /** @type {CustomSeparatorElement} */ (document.createElement('c-separator'));
     if ('faded' in separator) { // CustomSeparatorElement is loaded
-      separator.faded();
+      separator.intensity('faded');
       document.body.append(separator);
     }
 

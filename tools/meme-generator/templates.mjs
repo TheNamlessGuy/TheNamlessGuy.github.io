@@ -27,6 +27,12 @@ import { Render } from './render.mjs';
  * @property {number} w
  * @property {number} h
  *
+ * @property {object} [renderBox]
+ * @property {'light'|'dark'} [renderBox.skin]
+ * @property {string} [renderBox.background]
+ * @property {string} [renderBox.color]
+ * @property {string} [renderBox.border]
+ *
  * @property {object} defaults
  *
  * @property {object} defaults.image
@@ -103,8 +109,8 @@ export const Templates = {
 
     const separator = () => {
       const elem = new CustomSeparatorElement();
-      elem.medium();
-      elem.faded();
+      elem.size('medium');
+      elem.intensity('faded');
       return elem;
     };
 
@@ -165,9 +171,7 @@ export const Templates = {
       }
     });
 
-    await Render.image(template.template, modifiers, {
-      renderBoxesStrokeStyle: 'black', // TODO: Checkbox for "render boxes" in the template config
-    });
+    await Render.image(template.template, modifiers, {});
   },
 
   _elements: {

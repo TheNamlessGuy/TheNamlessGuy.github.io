@@ -2,6 +2,10 @@ import { genericStylesheet } from '../../../generic-stylesheet.mjs';
 import { CustomTabsElement } from '../../../custom-elements/tabs.mjs';
 import { CustomAccordionElement } from '../../../custom-elements/accordion.mjs';
 import { CustomSeparatorElement } from '../../../custom-elements/separator.mjs';
+import { CustomToggleElement } from '../../../custom-elements/toggle.mjs';
+import { CustomNumberInputElement } from '../../../custom-elements/number-input.mjs';
+import { CustomColorPickerElement } from '../../../custom-elements/color-picker.mjs';
+import { Elements } from '../../../helpers.mjs';
 
 /** @import { TemplateConfigModifier } from '../templates.mjs'; */
 /** @import { ImageRenderModifier } from '../render.mjs'; */
@@ -43,7 +47,7 @@ export class CustomTemplateModifierElement extends HTMLElement {
 
     this._elements.tabs = new CustomTabsElement();
 
-    {
+    { // Text tab
       this._elements.text.container = document.createElement('div');
       this._elements.tabs.addTab('text', 'Text', [this._elements.text.container]);
 
@@ -54,12 +58,72 @@ export class CustomTemplateModifierElement extends HTMLElement {
 
       this._elements.text.container.append(new CustomSeparatorElement({size: 'small', intensity: 'faded'}));
 
-      const advancedOptions = new CustomAccordionElement({intensity: 'faded'});
-      advancedOptions.addSection('advanced-options', 'Advanced options', [document.createTextNode('Coming soon!')]);
-      this._elements.text.container.append(advancedOptions);
+      const advancedOptionsContainer = document.createElement('div');
+      advancedOptionsContainer.classList.add('text-left');
+
+      this._elements.text.color = new CustomColorPickerElement({
+        label: 'Text color:',
+        value: this._modifier.defaults.text.color,
+        intensity: 'faded',
+        size: 'small',
+      });
+      advancedOptionsContainer.append(this._elements.text.color);
+
+      const boundingBoxContainer = Elements.fieldset({label: 'Bounding box', intensity: 'faded', classes: ['mt5p']});
+      advancedOptionsContainer.append(boundingBoxContainer);
+
+      this._elements.text.renderBox = new CustomToggleElement({
+        leftLabel: 'Display:',
+        checked: false,
+        size: 'small',
+        intensity: 'faded',
+      });
+      boundingBoxContainer.append(this._elements.text.renderBox);
+
+      boundingBoxContainer.append(new CustomSeparatorElement({size: 'small', intensity: 'faded'}));
+
+      this._elements.text.x = new CustomNumberInputElement({
+        label: 'x:',
+        value: this._modifier.x,
+        defaultValue: this._modifier.x,
+        min: 0,
+        intensity: 'faded',
+      });
+      boundingBoxContainer.append(this._elements.text.x);
+
+      this._elements.text.y = new CustomNumberInputElement({
+        label: 'y:',
+        value: this._modifier.y,
+        defaultValue: this._modifier.y,
+        min: 0,
+        intensity: 'faded',
+      });
+      boundingBoxContainer.append(this._elements.text.y);
+
+      this._elements.text.w = new CustomNumberInputElement({
+        label: 'w:',
+        value: this._modifier.w,
+        defaultValue: this._modifier.w,
+        min: 0,
+        intensity: 'faded',
+      });
+      boundingBoxContainer.append(this._elements.text.w);
+
+      this._elements.text.h = new CustomNumberInputElement({
+        label: 'h:',
+        value: this._modifier.h,
+        defaultValue: this._modifier.h,
+        min: 0,
+        intensity: 'faded',
+      });
+      boundingBoxContainer.append(this._elements.text.h);
+
+      const advancedOptionsAccordion = new CustomAccordionElement({intensity: 'faded'});
+      advancedOptionsAccordion.addSection('advanced-options', 'Advanced options', [advancedOptionsContainer]);
+      this._elements.text.container.append(advancedOptionsAccordion);
     }
 
-    {
+    { // Image tab
       this._elements.image.container = document.createElement('div');
       this._elements.tabs.addTab('image', 'Image', [this._elements.image.container]);
 
@@ -72,8 +136,60 @@ export class CustomTemplateModifierElement extends HTMLElement {
 
       this._elements.image.container.append(new CustomSeparatorElement({size: 'small', intensity: 'faded'}));
 
+      const advancedOptionsContainer = document.createElement('div');
+      advancedOptionsContainer.classList.add('text-left');
+
+      const boundingBoxContainer = Elements.fieldset({label: 'Bounding box', intensity: 'faded'});
+      advancedOptionsContainer.append(boundingBoxContainer);
+
+      this._elements.image.renderBox = new CustomToggleElement({
+        leftLabel: 'Display:',
+        checked: false,
+        size: 'small',
+        intensity: 'faded',
+      });
+      boundingBoxContainer.append(this._elements.image.renderBox);
+
+      boundingBoxContainer.append(new CustomSeparatorElement({size: 'small', intensity: 'faded'}));
+
+      this._elements.image.x = new CustomNumberInputElement({
+        label: 'x:',
+        value: this._modifier.x,
+        defaultValue: this._modifier.x,
+        min: 0,
+        intensity: 'faded',
+      });
+      boundingBoxContainer.append(this._elements.image.x);
+
+      this._elements.image.y = new CustomNumberInputElement({
+        label: 'y:',
+        value: this._modifier.y,
+        defaultValue: this._modifier.y,
+        min: 0,
+        intensity: 'faded',
+      });
+      boundingBoxContainer.append(this._elements.image.y);
+
+      this._elements.image.w = new CustomNumberInputElement({
+        label: 'w:',
+        value: this._modifier.w,
+        defaultValue: this._modifier.w,
+        min: 0,
+        intensity: 'faded',
+      });
+      boundingBoxContainer.append(this._elements.image.w);
+
+      this._elements.image.h = new CustomNumberInputElement({
+        label: 'h:',
+        value: this._modifier.h,
+        defaultValue: this._modifier.h,
+        min: 0,
+        intensity: 'faded',
+      });
+      boundingBoxContainer.append(this._elements.image.h);
+
       const advancedOptions = new CustomAccordionElement({intensity: 'faded'});
-      advancedOptions.addSection('advanced-options', 'Advanced options', [document.createTextNode('Coming soon!')]);
+      advancedOptions.addSection('advanced-options', 'Advanced options', [advancedOptionsContainer]);
       this._elements.image.container.append(advancedOptions);
     }
 
@@ -97,29 +213,45 @@ export class CustomTemplateModifierElement extends HTMLElement {
       return {
         type: 'image',
 
-        x: this._modifier.x,
-        y: this._modifier.y,
-        w: this._modifier.w,
-        h: this._modifier.h,
+        x: this._elements.image.x.value ?? this._modifier.x,
+        y: this._elements.image.y.value ?? this._modifier.y,
+        w: this._elements.image.w.value ?? this._modifier.w,
+        h: this._elements.image.h.value ?? this._modifier.h,
 
         path: this._uploadedImageURL ?? CustomTemplateModifierElement._EMPTY_IMAGE_DATA_URL,
 
         fittingType: this._modifier.defaults.image.fittingType,
         opacity: 1,
+
+        renderBox: {
+          render: this._elements.image.renderBox.checked,
+          text: `'${this._modifier.title}' image`,
+          skin: this._modifier.renderBox?.skin ?? null,
+          background: this._modifier.renderBox?.background ?? null,
+          color: this._modifier.renderBox?.color ?? null,
+        },
       };
     } else if (this.type === 'text') {
       return {
         type: 'text',
 
-        x: this._modifier.x,
-        y: this._modifier.y,
-        w: this._modifier.w,
-        h: this._modifier.h,
+        x: this._elements.text.x.value ?? this._modifier.x,
+        y: this._elements.text.y.value ?? this._modifier.y,
+        w: this._elements.text.w.value ?? this._modifier.w,
+        h: this._elements.text.h.value ?? this._modifier.h,
 
         text: this._elements.text.field.value,
 
-        color: this._modifier.defaults.text.color,
+        color: this._elements.text.color.value ?? this._modifier.defaults.text.color,
         background: this._modifier.defaults.text.background ?? null,
+
+        renderBox: {
+          render: this._elements.text.renderBox.checked,
+          text: `'${this._modifier.title}' text`,
+          skin: this._modifier.renderBox?.skin ?? null,
+          background: this._modifier.renderBox?.background ?? null,
+          color: this._modifier.renderBox?.color ?? null,
+        },
       };
     } else {
       throw new Error(`Unknown type '${this.type}'`);
@@ -141,12 +273,26 @@ export class CustomTemplateModifierElement extends HTMLElement {
       container: null,
       /** @type {HTMLInputElement} */
       input: null,
+      /** @type {CustomToggleElement} */
+      renderBox: null,
     },
     text: {
       /** @type {HTMLDivElement} */
       container: null,
       /** @type {HTMLTextAreaElement} */
       field: null,
+      /** @type {CustomColorPickerElement} */
+      color: null,
+      /** @type {CustomToggleElement} */
+      renderBox: null,
+      /** @type {CustomNumberInputElement} */
+      x: null,
+      /** @type {CustomNumberInputElement} */
+      y: null,
+      /** @type {CustomNumberInputElement} */
+      w: null,
+      /** @type {CustomNumberInputElement} */
+      h: null,
     }
   };
 

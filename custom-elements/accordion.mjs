@@ -9,27 +9,29 @@ div.accordion-container {
   background-color: var(--bg-color-1);
   overflow: hidden;
 }
-div.accordion-container.primary { border-color: var(--separator-color-0); }
 div.accordion-container.faded { border-color: var(--separator-color-1); }
 
 div.accordion-container > details > summary {
   text-align: left;
-  background-color: var(--bg-color-2);
   padding: 5px;
   cursor: pointer;
   user-select: none;
+  background-color: var(--bg-color-2);
 }
+div.accordion-container.faded > details > summary { background-color: var(--bg-color-1); }
 
 div.accordion-container > details > div {
   text-align: left;
-  margin: 5px;
+  padding: 5px;
+  background-color: var(--bg-color-1);
 }
+div.accordion-container.faded > details > div { background-color: var(--bg-color-0); }
 `);
 
 export class CustomAccordionElement extends HTMLElement {
   /**
    * @param {object} options
-   * @param {'faded'|'primary'} [options.intensity]
+   * @param {'primary'|'faded'} [options.intensity]
    */
   constructor(options = {}) {
     super();
@@ -53,9 +55,9 @@ export class CustomAccordionElement extends HTMLElement {
     }
 
     if (this.hasAttribute('faded') || options.intensity === 'faded') {
-      this.faded();
+      this.intensity('faded');
     } else { // this.hasAttribute('primary') || options.intensity === 'primary' || none defined
-      this.primary();
+      this.intensity('primary');
     }
 
     const shadow = this.attachShadow({mode: 'closed'});
@@ -113,14 +115,9 @@ export class CustomAccordionElement extends HTMLElement {
   /** @param {string} id */
   close(id) { this.toggle(id, {forcedState: 'closed'}); }
 
-  faded() {
-    this._elements.container.classList.remove('primary');
-    this._elements.container.classList.add('faded');
-  }
-
-  primary() {
-    this._elements.container.classList.remove('faded');
-    this._elements.container.classList.add('primary');
+  /** @param {'primary'|'faded'} value  */
+  intensity(value) {
+    this._elements.container.classList.toggle('faded', value === 'faded');
   }
 
   _elements = {

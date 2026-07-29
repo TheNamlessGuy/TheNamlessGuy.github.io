@@ -1,5 +1,14 @@
+import { genericStylesheet } from '../generic-stylesheet.mjs';
+
+const stylesheet = new CSSStyleSheet();
+stylesheet.replaceSync(``);
+
 export class CustomSelectElement extends HTMLElement {
-  constructor() {
+  /**
+   * @param {object} options
+   * @param {'primary'|'faded'} [options.intensity]
+   */
+  constructor(options = {}) {
     super();
 
     const element = document.createElement('div');
@@ -18,10 +27,15 @@ export class CustomSelectElement extends HTMLElement {
 
     this._setWidth();
 
-    const style = document.createElement('style');
-    style.textContent = '@import url("/generic.css");';
+    if (this.hasAttribute('faded') || options.intensity === 'faded') {
+      this.intensity('faded');
+    } else { // this.hasAttribute('primary') || options.intensity === 'primary' || none defined
+      this.intensity('primary');
+    }
 
-    this.attachShadow({mode: 'closed'}).append(style, element);
+    const shadow = this.attachShadow({mode: 'closed'});
+    shadow.adoptedStyleSheets = [genericStylesheet, stylesheet];
+    shadow.append(element);
   }
 
   get value() { return this._elements.select.value; }
@@ -47,6 +61,11 @@ export class CustomSelectElement extends HTMLElement {
     } else {
       this._elements.label.style.marginRight = '5px';
     }
+  }
+
+  /** @param {'primary'|'faded'} value  */
+  intensity(value) {
+    this._elements.select.classList.toggle('faded', value === 'faded');
   }
 
   _elements = {

@@ -3,7 +3,16 @@ class CustomIconElement extends HTMLElement {
     'home': '⌂',
     'back': '⮜',
     'sort-asc-desc': '⬍',
+    'up': '⮝',
+    'down': '⮟',
+    'revert': '↺',
   };
+
+  /**
+   * @param {keyof typeof CustomIconElement.map} key
+   * @returns {string}
+   */
+  static getIcon(key) { return CustomIconElement.map[key]; }
 
   _icon = null;
   _elements = {

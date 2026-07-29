@@ -68,7 +68,6 @@ button {
   color: var(--text-color-0);
   border: 1px solid var(--separator-color-0);
   border-radius: 5px;
-  padding: 3px;
 }
 button * { pointer-events: none; }
 button:hover {
@@ -108,6 +107,13 @@ select {
   border-radius: 5px;
   padding: 3px;
 }
+select.faded { border-color: var(--separator-color-1); }
+
+fieldset {
+  border: 1px solid var(--separator-color-0);
+  border-radius: 5px;
+}
+fieldset.faded { border-color: var(--separator-color-1); }
 
 h2 { text-decoration: underline; }
 h3 { font-style: italic; }
@@ -128,6 +134,7 @@ h3 { font-style: italic; }
 
 .mt5p { margin-top: 5px; }
 .mb5p { margin-bottom: 5px; }
+.ml5p { margin-left: 5px; }
 .mt15p { margin-top: 15px; }
 .mb15p { margin-bottom: 15px; }
 
@@ -135,13 +142,14 @@ h3 { font-style: italic; }
 
 .center { margin-left: auto; margin-right: auto; }
 .center-text { text-align: center; }
-.left-text { text-align: left; }
 
 .flex { display: flex; }
-.flex.space-around { justify-content: space-around; }
-.flex.space-between { justify-content: space-between; }
-.flex.align-center { align-items: center; }
-.flex.justify-content-center { justify-content: center; }
+.inline-flex { display: inline-flex; }
+.flex.space-around, .inline-flex.space-around { justify-content: space-around; }
+.flex.space-between, .inline-flex.space-between { justify-content: space-between; }
+.flex.align-center, .inline-flex.align-center { align-items: center; }
+.flex.justify-content-center, .inline-flex.justify-content-center { justify-content: center; }
+.flex.column, .inline-flex.column { flex-direction: column; }
 
 .whitespace-pre { white-space: pre; }
 

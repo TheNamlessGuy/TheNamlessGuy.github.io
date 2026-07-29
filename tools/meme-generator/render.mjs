@@ -14,6 +14,14 @@
  *
  * @property {FittingType} fittingType
  * @property {number} opacity
+ *
+ * @property {object} [renderBox]
+ * @property {boolean} renderBox.render
+ * @property {string} renderBox.text
+ * @property {'light'|'dark'|null} [renderBox.skin]
+ * @property {string|null} [renderBox.background]
+ * @property {string|null} [renderBox.color]
+ * @property {string|null} [renderBox.border]
  */
 /** ImageRenderModifier_Text
  * @typedef {object} ImageRenderModifier_Text
@@ -28,7 +36,28 @@
  * @property {string} text
  *
  * @property {string} color
- * @property {string|null} background
+ * @property {string|null} [background]
+ *
+ * @property {object|null} [font]
+ * @property {string|null} [font.family]
+ * @property {string|null} [font.weight]
+ * @property {object|null} [font.size]
+ * @property {number|null} [font.size.min]
+ * @property {number|null} [font.size.max]
+ *
+ * @property {number|null} [lineHeight]
+ *
+ * @property {object|null} [alignment]
+ * @property {'left'|'center'|'right'|null} [alignment.horizontal]
+ * @property {'top'|'middle'|'bottom'|null} [alignment.vertical]
+ *
+ * @property {object} [renderBox]
+ * @property {boolean} renderBox.render
+ * @property {string} renderBox.text
+ * @property {'light'|'dark'|null} [renderBox.skin]
+ * @property {string|null} [renderBox.background]
+ * @property {string|null} [renderBox.color]
+ * @property {string|null} [renderBox.border]
  */
 /** ImageRenderModifier
  * @typedef {ImageRenderModifier_Image|ImageRenderModifier_Text} ImageRenderModifier
@@ -40,7 +69,6 @@
  * @property {number} [forcedWidth]
  * @property {number} [forcedHeight]
  * @property {FittingType} [forcedBackgroundFittingType]
- * @property {string} [renderBoxesStrokeStyle]
  */
 
 export const Render = {
@@ -59,8 +87,6 @@ export const Render = {
    * @returns {Promise<void>}
    */
   async image(template, modifiers, options) {
-    const renderBoxesStrokeStyle = options.renderBoxesStrokeStyle ?? null;
-
     const templateImage = await Render._loadImage(template.path);
 
     const canvas = Render._canvas();
@@ -91,9 +117,8 @@ export const Render = {
         throw new Error(`Unknown modifier type '${modifier.type}'`);
       }
 
-      if (renderBoxesStrokeStyle != null) {
-        g.strokeStyle = renderBoxesStrokeStyle;
-        g.strokeRect(modifier.x, modifier.y, modifier.w, modifier.h);
+      if (modifier.renderBox?.render) {
+        Render._boxWithText(g, modifier);
       }
     }
 
@@ -214,44 +239,49 @@ export const Render = {
       g.fillRect(modifier.x, modifier.y, modifier.w, modifier.h);
     }
 
-    const fontFamily = 'Arial, sans-serif'; // TODO: option
-    const fontWeight = 'normal'; // TODO: option
-    const minFontSize = 8; // TODO: option
-    const maxFontSize = 72; // TODO: option
-    const lineHeight = 1.2; // TODO: option
-    const alpha = 1; // TODO: option
-    const textAlign = 'left'; // TODO: option
-    const verticalAlign = 'middle'; // TODO: option
+    modifier.font ??= {};
+    modifier.font.family ??= 'Arial, sans-serif';
+    modifier.font.weight ??= 'normal';
+
+    modifier.font.size ??= {};
+    modifier.font.size.min ??= 8;
+    modifier.font.size.max ??= 72;
+
+    modifier.lineHeight ??= 1.2;
+
+    modifier.alignment ??= {};
+    modifier.alignment.vertical ??= 'middle';
+    modifier.alignment.horizontal ??= 'center';
 
     const fitted = Render._fitTextIntoBox(g, text, modifier.w, modifier.h, {
-      fontFamily: fontFamily,
-      fontWeight: fontWeight,
-      minFontSize: minFontSize,
-      maxFontSize: maxFontSize,
-      lineHeight: lineHeight,
+      fontFamily: modifier.font.family,
+      fontWeight: modifier.font.weight,
+      minFontSize: modifier.font.size.min,
+      maxFontSize: modifier.font.size.max,
+      lineHeight: modifier.lineHeight,
     });
 
-    g.font = `${fontWeight} ${fitted.fontSize}px ${fontFamily}`;
+    g.font = `${modifier.font.weight} ${fitted.fontSize}px ${modifier.font.family}`;
     g.fillStyle = modifier.color;
-    g.globalAlpha = alpha;
-    g.textAlign = textAlign;
+    g.globalAlpha = 1;
+    g.textAlign = modifier.alignment.horizontal;
     g.textBaseline = 'top'; // This needs to be static for the calculations to work correctly
 
     const totalTextHeight = fitted.lines.length * fitted.lineHeight;
 
     let startX;
-    if (textAlign === 'center') {
+    if (modifier.alignment.horizontal === 'center') {
       startX = modifier.x + (modifier.w / 2);
-    } else if (textAlign === 'right') {
+    } else if (modifier.alignment.horizontal === 'right') {
       startX = modifier.x + modifier.w;
     } else { // textAlign === 'left' or faulty value
       startX = modifier.x;
     }
 
     let startY;
-    if (verticalAlign === 'middle') {
+    if (modifier.alignment.vertical === 'middle') {
       startY = modifier.y + ((modifier.h - totalTextHeight) / 2);
-    } else if (verticalAlign === 'bottom') {
+    } else if (modifier.alignment.vertical === 'bottom') {
       startY = modifier.y + modifier.h - totalTextHeight;
     } else { // verticalAlign === 'top' or faulty value
       startY = modifier.y;
@@ -271,7 +301,7 @@ export const Render = {
   },
 
   /**
-   * Binary search of font sizes that will best fit the given box
+   * Binary search of font sizes that will best fit the given box. Prefers no separated words.
    *
    * @param {CanvasRenderingContext2D} g
    * @param {string} text
@@ -281,49 +311,74 @@ export const Render = {
    * @returns {{fontSize: number, lines: string[], lineHeight: number}}
    */
   _fitTextIntoBox(g, text, maxWidth, maxHeight, options) {
-    /** @type {{fontSize: number, lines: string[], lineHeight: number}} */
-    let best = null;
-    let low = options.minFontSize;
-    let high = options.maxFontSize;
+    /**
+     * @param {(data: {textHeight: number, separatedWord: boolean}) => boolean} isValid
+     * @returns {{fontSize: number, lines: string[], lineHeight: number}|null}
+     */
+    const findLargest = (isValid) => {
+      let low = options.minFontSize;
+      let high = options.maxFontSize;
 
-    while (low <= high) {
-      const fontSize = Math.floor((low + high) / 2);
+      /** @type {{fontSize: number, lines: string[], lineHeight: number, separatedWord: boolean}|null} */
+      let best = null;
 
-      g.font = `${options.fontWeight} ${fontSize}px ${options.fontFamily}`;
-      const lines = Render._fitTextIntoWidth(g, text, maxWidth);
-      const actualLineHeight = fontSize * options.lineHeight;
-      const textHeight = Math.max(1, lines.length) * actualLineHeight;
-      if (textHeight <= maxHeight) {
-        best = {fontSize, lines, lineHeight: actualLineHeight};
+      while (low <= high) {
+        const fontSize = Math.floor((low + high) / 2);
 
-        // If all the lines fit vertically, try a bigger size
-        low = fontSize + 1;
-      } else {
-        // If the lines don't fit vertically, try a smaller size
-        high = fontSize - 1;
+        g.font = `${options.fontWeight} ${fontSize}px ${options.fontFamily}`;
+
+        const {lines, separatedWord} = Render._fitTextIntoWidth(g, text, maxWidth);
+
+        const lineHeight = fontSize * options.lineHeight;
+        const textHeight = Math.max(1, lines.length) * lineHeight;
+
+        if (isValid({textHeight, separatedWord})) {
+          best = {fontSize, lines, separatedWord, lineHeight};
+          low = fontSize + 1;
+        } else {
+          high = fontSize - 1;
+        }
       }
-    }
 
-    if (best == null) {
-      g.font = `${options.fontWeight} ${options.minFontSize}px ${options.fontFamily}`;
+      return best;
+    };
+
+    const noSeparatedWords = findLargest((data) => data.textHeight <= maxHeight && !data.separatedWord);
+    if (noSeparatedWords != null) {
       return {
-        fontSize: options.minFontSize,
-        lines: Render._fitTextIntoWidth(g, text, maxWidth),
-        lineHeight: options.minFontSize * options.lineHeight,
+        fontSize: noSeparatedWords.fontSize,
+        lines: noSeparatedWords.lines,
+        lineHeight: noSeparatedWords.lineHeight,
       };
     }
 
-    return best;
+    const withSeparatedWords = findLargest((data) => data.textHeight <= maxHeight);
+    if (withSeparatedWords != null) {
+      return {
+        fontSize: withSeparatedWords.fontSize,
+        lines: withSeparatedWords.lines,
+        lineHeight: withSeparatedWords.lineHeight,
+      };
+    }
+
+    // Fall back to the smallest allowed font
+    g.font = `${options.fontWeight} ${options.minFontSize}px ${options.fontFamily}`;
+    return {
+      fontSize: options.minFontSize,
+      lines: Render._fitTextIntoWidth(g, text, maxWidth).lines,
+      lineHeight: options.minFontSize * options.lineHeight,
+    };
   },
 
   /**
    * @param {CanvasRenderingContext2D} g
    * @param {string} text
    * @param {number} maxWidth
-   * @returns {string[]}
+   * @returns {{lines: string[], separatedWord: boolean}}
    */
   _fitTextIntoWidth(g, text, maxWidth) {
     const lines = [];
+    let separatedWord = false;
 
     const paragraphs = text.split('\n');
     for (const paragraph of paragraphs) {
@@ -361,6 +416,7 @@ export const Render = {
 
           if (chunk.length > 0) {
             lines.push(chunk);
+            separatedWord = true;
           }
 
           chunk = c;
@@ -374,6 +430,55 @@ export const Render = {
       }
     }
 
-    return lines;
+    return {lines, separatedWord};
+  },
+
+  /**
+   * @param {CanvasRenderingContext2D} g
+   * @param {ImageRenderModifier} modifier
+   */
+  _boxWithText(g, modifier) {
+    let color;
+    if (modifier.renderBox?.color != null) {
+      color = modifier.renderBox.color;
+    } else {
+      color = ((modifier.renderBox?.skin ?? 'light') === 'light') ? '#FFFFFF' : '#000000';
+    }
+
+    let background;
+    if (modifier.renderBox?.background != null) {
+      background = modifier.renderBox.background;
+    } else {
+      background = ((modifier.renderBox?.skin ?? 'light') === 'light') ? 'rgba(0, 0, 0, 0.5)' : 'rgba(255, 255, 255, 0.5)';
+    }
+
+    let border;
+    if (modifier.renderBox?.border != null) {
+      border = modifier.renderBox.border;
+    } else {
+      border = ((modifier.renderBox?.skin ?? 'light') === 'light') ? '#FFFFFF' : '#000000';
+    }
+
+    Render._drawFittedText(g, modifier.renderBox?.text ?? '', {
+      type: 'text',
+
+      x: modifier.x,
+      y: modifier.y,
+      w: modifier.w,
+      h: modifier.h,
+
+      text: modifier.renderBox?.text ?? '',
+
+      color: modifier.renderBox?.color ?? color,
+      background: modifier.renderBox?.background ?? background,
+
+      alignment: {
+        horizontal: 'center',
+        vertical: 'middle',
+      },
+    });
+
+    g.strokeStyle = modifier.renderBox?.border ?? border;
+    g.strokeRect(modifier.x, modifier.y, modifier.w, modifier.h);
   },
 };

@@ -33,27 +33,23 @@
       <div class="w80 p5p bg0-1 flex align-center justify-content-center">
         <canvas id="current-image" class="maxw100"></canvas>
       </div>
-      <div class="w-fit-content">
+      <div class="w-fit-content ml5p">
         <c-tabs id="sidebar">
           <tab id="existing" title="Existing" selected>
-            <c-select id="template-select" label="Template:"></c-select>
-            <div class="mt15p mb15p">
-              <button id="generate" class="green">Generate</button>
-            </div>
-            <c-accordion faded>
-              <section id="advanced-options" title="Advanced options">
-                Coming soon
-              </section>
-            </c-accordion>
+            <c-select id="template-select" label="Template:" faded></c-select>
 
             <c-separator></c-separator>
 
             <div id="modifier-container"></div>
+
+            <c-separator faded></c-separator>
+
+            <div class="mt15p mb15p">
+              <button id="generate" class="green">Generate</button>
+            </div>
           </tab>
 
-          <tab id="custom" title="Custom">
-            Coming soon
-          </tab>
+          <tab id="custom" title="Custom">Coming soon <!-- TODO --></tab>
         </c-tabs>
       </div>
     </div>

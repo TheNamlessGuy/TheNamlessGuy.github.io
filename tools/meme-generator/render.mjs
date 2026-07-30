@@ -1,4 +1,5 @@
 /** @import {FittingType} from './index.mjs' */
+/** @import {OriginPosition} from './templates.mjs' */
 
 /** ImageRenderModifier_Image
  * @typedef {object} ImageRenderModifier_Image
@@ -7,8 +8,9 @@
  *
  * @property {number} x
  * @property {number} y
- * @property {number} w
- * @property {number} h
+ * @property {number|'image'} w
+ * @property {number|'image'} h
+ * @property {OriginPosition|null} [origin]
  *
  * @property {string} path
  *
@@ -32,6 +34,7 @@
  * @property {number} y
  * @property {number} w
  * @property {number} h
+ * @property {OriginPosition|null} [origin]
  *
  * @property {string} text
  *
@@ -63,12 +66,15 @@
  * @typedef {ImageRenderModifier_Image|ImageRenderModifier_Text} ImageRenderModifier
  */
 
-/** ImageRenderOptions
- * @typedef {object} ImageRenderOptions
- *
- * @property {number} [forcedWidth]
- * @property {number} [forcedHeight]
- * @property {FittingType} [forcedBackgroundFittingType]
+/** LoadedImageRenderModifier_Image
+ * @typedef {Omit<ImageRenderModifier_Image, 'w' | 'h' | 'path'> & {
+ *  w: number,
+ *  h: number,
+ *  image: HTMLImageElement,
+ * }} LoadedImageRenderModifier_Image
+ */
+/** LoadedImageRenderModifier
+ * @typedef {LoadedImageRenderModifier_Image|ImageRenderModifier_Text} LoadedImageRenderModifier
  */
 
 export const Render = {
@@ -76,44 +82,37 @@ export const Render = {
     const canvas = Render._canvas();
     const g = Render._g(canvas);
 
-    g.fillStyle = '#000';
+    g.fillStyle = '#000000';
     g.fillRect(0, 0, canvas.width, canvas.height);
   },
 
   /**
-   * @param {{path: string, render: 'first'|'last'}} template
-   * @param {ImageRenderModifier[]} modifiers
-   * @param {ImageRenderOptions} options
+   * @param {[ImageRenderModifier_Image, ...ImageRenderModifier[]]} modifiers
    * @returns {Promise<void>}
    */
-  async image(template, modifiers, options) {
-    const templateImage = await Render._loadImage(template.path);
-
+  async image(modifiers) {
     const canvas = Render._canvas();
-    canvas.width = options.forcedWidth ?? templateImage.naturalWidth;
-    canvas.height = options.forcedHeight ?? templateImage.naturalHeight;
-
     const g = Render._g(canvas);
-    if (template.render === 'first') {
-      Render._drawTemplateImage(canvas, g, templateImage);
-    }
 
-    for (const modifier of modifiers) {
+    canvas.width = 0;
+    canvas.height = 0;
+
+    const [baseModifier, ...otherModifiers] = modifiers;
+    const preparedBaseModifier = await Render._prepareModifier(baseModifier, canvas);
+
+    canvas.width = preparedBaseModifier.w;
+    canvas.height = preparedBaseModifier.h;
+
+    const preparedOtherModifiers = await Promise.all(otherModifiers.map((modifier) => Render._prepareModifier(modifier, canvas)));
+
+    const preparedModifiers = [preparedBaseModifier, ...preparedOtherModifiers];
+    for (const modifier of preparedModifiers) {
       if (modifier.type === 'image') {
-        const image = await Render._loadImage(modifier.path);
-
-        g.save();
-        g.globalAlpha = modifier.opacity;
-        g.beginPath();
-        g.rect(modifier.x, modifier.y, modifier.w, modifier.h);
-        g.clip(); // Make sure things aren't rendered outside the given box
-
-        Render._drawFittedImage(g, image, modifier);
-
-        g.restore();
+        Render._drawFittedImage(g, modifier.image, modifier);
       } else if (modifier.type === 'text') {
         Render._drawFittedText(g, modifier.text, modifier);
       } else {
+        // @ts-ignore `Property 'type' does not exist on type 'never'.`
         throw new Error(`Unknown modifier type '${modifier.type}'`);
       }
 
@@ -121,9 +120,80 @@ export const Render = {
         Render._boxWithText(g, modifier);
       }
     }
+  },
 
-    if (template.render === 'last') {
-      Render._drawTemplateImage(canvas, g, templateImage);
+  /**
+   * @overload
+   * @param {ImageRenderModifier_Image} modifier
+   * @param {HTMLCanvasElement} canvas
+   * @returns {Promise<LoadedImageRenderModifier_Image>}
+   */
+  /**
+   * @overload
+   * @param {ImageRenderModifier_Text} modifier
+   * @param {HTMLCanvasElement} canvas
+   * @returns {Promise<ImageRenderModifier_Text>}
+   */
+  /**
+   * @overload
+   * @param {ImageRenderModifier} modifier
+   * @param {HTMLCanvasElement} canvas
+   * @returns {Promise<LoadedImageRenderModifier>}
+   */
+  /**
+   * @param {ImageRenderModifier} modifier
+   * @param {HTMLCanvasElement} canvas
+   * @returns {Promise<LoadedImageRenderModifier>}
+   */
+  async _prepareModifier(modifier, canvas) {
+    if (modifier.type !== 'image') { return modifier; }
+
+    const image = await Render._loadImage(modifier.path);
+
+    const position = Render._translatePosition(modifier.origin, canvas, {
+      x: modifier.x,
+      y: modifier.y,
+      w: (modifier.w === 'image') ? image.naturalWidth : modifier.w,
+      h: (modifier.h === 'image') ? image.naturalHeight : modifier.h,
+    });
+
+    return /** @satisfies {LoadedImageRenderModifier_Image} */ ({
+      type: 'image',
+
+      x: position.x,
+      y: position.y,
+      w: position.w,
+      h: position.h,
+
+      image: image,
+
+      fittingType: modifier.fittingType,
+      opacity: modifier.opacity,
+      renderBox: modifier.renderBox,
+    });
+  },
+
+  /**
+   * @param {OriginPosition|null|undefined} origin
+   * @param {HTMLCanvasElement} canvas
+   * @param {{x: number, y: number, w: number, h: number}} position
+   * @returns {{x: number, y: number, w: number, h: number}}
+   */
+  _translatePosition(origin, canvas, position) {
+    if (origin == null || origin === 'top-left' || (canvas.width === 0 && canvas.height === 0)) {
+      return position; // noop
+    } else if (origin === 'bottom-left') {
+      position.y = canvas.height - position.y - position.h;
+      return position;
+    } else if (origin === 'bottom-right') {
+      position.y = canvas.height - position.y - position.h;
+      position.x = canvas.width - position.x - position.w;
+      return position;
+    } else if (origin === 'top-right') {
+      position.x = canvas.width - position.x - position.w;
+      return position;
+    } else {
+      throw new Error(`Unknown origin '${origin}'`);
     }
   },
 
@@ -157,11 +227,18 @@ export const Render = {
   /**
    * @param {CanvasRenderingContext2D} g
    * @param {HTMLImageElement} image
-   * @param {{x: number, y: number, w: number, h: number, fittingType: FittingType}} modifier
+   * @param {{x: number, y: number, w: number, h: number, fittingType: FittingType, opacity: number}} modifier
    */
   _drawFittedImage(g, image, modifier) {
+    g.save();
+    g.globalAlpha = modifier.opacity;
+    g.beginPath();
+    g.rect(modifier.x, modifier.y, modifier.w, modifier.h);
+    g.clip(); // Make sure things aren't rendered outside the given box
+
     if (modifier.fittingType === 'stretch') {
       g.drawImage(image, modifier.x, modifier.y, modifier.w, modifier.h);
+      g.restore();
       return;
     }
 
@@ -186,6 +263,7 @@ export const Render = {
       const centerY = modifier.y + (modifier.h - h) / 2;
 
       g.drawImage(image, centerX, centerY, w, h);
+      g.restore();
       return;
     } else if (modifier.fittingType === 'crop') {
       let x = 0;
@@ -206,26 +284,12 @@ export const Render = {
       }
 
       g.drawImage(image, x, y, w, h, modifier.x, modifier.y, modifier.w, modifier.h);
+      g.restore();
       return;
     }
 
+    g.restore();
     throw new Error(`Unknown fitting type '${modifier.fittingType}'`);
-  },
-
-  /**
-   * @param {HTMLCanvasElement} canvas
-   * @param {CanvasRenderingContext2D} g
-   * @param {HTMLImageElement} image
-   */
-  _drawTemplateImage(canvas, g, image) {
-    Render._drawFittedImage(g, image, {
-      fittingType: 'stretch',
-
-      x: 0,
-      y: 0,
-      w: canvas.width,
-      h: canvas.height,
-    });
   },
 
   /**
@@ -435,7 +499,7 @@ export const Render = {
 
   /**
    * @param {CanvasRenderingContext2D} g
-   * @param {ImageRenderModifier} modifier
+   * @param {LoadedImageRenderModifier} modifier
    */
   _boxWithText(g, modifier) {
     let color;

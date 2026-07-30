@@ -17,6 +17,11 @@ c-tabs div.tab-container > .tab {
   cursor: pointer;
   flex-grow: 1;
 }
+c-tabs div.tab-container > .tab.disabled {
+  cursor: not-allowed;
+  font-style: italic;
+  text-decoration: line-through;
+}
 c-tabs div.tab-container > .tab.selected {
   color: var(--text-color-0);
   border-color: var(--separator-color-0);
@@ -60,6 +65,10 @@ export class CustomTabsElement extends HTMLElement {
       if (selected == null || tab.hasAttribute('selected')) {
         selected = id;
       }
+
+      if (tab.hasAttribute('disabled')) {
+        this.disableTab(id);
+      }
     }
 
     this.select(selected);
@@ -68,6 +77,12 @@ export class CustomTabsElement extends HTMLElement {
   /** @param {string} id */
   select(id) {
     const tabs = this._elements.tabs();
+
+    const tab = tabs.find((tab) => tab.dataset.id === id);
+    if (tab != null && tab.classList.contains('disabled')) {
+      return;
+    }
+
     for (let i = 0; i < tabs.length; ++i) {
       tabs[i].classList.toggle('selected', tabs[i].dataset.id === id);
     }
@@ -103,6 +118,18 @@ export class CustomTabsElement extends HTMLElement {
     tabBody.classList.add('tab-content');
     tabBody.append(...body);
     this._elements.tabContentContainer.append(tabBody);
+  }
+
+  /**
+   * @param {string} id
+   * @param {object} options
+   * @param {string} [options.tooltip]
+   */
+  disableTab(id, options = {}) {
+    const tab = this._elements.tabs().find((tab) => tab.dataset.id === id);
+    if (tab == null) { return; }
+    tab.classList.add('disabled');
+    tab.title = options.tooltip ?? '';
   }
 
   connectedCallback() {

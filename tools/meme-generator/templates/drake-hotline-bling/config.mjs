@@ -4,12 +4,23 @@ Templates.register({
   id: 'drake-hotline-bling',
   title: 'Drake Hotline Bling',
 
-  template: {
-    render: 'first',
-    path: 'templates/drake-hotline-bling/background.jpg',
-  },
-
   modifiers: [{
+    type: 'image',
+    locked: true,
+
+    x: 0,
+    y: 0,
+    w: 'image',
+    h: 'image',
+
+    path: 'templates/drake-hotline-bling/background.jpg',
+
+    defaults: {
+      fittingType: 'stretch',
+    },
+  }, {
+    type: 'variable-type',
+
     title: 'Ew',
     x: 600,
     y: 0,
@@ -21,7 +32,7 @@ Templates.register({
         fittingType: 'contain',
       },
       text: {
-        color: 'black',
+        textColor: 'black',
       },
     },
 
@@ -30,6 +41,8 @@ Templates.register({
       value: 'Ew!',
     },
   }, {
+    type: 'variable-type',
+
     title: 'Nice',
     x: 600,
     y: 600,
@@ -41,7 +54,7 @@ Templates.register({
         fittingType: 'contain',
       },
       text: {
-        color: 'black',
+        textColor: 'black',
       },
     },
 

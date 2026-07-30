@@ -15,6 +15,10 @@ const Random = {
 };
 
 const QueryParameters = {
+  /**
+   * @param {string} key
+   * @param {string|null} value
+   */
   set: function(key, value) {
     const url = new URL(window.location.href);
 
@@ -27,6 +31,11 @@ const QueryParameters = {
     window.history.replaceState(null, '', url.toString());
   },
 
+  /**
+   * @param {string} key
+   * @param {string|null} defaultValue
+   * @returns {string|null}
+   */
   get: function(key, defaultValue = null) {
     const url = new URL(window.location.href);
     if (url.searchParams.has(key)) {
@@ -36,6 +45,10 @@ const QueryParameters = {
     return defaultValue;
   },
 
+  /**
+   * @param {string} key
+   * @returns {boolean}
+   */
   has: function(key) {
     return new URL(window.location.href).searchParams.has(key);
   },

@@ -1,6 +1,7 @@
 import { Templates } from './templates.mjs';
 
 import './templates/drake-hotline-bling/config.mjs';
+import './templates/nervous-dog/config.mjs';
 import './templates/wow-cool-robot/config.mjs';
 
 /** FittingType
@@ -15,5 +16,5 @@ onDOMContentLoaded(() => {
   Templates.initialize();
 
   const generateBtn = /** @type {HTMLButtonElement} */ (document.getElementById('generate'));
-  generateBtn.addEventListener('click', () => Templates.renderCurrent());
+  generateBtn.addEventListener('click', () => Templates.current.render());
 });

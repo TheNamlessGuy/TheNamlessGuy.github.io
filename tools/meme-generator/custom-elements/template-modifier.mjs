@@ -7,7 +7,7 @@ import { CustomNumberInputElement } from '../../../custom-elements/number-input.
 import { CustomColorPickerElement } from '../../../custom-elements/color-picker.mjs';
 import { Elements } from '../../../helpers.mjs';
 
-/** @import { TemplateConfigModifier } from '../templates.mjs'; */
+/** @import { ForcedImageTemplateConfigModifier_Unlocked, VariableTypeTemplateConfigModifier } from '../templates.mjs'; */
 /** @import { ImageRenderModifier } from '../render.mjs'; */
 
 const stylesheet = new CSSStyleSheet();
@@ -32,7 +32,7 @@ export class CustomTemplateModifierElement extends HTMLElement {
   static _TEXT_IDX = 0;
   static _IMAGE_IDX = 1;
 
-  /** @param {TemplateConfigModifier} modifier */
+  /** @param {VariableTypeTemplateConfigModifier|ForcedImageTemplateConfigModifier_Unlocked} modifier */
   constructor(modifier) {
     super();
 
@@ -51,76 +51,80 @@ export class CustomTemplateModifierElement extends HTMLElement {
       this._elements.text.container = document.createElement('div');
       this._elements.tabs.addTab('text', 'Text', [this._elements.text.container]);
 
-      this._elements.text.field = document.createElement('textarea');
-      this._elements.text.field.placeholder = `'${this._modifier.title}' text`;
-      this._elements.text.field.classList.add('faded');
-      this._elements.text.container.append(this._elements.text.field);
+      if (this._modifier.type !== 'variable-type') {
+        this._elements.tabs.disableTab('text', {tooltip: 'This field can only be an image'});
+      } else {
+        this._elements.text.field = document.createElement('textarea');
+        this._elements.text.field.placeholder = `'${this._modifier.title}' text`;
+        this._elements.text.field.classList.add('faded');
+        this._elements.text.container.append(this._elements.text.field);
 
-      this._elements.text.container.append(new CustomSeparatorElement({size: 'small', intensity: 'faded'}));
+        this._elements.text.container.append(new CustomSeparatorElement({size: 'small', intensity: 'faded'}));
 
-      const advancedOptionsContainer = document.createElement('div');
-      advancedOptionsContainer.classList.add('text-left');
+        const advancedOptionsContainer = document.createElement('div');
+        advancedOptionsContainer.classList.add('text-left');
 
-      this._elements.text.color = new CustomColorPickerElement({
-        label: 'Text color:',
-        value: this._modifier.defaults.text.color,
-        intensity: 'faded',
-        size: 'small',
-      });
-      advancedOptionsContainer.append(this._elements.text.color);
+        this._elements.text.color = new CustomColorPickerElement({
+          label: 'Text color:',
+          value: this._modifier.defaults.text.textColor,
+          intensity: 'faded',
+          size: 'small',
+        });
+        advancedOptionsContainer.append(this._elements.text.color);
 
-      const boundingBoxContainer = Elements.fieldset({label: 'Bounding box', intensity: 'faded', classes: ['mt5p']});
-      advancedOptionsContainer.append(boundingBoxContainer);
+        const boundingBoxContainer = Elements.fieldset({label: 'Bounding box', intensity: 'faded', classes: ['mt5p']});
+        advancedOptionsContainer.append(boundingBoxContainer);
 
-      this._elements.text.renderBox = new CustomToggleElement({
-        leftLabel: 'Display:',
-        checked: false,
-        size: 'small',
-        intensity: 'faded',
-      });
-      boundingBoxContainer.append(this._elements.text.renderBox);
+        this._elements.text.renderBox = new CustomToggleElement({
+          leftLabel: 'Display:',
+          checked: false,
+          size: 'small',
+          intensity: 'faded',
+        });
+        boundingBoxContainer.append(this._elements.text.renderBox);
 
-      boundingBoxContainer.append(new CustomSeparatorElement({size: 'small', intensity: 'faded'}));
+        boundingBoxContainer.append(new CustomSeparatorElement({size: 'small', intensity: 'faded'}));
 
-      this._elements.text.x = new CustomNumberInputElement({
-        label: 'x:',
-        value: this._modifier.x,
-        defaultValue: this._modifier.x,
-        min: 0,
-        intensity: 'faded',
-      });
-      boundingBoxContainer.append(this._elements.text.x);
+        this._elements.text.x = new CustomNumberInputElement({
+          label: 'x:',
+          value: this._modifier.x,
+          defaultValue: this._modifier.x,
+          min: 0,
+          intensity: 'faded',
+        });
+        boundingBoxContainer.append(this._elements.text.x);
 
-      this._elements.text.y = new CustomNumberInputElement({
-        label: 'y:',
-        value: this._modifier.y,
-        defaultValue: this._modifier.y,
-        min: 0,
-        intensity: 'faded',
-      });
-      boundingBoxContainer.append(this._elements.text.y);
+        this._elements.text.y = new CustomNumberInputElement({
+          label: 'y:',
+          value: this._modifier.y,
+          defaultValue: this._modifier.y,
+          min: 0,
+          intensity: 'faded',
+        });
+        boundingBoxContainer.append(this._elements.text.y);
 
-      this._elements.text.w = new CustomNumberInputElement({
-        label: 'w:',
-        value: this._modifier.w,
-        defaultValue: this._modifier.w,
-        min: 0,
-        intensity: 'faded',
-      });
-      boundingBoxContainer.append(this._elements.text.w);
+        this._elements.text.w = new CustomNumberInputElement({
+          label: 'w:',
+          value: this._modifier.w,
+          defaultValue: this._modifier.w,
+          min: 0,
+          intensity: 'faded',
+        });
+        boundingBoxContainer.append(this._elements.text.w);
 
-      this._elements.text.h = new CustomNumberInputElement({
-        label: 'h:',
-        value: this._modifier.h,
-        defaultValue: this._modifier.h,
-        min: 0,
-        intensity: 'faded',
-      });
-      boundingBoxContainer.append(this._elements.text.h);
+        this._elements.text.h = new CustomNumberInputElement({
+          label: 'h:',
+          value: this._modifier.h,
+          defaultValue: this._modifier.h,
+          min: 0,
+          intensity: 'faded',
+        });
+        boundingBoxContainer.append(this._elements.text.h);
 
-      const advancedOptionsAccordion = new CustomAccordionElement({intensity: 'faded'});
-      advancedOptionsAccordion.addSection('advanced-options', 'Advanced options', [advancedOptionsContainer]);
-      this._elements.text.container.append(advancedOptionsAccordion);
+        const advancedOptionsAccordion = new CustomAccordionElement({intensity: 'faded'});
+        advancedOptionsAccordion.addSection('advanced-options', 'Advanced options', [advancedOptionsContainer]);
+        this._elements.text.container.append(advancedOptionsAccordion);
+      }
     }
 
     { // Image tab
@@ -172,19 +176,23 @@ export class CustomTemplateModifierElement extends HTMLElement {
 
       this._elements.image.w = new CustomNumberInputElement({
         label: 'w:',
-        value: this._modifier.w,
-        defaultValue: this._modifier.w,
+        value: this._modifier.w === 'image' ? null : this._modifier.w,
+        defaultValue: this._modifier.w === 'image' ? null : this._modifier.w,
         min: 0,
         intensity: 'faded',
+        disabled: this._modifier.w === 'image',
+        tooltip: this._modifier.w === 'image' ? 'This will automatically be set to the width of the uploaded image' : '',
       });
       boundingBoxContainer.append(this._elements.image.w);
 
       this._elements.image.h = new CustomNumberInputElement({
         label: 'h:',
-        value: this._modifier.h,
-        defaultValue: this._modifier.h,
+        value: this._modifier.h === 'image' ? null : this._modifier.h,
+        defaultValue: this._modifier.h === 'image' ? null : this._modifier.h,
         min: 0,
         intensity: 'faded',
+        disabled: this._modifier.h === 'image',
+        tooltip: this._modifier.h === 'image' ? 'This will automatically be set to the height of the uploaded image' : '',
       });
       boundingBoxContainer.append(this._elements.image.h);
 
@@ -210,47 +218,61 @@ export class CustomTemplateModifierElement extends HTMLElement {
   /** @returns {ImageRenderModifier} */
   getModifier() {
     if (this.type === 'image') {
+      const defaults = (this._modifier.type === 'image') ? {
+        fittingType: this._modifier.defaults.fittingType,
+        origin: this._modifier.defaults.origin,
+      } : {
+        fittingType: this._modifier.defaults.image.fittingType,
+        origin: this._modifier.defaults.image.origin,
+      };
+
+      const w = (this._modifier.w === 'image') ? 'image' : this._elements.image.w.value;
+      const h = (this._modifier.h === 'image') ? 'image' : this._elements.image.h.value;
+
       return {
         type: 'image',
 
         x: this._elements.image.x.value ?? this._modifier.x,
         y: this._elements.image.y.value ?? this._modifier.y,
-        w: this._elements.image.w.value ?? this._modifier.w,
-        h: this._elements.image.h.value ?? this._modifier.h,
+        w: w ?? this._modifier.w,
+        h: h ?? this._modifier.h,
+        origin: defaults.origin,
 
         path: this._uploadedImageURL ?? CustomTemplateModifierElement._EMPTY_IMAGE_DATA_URL,
 
-        fittingType: this._modifier.defaults.image.fittingType,
+        fittingType: defaults.fittingType,
         opacity: 1,
 
         renderBox: {
           render: this._elements.image.renderBox.checked,
           text: `'${this._modifier.title}' image`,
           skin: this._modifier.renderBox?.skin ?? null,
-          background: this._modifier.renderBox?.background ?? null,
-          color: this._modifier.renderBox?.color ?? null,
+          background: this._modifier.renderBox?.backgroundColor ?? null,
+          color: this._modifier.renderBox?.textColor ?? null,
         },
       };
     } else if (this.type === 'text') {
+      const modifier = /** @type {VariableTypeTemplateConfigModifier} */ (this._modifier);
       return {
         type: 'text',
 
-        x: this._elements.text.x.value ?? this._modifier.x,
-        y: this._elements.text.y.value ?? this._modifier.y,
-        w: this._elements.text.w.value ?? this._modifier.w,
-        h: this._elements.text.h.value ?? this._modifier.h,
+        x: this._elements.text.x.value ?? modifier.x,
+        y: this._elements.text.y.value ?? modifier.y,
+        w: this._elements.text.w.value ?? modifier.w,
+        h: this._elements.text.h.value ?? modifier.h,
+        origin: modifier.defaults.text.origin,
 
         text: this._elements.text.field.value,
 
-        color: this._elements.text.color.value ?? this._modifier.defaults.text.color,
-        background: this._modifier.defaults.text.background ?? null,
+        color: this._elements.text.color.value ?? modifier.defaults.text.textColor,
+        background: modifier.defaults.text.backgroundColor ?? null,
 
         renderBox: {
           render: this._elements.text.renderBox.checked,
-          text: `'${this._modifier.title}' text`,
-          skin: this._modifier.renderBox?.skin ?? null,
-          background: this._modifier.renderBox?.background ?? null,
-          color: this._modifier.renderBox?.color ?? null,
+          text: `'${modifier.title}' text`,
+          skin: modifier.renderBox?.skin ?? null,
+          background: modifier.renderBox?.backgroundColor ?? null,
+          color: modifier.renderBox?.textColor ?? null,
         },
       };
     } else {
@@ -258,40 +280,64 @@ export class CustomTemplateModifierElement extends HTMLElement {
     }
   }
 
-  /** @type {TemplateConfigModifier} */
-  _modifier = null;
+  /** @type {VariableTypeTemplateConfigModifier|ForcedImageTemplateConfigModifier_Unlocked} */
+  _modifier;
 
   /** @type {string|null} */
   _uploadedImageURL = null;
 
   _elements = {
     /** @type {CustomTabsElement} */
+    // @ts-ignore `Type 'null' is not assignable to type 'CustomTabsElement'`
     tabs: null,
 
     image: {
       /** @type {HTMLDivElement} */
+      // @ts-ignore `Type 'null' is not assignable to type 'HTMLDivElement'`
       container: null,
       /** @type {HTMLInputElement} */
+      // @ts-ignore `Type 'null' is not assignable to type 'HTMLInputElement'`
       input: null,
       /** @type {CustomToggleElement} */
+      // @ts-ignore `Type 'null' is not assignable to type 'CustomToggleElement'`
       renderBox: null,
+      /** @type {CustomNumberInputElement} */
+      // @ts-ignore `Type 'null' is not assignable to type 'CustomNumberInputElement'`
+      x: null,
+      /** @type {CustomNumberInputElement} */
+      // @ts-ignore `Type 'null' is not assignable to type 'CustomNumberInputElement'`
+      y: null,
+      /** @type {CustomNumberInputElement} */
+      // @ts-ignore `Type 'null' is not assignable to type 'CustomNumberInputElement'`
+      w: null,
+      /** @type {CustomNumberInputElement} */
+      // @ts-ignore `Type 'null' is not assignable to type 'CustomNumberInputElement'`
+      h: null,
     },
     text: {
       /** @type {HTMLDivElement} */
+      // @ts-ignore `Type 'null' is not assignable to type 'HTMLDivElement'`
       container: null,
       /** @type {HTMLTextAreaElement} */
+      // @ts-ignore `Type 'null' is not assignable to type 'HTMLTextAreaElement'`
       field: null,
       /** @type {CustomColorPickerElement} */
+      // @ts-ignore `Type 'null' is not assignable to type 'CustomColorPickerElement'`
       color: null,
       /** @type {CustomToggleElement} */
+      // @ts-ignore `Type 'null' is not assignable to type 'CustomToggleElement'`
       renderBox: null,
       /** @type {CustomNumberInputElement} */
+      // @ts-ignore `Type 'null' is not assignable to type 'CustomNumberInputElement'`
       x: null,
       /** @type {CustomNumberInputElement} */
+      // @ts-ignore `Type 'null' is not assignable to type 'CustomNumberInputElement'`
       y: null,
       /** @type {CustomNumberInputElement} */
+      // @ts-ignore `Type 'null' is not assignable to type 'CustomNumberInputElement'`
       w: null,
       /** @type {CustomNumberInputElement} */
+      // @ts-ignore `Type 'null' is not assignable to type 'CustomNumberInputElement'`
       h: null,
     }
   };

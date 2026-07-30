@@ -7,6 +7,15 @@ export function stringIsNumeric(value) {
   return (typeof value === 'string') && !isNaN(value) && !isNaN(parseFloat(value));
 }
 
+/**
+ * @param {Element} element
+ */
+export function empty(element) {
+  while (element.lastChild != null) {
+    element.removeChild(element.lastChild);
+  }
+}
+
 export const Elements = {
   /**
    * @param {object} options

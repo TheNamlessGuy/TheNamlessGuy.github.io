@@ -8,7 +8,7 @@ span.container {
   align-items: center;
 }
 
-label { white-space: nowrap; }
+label { white-space: nowrap; user-select: none; }
 
 span.input-container {
   display: inline-flex;
@@ -53,12 +53,14 @@ span.container.faded button.revert { border-color: var(--separator-color-1); }
 export class CustomNumberInputElement extends HTMLElement {
   /**
    * @param {object} options
-   * @param {number} [options.value]
-   * @param {number} [options.defaultValue]
+   * @param {number|null} [options.value]
+   * @param {number|null} [options.defaultValue]
    * @param {number} [options.min]
    * @param {number} [options.max]
    * @param {string} [options.label]
    * @param {'primary'|'faded'} [options.intensity]
+   * @param {boolean} [options.disabled]
+   * @param {string} [options.tooltip]
    */
   constructor(options = {}) {
     super();
@@ -90,17 +92,17 @@ export class CustomNumberInputElement extends HTMLElement {
     buttonContainer.classList.add('button-container');
     inputContainer.append(buttonContainer);
 
-    const up = document.createElement('button');
-    up.classList.add('up');
-    up.innerText = CustomIconElement.getIcon('up');
-    up.addEventListener('click', this._onUpClicked.bind(this));
-    buttonContainer.append(up);
+    this._elements.up = document.createElement('button');
+    this._elements.up.classList.add('up');
+    this._elements.up.innerText = CustomIconElement.getIcon('up');
+    this._elements.up.addEventListener('click', this._onUpClicked.bind(this));
+    buttonContainer.append(this._elements.up);
 
-    const down = document.createElement('button');
-    down.classList.add('down');
-    down.innerText = CustomIconElement.getIcon('down');
-    down.addEventListener('click', this._onDownClicked.bind(this));
-    buttonContainer.append(down);
+    this._elements.down = document.createElement('button');
+    this._elements.down.classList.add('down');
+    this._elements.down.innerText = CustomIconElement.getIcon('down');
+    this._elements.down.addEventListener('click', this._onDownClicked.bind(this));
+    buttonContainer.append(this._elements.down);
 
     this._elements.revert = document.createElement('button');
     this._elements.revert.classList.add('revert');
@@ -119,7 +121,9 @@ export class CustomNumberInputElement extends HTMLElement {
     shadow.append(this._elements.container);
 
     this.defaultValue = options.defaultValue ?? 5;
-    this.value = options.value ?? 0;
+    this.value = (options.value === null ? null : (options.value ?? 0)); // If it's null someone explicitly sent null
+    this.disabled = options.disabled ?? false;
+    this.tooltip = options.tooltip ?? '';
   }
 
   get label() {
@@ -128,10 +132,29 @@ export class CustomNumberInputElement extends HTMLElement {
   set label(value) {
     this._elements.label.textContent = value ?? '';
     if (value === '' || value == null) {
+      // @ts-ignore `Type 'null' is not assignable to type 'string'.`
       this._elements.label.style.marginRight = null;
     } else {
       this._elements.label.style.marginRight = '5px';
     }
+  }
+
+  get disabled() {
+    return this._elements.container.classList.contains('disabled');
+  }
+  set disabled(value) {
+    this._elements.container.classList.toggle('disabled', value);
+    this._elements.input.disabled = value;
+    this._elements.up.disabled = value;
+    this._elements.down.disabled = value;
+    this._elements.revert.disabled = value;
+  }
+
+  get tooltip() {
+    return this._elements.container.title;
+  }
+  set tooltip(value) {
+    this._elements.container.title = value;
   }
 
   get value() {
@@ -170,15 +193,27 @@ export class CustomNumberInputElement extends HTMLElement {
 
   _elements = {
     /** @type {HTMLSpanElement} */
+    // @ts-ignore `Type 'null' is not assignable to type 'HTMLSpanElement'`
     container: null,
 
     /** @type {HTMLLabelElement} */
+    // @ts-ignore `Type 'null' is not assignable to type 'HTMLLabelElement'`
     label: null,
 
     /** @type {HTMLInputElement} */
+    // @ts-ignore `Type 'null' is not assignable to type 'HTMLInputElement'`
     input: null,
 
     /** @type {HTMLButtonElement} */
+    // @ts-ignore `Type 'null' is not assignable to type 'HTMLButtonElement'`
+    up: null,
+
+    /** @type {HTMLButtonElement} */
+    // @ts-ignore `Type 'null' is not assignable to type 'HTMLButtonElement'`
+    down: null,
+
+    /** @type {HTMLButtonElement} */
+    // @ts-ignore `Type 'null' is not assignable to type 'HTMLButtonElement'`
     revert: null,
   }
 

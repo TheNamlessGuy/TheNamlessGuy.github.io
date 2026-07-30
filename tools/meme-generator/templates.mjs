@@ -1,10 +1,15 @@
 import { CustomSelectElement } from '../../custom-elements/select.mjs';
 import { CustomSeparatorElement } from '../../custom-elements/separator.mjs';
+import { empty } from '../../helpers.mjs';
 import { CustomTemplateModifierElement } from './custom-elements/template-modifier.mjs';
 import { Render } from './render.mjs';
 
 /** @import {FittingType} from './index.mjs' */
-/** @import {ImageRenderModifier_Image, ImageRenderModifier_Text} from './render.mjs' */
+/** @import {ImageRenderModifier, ImageRenderModifier_Image, ImageRenderModifier_Text} from './render.mjs' */
+
+/** OriginPosition
+ * @typedef {'top-left'|'bottom-left'|'bottom-right'|'top-right'} OriginPosition
+ */
 
 /** TemplateConfig
  * @typedef {object} TemplateConfig
@@ -12,37 +17,15 @@ import { Render } from './render.mjs';
  * @property {string} id The ID to the config
  * @property {string} title The title of the config
  *
- * @property {object} template
- * @property {string} template.path The path to the template image
- * @property {'first'|'last'} template.render When to render the template
- *
- * @property {TemplateConfigModifier[]} modifiers
+ * @property {[ForcedImageTemplateConfigModifier, ...TemplateConfigModifier[]]} modifiers The first modifier MUST be a ForcedImageTemplateConfigModifier, to establish the width and height of the canvas
  */
+
 /** TemplateConfigModifier
- * @typedef {object} TemplateConfigModifier
- *
- * @property {string} title
- * @property {number} x
- * @property {number} y
- * @property {number} w
- * @property {number} h
- *
- * @property {object} [renderBox]
- * @property {'light'|'dark'} [renderBox.skin]
- * @property {string} [renderBox.background]
- * @property {string} [renderBox.color]
- * @property {string} [renderBox.border]
- *
- * @property {object} defaults
- *
- * @property {object} defaults.image
- * @property {FittingType} defaults.image.fittingType
- *
- * @property {object} defaults.text
- * @property {string} defaults.text.color
- * @property {string} [defaults.text.background]
- *
- * @property {TemplateConfigModifierExample_Image|TemplateConfigModifierExample_Text} example
+ * @typedef {ForcedImageTemplateConfigModifier|VariableTypeTemplateConfigModifier} TemplateConfigModifier
+ */
+
+/** TemplateConfigModifierExample
+ * @typedef {TemplateConfigModifierExample_Image|TemplateConfigModifierExample_Text} TemplateConfigModifierExample
  */
 /** TemplateConfigModifierExample_Image
  * @typedef {object} TemplateConfigModifierExample_Image
@@ -55,6 +38,86 @@ import { Render } from './render.mjs';
  *
  * @property {'text'} type
  * @property {string} value
+ */
+
+/** TemplateConfigModifierRenderBox
+ * @typedef {object} TemplateConfigModifierRenderBox
+ *
+ * @property {'light'|'dark'} [skin]
+ * @property {string} [backgroundColor]
+ * @property {string} [textColor]
+ * @property {string} [borderColor]
+ */
+
+/** TemplateConfigModifierDefaults
+ * @typedef {object} TemplateConfigModifierDefaults
+ *
+ * @property {TemplateConfigModifierDefaultsImage} image
+ * @property {TemplateConfigModifierDefaultsText} text
+ */
+/** TemplateConfigModifierDefaultsImage
+ * @typedef {object} TemplateConfigModifierDefaultsImage
+ *
+ * @property {FittingType} fittingType
+ * @property {OriginPosition} [origin]
+ */
+/** TemplateConfigModifierDefaultsText
+ * @typedef {object} TemplateConfigModifierDefaultsText
+ *
+ * @property {string} textColor
+ * @property {string} [backgroundColor]
+ * @property {OriginPosition} [origin]
+ */
+
+/** VariableTypeTemplateConfigModifier
+ * @typedef {object} VariableTypeTemplateConfigModifier
+ *
+ * @property {'variable-type'} type
+ *
+ * @property {string} title
+ * @property {number} x
+ * @property {number} y
+ * @property {number} w
+ * @property {number} h
+ *
+ * @property {TemplateConfigModifierRenderBox} [renderBox]
+ * @property {TemplateConfigModifierDefaults} defaults
+ * @property {TemplateConfigModifierExample} example
+ */
+
+/** ForcedImageTemplateConfigModifier
+ * @typedef {ForcedImageTemplateConfigModifier_Locked|ForcedImageTemplateConfigModifier_Unlocked} ForcedImageTemplateConfigModifier
+ */
+/** ForcedImageTemplateConfigModifier_Locked
+ * @typedef {object} ForcedImageTemplateConfigModifier_Locked
+ *
+ * @property {'image'} type
+ *
+ * @property {true} locked
+ * @property {number} x
+ * @property {number} y
+ * @property {number|'image'} w
+ * @property {number|'image'} h
+ *
+ * @property {string} path
+ *
+ * @property {TemplateConfigModifierDefaultsImage} defaults
+ */
+/** ForcedImageTemplateConfigModifier_Unlocked
+ * @typedef {object} ForcedImageTemplateConfigModifier_Unlocked
+ *
+ * @property {'image'} type
+ *
+ * @property {string} title
+ * @property {false} locked
+ * @property {number} x
+ * @property {number} y
+ * @property {number|'image'} w
+ * @property {number|'image'} h
+ *
+ * @property {TemplateConfigModifierRenderBox} [renderBox]
+ * @property {TemplateConfigModifierDefaultsImage} defaults
+ * @property {TemplateConfigModifierExample_Image} example
  */
 
 export const Templates = {
@@ -80,10 +143,6 @@ export const Templates = {
     throw new Error(`Unknown template ID '${id}'`);
   },
 
-  getCurrent() {
-    return Templates.get(Templates._elements.select().value);
-  },
-
   initialize() {
     const select = Templates._elements.select();
     for (const template of Templates._availableTemplates) {
@@ -91,69 +150,204 @@ export const Templates = {
     }
 
     select.addEventListener('change', () => Templates.select(select.value));
+    select.addEventListener('change', this._onSelectionChange.bind(this));
 
-    Templates.select(select.value);
+    select.value = QueryParameters.get('template') ?? select.value;
   },
 
   /** @param {string} id */
   select(id) {
     const template = Templates.get(id);
 
-    void Templates._renderExample(template);
+    void Templates._example.render(template);
 
     const container = Templates._elements.modifierContainer();
+    empty(container);
 
-    while (container.lastChild != null) {
-      container.removeChild(container.lastChild);
-    }
+    /**
+     * @param {TemplateConfigModifier} modifier
+     * @returns {modifier is (ForcedImageTemplateConfigModifier_Unlocked|VariableTypeTemplateConfigModifier)}
+     */
+    const filter = (modifier) => !(modifier.type === 'image' && modifier.locked);
+    const modifiers = template.modifiers.filter(filter);
+    for (let m = 0; m < modifiers.length; ++m) {
+      if (m > 0) { container.append(new CustomSeparatorElement({size: 'medium', intensity: 'faded'})); }
 
-    const separator = () => {
-      const elem = new CustomSeparatorElement();
-      elem.size('medium');
-      elem.intensity('faded');
-      return elem;
-    };
-
-    for (let m = 0; m < template.modifiers.length; ++m) {
-      if (m > 0) { container.append(separator()); }
-
-      container.append(new CustomTemplateModifierElement(template.modifiers[m]));
+      container.append(new CustomTemplateModifierElement(modifiers[m]));
     }
   },
 
-  async renderCurrent() {
-    Render.empty();
+  current: {
+    getID() {
+      return Templates._elements.select().value;
+    },
 
-    const template = Templates.getCurrent();
-    const modifiers = Templates._elements.modifiers().map((element) => element.getModifier());
+    get() {
+      return Templates.get(Templates.current.getID());
+    },
 
-    await Render.image(template.template, modifiers, {});
+    async render() {
+      Render.empty();
+      await Render.image(Templates.current._getCurrentModifiers());
+    },
+
+    /**
+     * @returns {[ImageRenderModifier_Image, ...ImageRenderModifier[]]}
+     */
+    _getCurrentModifiers() {
+      const template = Templates.current.get();
+      const elements = Templates._elements.modifiers();
+
+      /** @type {ImageRenderModifier[]} */
+      const retval = [];
+
+      // For each modifier that ISN'T ForcedImageTemplateConfigModifier_Locked, get the element modifier.
+      // Since ForcedImageTemplateConfigModifier_Locked aren't spawned as elements, handle those manually.
+      // Make sure everything ends up in retval in the config order.
+
+      let t = 0;
+      let e = 0;
+      for (; t < template.modifiers.length; ++t) {
+        const modifier = template.modifiers[t];
+        if (modifier.type === 'image' && modifier.locked) {
+          retval.push({
+            type: 'image',
+
+            x: modifier.x,
+            y: modifier.y,
+            w: modifier.w,
+            h: modifier.h,
+            origin: modifier.defaults.origin,
+
+            path: modifier.path,
+
+            fittingType: modifier.defaults.fittingType,
+            opacity: 1,
+          });
+        } else {
+          retval.push(elements[e].getModifier());
+          e += 1;
+        }
+      }
+
+      const [firstModifier, ...otherModifiers] = retval;
+      return [
+        /** @type {ImageRenderModifier_Image} */ (firstModifier),
+        ...otherModifiers,
+      ];
+    },
   },
 
-  /**
-   * @param {TemplateConfig} template
-   * @returns {Promise<void>}
-   */
-  async _renderExample(template) {
-    Render.empty();
+  _example: {
+    /**
+     * @param {TemplateConfig} template
+     * @returns {Promise<void>}
+     */
+    async render(template) {
+      Render.empty();
+      await Render.image(Templates._example._getExampleModifiers(template.modifiers));
+    },
 
-    const modifiers = template.modifiers.map((modifier) => {
-      if (modifier.example.type === 'image') {
-        return /** @satisfies {ImageRenderModifier_Image} */ ({
-          type: 'image',
+    /**
+     * @param {[ForcedImageTemplateConfigModifier, ...TemplateConfigModifier[]]} modifiers
+     * @returns {[ImageRenderModifier_Image, ...ImageRenderModifier[]]}
+     */
+    _getExampleModifiers(modifiers) {
+      const [firstTemplateModifier, ...otherTemplateModifiers] = modifiers;
+      const firstImageModifier = Templates._example._getExampleModifier(firstTemplateModifier);
+      const otherImageModifiers = otherTemplateModifiers.map(Templates._example._getExampleModifier);
+      return [firstImageModifier, ...otherImageModifiers];
+    },
 
-          x: modifier.x,
-          y: modifier.y,
-          w: modifier.w,
-          h: modifier.h,
+    /**
+     * @overload
+     * @param {ForcedImageTemplateConfigModifier} modifier
+     * @returns {ImageRenderModifier_Image}
+     */
+    /**
+     * @overload
+     * @param {TemplateConfigModifier} modifier
+     * @returns {ImageRenderModifier}
+     */
+    /**
+     * @param {TemplateConfigModifier} modifier
+     * @returns {ImageRenderModifier}
+     */
+    _getExampleModifier(modifier) {
+      if (modifier.type === 'variable-type') {
+        if (modifier.example.type === 'image') {
+          return Templates._example._getExampleImageModifier(modifier, {
+            path: modifier.example.path,
+            fittingType: modifier.defaults.image.fittingType,
+            origin: modifier.defaults.image.origin,
+          });
+        } else if (modifier.example.type === 'text') {
+          return Templates._example._getExampleTextModifier(modifier, {
+            value: modifier.example.value,
+            color: modifier.defaults.text.textColor,
+            background: modifier.defaults.text.backgroundColor,
+            origin: modifier.defaults.text.origin,
+          });
+        }
 
+        // @ts-ignore `Property 'type' does not exist on type 'never'.`
+        throw new Error(`Unknown 'variable-type' modifier type '${modifier.example.type}'`);
+      } else if (modifier.type === 'image') {
+        if (modifier.locked) {
+          return Templates._example._getExampleImageModifier(modifier, {
+            path: modifier.path,
+            fittingType: modifier.defaults.fittingType,
+            origin: modifier.defaults.origin,
+          });
+        }
+
+        return Templates._example._getExampleImageModifier(modifier, {
           path: modifier.example.path,
-
-          fittingType: modifier.defaults.image.fittingType,
-          opacity: 1,
+          fittingType: modifier.defaults.fittingType,
+            origin: modifier.defaults.origin,
         });
-      } else if (modifier.example.type === 'text') {
-        return /** @satisfies {ImageRenderModifier_Text} */ ({
+      }
+
+      // @ts-ignore `Property 'type' does not exist on type 'never'.`
+      throw new Error(`Unknown modifier type '${modifier.type}'`);
+    },
+
+    /**
+     * @param {TemplateConfigModifier} modifier
+     * @param {object} data
+     * @param {string} data.path
+     * @param {FittingType} data.fittingType
+     * @param {OriginPosition|null|undefined} data.origin
+     * @returns {ImageRenderModifier_Image}
+     */
+    _getExampleImageModifier(modifier, data) {
+      return {
+        type: 'image',
+
+        x: modifier.x,
+        y: modifier.y,
+        w: modifier.w,
+        h: modifier.h,
+        origin: data.origin,
+
+        path: data.path,
+
+        fittingType: data.fittingType,
+        opacity: 1,
+      };
+    },
+
+    /**
+     * @param {VariableTypeTemplateConfigModifier} modifier
+     * @param {object} data
+     * @param {string} data.value
+     * @param {string} data.color
+     * @param {string|null|undefined} data.background
+     * @param {OriginPosition|null|undefined} data.origin
+     * @returns {ImageRenderModifier_Text}
+     */
+    _getExampleTextModifier(modifier, data) {
+      return {
           type: 'text',
 
           x: modifier.x,
@@ -161,17 +355,16 @@ export const Templates = {
           w: modifier.w,
           h: modifier.h,
 
-          text: modifier.example.value,
+          text: data.value,
 
-          color: modifier.defaults.text.color,
-          background: modifier.defaults.text.background ?? null,
-        });
-      } else {
-        throw new Error(`Unknown modifier type '${modifier.type}'`);
-      }
-    });
+          color: data.color,
+          background: data.background ?? null,
+      };
+    },
+  },
 
-    await Render.image(template.template, modifiers, {});
+  _onSelectionChange() {
+    QueryParameters.set('template', Templates._elements.select().value);
   },
 
   _elements: {

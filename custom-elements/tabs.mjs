@@ -67,7 +67,8 @@ export class CustomTabsElement extends HTMLElement {
       }
 
       if (tab.hasAttribute('disabled')) {
-        this.disableTab(id);
+        const tooltip = tab.getAttribute('disabled');
+        this.disableTab(id, {tooltip: tooltip ? tooltip : null});
       }
     }
 
@@ -123,7 +124,7 @@ export class CustomTabsElement extends HTMLElement {
   /**
    * @param {string} id
    * @param {object} options
-   * @param {string} [options.tooltip]
+   * @param {string|null} [options.tooltip]
    */
   disableTab(id, options = {}) {
     const tab = this._elements.tabs().find((tab) => tab.dataset.id === id);

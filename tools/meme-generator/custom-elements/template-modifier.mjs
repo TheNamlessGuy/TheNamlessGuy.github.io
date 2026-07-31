@@ -6,9 +6,16 @@ import { CustomToggleElement } from '../../../custom-elements/toggle.mjs';
 import { CustomNumberInputElement } from '../../../custom-elements/number-input.mjs';
 import { CustomColorPickerElement } from '../../../custom-elements/color-picker.mjs';
 import { Elements } from '../../../helpers.mjs';
+import { Templates } from '../templates.mjs';
 
 /** @import { ForcedImageTemplateConfigModifier_Unlocked, VariableTypeTemplateConfigModifier } from '../templates.mjs'; */
 /** @import { ImageRenderModifier } from '../render.mjs'; */
+
+/** PossiblyCustomVariableTypeTemplateConfigModifier
+ * @typedef {VariableTypeTemplateConfigModifier & {
+ *  custom?: boolean,
+ * }} PossiblyCustomVariableTypeTemplateConfigModifier
+ */
 
 const stylesheet = new CSSStyleSheet();
 stylesheet.replaceSync(`
@@ -32,7 +39,7 @@ export class CustomTemplateModifierElement extends HTMLElement {
   static _TEXT_IDX = 0;
   static _IMAGE_IDX = 1;
 
-  /** @param {VariableTypeTemplateConfigModifier|ForcedImageTemplateConfigModifier_Unlocked} modifier */
+  /** @param {PossiblyCustomVariableTypeTemplateConfigModifier|ForcedImageTemplateConfigModifier_Unlocked} modifier */
   constructor(modifier) {
     super();
 
@@ -40,10 +47,22 @@ export class CustomTemplateModifierElement extends HTMLElement {
 
     const container = document.createElement('div');
 
-    const title = document.createElement('div');
+    const titleContainer = document.createElement('div');
+    titleContainer.classList.add('flex', 'space-between', 'align-center');
+    container.append(titleContainer);
+
+    const title = document.createElement('span');
     title.textContent = this._modifier.title;
     title.classList.add('mt5p', 'mb5p', 'text-left', 'bold');
-    container.append(title);
+    titleContainer.append(title);
+
+    if (this.isCustom()) {
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = CustomIconElement.getIcon('x');
+      deleteButton.classList.add('red');
+      deleteButton.addEventListener('click', () => Templates.current.userCustomModifier.remove(this));
+      titleContainer.append(deleteButton);
+    }
 
     this._elements.tabs = new CustomTabsElement();
 
@@ -107,7 +126,7 @@ export class CustomTemplateModifierElement extends HTMLElement {
           label: 'w:',
           value: this._modifier.w,
           defaultValue: this._modifier.w,
-          min: 0,
+          min: 1,
           intensity: 'faded',
         });
         boundingBoxContainer.append(this._elements.text.w);
@@ -116,7 +135,7 @@ export class CustomTemplateModifierElement extends HTMLElement {
           label: 'h:',
           value: this._modifier.h,
           defaultValue: this._modifier.h,
-          min: 0,
+          min: 1,
           intensity: 'faded',
         });
         boundingBoxContainer.append(this._elements.text.h);
@@ -178,7 +197,7 @@ export class CustomTemplateModifierElement extends HTMLElement {
         label: 'w:',
         value: this._modifier.w === 'image' ? null : this._modifier.w,
         defaultValue: this._modifier.w === 'image' ? null : this._modifier.w,
-        min: 0,
+        min: 1,
         intensity: 'faded',
         disabled: this._modifier.w === 'image',
         tooltip: this._modifier.w === 'image' ? 'This will automatically be set to the width of the uploaded image' : '',
@@ -189,7 +208,7 @@ export class CustomTemplateModifierElement extends HTMLElement {
         label: 'h:',
         value: this._modifier.h === 'image' ? null : this._modifier.h,
         defaultValue: this._modifier.h === 'image' ? null : this._modifier.h,
-        min: 0,
+        min: 1,
         intensity: 'faded',
         disabled: this._modifier.h === 'image',
         tooltip: this._modifier.h === 'image' ? 'This will automatically be set to the height of the uploaded image' : '',
@@ -213,6 +232,13 @@ export class CustomTemplateModifierElement extends HTMLElement {
 
   get type() {
     return /** @type {'image'|'text'} */ (this._elements.tabs.getCurrentTab());
+  }
+
+  get uploadedImageName() { return this._uploadedImageName; }
+  get textValue() { return this._elements.text.field.value; }
+
+  isCustom() {
+    return (this._modifier.type === 'variable-type' && this._modifier.custom) ?? false;
   }
 
   /** @returns {ImageRenderModifier} */
@@ -252,7 +278,7 @@ export class CustomTemplateModifierElement extends HTMLElement {
         },
       };
     } else if (this.type === 'text') {
-      const modifier = /** @type {VariableTypeTemplateConfigModifier} */ (this._modifier);
+      const modifier = /** @type {PossiblyCustomVariableTypeTemplateConfigModifier} */ (this._modifier);
       return {
         type: 'text',
 
@@ -262,7 +288,7 @@ export class CustomTemplateModifierElement extends HTMLElement {
         h: this._elements.text.h.value ?? modifier.h,
         origin: modifier.defaults.text.origin,
 
-        text: this._elements.text.field.value,
+        text: this.textValue,
 
         color: this._elements.text.color.value ?? modifier.defaults.text.textColor,
         background: modifier.defaults.text.backgroundColor ?? null,
@@ -280,11 +306,14 @@ export class CustomTemplateModifierElement extends HTMLElement {
     }
   }
 
-  /** @type {VariableTypeTemplateConfigModifier|ForcedImageTemplateConfigModifier_Unlocked} */
+  /** @type {PossiblyCustomVariableTypeTemplateConfigModifier|ForcedImageTemplateConfigModifier_Unlocked} */
   _modifier;
 
   /** @type {string|null} */
   _uploadedImageURL = null;
+
+  /** @type {string|null} */
+  _uploadedImageName = null;
 
   _elements = {
     /** @type {CustomTabsElement} */
@@ -346,6 +375,7 @@ export class CustomTemplateModifierElement extends HTMLElement {
     const files = this._elements.image.input.files;
     if (files == null || files.length === 0 || files[0] == null) {
       this._uploadedImageURL = null;
+      this._uploadedImageName = null;
       return;
     }
 
@@ -354,6 +384,7 @@ export class CustomTemplateModifierElement extends HTMLElement {
       this._uploadedImageURL = /** @type {string} */ (reader.result);
     });
 
+    this._uploadedImageName = files[0].name;
     reader.readAsDataURL(files[0]);
   }
 }

@@ -1,6 +1,9 @@
 /** @import {FittingType} from './index.mjs' */
 /** @import {OriginPosition} from './templates.mjs' */
 
+import { FileSystem } from '../../helpers.mjs';
+import { Templates } from './templates.mjs';
+
 /** ImageRenderModifier_Image
  * @typedef {object} ImageRenderModifier_Image
  *
@@ -86,11 +89,27 @@ export const Render = {
     g.fillRect(0, 0, canvas.width, canvas.height);
   },
 
+  /** @returns {Promise<void>} */
+  saveCurrentImage() {
+    return new Promise((resolve, reject) => {
+      Render._canvas().toBlob((blob) => {
+        if (blob == null) { reject('Blob was null'); return; }
+
+        const filename = Templates.current.filename();
+        FileSystem.save({blob, filename: `${filename}.png`});
+        resolve();
+      });
+    });
+  },
+
   /**
    * @param {[ImageRenderModifier_Image, ...ImageRenderModifier[]]} modifiers
    * @returns {Promise<void>}
    */
   async image(modifiers) {
+    const token = {};
+    Render._currentRenderingToken = token;
+
     const canvas = Render._canvas();
     const g = Render._g(canvas);
 
@@ -104,6 +123,8 @@ export const Render = {
     canvas.height = preparedBaseModifier.h;
 
     const preparedOtherModifiers = await Promise.all(otherModifiers.map((modifier) => Render._prepareModifier(modifier, canvas)));
+
+    if (token !== Render._currentRenderingToken) { return; } // So we don't start drawing an old render request
 
     const preparedModifiers = [preparedBaseModifier, ...preparedOtherModifiers];
     for (const modifier of preparedModifiers) {
@@ -121,6 +142,9 @@ export const Render = {
       }
     }
   },
+
+  /** @type {{}|null} */
+  _currentRenderingToken: null,
 
   /**
    * @overload

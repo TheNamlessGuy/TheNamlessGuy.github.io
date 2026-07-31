@@ -3,6 +3,7 @@ import { Templates } from '../../templates.mjs';
 Templates.register({
   id: 'drake-hotline-bling',
   title: 'Drake Hotline Bling',
+  saveFileNameTemplate: `Drake dislikes {1} but likes {2}`,
 
   modifiers: [{
     type: 'image',

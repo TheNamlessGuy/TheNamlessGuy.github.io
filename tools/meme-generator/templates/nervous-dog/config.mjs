@@ -3,6 +3,7 @@ import { Templates } from '../../templates.mjs';
 Templates.register({
   id: 'nervous-dog',
   title: 'Nervous dog',
+  saveFileNameTemplate: `Nervous dog is nervous about {0}`,
 
   modifiers: [{
     type: 'image',

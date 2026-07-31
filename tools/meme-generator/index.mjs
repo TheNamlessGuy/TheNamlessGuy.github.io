@@ -1,3 +1,4 @@
+import { Render } from './render.mjs';
 import { Templates } from './templates.mjs';
 
 import './templates/drake-hotline-bling/config.mjs';
@@ -16,5 +17,11 @@ onDOMContentLoaded(() => {
   Templates.initialize();
 
   const generateBtn = /** @type {HTMLButtonElement} */ (document.getElementById('generate'));
-  generateBtn.addEventListener('click', () => Templates.current.render());
+  generateBtn.addEventListener('click', Templates.current.render);
+
+  const saveBtn = /** @type {HTMLButtonElement} */ (document.getElementById('save'));
+  saveBtn.addEventListener('click', Render.saveCurrentImage);
+
+  const addModifierBtn = /** @type {HTMLButtonElement} */ (document.getElementById('add-modifier'));
+  addModifierBtn.addEventListener('click', Templates.current.userCustomModifier.add);
 });

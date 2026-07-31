@@ -3,6 +3,7 @@ import { Templates } from '../../templates.mjs';
 Templates.register({
   id: 'wow-cool-robot',
   title: 'Wow Cool Robot',
+  saveFileNameTemplate: `Local man says '{2}' about {1}, but everyone knows it's actually '{3}'`,
 
   modifiers: [{
     type: 'image',

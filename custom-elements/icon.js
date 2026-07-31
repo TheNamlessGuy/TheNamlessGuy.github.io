@@ -6,31 +6,23 @@ class CustomIconElement extends HTMLElement {
     'up': '⮝',
     'down': '⮟',
     'revert': '↺',
+    'plus': '+',
+    'x': '⨯',
   };
 
   /**
    * @param {keyof typeof CustomIconElement.map} key
    * @returns {string}
    */
-  static getIcon(key) { return CustomIconElement.map[key]; }
-
-  _icon = null;
-  _elements = {
-    shadow: null,
-    icon: null,
-    link: null,
-  };
+  static getIcon(key) { return CustomIconElement.map[key]; } // TODO: This should probably be separate from the element
 
   constructor() {
     super();
 
-    this._elements.icon = document.createElement('div');
-    this.icon = this.innerText;
-
-    this.size = this.getAttribute('size');
+    this._elements.icon = document.createElement('span');
+    this.icon = /** @type {keyof typeof CustomIconElement.map} */ (this.innerText);
 
     this._elements.link = document.createElement('a');
-    this.url = this.getAttribute('url');
 
     const style = document.createElement('style');
     style.textContent = `
@@ -45,20 +37,12 @@ a {
     this._elements.shadow = this.attachShadow({mode: 'closed'})
     this._elements.shadow.append(style);
     this._setElement();
+
+    this.size = this.getAttribute('size');
+    this.url = this.getAttribute('url');
   }
 
-  _setElement() {
-    if (this._elements.shadow == null) { return; } // If this is the case, we'll come back here in a few lines
-
-    if (this._elements.link.href === window.location.href) {
-      this._elements.link.remove();
-      this._elements.shadow.append(this._elements.icon);
-    } else {
-      this._elements.link.append(this._elements.icon);
-      this._elements.shadow.append(this._elements.link);
-    }
-  }
-
+  get icon() { return this._icon; }
   set icon(icon) {
     this._icon = icon;
 
@@ -71,10 +55,33 @@ a {
 
   set size(size) { this._elements.icon.style.fontSize = size; }
   set url(url) { this._elements.link.href = url ?? ''; this._setElement(); }
+
+  /** @type {keyof typeof CustomIconElement.map} */
+  _icon = null;
+  _elements = {
+    /** @type {ShadowRoot} */
+    shadow: null,
+    /** @type {HTMLSpanElement} */
+    icon: null,
+    /** @type {HTMLAnchorElement} */
+    link: null,
+  };
+
+  _setElement() {
+    if (this._elements.shadow == null) { return; } // If this is the case, we'll come back here in a few lines
+
+    if (this._elements.link.href === window.location.href) {
+      this._elements.link.remove();
+      this._elements.shadow.append(this._elements.icon);
+    } else {
+      this._elements.link.append(this._elements.icon);
+      this._elements.shadow.append(this._elements.link);
+    }
+  }
 }
 
 class CustomHeaderIconElement extends CustomIconElement {
-  static trimURLSegment(url, amount) {
+  static trimURLSegment(url, amount) { // TODO: Why is this here? This is definitely an unrelated helper function
     url = new URL(url).pathname;
 
     while (url.startsWith('/')) { url = url.substring(1); }
@@ -114,7 +121,7 @@ class CustomHeaderIconElement extends CustomIconElement {
   }
 }
 
-window.addEventListener('DOMContentLoaded', () => {
+onDOMContentLoaded(() => {
   customElements.define('c-icon', CustomIconElement);
   customElements.define('c-header-icon', CustomHeaderIconElement);
 });

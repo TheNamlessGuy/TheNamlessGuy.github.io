@@ -19,6 +19,11 @@ body.theme-light {
   --button-green-hover: #22BB22;
   --button-green-disabled: #33CC99;
   --button-green-active: #33CC99;
+
+  --button-red: #CC3333;
+  --button-red-hover: #BB2222;
+  --button-red-disabled: #CC3399;
+  --button-red-active: #CC3399;
 }
 
 body.theme-dark {
@@ -42,6 +47,11 @@ body.theme-dark {
   --button-green-hover: #007700;
   --button-green-disabled: #003300;
   --button-green-active: #003300;
+
+  --button-red: #660000;
+  --button-red-hover: #770000;
+  --button-red-disabled: #330000;
+  --button-red-active: #330000;
 }
 
 html, body {
@@ -62,7 +72,7 @@ body {
 a { color: var(--text-color-0); }
 a:visited { color: var(--text-color-1); }
 
-button {
+button, input::file-selector-button {
   cursor: pointer;
   background-color: var(--bg-color-1);
   color: var(--text-color-0);
@@ -70,24 +80,29 @@ button {
   border-radius: 5px;
 }
 button * { pointer-events: none; }
-button:hover {
-  background-color: var(--bg-color-1-1);
+button:hover, input[type="file"]::file-selector-button:hover {
+  background-color: var(--bg-color-2);
   color: var(--text-color-0);
   border-color: var(--separator-color-0-1);
 }
-button:active:not(:disabled) {
-  background-color: var(--bg-color-0);
-  border-color: var(--separator-color-1);
-}
-button:disabled {
+button:disabled/*, input[type="file"]::file-selector-button:disabled*/ {
   cursor: not-allowed;
   background-color: var(--bg-color-0);
   color: var(--text-color-1);
+}
+button:active:not(:disabled)/*, input[type="file"]::file-selector-button:active:not(:disabled)*/ {
+  background-color: var(--bg-color-0);
+  border-color: var(--separator-color-1);
 }
 button.green { background-color: var(--button-green); }
 button.green:hover { background-color: var(--button-green-hover); }
 button.green:disabled { background-color: var(--button-green-disabled); }
 button.green:active:not(:disabled) { background-color: var(--button-green-active); }
+button.red { background-color: var(--button-red); }
+button.red:hover { background-color: var(--button-red-hover); }
+button.red:disabled { background-color: var(--button-red-disabled); }
+button.red:active:not(:disabled) { background-color: var(--button-red-active); }
+button.big { font-size: 150%; font-weight: bold; }
 
 input, textarea {
   background-color: var(--bg-color-1);

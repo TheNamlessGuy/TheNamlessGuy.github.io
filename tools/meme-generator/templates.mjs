@@ -1,6 +1,6 @@
 import { CustomSelectElement } from '../../custom-elements/select.mjs';
 import { CustomSeparatorElement } from '../../custom-elements/separator.mjs';
-import { empty } from '../../helpers.mjs';
+import { empty, FileSystem } from '../../helpers.mjs';
 import { CustomTemplateModifierElement } from './custom-elements/template-modifier.mjs';
 import { Render } from './render.mjs';
 
@@ -16,6 +16,7 @@ import { Render } from './render.mjs';
  *
  * @property {string} id The ID to the config
  * @property {string} title The title of the config
+ * @property {string} saveFileNameTemplate The template to use when generating the file name to save as. See Templates.current.filename()
  *
  * @property {[ForcedImageTemplateConfigModifier, ...TemplateConfigModifier[]]} modifiers The first modifier MUST be a ForcedImageTemplateConfigModifier, to establish the width and height of the canvas
  */
@@ -191,50 +192,150 @@ export const Templates = {
       await Render.image(Templates.current._getCurrentModifiers());
     },
 
+    /** @returns {string} */
+    filename() {
+      const template = Templates.current.get();
+
+      let filename = template.saveFileNameTemplate;
+
+      /**
+       * @param {number} i
+       * @param {string} replacement
+       */
+      const replace = (i, replacement) => {
+        replacement = (replacement === '') ? 'nothing' : replacement;
+        filename = filename.replace(`{${i}}`, replacement);
+      };
+
+      Templates.current._foreachTemplateModifier((data) => {
+        if (data.modifier instanceof CustomTemplateModifierElement) {
+          if (data.modifier.type === 'image') {
+            const {filename, extension} = FileSystem.filenameAndExtension(data.modifier.uploadedImageName ?? '');
+            replace(data.idx, filename);
+          } else if (data.modifier.type === 'text') {
+            replace(data.idx, data.modifier.textValue);
+          } else {
+            throw new Error(`Unknown type '${data.modifier.type}'`);
+          }
+        } else {
+          const {filename, extension} = FileSystem.filenameAndExtension(data.modifier.path);
+          replace(data.idx, filename);
+        }
+      });
+
+      return filename;
+    },
+
+    userCustomModifier: {
+      add() {
+        const container = Templates._elements.modifierContainer();
+        const currentCount = Templates._elements.modifiers().filter((element) => element.isCustom()).length;
+        container.append(new CustomSeparatorElement({size: 'medium', intensity: 'faded'}));
+        container.append(new CustomTemplateModifierElement({
+          type: 'variable-type',
+          custom: true,
+
+          title: `Custom ${currentCount + 1}`, // TODO
+          x: 0,
+          y: 0,
+          w: 1,
+          h: 1,
+
+          defaults: {
+            image: {
+              fittingType: 'contain',
+            },
+            text: {
+              textColor: 'black',
+            },
+          },
+
+          example: {
+            type: 'text',
+            value: '',
+          },
+        }));
+      },
+
+      /** @param {CustomTemplateModifierElement} modifier */
+      remove(modifier) {
+        const container = Templates._elements.modifierContainer();
+        const children = Array.from(container.children);
+        const idx = children.indexOf(modifier);
+        if (children[idx - 1] instanceof CustomSeparatorElement) {
+          children[idx - 1].remove();
+        }
+        modifier.remove();
+      },
+    },
+
     /**
      * @returns {[ImageRenderModifier_Image, ...ImageRenderModifier[]]}
      */
     _getCurrentModifiers() {
-      const template = Templates.current.get();
-      const elements = Templates._elements.modifiers();
-
       /** @type {ImageRenderModifier[]} */
       const retval = [];
-
-      // For each modifier that ISN'T ForcedImageTemplateConfigModifier_Locked, get the element modifier.
-      // Since ForcedImageTemplateConfigModifier_Locked aren't spawned as elements, handle those manually.
-      // Make sure everything ends up in retval in the config order.
-
-      let t = 0;
-      let e = 0;
-      for (; t < template.modifiers.length; ++t) {
-        const modifier = template.modifiers[t];
-        if (modifier.type === 'image' && modifier.locked) {
+      Templates.current._foreachTemplateModifier((data) => {
+        if (data.modifier instanceof CustomTemplateModifierElement) {
+          retval.push(data.modifier.getModifier());
+        } else {
           retval.push({
             type: 'image',
 
-            x: modifier.x,
-            y: modifier.y,
-            w: modifier.w,
-            h: modifier.h,
-            origin: modifier.defaults.origin,
+            x: data.modifier.x,
+            y: data.modifier.y,
+            w: data.modifier.w,
+            h: data.modifier.h,
+            origin: data.modifier.defaults.origin,
 
-            path: modifier.path,
+            path: data.modifier.path,
 
-            fittingType: modifier.defaults.fittingType,
+            fittingType: data.modifier.defaults.fittingType,
             opacity: 1,
           });
-        } else {
-          retval.push(elements[e].getModifier());
-          e += 1;
         }
-      }
+      });
 
       const [firstModifier, ...otherModifiers] = retval;
       return [
         /** @type {ImageRenderModifier_Image} */ (firstModifier),
         ...otherModifiers,
       ];
+    },
+
+    /**
+     * Handles the fact that:
+     * 1) ForcedImageTemplateConfigModifier_Locked from a template don't get a CustomTemplateModifierElement
+     * 2) You can add custom modifiers
+     * and iterates over all relevant template modifiers, in the order you'd expect
+     *
+     * @param {(data: {idx: number, modifier: ForcedImageTemplateConfigModifier_Locked | CustomTemplateModifierElement}) => void} callback
+     */
+    _foreachTemplateModifier(callback) {
+      const template = Templates.current.get();
+      const elements = Templates._elements.modifiers();
+
+      let t = 0;
+      let e = 0;
+      while (t < template.modifiers.length || e < elements.length) {
+        let foundLockedImageTemplate = false;
+
+        if (t < template.modifiers.length) {
+          // If the current template modifier is a ForcedImageTemplateConfigModifier_Locked, use that
+          const modifier = template.modifiers[t];
+          if (modifier.type === 'image' && modifier.locked) {
+            foundLockedImageTemplate = true;
+            callback({modifier: modifier, idx: t});
+          }
+        }
+
+        if (!foundLockedImageTemplate && e < elements.length) {
+          callback({modifier: elements[e], idx: t});
+          e += 1;
+        }
+
+        t += 1;
+      }
     },
   },
 

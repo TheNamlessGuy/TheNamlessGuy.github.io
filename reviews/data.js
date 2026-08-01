@@ -3863,5 +3863,25 @@ Any library that RESTRICTS how you can use it is designed by an idiot.
     "score": 7,
     "reviewed_at": ["2026-07-26"],
     "tags": ["show"],
+  }, {
+    "title": "Avatar Aang: The Last Airbender",
+    "link": "https://www.imdb.com/title/tt18259538/",
+    "score": 7.75,
+    "reviewed_at": ["2026-08-01"],
+    "tags": ["movie"],
+    "description": `Beautiful animation, and fantastic music to accompany it. The story gets an 'a few notches above meh', I think.
+
+The choice for a macguffin instead of the interpersonal conflict that tends to make the avatar universe interesting is a weird choice. Having Tagah be killed by the Denied, and having Aang seek revenge on them would have been far more interesting.
+
+The character's either feel like they aren't the same people, or feel like they're too similar, given the time frame since the show.
+Since Zuko didn't really get a spot in the team dynamic in the show (aside from going on one-off adventures with everyone), he gets given the non-comic-relief parts of Sokka - which is sad, because... you know when a show goes on for a long time, and the characters start to become exaggerated caricatures of their original premise? That feels like what happened to Sokka. Given what we learned of him in Korra, he should have given the speech that Korra gives in the beginning (although I get that they gave it to her since it mirrors the intro of the show). When Zuko's airship is failing, he should have been barking orders, not sheepishly following.
+It was cute when Toph goes 'greatest earthbender' the first time. Then she does it two more times. Aside from calling Tagah handsome, that's basically all she does.
+The team also just casually dies at one point, and it's barely a plotpoint for like 2 minutes. Not to mention Katara just somehow resurrecting herself?
+
+That being said, it is a movie about Aang specifically, and it does a great job in that regard. Sets up a lot of interesting air nomad lore, such as the implication that Sonam was the reason the four air temples exist. It also heavily leans into the whole 'the air element is secretly the strongest one, and is only held back by the peaceful ways of the air nomads' which Zaheer also embodies, which is always nice to see.
+
+My biggest gripes were mostly about the end fight, which is a slightly better version of the Unalaq stuff. Even then, it feels closer to whatever the fuck happened to Naruto than it does Avatar.
+
+I am officially less hyped about Seven Havens now. It hasn't obliterated my hype completely by any means, but it's definitely less.`,
   }]
 };

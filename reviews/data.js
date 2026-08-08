@@ -3883,5 +3883,22 @@ That being said, it is a movie about Aang specifically, and it does a great job 
 My biggest gripes were mostly about the end fight, which is a slightly better version of the Unalaq stuff. Even then, it feels closer to whatever the fuck happened to Naruto than it does Avatar.
 
 I am officially less hyped about Seven Havens now. It hasn't obliterated my hype completely by any means, but it's definitely less.`,
+  }, {
+    "title": "Split Fiction",
+    "link": "https://www.igdb.com/games/split-fiction",
+    "score": 6.75,
+    "reviewed_at": ["2026-08-08"],
+    "tags": ["game"],
+    "description": `Decent game. The overall gameplay loop is good, but not great.
+Mostly the game revolves around walking from point A to B. The rare few instances you have to stop for a puzzle, it's not for long, since all the puzzles are <i>really</i> basic. It also suffers from the classic sin of "if you walk too far you can't go back", which is always and has always been poor game design (in games where you can miss content).
+The game also doesn't do much with the titular split until the end boss, which was probably the most interesting part of the game.
+It's also fairly imaginative, and some of the scenarios are at least interesting conceptually. Some of the "minigames" (like the wind race and the pinball) are fairly interesting.
+
+What really sets it back is the narrative, though. In a story-focused game, with not much going for it gameplay-wise, the story needs to be really good to weigh it up. Instead we get two "writers" who get confused at the most basic concepts of writing, worldbuilding, character development, whatever.
+The most telling part is near the beginning, when Zoe goes something like "What is this?" to something that is clearly a sci-fi war. It's not played as if she's shocked that she's <i>in the war</i>, but rather that <i>the concept of war</i> is alien. The story is full of things like this.
+
+The villain is incredibly weak, and wholly unbelieveable. Narratively he's supposed to be this great businessman, but he conducts himself like he's written by someone whose only interactions with the business world is through a TV screen.
+
+Overall, it's enjoyable, but not much more.`,
   }]
 };

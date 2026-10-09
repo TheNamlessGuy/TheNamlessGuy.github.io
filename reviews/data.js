@@ -1,3 +1,38 @@
+/**
+ * @typedef {object} RawData
+ * @property {RawData_Item[]} items
+ */
+
+/**
+ * @typedef {object} RawData_Item
+ * @property {string} title
+ * @property {string} link
+ * @property {number} score
+ * @property {string[]} [reviewed_at]
+ * @property {Tag[]} tags
+ * @property {string} [description]
+ */
+
+/**
+ * @typedef {'movie'
+ *  |'show'
+ *  |'musical'
+ *  |'anime'
+ *  |'game'
+ *  |'game:rusty-lake'
+ *  |'documentary'
+ *  |'music'
+ *  |'video'
+ *  |'software'
+ *  |'artist:Metric'
+ *  |'artist:Caravan Palace'
+ *  |'programming'
+ *  |'programming-language'
+ *  |'programming-library'
+ * } Tag
+ */
+
+/** @type {RawData} */
 const _raw_data = {
   "items": [{
     "title": "Avatar (2009)",
@@ -1379,9 +1414,10 @@ Maybe fix the difficulty curve as well. Did Battle of Kvatch at level 14 or some
   }, {
     "title": "The Boys",
     "link": "https://www.imdb.com/title/tt1190634/",
-    "score": 8,
-    "reviewed_at": ["2021-12-04"],
+    "score": 7,
+    "reviewed_at": ["2026-09-09"],
     "tags": ["show"],
+    "description": `Got worse the more it went on. Never really bad, per se, but it never recaptures the magic of the first season or two.`,
   }, {
     "title": "Parks and Recreation",
     "link": "https://www.imdb.com/title/tt1266020/",
@@ -3900,5 +3936,19 @@ The most telling part is near the beginning, when Zoe goes something like "What 
 The villain is incredibly weak, and wholly unbelieveable. Narratively he's supposed to be this great businessman, but he conducts himself like he's written by someone whose only interactions with the business world is through a TV screen.
 
 Overall, it's enjoyable, but not much more.`,
+  }, {
+    "title": "Masters of the Universe",
+    "link": "https://www.imdb.com/title/tt0427340/",
+    "score": 7,
+    "reviewed_at": ["2026-09-08"],
+    "tags": ["movie"],
+    "description": "Fun, campy romp. Exactly as serious as it needs to be. Skeletor doesn't do the voice."
+  }, {
+    "title": "Spider-Man: Brand New Day",
+    "link": "https://www.imdb.com/title/tt22084616/",
+    "score": 6.5,
+    "reviewed_at": ["2026-09-08"],
+    "tags": ["movie"],
+    "description": "Felt like three movies in one. Well executed for the time alotted, but not well nontheless. Him reuniting with his friends was thankfully probably the one storyline that worked the best. The mutation storyline led absolutely nowhere - essentially as close to an 'off-screen kill' as you can get. BBEG storyline was alright, but suffered due to all the other shit going on. Previous movie was much better, simply because it let its storyline be the only storyline."
   }]
 };

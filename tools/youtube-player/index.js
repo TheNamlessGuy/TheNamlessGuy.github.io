@@ -91,28 +91,49 @@ const Player = {
   },
 
   _onPlayerStateChange: function(e) {
-    const current = Playlist.getCurrentEntry();
-    const title = Player.video.title();
-
-    if (e.data === YT.PlayerState.UNSTARTED && title !== '') {
-      Playlist.setEntryTitle(current, title);
-      Title.set(Playlist.getEntryTitle(current) ?? title);
-      Information.setToCurrentEntry();
+    if (e.data === YT.PlayerState.UNSTARTED) {
+      Player._onVideoInitialLoad();
     } else if (e.data === YT.PlayerState.ENDED) {
-      Playlist.playNextEntry();
+      Player._onVideoEnd();
     } else if (e.data === YT.PlayerState.PLAYING) {
-      Playlist.markEntryAsAvailable(current);
-      Playlist.setEntryTitle(current, title);
-      Title.set(Playlist.getEntryTitle(current) ?? title);
-      Information.setToCurrentEntry();
+      Player._onVideoStart();
     }
   },
 
   _onPlayerError: function(e) {
     if (e.data === 101 || e.data === 150) { // Both mean "Video is not available"
-      Playlist.markEntryAsUnavailable(Playlist.getCurrentEntry());
-      Playlist.playNextEntry();
+      Player._onVideoNotAvailable();
     }
+  },
+
+  _onVideoInitialLoad: function() {
+    const title = Player.video.title();
+    if (title === '') { return; }
+
+    const current = Playlist.getCurrentEntry();
+
+    Playlist.setEntryTitle(current, title);
+    Title.set(Playlist.getEntryTitle(current) ?? title);
+    Information.setToCurrentEntry();
+  },
+
+  _onVideoStart: function() {
+    const current = Playlist.getCurrentEntry();
+    const title = Player.video.title();
+
+    Playlist.markEntryAsAvailable(current);
+    Playlist.setEntryTitle(current, title);
+    Title.set(Playlist.getEntryTitle(current) ?? title);
+    Information.setToCurrentEntry();
+  },
+
+  _onVideoEnd: function() {
+    Playlist.playNextEntry();
+  },
+
+  _onVideoNotAvailable: function() {
+    Playlist.markEntryAsUnavailable(Playlist.getCurrentEntry());
+    Playlist.playNextEntry();
   },
 
   video: {
@@ -283,6 +304,16 @@ const Playlist = {
 
   markEntryAsAvailable: function(entry) { entry.classList.remove('unavailable'); },
   markEntryAsUnavailable: function(entry) { entry.classList.add('unavailable'); },
+
+  _checkConsistency: function(millisecondsToSleep = 5000) { // This is basically only meant to be called manually, to check if there are dead links in the predetermined lists
+    Controls.loopType.set(Controls.loopType.values.ONCE);
+
+    const oldOnVideoStart = Player._onVideoStart;
+    Player._onVideoStart = () => {
+      oldOnVideoStart();
+      setTimeout(Playlist.playNextEntry, millisecondsToSleep);
+    };
+  },
 
   _idPrefix: 'playlist-entry-',
   _reindex: function() {

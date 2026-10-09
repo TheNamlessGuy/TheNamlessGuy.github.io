@@ -7,7 +7,7 @@ class CustomIconElement extends HTMLElement {
     'down': '⮟',
     'revert': '↺',
     'plus': '+',
-    'x': '⨯',
+    'x': '×',
   };
 
   /**

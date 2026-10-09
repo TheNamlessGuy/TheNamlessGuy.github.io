@@ -313,6 +313,8 @@ const Playlist = {
       oldOnVideoStart();
       setTimeout(Playlist.playNextEntry, millisecondsToSleep);
     };
+
+    Playlist.playEntry(Playlist.getEntryByIdx(1)); // Start from the top
   },
 
   _idPrefix: 'playlist-entry-',
